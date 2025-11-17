@@ -4,4 +4,15 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: "src",
   modules: ["@nuxt/eslint"],
+  app:{
+    baseURL: "/Strategix/",
+  },
+  nitro: {
+               preset: "github-pages",
+  },
+  eslint: {
+    config: {
+      standalone: false, // чтобы Nuxt не тянул свои JS/TS/Vue пресеты и не конфликтовал с FSD
+    },
+  },
 });
