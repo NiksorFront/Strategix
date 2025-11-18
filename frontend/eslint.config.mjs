@@ -17,11 +17,20 @@ export default withNuxt(
   // сюда же можно дописывать свои flat-конфиги, если понадобятся
   // { files: ['**/*.ts'], rules: { 'no-console': 'off' } },
 
+  // разрешаем внутренние импорты в индексах виджетов
+  {
+    files: ['src/widgets/**/index.ts'],
+    rules: {
+      'import/no-internal-modules': 'off',
+    },
+  },
+
   // отключаем multi-word только для страниц
   {
-    files: ['src/pages/**/*.vue'],
+    files: ['src/pages/**/*.vue', 'src/widgets/**/*.vue'],
     rules: {
       'vue/multi-word-component-names': 'off',
+      'vue/no-multiple-template-root': 'off',
     },
   }
 )
