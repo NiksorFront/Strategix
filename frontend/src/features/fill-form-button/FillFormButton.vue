@@ -9,8 +9,6 @@
       <NuxtImg
         src="/images/line-md_arrow-up.svg"
         alt="arrow"
-        width="12px"
-        height="12px"
       />
     </span>
   </button>
@@ -18,9 +16,10 @@
 
 <style scoped>
 .fill-form-button {
-  /* width: 147px; */
+  width: auto;
   height: 100%;
-  display: inline-flex;
+  aspect-ratio: 4.74 / 1;
+
   align-items: center;
 
   font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont,
@@ -31,22 +30,44 @@
   letter-spacing: 0;
   text-align: center;
   text-transform: capitalize; /* приближение к макетному Title case */
+  text-wrap: nowrap;
 
+  display: flex;
+  justify-content: space-between;
   gap: 3px;                    /* расстояние между текстом и кругом */
 
-  padding: 0 1px 0 12px;      
+  padding: 0 0.1% 0 0.9%;      
 
   background: transparent;
-  border: 0.8px solid #2AB464;  /* Accent из макета */
-  border-radius: 999px;         /* «капсула» */
-  color: #ffffff;
+  border: 1px solid var(--strategix-accent);  /* Accent из макета */
+  border-radius: 50px;      
+  color: white;
 
   cursor: pointer;
+
+  @media(--laptop-width){
+    font-size: max(10px, 50%);
+  }
+
+  @media(--big-laptop-width) {
+    height: 135%;
+    border-width: 2px;
+    font-size: 85%;
+  }
+  @media(--mini-pc-width) {
+    height: 200%;
+    font-size: clamp(10px, 125%, 20px);
+  }
+
+  @media(--mobile-small) {
+    height: 100%;
+    font-size: 87%;
+  }
 }
 
 /* Круг с стрелкой — второй span */
 .arrow{
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 
@@ -54,13 +75,13 @@
   height: 90%;
   aspect-ratio: 1 / 1;
 
-  font-size: 100%;
-
   background-color: #2AB464;    /* заливка круга */
   border-radius: 50%;
+}
 
-  /* чёрный кружок внутри, как на скрине */
-  box-shadow: 0 0 0 0.8px #000000;
+.arrow img{
+  width: 40%;
+  height: 40%;
 }
 
 </style>

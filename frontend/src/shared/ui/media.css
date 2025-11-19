@@ -2,4 +2,5 @@
 @custom-media --tablet-width (width >= 768px);
 @custom-media --laptop-width (width >= 1200px);
 @custom-media --big-laptop-width (width >= 1440px);
+@custom-media --mini-pc-width (width >= 1920px);
 @custom-media --pc-width (width >= 2620px);

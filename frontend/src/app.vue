@@ -1,7 +1,7 @@
-<script lang="ts">
-  import '@/shared/ui/theme/normalize.css';
-  import '@/shared/ui/media.css';
-  import '@/shared/ui/font.css';
+<script setup lang="ts">
+import '@/shared/ui/theme/normalize.css';
+import '@/shared/ui/media.css';
+import '@/shared/ui/font.css';
 </script>
 
 <template>
@@ -14,6 +14,7 @@
   :root {
     --background-dark: #202226;
     --background-light: #F1F1F1;
+    --strategix-accent: #2AB464;
 
     --padding-section-x: 2.55vw;
 
@@ -40,6 +41,10 @@
     }
 
     @media(--big-laptop-width) {
+      font-size: 110%;
+    }
+
+    @media(--mini-pc-width){
       font-size: clamp(14px, 1.25vw, 28px);
     }
   }
