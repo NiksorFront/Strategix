@@ -1,0 +1,4 @@
+@custom-media --mobile-small (width < 390px);
+@custom-media --tablet-width (width > 768px);
+@custom-media --taptop-width (width > 1200px);
+@custom-media --pc-width (width > 2620px);

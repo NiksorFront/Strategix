@@ -15,4 +15,14 @@ export default defineNuxtConfig({
       standalone: false, // чтобы Nuxt не тянул свои JS/TS/Vue пресеты и не конфликтовал с FSD
     },
   },
+  postcss: {
+    plugins: {
+      '@csstools/postcss-global-data': {
+        files: ['./src/shared/ui/media.css'],
+      },
+
+      'postcss-custom-media': {},
+      autoprefixer: {},
+    },
+  },
 });

@@ -1,5 +1,6 @@
-<script setup lang="ts">
+<script lang="ts">
   import '@/shared/ui/theme/normalize.css';
+  import '@/shared/ui/media.css';
 </script>
 
 <template>
@@ -10,22 +11,23 @@
 
 <style>
   :root {
+    --break-xs: 390px;
+    --break-sm: 768px;
+    --break-xl: 1200px;
+    --break-3xl: 2620px;
+
     --background-dark: #202226;
     --background-light: #F1F1F1;
 
     --padding-section-x: 2.55vw;
 
-  }
-
-  @media (width > 768px) {
-    :root {
+    @media (--tablet-width) {
       --padding-section-x: 5vw;
     }
-  }
 
-  @media (width > 2620px) {
-    :root {
+    @media (--pc-width) {
       --padding-section-x: calc((100vw - 2560px) / 2);
     }
   }
+
 </style>
