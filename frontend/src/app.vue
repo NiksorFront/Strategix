@@ -57,6 +57,25 @@ import '@/shared/ui/font.css';
     text-transform: none;
   }
 
+  .h2-text {
+    font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 800;    
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: clamp(18px, 2vw, 48px);
+    font-weight: 800;
+    margin: 0 0 min(40px, 4vh);
+
+    @media(--big-laptop-width){
+      margin: 0 0 clamp(40px, 5vh, 80px);
+    }
+
+    @media(--mobile-medium){
+      font-size: min(24px, 4.25vh);
+    }
+  }
+
   .upperscase-text {
     font-family: "Liberty-MT", "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 400;        
