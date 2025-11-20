@@ -1,11 +1,17 @@
 <script setup lang="ts">
-  const {srcIcon, styleButton} = defineProps<{srcIcon: string, styleButton: 'white' | 'green'}>()
+  const { srcIcon, styleButton } = defineProps<{
+    srcIcon: string,
+    styleButton: 'white' | 'green',
+  }>();
 </script>
 
 <template>
-  <button class="base-text button" :class="styleButton === 'green' ? 'green' : styleButton === 'white' && 'white'">
+  <button
+    class="base-text button"
+    :class="styleButton === 'green' ? 'green' : styleButton === 'white' && 'white'"
+  >
     <slot />
-    <span class="icon" >
+    <span class="icon">
       <NuxtImg
         :src="srcIcon"
         alt="icon"

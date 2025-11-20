@@ -1,7 +1,10 @@
 // @ts-nocheck
 import withNuxt from "./.nuxt/eslint.config.mjs";
 import featureSlicedConfig from "@uvarovag/eslint-config-feature-sliced-flat";
-import pluginVue from 'eslint-plugin-vue'
+import pluginVue from 'eslint-plugin-vue';
+import vue from 'eslint-plugin-vue';
+import vueParser from 'vue-eslint-parser';
+import tsParser from '@typescript-eslint/parser';
 
 export default withNuxt(
   //Глобальные игноры
@@ -32,5 +35,26 @@ export default withNuxt(
       'vue/multi-word-component-names': 'off',
       'vue/no-multiple-template-root': 'off',
     },
-  }
+  },
+
+  {
+    files: ['**/*.vue'],
+    languageOptions: {
+      parser: vueParser,                // сам Vue-парсер
+      parserOptions: {
+        parser: tsParser,              // внутри <script setup lang="ts">
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        extraFileExtensions: ['.vue'],
+      },
+    },
+    plugins: {
+      vue,
+    },
+    // Можно взять готовые правила из eslint-plugin-vue
+    rules: {
+      ...vue.configs['flat/essential'].rules,
+      // сюда добавляйте свои правила при необходимости
+    },
+  },
 )

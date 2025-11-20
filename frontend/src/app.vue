@@ -49,4 +49,21 @@ import '@/shared/ui/font.css';
     }
   }
 
+  .base-text {
+    font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;    
+    letter-spacing: -3%;
+    text-align: center;
+    text-transform: none;
+  }
+
+  .upperscase-text {
+    font-family: "Liberty-MT", "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 400;        
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: none;
+    text-transform: uppercase;
+  }
+
 </style>

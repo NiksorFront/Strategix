@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { FillFormButton } from "@/features/fill-form-button";
+  import ButtonWithIcon from "@/shared/ui/button-with-icon"
 </script>
 
 <template>
@@ -75,7 +75,13 @@
       </li>
     </ul>
 
-    <FillFormButton class="display" />
+    <ButtonWithIcon
+      class="fill-form-button"
+      src-icon="./images/line-md_arrow-up.svg"
+      style-button="green"
+    >
+      ЗАПОЛНИТЕ АНКЕТУ
+    </ButtonWithIcon>
   </header>
 </template>
 
@@ -164,11 +170,35 @@
     color: white;
   }
 
-  .display{
+  .fill-form-button{
+    width: auto;
+    height: 100%;
+    aspect-ratio: 4.74 / 1;
+    gap: 3px;                    /* расстояние между текстом и кругом */
+
     display: none;
-    
-    @media(--tablet-width) {
+    border-width: 1px;
+
+    padding: 0 2% 0 0;     
+    font-size: 10px;
+
+    @media(--tablet-width){
       display: flex;
+      font-size: clamp(10px, 0.5vw + 0.45vh, 20px);
+      gap: 6px;
+    }
+
+    @media(--big-laptop-width) {
+      height: 135%;
+      border-width: 2px;
+    }
+    @media(--mini-pc-width) {
+      height: 200%;
+      gap: 12px;
+    }
+
+    @media(--mobile-small) {
+      height: 90%;
     }
   }
 </style>  

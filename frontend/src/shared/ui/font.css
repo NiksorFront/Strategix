@@ -2,3 +2,8 @@
     font-family: "Onest";
     src: url("./fonts/Onest-VariableFont_wght.woff2") format("woff2");
 }
+
+@font-face {
+    font-family: "Liberty-MT";
+    src: url("./fonts/Liberty-MT.woff") format("woff");
+}
