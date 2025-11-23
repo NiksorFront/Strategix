@@ -92,7 +92,7 @@
 
 .title{
   text-align: left;
-  font-size: min(10.77vw, 5.5vh);
+  font-size: min(min(10vw, 5.5vh), 42px);
   color: white;
   line-height: 120%;
 
@@ -100,7 +100,7 @@
   margin-bottom: 0;
 
   @media(--mobile-width){
-    font-size: clamp(42px, 3.5vw, 100px);
+    font-size: clamp(min(min(10vw, 5.5vh), 42px), 3.5vw, 100px);
   }
 
   @media(--mobile-medium) {
@@ -147,6 +147,10 @@
   @media(--big-laptop-width){
     height: 4%;
   }
+
+  @media(--mobile-medium){
+    margin: auto;
+  }
 }
 
 .fill-form-button{
@@ -164,15 +168,21 @@
       height: auto;
       aspect-ratio: 4.74 / 1;
 
-      margin-right: 3.75%;
+      margin-right: 4%;
       font-size: max(12.5px, 0.85vw);
       border-width: 1px;
-      padding: 0 4% 0 0;
+      padding: max(0.5%, 10px) max(2.25%, 28px) max(0.5%, 10px) max(1%, 10px);
       margin-top: 0;
     }
 
     @media(--mobile-medium) {
-      font-size: min(12.5px, 2.5vh);
+      width: auto;
+      height: min(60px, 8vh);
+
+      border-width: 1px;
+      font-size: min(12.5px, 3.5vh);
+
+      padding: min(0.5%, 10px) min(6%, 28px) min(0.5%, 10px) min(2.5%, 10px);
     }
 }
 

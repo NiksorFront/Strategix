@@ -171,34 +171,23 @@
   }
 
   .fill-form-button{
-    width: auto;
-    height: 100%;
-    aspect-ratio: 4.74 / 1;
-    gap: 3px;                    /* расстояние между текстом и кругом */
-
     display: none;
     border-width: 1px;
 
-    padding: 0 2% 0 0;     
-    font-size: 10px;
-
+    padding: max(0.5%, 10px) max(2.25%, 28px) max(0.5%, 10px) max(1%, 10px); 
+    font-size: 10px;    
+    
     @media(--tablet-width){
       display: flex;
-      font-size: clamp(10px, 0.5vw + 0.45vh, 20px);
-      gap: 6px;
+      font-size: clamp(9px, 0.45vw + 0.45vh, 20px);
     }
 
     @media(--big-laptop-width) {
-      height: 135%;
       border-width: 2px;
     }
-    @media(--mini-pc-width) {
-      height: 200%;
-      gap: 12px;
-    }
 
-    @media(--mobile-small) {
-      height: 90%;
+    @media(--mobile-medium){
+      padding: min(0.5%, 10px) min(2.25%, 28px) min(0.5%, 10px) min(1%, 10px);     
     }
   }
 </style>  

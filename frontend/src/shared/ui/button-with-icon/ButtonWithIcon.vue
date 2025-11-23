@@ -10,7 +10,7 @@
     class="base-text button"
     :class="styleButton === 'green' ? 'green' : styleButton === 'white' && 'white'"
   >
-    <slot />
+    <slot />&nbsp;&nbsp;
     <span class="icon">
       <NuxtImg
         :src="srcIcon"
@@ -22,6 +22,10 @@
 
 <style scoped>
 .button {
+  width: fit-content;
+  height: auto;
+  aspect-ratio: 4.74 / 1;
+
   align-items: center;
 
   font-weight: 400;         
@@ -35,6 +39,7 @@
   border-radius: 50px;      
   color: white;
 
+  /* padding: Указывать там, где кнопка используется ; */
   cursor: pointer;
 
   position: relative;
