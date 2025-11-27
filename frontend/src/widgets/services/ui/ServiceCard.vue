@@ -10,16 +10,17 @@ const {service} = defineProps<{service: ServiceItem;}>();
     class="service-card"
     :class="service.gridArea"
   >
-    <component
-      :is="service.Decor"
-      class="base-text service-card__decor"
-    />
+    <div class="base-text service-card__decor">
+      <component
+        :is="service.Decor"
+      />
+    </div>
 
     <h3 class="base-text service-card__title">
       {{ service.title }}
     </h3>
 
-    <p class="base-text service-card__description">
+    <p class="small-text service-card__description">
       {{ service.description }}
     </p>
   </article>
@@ -29,66 +30,72 @@ const {service} = defineProps<{service: ServiceItem;}>();
 .service-card {
   width: auto;
   height: auto;
-  /* aspect-ratio: 1 / 1; */
   border-radius: max(2vw, 19px);
   background: white;
   padding: max(1.666vw, 20px);
-  /* box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06); */
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  gap: 16px;
-
-  overflow: hidden;
 }
 
 .service-card__decor {
-  height: 24px;
-  display: flex;
-  align-items: center;
+  width: calc(1.5vw + 1.5vh);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin: 0;
 }
 
 .service-card__title {
-  font-size: 18px;
-  font-weight: 600;
   margin: 0;
+  text-align: left;
+
+  text-transform: uppercase;
+  font-size: clamp(16px, 1.5vw, 36px);
+
+  @media(--mobile-medium){
+    font-size: min(16px, 3.35vh);
+  }
 }
 
 .service-card__description {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #6b7280;
+  font-weight: 400;   
+  color: var(--strategix-gray);
+  text-align: left;
 }
 
-.reputation{
-    grid-area: reputation;
-}
+@media(--tablet-width){
 
-.media{
-    grid-area: media;
-}
+  .reputation{
+      grid-area: reputation;
+  }
 
-.branding{
-    grid-area: branding;
-}
+  .media{
+      grid-area: media;
+  }
 
-.production{
-    grid-area: production;
-}
+  .branding{
+      grid-area: branding;
+  }
 
-.events{
-    grid-area: events;
-}
+  .production{
+      grid-area: production;
+  }
 
-.ai-marketing{
-    grid-area: ai-marketing;
-}
+  .events{
+      grid-area: events;
+  }
 
-.ads{
-    grid-area: ads;
-}
+  .ai-marketing{
+      grid-area: ai-marketing;
+  }
 
-.questions{
-    grid-area: questions;
+  .ads{
+      grid-area: ads;
+  }
+
+  .questions{
+      grid-area: questions;
+  }
 }
 </style>

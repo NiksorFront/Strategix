@@ -197,8 +197,8 @@
   }
 
   @media (--tablet-width) {
-    margin-left: 30vw;
-    width: 55vw;
+    margin-left: min(30vw, 875px);
+    width: min(55vw, 1600px);
     display: block;
   }
 }

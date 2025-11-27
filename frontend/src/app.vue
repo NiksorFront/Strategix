@@ -15,6 +15,8 @@ import '@/shared/ui/font.css';
     --background-dark: #202226;
     --background-light: #F1F1F1;
     --strategix-accent: #2AB464;
+    --strategix-gray: #A7A7A7;
+    
 
     --section-width: calc(100vw - 2 * var(--padding-section-x));
 
