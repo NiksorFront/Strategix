@@ -5,6 +5,7 @@ import pluginVue from 'eslint-plugin-vue';
 import vue from 'eslint-plugin-vue';
 import vueParser from 'vue-eslint-parser';
 import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
 
 export default withNuxt(
   //Глобальные игноры
@@ -34,6 +35,24 @@ export default withNuxt(
     rules: {
       'vue/multi-word-component-names': 'off',
       'vue/no-multiple-template-root': 'off',
+    },
+  },
+
+  // Общая конфигурация для всех .ts файлов
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+    },
+    rules: {
+      // ваши TS-правила
     },
   },
 

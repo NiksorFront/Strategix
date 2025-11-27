@@ -87,7 +87,7 @@
 
 <style scoped>
   header {
-    width: calc(100vw - 2 * var(--padding-section-x));
+    width: var(--section-width);
     height: min(35px, 4.2vh);
 
     padding: 5.4vh var(--padding-section-x);

@@ -1,6 +1,6 @@
-<!-- <script setup lang="ts">
-
-</script> -->
+<script setup lang="ts">
+  import IndexSectionTitle from '@/shared/ui/index-section-title/';
+</script>
 
 <template>
   <section
@@ -8,12 +8,7 @@
     aria-labelledby="about-title"
   >
     <div class="about-us-content">
-      <h2
-        id="about-title"
-        class="base-text h2-text"
-      >
-        О нас
-      </h2>
+      <IndexSectionTitle>О нас</IndexSectionTitle>
   
       <details class="about-item">
         <summary class="about-summary">
@@ -67,8 +62,7 @@
 
 <style scoped>
 .about-us{
-    width: calc(100vw - 2 * var(--padding-section-x));
-    /* --about-us-height: fit-content; */
+    width: var(--section-width);
     height: fit-content;
     
     padding: 10vh 0;;
@@ -85,7 +79,6 @@
   width: 100%;
   height: auto;
 
-  /* margin: calc(var(--about-us-height) * 0.1) 0 auto; 50% сверху сделать */
   margin: auto 0 auto;
   display: flex;
   flex-direction: column;

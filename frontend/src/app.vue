@@ -16,6 +16,8 @@ import '@/shared/ui/font.css';
     --background-light: #F1F1F1;
     --strategix-accent: #2AB464;
 
+    --section-width: calc(100vw - 2 * var(--padding-section-x));
+
     --padding-section-x: 2.55vw;
 
     @media (--tablet-width) {

@@ -57,7 +57,7 @@
 
 <style scoped>
 .welcome {
-    width: calc(100vw - 2 * var(--padding-section-x));
+    width: var(--section-width);
     height: calc(89.2vh - min(35px, 4.2vh)); /* высота экрана минус паддинги(5.4vh и 5.4vh) хедера и минус высота хедера */
     
     padding-inline: var(--padding-section-x);
