@@ -140,7 +140,6 @@
     @media(--laptop-width) {
       width: auto;
       gap: 10.3%;
-      padding: 0 0 0 13.6%;
     }
   }
 
@@ -172,7 +171,6 @@
 
   .fill-form-button{
     display: none;
-    border-width: 1px;
 
     padding: max(0.5%, 10px) max(2.25%, 28px) max(0.5%, 10px) max(1%, 10px); 
     font-size: 10px;    
@@ -180,10 +178,6 @@
     @media(--tablet-width){
       display: flex;
       font-size: clamp(9px, 0.45vw + 0.45vh, 20px);
-    }
-
-    @media(--big-laptop-width) {
-      border-width: 2px;
     }
 
     @media(--mobile-medium){

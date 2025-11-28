@@ -21,7 +21,7 @@
 <style scped>
 .services {
     width: var(--section-width);
-    height: 90vh;
+    height: max(90vh, fit-content);
     padding: 0 0 10vh 0;;
 
     padding-inline: var(--padding-section-x);

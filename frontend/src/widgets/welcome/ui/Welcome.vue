@@ -13,35 +13,34 @@
       </h2>
       <div class="welcome-buttons">
         <ButtonWithIcon
-          class="fill-form-button"
           src-icon="./images/line-md_arrow-up.svg"
           style-button="green"
         >
           ЗАПОЛНИТЕ АНКЕТУ
         </ButtonWithIcon>
         <ButtonWithIcon
-          class="fill-form-button desktop"
+          class="desktop"
           src-icon="./images/line-md_arrow-up.svg"
           style-button="green"
         >
           TELEGRAM
         </ButtonWithIcon>
         <ButtonWithIcon
-          class="fill-form-button desktop"
+          class="desktop"
           src-icon="./images/line-md_arrow-up.svg"
           style-button="green"
         >
           WHATSAPP
         </ButtonWithIcon>
         <ButtonWithIcon
-          class="fill-form-button mobile"
+          class="mobile"
           src-icon="./images/arrow-forward.svg"
           style-button="white"
         >
           TELEGRAM
         </ButtonWithIcon>
         <ButtonWithIcon
-          class="fill-form-button mobile"
+          class="mobile"
           src-icon="./images/arrow-forward.svg"
           style-button="white"
         >
@@ -132,58 +131,22 @@
 
 .welcome-buttons{
   width: 100%;
-  height: max-content;
   margin-top: auto;
   margin-bottom: 8%;
+  gap: 1.2vh;
 
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 
   @media(--tablet-width){
-    height: 39px;
-    margin-top: 6.5%;
-  }
-
-  @media(--big-laptop-width){
-    height: 4%;
+    margin-top: 9%;
+    gap: clamp(7px, 0.2vw, 40px);
   }
 
   @media(--mobile-medium){
     margin: auto;
   }
-}
-
-.fill-form-button{
-    width: 100%;
-    height: min(60px, 8vh);
-
-    padding: 0 9% 0 0;
-    font-size: 20px;
-    border-width: 2px;
-
-    margin-top: 3%;
-
-    @media(--tablet-width){
-      width: max(185px, 26.25%);
-      height: auto;
-      aspect-ratio: 4.74 / 1;
-
-      margin-right: 4%;
-      font-size: max(12.5px, 0.85vw);
-      border-width: 1px;
-      padding: max(0.5%, 10px) max(2.25%, 28px) max(0.5%, 10px) max(1%, 10px);
-      margin-top: 0;
-    }
-
-    @media(--mobile-medium) {
-      width: auto;
-      height: min(60px, 8vh);
-
-      border-width: 1px;
-      font-size: min(12.5px, 3.5vh);
-
-      padding: min(0.5%, 10px) min(6%, 28px) min(0.5%, 10px) min(2.5%, 10px);
-    }
 }
 
 .desktop{
@@ -199,8 +162,6 @@
 
   @media(--tablet-width){
     display: flex;
-    width: max(100px, 14%);
-    padding: 0 6% 0 0;
   }
 }
 
@@ -214,7 +175,7 @@
   display: none;
 
   @media(--tablet-width){
-    width: 35%;
+    width: 50%;
     display: flex;
   }
 

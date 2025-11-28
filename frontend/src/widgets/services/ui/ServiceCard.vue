@@ -62,6 +62,12 @@ const {service} = defineProps<{service: ServiceItem;}>();
   font-weight: 400;   
   color: var(--strategix-gray);
   text-align: left;
+
+  font-size: min(12px, 100%);
+
+  @media(--mobile-medium) {
+      font-size: min(12px, 3vh);
+  }
 }
 
 @media(--tablet-width){
