@@ -12,6 +12,6 @@
 .leave-request {
     width: 100vw;
     height: 80vh;
-    background-color: var(--background-dark);
+    background-color: var(--strategix-dark);
 }
 </style>

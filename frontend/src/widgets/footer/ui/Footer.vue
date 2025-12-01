@@ -8,6 +8,6 @@
 .footer {
     width: 100vw;
     height: 20vh;
-    background-color: var(--background-dark);
+    background-color: var(--strategix-dark);
 }
 </style>

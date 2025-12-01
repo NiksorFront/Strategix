@@ -25,7 +25,7 @@
     padding: 0 0 10vh 0;;
 
     padding-inline: var(--padding-section-x);
-    background-color: var(--background-light);
+    background-color: var(--strategix-light);
 
     overflow: hidden;
 }
@@ -37,14 +37,10 @@
   --gap-grid: clamp(10px, 0.834vw, 20px);
   gap: var(--gap-grid);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  grid-template-rows: repeat(auto-fit, 1fr);
-  /* grid-template-areas: 
-    "reputation media"
-    "branding production"
-    "events ai-marketing"
-    "ads questions"
-  ; */
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  /* grid-template-rows: repeat(2, 170px); */
+  grid-auto-columns: 170px;
+  grid-auto-rows: 170px;
 
   @media(--tablet-width){
     grid-template-columns: calc(25% - var(--gap-grid)) calc(25% - var(--gap-grid)) calc(17% - var(--gap-grid)) 33%;
@@ -61,8 +57,10 @@
   }
 
   @media(--mobile-medium){
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(40vh, 1fr));
+    grid-auto-columns: 20vw;
+    grid-auto-rows: 40vh;
     grid-template-areas: 
       "reputation media branding production"
       "events ai-marketing ads questions"

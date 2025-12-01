@@ -93,7 +93,7 @@
 }
 
 .white{
-  border: solid var(--background-dark);  /* Accent из макета */
+  border: solid var(--strategix-dark);  /* Accent из макета */
 }
 
 .white .icon img{

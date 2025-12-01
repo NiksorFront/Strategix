@@ -48,7 +48,7 @@
     text-align: left;
     text-transform: none;
 
-    color: var(--background-dark);
+    color: var(--strategix-dark);
     font-size: clamp(25px, 2.166vw, 52px);
 
     @media(--tablet-width){
@@ -68,7 +68,7 @@
 
   margin: 0.5vh 0 0;
 
-  color: var(--background-dark);
+  color: var(--strategix-dark);
   text-align: left;
 
   @media(--tablet-width){

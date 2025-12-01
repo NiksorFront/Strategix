@@ -41,6 +41,6 @@
     padding: 7.5vh 0;;
 
     padding-inline: var(--padding-section-x);
-    background-color: var(--background-dark);
+    background-color: var(--strategix-dark);
 }
 </style>

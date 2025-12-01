@@ -91,7 +91,7 @@
     height: min(35px, 4.2vh);
 
     padding: 5.4vh var(--padding-section-x);
-    background-color: var(--background-dark);
+    background-color: var(--strategix-dark);
 
     display: flex;
     justify-content: space-between;

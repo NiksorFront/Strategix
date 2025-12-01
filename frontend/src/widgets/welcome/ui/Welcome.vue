@@ -60,7 +60,7 @@
     height: calc(89.2vh - min(35px, 4.2vh)); /* высота экрана минус паддинги(5.4vh и 5.4vh) хедера и минус высота хедера */
     
     padding-inline: var(--padding-section-x);
-    background-color: var(--background-dark);
+    background-color: var(--strategix-dark);
 
     @media (--tablet-width) {
       height: calc(91.4vh - 31px); /* высота экрана минус паддинги(3.4 и 5.2) хедера и минус высота хедера */
