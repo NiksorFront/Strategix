@@ -3,37 +3,82 @@ const {peopleImg, name, lastname, position} = defineProps<{peopleImg: string, na
 </script>
 
 <template>
-  <NuxtImg
-    class="member-card"
-    :src="peopleImg"
-  >
+  <article class="member-card">
+    <NuxtImg
+      class="image-card"
+      :src="peopleImg"
+    />
     <div class="text-background">
-      <h4 class="name">
-        {{ name }}{{ lastname }}
+      <h4 class="small-text name">
+        {{ name }} {{ lastname }}
       </h4>
-      <p class="position">
+      <p class="small-text position">
         {{ position }}
       </p>
     </div>
-  </NuxtImg>
+  </article>
 </template>
 
 <style scoped>
 .member-card{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    overflow: hidden;
     border-radius: var(--card-radius);
+
+    position: relative;
+}
+
+.image-card{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .text-background{
-    
+    width: 85%;
+    height: 18%;
+
+    position: absolute;
+    top: 75.5%;
+    left: 7.5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    border-radius: calc(var(--card-radius) / 2.5);
+    background-color: white;
 }
 
 .name{
+    margin: 2.5% 4% 0;
 
+    font-size: clamp(10px, 1.1vw, 30px);
+    line-height: 110%;
+    font-weight: 600;
+    text-align: left;
+
+    color: var(--strategix-dark);
+
+    @media(--mobile-medium) {
+      font-size: min(10px, 2.917vh);
+    }
 }
+
 .position{
+    margin: 0 4% 2.5%;
 
+    font-size: clamp(10px, 1.1vw, 30px);
+    line-height: 110%;
+    font-weight: 600;
+    text-align: left;
+
+    color: var(--strategix-gray);
+
+    @media(--mobile-medium) {
+      font-size: min(10px, 3.125vh);
+    }
 }
+
 </style>

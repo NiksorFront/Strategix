@@ -29,9 +29,9 @@
     flex-wrap: wrap;
 
     @media(--tablet-width){
-      height: 22vh;
+      height: 20.5vh;
 
-      padding: 8vh var(--padding-section-x) 0;
+      padding: 8.5vh var(--padding-section-x) 0;
     }
 }
 
@@ -49,15 +49,16 @@
     text-transform: none;
 
     color: var(--strategix-dark);
-    font-size: clamp(25px, 2.166vw, 52px);
+    font-size: min(25px, 6.4vw);
 
     @media(--tablet-width){
       width: 50.4%;
       height: fit-content;
+      font-size: clamp(25px, 2.166vw, 52px);
     }
 
     @media(--mobile-medium) {
-      font-size: min(14px, 2.917vh);
+      font-size: min(25px, 5vh);
     }
     
 }

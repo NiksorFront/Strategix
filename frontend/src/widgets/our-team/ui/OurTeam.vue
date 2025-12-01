@@ -1,58 +1,54 @@
 <script setup lang="ts">
-import IndexSectionTitle from '@/shared/ui/index-section-title';
-import MemberCard from './MemberCard.vue';
 
+import MemberCard from './MemberCard.vue';
+import TeamInfoCard from './TeamInfoCard.vue';
+import TeamCtaCard from './TeamCtaCard.vue';
 </script>
 
 
 <template>
   <section class="our-team">
-    <!-- <IndexSectionTitle>
-      Наша команда
-    </IndexSectionTitle> -->
     <div class="team">
+      <TeamInfoCard />
+
       <MemberCard
         people-img="./images/savvateev.png"
         name="Алексей"
         lastname="Савватеев"
-        position="математик"
-      />
-      <MemberCard
-        people-img="./images/savvateev.png"
-        name="Алексей"
-        lastname="Савватеев"
-        position="математик"
+        position="Математик"
       />
       <MemberCard
         people-img="./images/boris.jpg"
         name="Борис"
         lastname="Бояршинов"
-        position="физик"
+        position="Физик"
       />
       <MemberCard
         people-img="./images/savvateev.png"
         name="Алексей"
         lastname="Савватеев"
-        position="математик"
+        position="Математик"
       />
       <MemberCard
         people-img="./images/artemey.jpg"
         name="Артемий"
         lastname="Лебедев"
-        position="математик"
+        position="Дизайнер"
       />
       <MemberCard
         people-img="./images/artemey.jpg"
         name="Артемий"
         lastname="Лебедев"
-        position="математик"
+        position="Дизайнер"
       />
       <MemberCard
         people-img="./images/sergey.jpg"
         name="Сергей"
         lastname="Кузнецов"
-        position="архитектор"
+        position="Архитектор"
       />
+
+      <TeamCtaCard />
     </div>
   </section>
 </template>
@@ -60,7 +56,7 @@ import MemberCard from './MemberCard.vue';
 <style scoped>
 .our-team {
     width: calc(100vw - 2 * var(--padding-section-x));
-    height: max(62vh, fit-content);
+    height: max(63vh, fit-content); /* 20.5vh + 8.5vh у MarketResponse и 63vh + 8vh тут. Итого ровно 100vh */
 
     padding: 0 var(--padding-section-x) 8vh;
     background-color: var(--strategix-light);
@@ -78,7 +74,7 @@ import MemberCard from './MemberCard.vue';
 
   @media(--tablet-width){
     grid-template-columns: repeat(auto-fit, minmax(calc(25.175% - var(--gap-grid)), 1fr));
-    grid-auto-rows: clamp(250px, 29vh, 600px);
+    grid-auto-rows: clamp(250px, 30.75vh, 600px);
   }
 
   @media(--mobile-medium){

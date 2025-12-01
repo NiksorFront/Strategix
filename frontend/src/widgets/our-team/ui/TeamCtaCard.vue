@@ -1,0 +1,173 @@
+<script setup lang="ts">
+const email = 'hello@strategix.com';
+</script>
+
+<template>
+  <article class="team-cta-card">
+    <div class="content">
+      <h3 class="base-text title">
+        Хочешь стать частью команды?
+      </h3>
+
+      <p class="base-text description">
+        Хочешь работать с нами, присылай резюме.
+      </p>
+    </div>
+
+    <a
+      class="email"
+      :href="`mailto:${email}`"
+    >
+      <span class="base-text email-icon">
+        @
+      </span>
+      <span class="base-text email-text">
+        {{ email }}
+      </span>
+    </a>
+  </article>
+</template>
+
+<style scoped>
+.team-cta-card {
+  width: 100%;
+  height: 50%;
+  padding: min(10px, 2.25vh) min(14px, 3.5vw);
+  box-sizing: border-box;
+  border-radius: var(--card-radius);
+  background-color: var(--strategix-accent);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  grid-column: 1 / -1;
+  
+  @media(--tablet-width){
+    height: 100%;
+    padding: clamp(16px, 6%, 32px) clamp(10px, 7%, 40px);
+    grid-column: auto;
+  }
+}
+
+.content {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media(--tablet-width){
+    height: 88%;
+  }
+}
+
+.title {
+  margin: 0;
+
+  font-size: min(14px, 5.25vw);
+  line-height: 115%;
+  font-weight: 500;
+  text-align: left;
+
+  color:  var(--strategix-dark);
+
+  text-wrap: nowrap;
+
+  @media(--tablet-width){
+    font-size: clamp(20px, 2.3vw, 56px);
+    color: white;
+    text-wrap: wrap;
+  }
+
+  @media(--mobile-medium){
+    font-size: min(16px, 3.334vh);
+  }
+}
+
+.description {
+  margin: 0;
+
+  font-size: min(14px, 3.6vw);
+  line-height: 115%;
+  font-weight: 400;
+  text-align: left;
+
+  color:  var(--strategix-dark);
+
+  text-wrap: nowrap;
+
+  @media(--tablet-width){
+    font-size: clamp(14px, 1.325vw, 28px);
+    text-wrap: wrap;
+  }
+
+  @media(--mobile-medium){
+    font-size: min(14px, 2.71vh);
+  }
+}
+
+.email {
+  height: 30%;
+  display: inline-flex;
+  align-items: center;
+
+  text-decoration: none;
+  gap: 1.5%;
+
+  @media(--tablet-width){
+    height: 9%;
+  }
+}
+
+.email-icon {
+  width: min(6%, 16px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1px solid white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 50%;
+  font-weight: 600;
+  color: white;
+}
+
+.email-text {
+  font-size: min(16px, 4.1vw);
+  line-height: 115%;
+  font-weight: 400;
+  text-align: left;
+
+  color: white;
+
+  @media(--tablet-width){
+    font-size: clamp(16px, 1.325vw, 28px);
+  }
+
+  @media(--mobile-medium){
+    font-size: min(14px, 2.71vh);
+  }
+}
+
+/* Мобильные правки */
+/* @media (--mobile-medium) {
+  .team-cta-card {
+    padding: 20px;
+  }
+
+  .team-cta-card__title {
+    font-size: min(22px, 3vh);
+  }
+
+  .team-cta-card__text {
+    font-size: min(14px, 2.4vh);
+  }
+
+  .team-cta-card__email-text {
+    font-size: min(14px, 2.4vh);
+  }
+} */
+</style>

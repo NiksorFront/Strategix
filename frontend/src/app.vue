@@ -19,7 +19,7 @@ import '@/shared/ui/font.css';
     
 
     --section-width: calc(100vw - 2 * var(--padding-section-x));
-    --card-radius: min(24px, 1vw + 2vh);
+    --card-radius: min(24px, 1vw + 1vh);
     --gap-grid: clamp(10px, 0.834vw, 20px);
 
     --padding-section-x: 5vw;
@@ -32,10 +32,14 @@ import '@/shared/ui/font.css';
   .small-text {
     font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 500;          /* Medium */
-    font-size: clamp(14px, 1.1675vw, 28px);
+    font-size: min(14px, 3.6vw);
     line-height: 110%;         
     letter-spacing: 0;
     text-align: center;
+
+    @media(--tablet-width){
+      font-size: clamp(14px, 1.1675vw, 28px);
+    }
 
     @media(--mobile-medium) {
       font-size: min(14px, 2.917vh);
