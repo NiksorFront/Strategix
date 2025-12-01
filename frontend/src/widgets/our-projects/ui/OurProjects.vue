@@ -13,9 +13,21 @@
 
     <Filters :categories="['Кейсы', 'Брендинг', 'Продакшн', 'Реклама', 'Построение репутации']" />
     <Slider>
-      <ProjectCard />
-      <ProjectCard />
-      <ProjectCard />
+      <ProjectCard
+        img="./images/toba.jpg"
+        title="toba"
+        description="Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
+      />
+      <ProjectCard
+        img="./images/touch.jpg"
+        title="touch"
+        description="Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
+      />
+      <ProjectCard
+        img="./images/PTI vehicle inspection.jpg"
+        title="PTI vehicle inspection"
+        description="Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
+      />
     </Slider>
     <div />
   </section>
@@ -24,9 +36,9 @@
 <style scoped>
 .our-projects {
     width: calc(100vw - 2 * var(--padding-section-x));
-    height: 80vh;
-    /* height: calc(100vh - 2 * var(--padding-section-x)); */
-    padding: 10vh 0;;
+    /* height: max(85vh, max-content); */
+    height: 85vh;
+    padding: 7.5vh 0;;
 
     padding-inline: var(--padding-section-x);
     background-color: var(--background-dark);

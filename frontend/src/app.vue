@@ -34,23 +34,15 @@ import '@/shared/ui/font.css';
   .small-text {
     font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 500;          /* Medium */
-    font-size: min(14px, 100%);
+    font-size: clamp(14px, 1.1675vw, 28px);
     line-height: 110%;         
     letter-spacing: 0;
     text-align: center;
-    text-transform: capitalize; /* приближение к макетному Title case */
 
-    @media(--mobile-small) {
-      font-size: 87%;
+    @media(--mobile-medium) {
+      font-size: min(14px, 2.917vh);
     }
 
-    @media(--big-laptop-width) {
-      font-size: 110%;
-    }
-
-    @media(--mini-pc-width){
-      font-size: clamp(14px, 1.25vw, 28px);
-    }
   }
 
   .base-text {
@@ -59,25 +51,6 @@ import '@/shared/ui/font.css';
     letter-spacing: -3%;
     text-align: center;
     text-transform: none;
-  }
-
-  .h2-text {
-    font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-weight: 800;    
-    letter-spacing: 0;
-    text-align: left;
-    text-transform: uppercase;
-    font-size: clamp(18px, 2vw, 48px);
-    font-weight: 800;
-    margin: 0 0 min(40px, 4vh);
-
-    @media(--big-laptop-width){
-      margin: 0 0 clamp(40px, 5vh, 80px);
-    }
-
-    @media(--mobile-medium){
-      font-size: min(24px, 4.25vh);
-    }
   }
 
   .upperscase-text {

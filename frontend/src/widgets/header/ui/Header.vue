@@ -127,6 +127,9 @@
   .navigation ul{
     list-style: none;
     display: none;
+    
+    padding: 0;
+    margin: 0 0 0 10%;
 
     @media(--tablet-width) {
       display: flex;
@@ -161,7 +164,8 @@
     align-items: center;
 
     gap: 28%;
-    padding: 0 0 0 9%;
+    padding: 0;
+    margin: 0 0 0 7%;
   }
 
   .lang{
