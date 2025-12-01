@@ -20,11 +20,11 @@
 
 <style scped>
 .services {
-    width: var(--section-width);
-    height: max(90vh, fit-content);
-    padding: 0 0 10vh 0;;
+    width: 100vw;
+    height: max(100vh, fit-content);
+    padding: 0 var(--padding-section-x) 10vh;
+    box-sizing: border-box;
 
-    padding-inline: var(--padding-section-x);
     background-color: var(--strategix-light);
 
     overflow: hidden;

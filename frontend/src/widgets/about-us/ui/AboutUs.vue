@@ -62,12 +62,11 @@
 
 <style scoped>
 .about-us{
-    width: var(--section-width);
+    width: 100vw;
     height: fit-content;
-    
-    padding: 10vh 0;;
+    padding: 10vh var(--padding-section-x);
+    box-sizing: border-box;
 
-    padding-inline: var(--padding-section-x);
     background-color: var(--strategix-light);
 
     display: flex;

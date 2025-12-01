@@ -87,21 +87,17 @@
 
 <style scoped>
   header {
-    width: var(--section-width);
-    height: min(35px, 4.2vh);
+    width: 100vw;
+    height: 10vh;
+    padding: 6.75vh var(--padding-section-x) 1vh;
+    box-sizing: border-box;
 
-    padding: 5.4vh var(--padding-section-x);
     background-color: var(--strategix-dark);
 
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-
-    @media (--tablet-width) {
-      padding-top: 3.2vh;
-      height: 31px;
-    }
   }
 
   .strategix-logo{
@@ -121,15 +117,14 @@
 
   .navigation{
     width: fit-content;
-
   }
 
   .navigation ul{
     list-style: none;
     display: none;
     
+    margin: 0;
     padding: 0;
-    margin: 0 0 0 10%;
 
     @media(--tablet-width) {
       display: flex;
@@ -138,11 +133,11 @@
       align-items: center;
 
       width: 100%;
+      gap: 10.3%;
     }
 
     @media(--laptop-width) {
-      width: auto;
-      gap: 10.3%;
+      margin: 0 0 0 10%;
     }
   }
 

@@ -56,25 +56,21 @@
 
 <style scoped>
 .welcome {
-    width: var(--section-width);
-    height: calc(89.2vh - min(35px, 4.2vh)); /* высота экрана минус паддинги(5.4vh и 5.4vh) хедера и минус высота хедера */
-    
+    width: 100vw;
+    height: 90vh;
     padding-inline: var(--padding-section-x);
-    background-color: var(--strategix-dark);
+    box-sizing: border-box;
 
-    @media (--tablet-width) {
-      height: calc(91.4vh - 31px); /* высота экрана минус паддинги(3.4 и 5.2) хедера и минус высота хедера */
-    }
+    background-color: var(--strategix-dark);
 
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .text-content{
   width: 100%;
   height: 100%;
+  margin: 0;
 
   display: flex;
   flex-direction: column;
@@ -82,6 +78,8 @@
 
   @media(--tablet-width){
     width: 65%;
+    height: fit-content;
+    margin: 10vh 0 auto;
   }
 
   @media(--laptop-width){

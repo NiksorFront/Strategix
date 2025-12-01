@@ -18,10 +18,11 @@
 
 <style scped>
 .market-response {
-    width: calc(100vw - 2 * var(--padding-section-x));
-    height: 26vh;
-
+    width: 100vw;
+    height: 30vh;
     padding: 4vh var(--padding-section-x) 0;
+    box-sizing: border-box;
+
     background-color: var(--strategix-light);
 
     display: flex;
@@ -29,8 +30,6 @@
     flex-wrap: wrap;
 
     @media(--tablet-width){
-      height: 20.5vh;
-
       padding: 8.5vh var(--padding-section-x) 0;
     }
 }

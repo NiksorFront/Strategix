@@ -55,10 +55,11 @@ import TeamCtaCard from './TeamCtaCard.vue';
 
 <style scoped>
 .our-team {
-    width: calc(100vw - 2 * var(--padding-section-x));
-    height: max(63vh, fit-content); /* 20.5vh + 8.5vh у MarketResponse и 63vh + 8vh тут. Итого ровно 100vh */
-
+    width: 100vw;
+    height: max(70vh, fit-content); 
     padding: 0 var(--padding-section-x) 8vh;
+    box-sizing: border-box;
+
     background-color: var(--strategix-light);
 }
 

@@ -35,12 +35,11 @@
 
 <style scoped>
 .our-projects {
-    width: calc(100vw - 2 * var(--padding-section-x));
-    /* height: max(85vh, max-content); */
-    height: 85vh;
-    padding: 7.5vh 0;;
+    width: 100vw;
+    height: 100vh;
+    padding: 7.5vh var(--padding-section-x);
+    box-sizing: border-box;
 
-    padding-inline: var(--padding-section-x);
     background-color: var(--strategix-dark);
 }
 </style>
