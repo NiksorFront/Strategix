@@ -34,7 +34,6 @@
   width: 100%;
   height: calc(100% - 10vh);
 
-  --gap-grid: clamp(10px, 0.834vw, 20px);
   gap: var(--gap-grid);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));

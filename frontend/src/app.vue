@@ -19,8 +19,10 @@ import '@/shared/ui/font.css';
     
 
     --section-width: calc(100vw - 2 * var(--padding-section-x));
+    --card-radius: min(24px, 1vw + 2vh);
+    --gap-grid: clamp(10px, 0.834vw, 20px);
 
-   --padding-section-x: 5vw;
+    --padding-section-x: 5vw;
 
     @media (--pc-width) {
       --padding-section-x: calc((100vw - 2560px) / 2);

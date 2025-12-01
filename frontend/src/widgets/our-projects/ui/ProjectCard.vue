@@ -43,7 +43,7 @@
   max-height: 45.5vh;
 
   object-fit: cover;
-  border-radius: min(24px, 1vw + 2vh);
+  border-radius: var(--card-radius);
 
   @media(--tablet-width){
     max-height: 48.5vh;

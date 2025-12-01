@@ -30,7 +30,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
 .service-card {
   width: auto;
   height: auto;
-  border-radius: max(2vw, 19px);
+  border-radius: var(--card-radius);
   background: white;
   padding: max(1.666vw, 20px);
   display: flex;
@@ -66,7 +66,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
   font-size: clamp(12px, 1vw, 32px);
 
   @media(--mobile-medium) {
-      font-size: min(12px, 3vh);
+      font-size: min(12px, 2vh);
   }
 }
 
