@@ -7,6 +7,10 @@ const {peopleImg, name, lastname, position} = defineProps<{peopleImg: string, na
     <NuxtImg
       class="image-card"
       :src="peopleImg"
+      sizes="(max-width: 600px) 48vw, 25vw"
+      format="webp"
+      :quality="70"
+      :alt="`${name} ${lastname}`"
     />
     <div class="text-background">
       <h4 class="small-text name">

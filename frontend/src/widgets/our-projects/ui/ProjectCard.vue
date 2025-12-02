@@ -7,6 +7,10 @@
     <NuxtImg
       :src="img"
       class="img-card"
+      sizes="(max-width: 600px) 74.36vw, (max-width: 1024px) 50vw, 33vw"
+      format="webp"
+      :quality="80"
+      :alt="title"
     />
     <h4 class="base-text title-card">
       {{ title }}
