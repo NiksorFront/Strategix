@@ -5,7 +5,7 @@
 <template>
   <div
     ref="root"
-    class="slider slider__blur-border"
+    class="slider"
   >
     <ul class="slider__list">
       <!-- Spacer, чтобы казалось, что у нас плошной слайдер -->
@@ -31,19 +31,6 @@
     width: 100%;
     transform: none;
   }
-}
-
-.slider__blur-border {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-
-	-webkit-mask-image: linear-gradient(90deg, transparent -35%, #000 26%, #000 74%, transparent 135%);
-	mask-image: linear-gradient(90deg, transparent -35%, #000 26%, #000 74%, transparent 135%);
-	-webkit-mask-size: 100% 100%;
-	mask-size: 100% 100%;
-	-webkit-mask-repeat: no-repeat;
-	mask-repeat: no-repeat;
 }
 
 .slider__list {

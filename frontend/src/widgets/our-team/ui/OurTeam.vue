@@ -12,37 +12,37 @@ import TeamCtaCard from './TeamCtaCard.vue';
       <TeamInfoCard />
 
       <MemberCard
-        people-img="./images/savvateev.png"
+        people-img="./images/savvateev.jpg"
         name="Алексей"
         lastname="Савватеев"
         position="Математик"
       />
       <MemberCard
-        people-img="./images/boris.jpg"
+        people-img="./images/boris.png"
         name="Борис"
         lastname="Бояршинов"
         position="Физик"
       />
       <MemberCard
-        people-img="./images/savvateev.png"
+        people-img="./images/savvateev.jpg"
         name="Алексей"
         lastname="Савватеев"
         position="Математик"
       />
       <MemberCard
-        people-img="./images/artemey.jpg"
+        people-img="./images/lebedev.png"
         name="Артемий"
         lastname="Лебедев"
         position="Дизайнер"
       />
       <MemberCard
-        people-img="./images/artemey.jpg"
+        people-img="./images/lebedev.png"
         name="Артемий"
         lastname="Лебедев"
         position="Дизайнер"
       />
       <MemberCard
-        people-img="./images/sergey.jpg"
+        people-img="./images/kuznetsov.png"
         name="Сергей"
         lastname="Кузнецов"
         position="Архитектор"

@@ -37,11 +37,13 @@ const {peopleImg, name, lastname, position} = defineProps<{peopleImg: string, na
 
 .text-background{
     width: 85%;
-    height: 18%;
+    height: fit-content;
+    /* height: 18%; */
 
     position: absolute;
-    top: 75.5%;
-    left: 7.5%;
+    bottom: 16%;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
 
     display: flex;
     flex-direction: column;
@@ -54,7 +56,7 @@ const {peopleImg, name, lastname, position} = defineProps<{peopleImg: string, na
 .name{
     margin: 2.5% 4% 0;
 
-    font-size: clamp(10px, 1.1vw, 30px);
+    font-size: clamp(10px, calc(0.9vw + 0.4vh), 30px);
     line-height: 110%;
     font-weight: 600;
     text-align: left;
@@ -62,14 +64,14 @@ const {peopleImg, name, lastname, position} = defineProps<{peopleImg: string, na
     color: var(--strategix-dark);
 
     @media(--mobile-medium) {
-      font-size: min(10px, 2.917vh);
+      font-size: min(10px, 2.1vh);
     }
 }
 
 .position{
     margin: 0 4% 2.5%;
 
-    font-size: clamp(10px, 1.1vw, 30px);
+    font-size: clamp(10px, calc(0.9vw + 0.4vh), 30px);
     line-height: 110%;
     font-weight: 600;
     text-align: left;
@@ -77,7 +79,7 @@ const {peopleImg, name, lastname, position} = defineProps<{peopleImg: string, na
     color: var(--strategix-gray);
 
     @media(--mobile-medium) {
-      font-size: min(10px, 3.125vh);
+      font-size: min(10px, 2.1vh);
     }
 }
 

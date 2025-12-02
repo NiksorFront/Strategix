@@ -8,7 +8,7 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
 <template>
   <div class="contacts">
     <h3 class="title">
-      Оставьте заявку, чтобы обсудить проект
+      Оставьте заявку, чтобы&nbsp;обсудить&nbsp;проект
     </h3>
 
     <div class="lr-contacts">
@@ -82,9 +82,8 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
   grid-template-rows: 90% 90%;
 
   @media (--tablet-width) {
-    width: 92%;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 90% ;
+    width: 93%;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 }
 
@@ -119,10 +118,14 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
 }
 
 .contact-icon {
-  width: 7.5%;
+  width: min(7.5%, 14px);
   height: auto;
   aspect-ratio: 1 / 1;
   flex-shrink: 0;
+
+  /* @media (--tablet-width) {
+    margin-left: -6%;
+  } */
 }
 
 .email-icon {
@@ -139,9 +142,10 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
   font-size: min(16px, 4.1vw);
   font-weight: 400;
   line-height: 115%;
+  text-wrap: nowrap;
 
   @media (--tablet-width) {
-    font-size: clamp(16px, 1.325vw, 36px);
+    font-size: clamp(16px, calc(0.8vw + 0.6vh), 36px);
   }
 
   @media (--mobile-medium) {

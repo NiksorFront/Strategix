@@ -35,7 +35,7 @@
   width: 80%;
   margin: 0;    
 
-  font-size: clamp(16px, 2.3vw, 56px);
+  font-size: clamp(20px, calc(1.5vw + 1vh), 56px);
   line-height: 115%;
   font-weight: 500;
   text-align: left;
@@ -43,7 +43,7 @@
   color: var(--strategix-accent);
 
   @media(--mobile-medium){
-    font-size: min(16px, 3.334vh);
+    font-size: min(20px, 4.175vh);
   }
 }
 
@@ -51,7 +51,7 @@
   width: 80%;
   margin: 0;
 
-  font-size: clamp(14px, 1.325vw, 28px);
+  font-size: clamp(14px, calc(1vw + 0.35vh), 28px);
   line-height: 115%;
   font-weight: 400;
   text-align: left;
@@ -63,18 +63,4 @@
   }
 }
 
-/* Мобильные правки */
-/* @media (--mobile-medium) {
-  .team-info-card {
-    padding: 20px;
-  }
-
-  .team-info-card__title {
-    font-size: min(24px, 3.2vh);
-  }
-
-  .team-info-card__text {
-    font-size: min(14px, 2.4vh);
-  }
-} */
 </style>

@@ -64,7 +64,7 @@ const email = 'hello@strategix.com';
 .title {
   margin: 0;
 
-  font-size: min(14px, 5.25vw);
+  font-size: min(20px, 5.25vw);
   line-height: 115%;
   font-weight: 500;
   text-align: left;
@@ -74,13 +74,13 @@ const email = 'hello@strategix.com';
   text-wrap: nowrap;
 
   @media(--tablet-width){
-    font-size: clamp(20px, 2.3vw, 56px);
+    font-size: clamp(20px, calc(1.5vw + 1vh), 56px);
     color: white;
     text-wrap: wrap;
   }
 
   @media(--mobile-medium){
-    font-size: min(16px, 3.334vh);
+    font-size: min(20px, 4.175vh);
   }
 }
 
@@ -97,7 +97,7 @@ const email = 'hello@strategix.com';
   text-wrap: nowrap;
 
   @media(--tablet-width){
-    font-size: clamp(14px, 1.325vw, 28px);
+    font-size: clamp(14px, calc(1vw + 0.35vh), 28px);
     text-wrap: wrap;
   }
 
@@ -144,7 +144,7 @@ const email = 'hello@strategix.com';
   color: white;
 
   @media(--tablet-width){
-    font-size: clamp(16px, 1.325vw, 28px);
+    font-size: clamp(16px, calc(1vw + 0.35vh), 28px);
   }
 
   @media(--mobile-medium){
