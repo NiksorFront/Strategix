@@ -151,23 +151,4 @@ const email = 'hello@strategix.com';
     font-size: min(14px, 2.71vh);
   }
 }
-
-/* Мобильные правки */
-/* @media (--mobile-medium) {
-  .team-cta-card {
-    padding: 20px;
-  }
-
-  .team-cta-card__title {
-    font-size: min(22px, 3vh);
-  }
-
-  .team-cta-card__text {
-    font-size: min(14px, 2.4vh);
-  }
-
-  .team-cta-card__email-text {
-    font-size: min(14px, 2.4vh);
-  }
-} */
 </style>
