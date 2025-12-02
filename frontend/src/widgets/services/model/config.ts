@@ -87,7 +87,7 @@ export const services: ServiceItem[] = [
   {
     id: "questions",
     title: "Остались вопросы?",
-    description:"Свяжитесь с нами",
+    description:"Свяжитесь с нами и мы поможем",
     Decor: AdsDecor,
     gridArea: 'questions'
   }

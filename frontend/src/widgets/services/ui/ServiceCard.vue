@@ -1,5 +1,6 @@
 
 <script setup lang="ts">
+import ServiceCtaCard from "./ServiceCtaCard.vue";
 import type { ServiceItem } from "../model/config";
 
 const {service} = defineProps<{service: ServiceItem;}>();
@@ -32,7 +33,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
   height: auto;
   border-radius: var(--card-radius);
   background: white;
-  padding: max(1.666vw, 20px);
+  padding: clamp(12px, 1.666vw, 40px);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -46,7 +47,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
 }
 
 .service-card__title {
-  margin: 0;
+  margin: 1.7vh 0;
   text-align: left;
 
   text-transform: uppercase;
@@ -63,7 +64,8 @@ const {service} = defineProps<{service: ServiceItem;}>();
   color: var(--strategix-gray);
   text-align: left;
 
-  font-size: clamp(12px, 1vw, 32px);
+  font-size: clamp(12px, 1.175vw, 32px);
+  /* line-height: 120%; */
 
   @media(--mobile-medium) {
       font-size: min(12px, 2vh);

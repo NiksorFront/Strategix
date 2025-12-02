@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import IndexSectionTitle from '@/shared/ui/index-section-title/';
   import ServiceCard from './ServiceCard.vue';
+  import ServiceCtaCard from './ServiceCtaCard.vue';
   import {services} from "../model/config"
 </script>
 
@@ -9,11 +10,19 @@
     <IndexSectionTitle>Услуги</IndexSectionTitle>
 
     <div class="services-grid">
-      <ServiceCard 
-        v-for="service in services" 
+      <template
+        v-for="service in services"
         :key="service.id"
-        :service="service"
-      />
+      >
+        <ServiceCard
+          v-if="service.id !== 'questions'"
+          :service="service"
+        />
+        <ServiceCtaCard
+          v-else
+          :service="service"
+        />
+      </template>
     </div>
   </section>
 </template>
@@ -21,7 +30,7 @@
 <style scped>
 .services {
     width: 100vw;
-    height: max(100vh, fit-content);
+    height: fit-content;
     padding: 0 var(--padding-section-x) 10vh;
     box-sizing: border-box;
 
@@ -32,7 +41,7 @@
 
 .services-grid{
   width: 100%;
-  height: calc(100% - 10vh);
+  height: 100%;
 
   gap: var(--gap-grid);
   display: grid;
@@ -64,6 +73,10 @@
       "reputation media branding production"
       "events ai-marketing ads questions"
     ;
+
+    .questions{
+      display: flex;
+    }
   }
 }
 </style>

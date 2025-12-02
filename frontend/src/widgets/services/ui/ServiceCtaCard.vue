@@ -1,0 +1,116 @@
+
+<script setup lang="ts">
+import type { ServiceItem } from "../model/config";
+
+const {service} = defineProps<{service: ServiceItem;}>();
+const email = 'hello@strategix.com';
+</script>
+
+<template>
+  <article
+    class="service-cta-card"
+    :class="service.gridArea"
+  >
+    <div class="content">
+      <h3 class="base-text title">
+        {{ service.title }}
+      </h3>
+
+      <p class="small-text description">
+        {{ service.description }}
+      </p>
+    </div>
+
+    <a
+      class="email"
+      :href="`mailto:${email}`"
+    >
+      <span class="base-text email-icon">
+        @
+      </span>
+      <span class="small-text email-text">
+        {{ email }}
+      </span>
+    </a>
+  </article>
+</template>
+
+<style scoped>
+.service-cta-card {
+  width: auto;
+  height: auto;
+  border-radius: var(--card-radius);
+  background-color: var(--strategix-accent);
+  padding: clamp(12px, 1.666vw, 40px);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.content {
+  height: 86%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0.3vh 0;
+  text-align: left;
+  color:  var(--strategix-dark);
+  font-weight: 500;
+  line-height: 110%;
+  font-size: clamp(18px, 6.4vw, 24px);
+
+  @media(--mobile-medium){
+    font-size: min(18px, 3.75vh);
+  }
+}
+
+.description {
+  margin: 0;
+  font-weight: 400;   
+  color:  var(--strategix-dark);
+  text-align: left;
+}
+
+.email {
+  height: 10%;
+  display: inline-flex;
+  align-items: center;
+
+  text-decoration: none;
+  gap: 4%;
+
+}
+
+.email-icon {
+  width: min(6%, 16px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1px solid white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 50%;
+  font-weight: 600;
+  color: white;
+}
+
+.email-text {
+  line-height: 115%;
+  font-weight: 400;
+  text-align: left;
+
+  color: white;
+
+  font-size: clamp(5px, 2.565vw, 15px);
+
+  @media(--mobile-medium) {
+      font-size: min(10px, 2.075vh);
+  }
+}
+</style>
