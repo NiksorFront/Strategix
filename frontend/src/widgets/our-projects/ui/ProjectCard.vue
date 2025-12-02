@@ -46,7 +46,7 @@
   border-radius: var(--card-radius);
 
   @media(--tablet-width){
-    max-height: 48.5vh;
+    max-height: 48.6vh;
   }
 
   @media(--mobile-medium){
@@ -61,7 +61,7 @@
 
   color: white;
   text-transform: uppercase;
-  font-size: clamp(23px, 2.334vw, 50px);
+  font-size: clamp(23px, calc(1.25vw + 1.5vh), 50px);
   font-weight: 500;
 
   @media(--mobile-medium){
