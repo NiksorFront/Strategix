@@ -21,7 +21,7 @@ const email = 'hello@strategix.com';
       <span class="base-text email-icon">
         @
       </span>
-      <span class="base-text email-text">
+      <span class="base-text email-text hover">
         {{ email }}
       </span>
     </a>

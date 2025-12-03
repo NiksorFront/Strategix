@@ -41,7 +41,10 @@
           ОТПРАВИТЬ
         </ButtonWithIcon>
         <p class="base-text agree">
-          Нажимая на кнопку, я&nbsp;соглашаюсь с&nbsp;обработкой <a>персональных данных</a>
+          Нажимая на кнопку, я&nbsp;соглашаюсь с&nbsp;обработкой <a
+            href="#"
+            class="hover"
+          >персональных данных</a>
         </p>
       </div>
     </div>
@@ -194,7 +197,7 @@
 
 .agree a { 
   color: white; 
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
 </style>

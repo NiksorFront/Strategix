@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="base-text policy">
+      <div class="base-text policy hover">
         ПОЛИТИКА<br>КОНФИДЕНЦИАЛЬНОСТИ
       </div>
     </div>
@@ -23,7 +23,7 @@
     <div class="footer__right">
       <a
         href="mailto:hello@strategix.com"
-        class="base-text email"
+        class="base-text email hover"
       >
         hello@strategix.com
       </a>
@@ -163,7 +163,7 @@
 }
 
 .email {
-   font-size: clamp(16px, 1.335vw, 32px);
+  font-size: clamp(16px, 1.335vw, 32px);
   font-weight: 400;
   text-decoration: none;
   color: white;
@@ -173,6 +173,7 @@
     font-size: min(16px, 3.334vh);
   }
 }
+
 
 .icon{
   width: 9%;
@@ -185,10 +186,17 @@
   align-items: center;
   justify-content: center;
 
+  transition: all 0.3s;
+
   @media(--mobile-medium){
     width: auto;
     height: 4vh;
   }
+}
+
+.icon:hover{
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .telegram{

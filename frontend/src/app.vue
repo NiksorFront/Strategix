@@ -17,7 +17,7 @@ import '@/shared/ui/font.css';
     --strategix-accent: #2AB464;
     --strategix-gray: #A7A7A7;
     
-
+    
     --card-radius: min(24px, 1vw + 1vh);
     --gap-grid: clamp(10px, 0.834vw, 20px);
 
@@ -61,6 +61,17 @@ import '@/shared/ui/font.css';
     text-align: center;
     text-transform: none;
     text-transform: uppercase;
+  }
+
+  .hover{
+    transition: all 0.3s;
+  }
+
+  .hover:hover{
+    cursor: pointer;
+    font-weight: 600 !important;
+    text-decoration: underline !important;
+    opacity: 0.9;
   }
 
 </style>

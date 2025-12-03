@@ -18,12 +18,12 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
         :href="`mailto:${email}`"
       >
         <!-- <span class="base-text contact-icon email-icon">@</span> -->
-        <span class="base-text contact-text">{{ email }}</span>
+        <span class="base-text contact-text hover">{{ email }}</span>
       </a>
 
       <!-- Phone -->
       <a
-        class="base-text contact-link contact-text"
+        class="base-text contact-link contact-text hover"
         :href="`tel:${phone}`"
       >
         {{ phone.replace(/(\d{3})(\d{3})(\d{3})(\d{3})/, '$1 $2 $3 $4') }}
@@ -41,7 +41,7 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
           src="./images/telegram-icon.svg"
           alt="Telegram"
         />
-        <span class="base-text contact-text">телеграмм</span>
+        <span class="base-text contact-text hover">телеграмм</span>
       </a>
 
       <!-- WhatsApp -->
@@ -56,7 +56,7 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
           src="./images/whatsapp-icon.svg"
           alt="WhatsApp"
         />
-        <span class="base-text contact-text">whatsapp</span>
+        <span class="base-text contact-text hover">whatsapp</span>
       </a>
     </div>
   </div>
@@ -87,7 +87,6 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
   }
 }
 
-/* Заголовок — плавный ответ макетам */
 .title {
   margin: 3.75vh 0 1.25vh;
 
@@ -108,7 +107,6 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
   }
 }
 
-/* Ссылки — всегда 16px, но с плавным адаптивом */
 .contact-link {
   text-decoration: none;
   color: white;
@@ -122,10 +120,6 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
   height: auto;
   aspect-ratio: 1 / 1;
   flex-shrink: 0;
-
-  /* @media (--tablet-width) {
-    margin-left: -6%;
-  } */
 }
 
 .email-icon {

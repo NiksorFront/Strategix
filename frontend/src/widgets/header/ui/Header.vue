@@ -13,27 +13,27 @@
     <nav class="navigation">
       <ul>
         <li>
-          <NuxtLink class="small-text">
+          <NuxtLink class="small-text hover">
             Главная
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink class="small-text">
+          <NuxtLink class="small-text hover">
             О нас
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink class="small-text">
+          <NuxtLink class="small-text hover">
             Контакты
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink class="small-text">
+          <NuxtLink class="small-text hover">
             Проекты
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink class="small-text">
+          <NuxtLink class="small-text hover">
             Команда
           </NuxtLink>
         </li>
@@ -43,7 +43,7 @@
     <ul class="lang-switcher">
       <li class="active">
         <NuxtLink
-          class="small-text lang"
+          class="small-text lang hover"
           href="#"
         >
           Rus
@@ -51,7 +51,7 @@
       </li>
       <li>
         <NuxtLink
-          class="small-text lang"
+          class="small-text lang hover"
           href="#"
         >
           Eng
@@ -59,7 +59,7 @@
       </li>
       <li>
         <NuxtLink
-          class="small-text lang"
+          class="small-text lang hover"
           href="#"
         >
           Der
@@ -67,7 +67,7 @@
       </li>
       <li>
         <NuxtLink
-          class="small-text lang"
+          class="small-text lang hover"
           href="#"
         >
           Esp
