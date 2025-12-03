@@ -93,12 +93,13 @@
 }
 
 .white{
-  border: solid var(--strategix-dark);  /* Accent из макета */
+  border: solid var(--strategix-dark);
+  background-color: var(--strategix-dark);
 }
 
 .white .icon img{
   width: auto;
-  height: 80%;
+  height: 100%;
   aspect-ratio: 1 / 1;
 }
 
