@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import ButtonWithIcon from '@/shared/ui/button-with-icon';
+  import arrowNext from '@/assets/images/arrow-next.svg';
 </script>
 
 <template>
@@ -34,7 +35,7 @@
 
       <div class="form-row">
         <ButtonWithIcon
-          src-icon="./images/arrow-next.svg"
+          :src-icon="arrowNext"
           style-button="white"
           class="submit"
         >

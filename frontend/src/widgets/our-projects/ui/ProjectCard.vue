@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  const {img, title, description} = defineProps<{img: string, title: string, description: string}>()
+  const {src, title, description} = defineProps<{src: string, title: string, description: string}>()
 </script>
 
 <template>
   <li class="project-card">
     <NuxtImg
-      :src="img"
+      :src="src"
       class="img-card"
       sizes="(max-width: 600px) 74.36vw, (max-width: 1024px) 50vw, 33vw"
       format="webp"

@@ -1,5 +1,7 @@
 <script setup lang="ts">
   import ButtonWithIcon from '~/shared/ui/button-with-icon';
+  import lineMdArrowUp from '@/assets/images/line-md_arrow-up.svg';
+  import arrowForward from '@/assets/images/arrow-forward.svg';
 </script>
 
 <template>
@@ -13,35 +15,35 @@
       </h2>
       <div class="welcome-buttons">
         <ButtonWithIcon
-          src-icon="./images/line-md_arrow-up.svg"
+          :src-icon="lineMdArrowUp"
           style-button="green"
         >
           ЗАПОЛНИТЕ АНКЕТУ
         </ButtonWithIcon>
         <ButtonWithIcon
           class="desktop"
-          src-icon="./images/line-md_arrow-up.svg"
+          :src-icon="lineMdArrowUp"
           style-button="green"
         >
           TELEGRAM
         </ButtonWithIcon>
         <ButtonWithIcon
           class="desktop"
-          src-icon="./images/line-md_arrow-up.svg"
+          :src-icon="lineMdArrowUp"
           style-button="green"
         >
           WHATSAPP
         </ButtonWithIcon>
         <ButtonWithIcon
           class="mobile"
-          src-icon="./images/arrow-forward.svg"
+          :src-icon="arrowForward"
           style-button="white"
         >
           TELEGRAM
         </ButtonWithIcon>
         <ButtonWithIcon
           class="mobile"
-          src-icon="./images/arrow-forward.svg"
+          :src-icon="arrowForward"
           style-button="white"
         >
           WHATSAPP

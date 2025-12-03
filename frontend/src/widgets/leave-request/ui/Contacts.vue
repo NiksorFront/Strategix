@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import telegramIcon from "@/assets/images/telegram-icon.svg";
+import whatsappIcon from "@/assets/images/whatsapp-icon.svg";
+
 const email = 'hello@strategix.com'
 const phone = '+595955084893' // убрал пробелы и плюсик только один — так надёжнее для tel:
 const telegram = 'https://t.me/strategix'   // ← замени на свой настоящий ник/ссылку
@@ -38,7 +41,7 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
       >
         <NuxtImg
           class="contact-icon"
-          src="./images/telegram-icon.svg"
+          :src="telegramIcon"
           alt="Telegram"
         />
         <span class="base-text contact-text hover">телеграмм</span>
@@ -53,7 +56,7 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
       >
         <NuxtImg
           class="contact-icon"
-          src="./images/whatsapp-icon.svg"
+          :src="whatsappIcon"
           alt="WhatsApp"
         />
         <span class="base-text contact-text hover">whatsapp</span>

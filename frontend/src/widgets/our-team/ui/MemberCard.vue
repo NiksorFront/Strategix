@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const {peopleImg, name, lastname, position} = defineProps<{peopleImg: string, name: string, lastname: string, position: string}>()
+const {src, name, lastname, position} = defineProps<{src: string, name: string, lastname: string, position: string}>()
 </script>
 
 <template>
   <article class="member-card">
     <NuxtImg
       class="image-card"
-      :src="peopleImg"
+      :src="src"
       sizes="(max-width: 600px) 48vw, 25vw"
       format="webp"
       :quality="70"

@@ -1,15 +1,12 @@
-<script setup lang="ts">
-import '@/shared/ui/theme/normalize.css';
-import '@/shared/ui/media.css';
-import '@/shared/ui/font.css';
-</script>
-
 <template>
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
 </template>
 
+<style src="@/shared/ui/theme/normalize.css"></style>
+<style src="@/shared/ui/media.css"></style>
+<style src="@/shared/ui/font.css"></style>
 <style>
   :root {
     --strategix-dark: #202226;

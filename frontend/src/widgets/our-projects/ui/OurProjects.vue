@@ -3,6 +3,10 @@
   import Filters from "./Filters.vue";
   import Slider from "./Slider.vue";
   import ProjectCard from "./ProjectCard.vue";
+
+  // import src1 from '@/assets/images/toba.jpg';
+  // import src2 from '@/assets/images/touch.jpg';
+  // import src3 from '@/assets/images/PTI.jpg';
 </script>
 
 <template>
@@ -14,17 +18,17 @@
     <Filters :categories="['Кейсы', 'Брендинг', 'Продакшн', 'Реклама', 'Построение репутации']" />
     <Slider>
       <ProjectCard
-        img="./images/toba.jpg"
+        src="./images/toba.jpg"
         title="toba"
         description="Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
       />
       <ProjectCard
-        img="./images/touch.jpg"
+        src="./images/touch.jpg"
         title="touch"
         description="Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
       />
       <ProjectCard
-        img="./images/PTI vehicle inspection.jpg"
+        src="./images/PTI.jpg"
         title="PTI vehicle inspection"
         description="Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
       />

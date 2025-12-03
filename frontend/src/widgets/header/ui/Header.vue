@@ -1,12 +1,14 @@
 <script setup lang="ts">
   import ButtonWithIcon from "@/shared/ui/button-with-icon"
+  import strategixLogo from "@/assets/images/strategix-white.svg";
+  import lineMdArrowUp from '@/assets/images/line-md_arrow-up.svg';
 </script>
 
 <template>
   <header>
     <NuxtImg
       class="strategix-logo"
-      src="/images/strategix-white.svg"
+      :src="strategixLogo"
       alt="strategix logo"
     />
 
@@ -77,7 +79,7 @@
 
     <ButtonWithIcon
       class="fill-form-button"
-      src-icon="./images/line-md_arrow-up.svg"
+      :src-icon="lineMdArrowUp"
       style-button="green"
     >
       ЗАПОЛНИТЕ АНКЕТУ

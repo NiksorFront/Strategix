@@ -1,8 +1,14 @@
+<script setup lang="ts">
+import xWhite from "@/assets/images/x-white.svg";
+import telegramIcon from "@/assets/images/telegram-icon.svg";
+import linkedinIcon from "@/assets/images/linkedin-icon.svg";
+</script>
+
 <template>
   <footer class="footer">
     <div class="footer__left">
       <NuxtImg
-        src="./images/x-white.svg"
+        :src="xWhite"
         class="logo"
       />
 
@@ -33,7 +39,7 @@
         class="icon"
       >
         <NuxtImg
-          src="./images/telegram-icon.svg"
+          :src="telegramIcon"
           class="telegram"
         />
       </a>
@@ -43,7 +49,7 @@
         class="icon"
       >
         <NuxtImg
-          src="./images/linkedin-icon.svg"
+          :src="linkedinIcon"
           class="linkedin"
         />
       </a>

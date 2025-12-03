@@ -5,10 +5,10 @@ export default defineNuxtConfig({
   srcDir: "src",
   modules: ["@nuxt/eslint", "@nuxt/image"],
   app:{
-    baseURL: "/Strategix/",
+    baseURL: "/",
   },
   nitro: {
-               preset: "github-pages",
+    preset: "github-pages",
   },
   eslint: {
     config: {

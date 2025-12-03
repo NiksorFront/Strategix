@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import IndexSectionTitle from '@/shared/ui/index-section-title/';
+  import plusIconUrl from "@/assets/images/plus-icon.svg";
 </script>
 
 <template>
@@ -17,7 +18,7 @@
           <span
             class="about-icon"
             aria-hidden="true"
-          ><NuxtImg src="./images/plus-icon.svg" /></span>
+          ><NuxtImg :src="plusIconUrl" /></span>
         </summary>
         <p class="base-text about-answer">
           <span class="base-text about-subtitle-2">Репутация как стратегический актив</span><br>
@@ -32,7 +33,7 @@
           <span
             class="about-icon"
             aria-hidden="true"
-          ><NuxtImg src="./images/plus-icon.svg" /></span>
+          ><NuxtImg :src="plusIconUrl" /></span>
         </summary>
         <p class="base-text about-answer">
           <span class="base-text about-subtitle-2">Глубина анализа, конфиденциальность и работа на результат</span><br>
@@ -48,7 +49,7 @@
             class="about-icon"
             aria-hidden="true"
           >
-            <NuxtImg src="./images/plus-icon.svg" />
+            <NuxtImg :src="plusIconUrl" />
           </span>
         </summary>
         <p class="base-text about-answer">

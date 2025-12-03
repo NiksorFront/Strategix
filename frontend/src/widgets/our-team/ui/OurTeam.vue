@@ -3,6 +3,11 @@
 import MemberCard from './MemberCard.vue';
 import TeamInfoCard from './TeamInfoCard.vue';
 import TeamCtaCard from './TeamCtaCard.vue';
+
+import src1 from '@/assets/images/savvateev.jpg';
+import src2 from '@/assets/images/boris.png';
+import src3 from '@/assets/images/lebedev.png';
+import src4 from '@/assets/images/kuznetsov.png';
 </script>
 
 
@@ -12,37 +17,37 @@ import TeamCtaCard from './TeamCtaCard.vue';
       <TeamInfoCard />
 
       <MemberCard
-        people-img="./images/savvateev.jpg"
+        src="./images/savvateev.jpg"
         name="Алексей"
         lastname="Савватеев"
         position="Математик"
       />
       <MemberCard
-        people-img="./images/boris.png"
+        src="./images/boris.png"
         name="Борис"
         lastname="Бояршинов"
         position="Физик"
       />
       <MemberCard
-        people-img="./images/savvateev.jpg"
+        src="./images/savvateev.jpg"
         name="Алексей"
         lastname="Савватеев"
         position="Математик"
       />
       <MemberCard
-        people-img="./images/lebedev.png"
+        src="./images/lebedev.png"
         name="Артемий"
         lastname="Лебедев"
         position="Дизайнер"
       />
       <MemberCard
-        people-img="./images/lebedev.png"
+        src="./images/lebedev.png"
         name="Артемий"
         lastname="Лебедев"
         position="Дизайнер"
       />
       <MemberCard
-        people-img="./images/kuznetsov.png"
+        src="./images/kuznetsov.png"
         name="Сергей"
         lastname="Кузнецов"
         position="Архитектор"
