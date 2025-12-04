@@ -2,15 +2,18 @@
   import ButtonWithIcon from "@/shared/ui/button-with-icon"
   import strategixLogo from "@/assets/images/strategix-white.svg";
   import lineMdArrowUp from '@/assets/images/line-md_arrow-up.svg';
+  import LangSwitcher from './LangSwitcher.vue'
 </script>
 
 <template>
-  <header>
+  <header class="header">
     <NuxtImg
       class="strategix-logo"
       :src="strategixLogo"
       alt="strategix logo"
     />
+    
+    <span class="space" />
 
     <nav class="navigation">
       <ul>
@@ -41,41 +44,8 @@
         </li>
       </ul>
     </nav>
-  
-    <ul class="lang-switcher">
-      <li class="active">
-        <NuxtLink
-          class="small-text lang hover"
-          href="#"
-        >
-          Rus
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink
-          class="small-text lang hover"
-          href="#"
-        >
-          Eng
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink
-          class="small-text lang hover"
-          href="#"
-        >
-          Der
-        </NuxtLink>
-      </li>
-      <li>
-        <NuxtLink
-          class="small-text lang hover"
-          href="#"
-        >
-          Esp
-        </NuxtLink>
-      </li>
-    </ul>
+
+    <LangSwitcher />
 
     <ButtonWithIcon
       class="fill-form-button"
@@ -88,10 +58,10 @@
 </template>
 
 <style scoped>
-  header {
+  .header {
     width: 100vw;
-    height: 10vh;
-    padding: 6.75vh var(--padding-section-x) 1vh;
+    min-height: 10vh;
+    padding: 6.75vh var(--padding-section-x) 0;
     box-sizing: border-box;
 
     background-color: var(--strategix-dark);
@@ -100,15 +70,18 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+
+    position: relative;
+    z-index: 5;
   }
 
   .strategix-logo{
-    width: min(172px, 44.1%);
+    width: min(172px, 44.1vw);
     height: auto;
     aspect-ratio: 4.77 / 1;
 
     @media(--tablet-width) {
-      width: max(121px, 11%);
+      width: clamp(121px, 10.1vw, 245px);
     }
 
     @media(--mobile-small) {
@@ -117,8 +90,27 @@
     }
   }
 
+  .space{
+    display: none;
+
+    @media(--tablet-width){
+      display: block;
+      width: 0.5vw;
+    }
+
+    @media(--laptop-width){
+      display: block;
+      width: 2.5vw;
+    }
+  }
+
   .navigation{
-    width: fit-content;
+    width: min(370px, 40vw);
+    height: fit-content;
+
+    @media(--laptop-width){
+      width: clamp(370px, 31vw, 780px);
+    }
   }
 
   .navigation ul{
@@ -133,13 +125,6 @@
       justify-content: space-between;
       flex-direction: row;
       align-items: center;
-
-      width: 100%;
-      gap: 10.3%;
-    }
-
-    @media(--laptop-width) {
-      margin: 0 0 0 10%;
     }
   }
 
@@ -147,27 +132,6 @@
     text-decoration: none;
     color: white;
     text-wrap: nowrap;
-  }
-
-  .lang-switcher{
-    list-style: none;
-
-    display: none;
-    @media(--laptop-width) {
-      display: flex;
-    }
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-
-    gap: 28%;
-    padding: 0;
-    margin: 0 0 0 7%;
-  }
-
-  .lang{
-    text-decoration: none;
-    color: white;
   }
 
   .fill-form-button{
@@ -179,6 +143,7 @@
     @media(--tablet-width){
       display: flex;
       font-size: clamp(9px, 0.45vw + 0.45vh, 20px);
+      margin-left: clamp(0px, 175px - 15vw, 25px); /*margin уменьшаеьтся по мере увеличения ширины*/
     }
 
     @media(--mobile-medium){
