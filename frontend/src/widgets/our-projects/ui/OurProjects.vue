@@ -10,7 +10,10 @@
 </script>
 
 <template>
-  <section class="our-projects">
+  <section
+    id="our-projects"
+    class="our-projects"
+  >
     <IndexSectionTitle :is-white="true">
       Наши проекты
     </IndexSectionTitle>

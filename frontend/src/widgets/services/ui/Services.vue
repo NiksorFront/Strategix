@@ -6,7 +6,10 @@
 </script>
 
 <template>
-  <section class="services">
+  <section
+    id="services"
+    class="services"
+  >
     <IndexSectionTitle>Услуги</IndexSectionTitle>
 
     <div class="services-grid">

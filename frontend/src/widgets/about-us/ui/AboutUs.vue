@@ -5,6 +5,7 @@
 
 <template>
   <section
+    id="about-us"
     class="about-us"
     aria-labelledby="about-title"
   >

@@ -9,7 +9,10 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
 </script>
 
 <template>
-  <div class="contacts">
+  <div
+    id="contacts"
+    class="contacts"
+  > 
     <h3 class="title">
       Оставьте заявку, чтобы&nbsp;обсудить&nbsp;проект
     </h3>

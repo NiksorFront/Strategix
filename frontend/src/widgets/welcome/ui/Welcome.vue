@@ -5,7 +5,10 @@
 </script>
 
 <template>
-  <section class="welcome">
+  <section
+    id="welcome"
+    class="welcome"
+  >
     <div class="text-content">
       <h1 class="upperscase-text title">
         МЫ&nbsp;СТРОИМ РЕПУТАЦИЮ И&nbsp;ОТКРЫВАЕМ ДВЕРИ&nbsp;НА МЕЖДУНАРОДНЫЕ РЫНКИ

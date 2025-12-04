@@ -12,7 +12,10 @@ import src4 from '@/assets/images/kuznetsov.png';
 
 
 <template>
-  <section class="our-team">
+  <section
+    id="our-team"
+    class="our-team"
+  >
     <div class="team">
       <TeamInfoCard />
 

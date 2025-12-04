@@ -3,7 +3,10 @@
 </script> -->
 
 <template>
-  <section class="market-response">
+  <section
+    id="market-response"
+    class="market-response"
+  >
     <h3 class="market-title">
       Быстро отвечаем на вызовы международного рынка
     </h3>

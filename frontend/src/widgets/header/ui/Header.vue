@@ -3,10 +3,24 @@
   import strategixLogo from "@/assets/images/strategix-white.svg";
   import lineMdArrowUp from '@/assets/images/line-md_arrow-up.svg';
   import LangSwitcher from './LangSwitcher.vue'
+  import Navigation from "./Navigation.vue";
+
+  const navData = {
+    links: [
+      { href: '#header', label: 'Главная' },
+      { href: '#about-us', label: 'О нас' },
+      { href: '#contacts', label: 'Контакты' },
+      { href: '#our-projects', label: 'Проекты' },
+      { href: '#market-response', label: 'Команда' }
+    ]
+  }
 </script>
 
 <template>
-  <header class="header">
+  <header
+    id="header"
+    class="header"
+  >
     <NuxtImg
       class="strategix-logo"
       :src="strategixLogo"
@@ -15,35 +29,7 @@
     
     <span class="space" />
 
-    <nav class="navigation">
-      <ul>
-        <li>
-          <NuxtLink class="small-text hover">
-            Главная
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink class="small-text hover">
-            О нас
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink class="small-text hover">
-            Контакты
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink class="small-text hover">
-            Проекты
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink class="small-text hover">
-            Команда
-          </NuxtLink>
-        </li>
-      </ul>
-    </nav>
+    <Navigation :nav-data="navData" />
 
     <LangSwitcher />
 
@@ -102,36 +88,6 @@
       display: block;
       width: 2.5vw;
     }
-  }
-
-  .navigation{
-    width: min(370px, 40vw);
-    height: fit-content;
-
-    @media(--laptop-width){
-      width: clamp(370px, 31vw, 780px);
-    }
-  }
-
-  .navigation ul{
-    list-style: none;
-    display: none;
-    
-    margin: 0;
-    padding: 0;
-
-    @media(--tablet-width) {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      align-items: center;
-    }
-  }
-
-  .navigation ul li{
-    text-decoration: none;
-    color: white;
-    text-wrap: nowrap;
   }
 
   .fill-form-button{

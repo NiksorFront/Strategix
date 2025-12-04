@@ -8,6 +8,10 @@
 <style src="@/shared/ui/media.css"></style>
 <style src="@/shared/ui/font.css"></style>
 <style>
+  html{
+    scroll-behavior: smooth;
+  }
+
   :root {
     --strategix-dark: #202226;
     --strategix-light: #F1F1F1;
