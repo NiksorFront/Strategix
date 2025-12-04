@@ -6,6 +6,10 @@
 .cache
 dist
 
+# macOS Finder
+.DS_Store
+**/.DS_Store
+
 # Node dependencies
 node_modules
 
