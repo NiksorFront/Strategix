@@ -161,10 +161,10 @@
 }
 
 .submit{
-  width: 100%;
+  width: 91%;
 
   @media(--tablet-width){
-    min-width: 36%;
+    min-width: 26%;
     width: fit-content;
   }
 }

@@ -23,7 +23,6 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
         class="contact-link email"
         :href="`mailto:${email}`"
       >
-        <!-- <span class="base-text contact-icon email-icon">@</span> -->
         <span class="base-text contact-text hover">{{ email }}</span>
       </a>
 

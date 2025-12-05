@@ -1,5 +1,8 @@
 <script setup lang="ts">
   import ButtonWithIcon from '~/shared/ui/button-with-icon';
+
+  const telegram = 'https://t.me/strategix'   // ← замени на свой настоящий ник/ссылку
+  const whatsapp = 'https://wa.me/595955084893' // ← номер без +, пробелов и скобок
 </script>
 
 <template>
@@ -17,26 +20,37 @@
       <div class="welcome-buttons">
         <ButtonWithIcon
           style-button="green"
+          href="#contacts"
         >
           ЗАПОЛНИТЕ АНКЕТУ
         </ButtonWithIcon>
         <ButtonWithIcon
           class="desktop"
+          style-button="green"
+          :href="telegram"
+          target="_blank"
         >
           TELEGRAM
         </ButtonWithIcon>
         <ButtonWithIcon
           class="desktop"
+          style-button="green"
+          :href="whatsapp"
+          target="_blank"
         >
           WHATSAPP
         </ButtonWithIcon>
         <ButtonWithIcon
           class="mobile"
+          :href="telegram"
+          target="_blank"
         >
           TELEGRAM
         </ButtonWithIcon>
         <ButtonWithIcon
           class="mobile"
+          :href="whatsapp"
+          target="_blank"
         >
           WHATSAPP
         </ButtonWithIcon>
@@ -102,7 +116,7 @@
 .subtitle{
   width: 100%;
   text-align: left;
-  font-size: min(20px, 2.3vw);
+  font-size: min(20px, 5.125vw);
   color: var(--strategix-accent);
   line-height: 120%;
 

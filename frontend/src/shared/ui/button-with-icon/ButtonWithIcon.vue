@@ -3,7 +3,6 @@ import { computed } from 'vue';
 
 import lineMdArrowUp from '@/assets/images/line-md_arrow-up.svg';
 import arrowForward from '@/assets/images/arrow-forward.svg';
-import arrowNext from '@/assets/images/arrow-next.svg';
 
 /**
  * styleButton:
@@ -16,7 +15,9 @@ import arrowNext from '@/assets/images/arrow-next.svg';
  */
 const props = withDefaults(
   defineProps<{
-    styleButton?: 'base' | 'green' | 'white';
+    styleButton?: 'base' | 'green' | 'white',
+    href?: string,
+    target?: string,
   }>(),
   {
     styleButton: 'base',
@@ -37,9 +38,11 @@ const iconSrc = computed(() => {
 </script>
 
 <template>
-  <button
+  <a
     class="button base-text"
     :class="props.styleButton"
+    :href="props.href"
+    :target="props.target"
   >
     <slot />&nbsp;&nbsp;
     <span class="icon">
@@ -48,25 +51,24 @@ const iconSrc = computed(() => {
         alt="icon"
       />
     </span>
-  </button>
+  </a>
 </template>
 
 <style scoped>
   .button {
     width: 100%;
     height: fit-content;
-
     padding: 2vh 9% 2vh 0;
 
+    text-decoration: none;
     font-size: min(20px, 5.5vw);
-    align-items: center;
-
     font-weight: 400;
     line-height: 110%;
     letter-spacing: 0;
     text-wrap: nowrap;
 
     justify-content: center;
+    align-items: center;
 
     background: transparent;
     border-width: 2px !important; /* базовая ширина, но без стиля — обводки не видно */

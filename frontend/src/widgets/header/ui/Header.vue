@@ -35,6 +35,7 @@
     <ButtonWithIcon
       class="fill-form-button"
       style-button="green"
+      href="#contacts"
     >
       ЗАПОЛНИТЕ АНКЕТУ
     </ButtonWithIcon>
