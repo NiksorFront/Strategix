@@ -1,7 +1,5 @@
 <script setup lang="ts">
   import ButtonWithIcon from '~/shared/ui/button-with-icon';
-  import lineMdArrowUp from '@/assets/images/line-md_arrow-up.svg';
-  import arrowForward from '@/assets/images/arrow-forward.svg';
 </script>
 
 <template>
@@ -18,36 +16,27 @@
       </h2>
       <div class="welcome-buttons">
         <ButtonWithIcon
-          :src-icon="lineMdArrowUp"
           style-button="green"
         >
           ЗАПОЛНИТЕ АНКЕТУ
         </ButtonWithIcon>
         <ButtonWithIcon
           class="desktop"
-          :src-icon="lineMdArrowUp"
-          style-button="green"
         >
           TELEGRAM
         </ButtonWithIcon>
         <ButtonWithIcon
           class="desktop"
-          :src-icon="lineMdArrowUp"
-          style-button="green"
         >
           WHATSAPP
         </ButtonWithIcon>
         <ButtonWithIcon
           class="mobile"
-          :src-icon="arrowForward"
-          style-button="white"
         >
           TELEGRAM
         </ButtonWithIcon>
         <ButtonWithIcon
           class="mobile"
-          :src-icon="arrowForward"
-          style-button="white"
         >
           WHATSAPP
         </ButtonWithIcon>
@@ -106,14 +95,14 @@
   }
 
   @media(--mobile-medium) {
-    font-size: 8vh;
+    font-size: min(min(10vw, 5.5vh), 42px);
   }
 }
 
 .subtitle{
   width: 100%;
   text-align: left;
-  font-size: min(20px, 2.3vh);
+  font-size: min(20px, 2.3vw);
   color: var(--strategix-accent);
   line-height: 120%;
 
@@ -127,7 +116,7 @@
   }
 
   @media(--mobile-medium) {
-    font-size: min(24px, 5vh);
+    font-size: min(14px, 3.75vh);
   }
   
 }
@@ -148,7 +137,7 @@
   }
 
   @media(--mobile-medium){
-    margin: auto;
+    margin-top: 5vh;
   }
 }
 

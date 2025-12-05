@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import ButtonWithIcon from "@/shared/ui/button-with-icon"
   import strategixLogo from "@/assets/images/strategix-white.svg";
-  import lineMdArrowUp from '@/assets/images/line-md_arrow-up.svg';
   import LangSwitcher from './LangSwitcher.vue'
   import Navigation from "./Navigation.vue";
 
@@ -35,7 +34,6 @@
 
     <ButtonWithIcon
       class="fill-form-button"
-      :src-icon="lineMdArrowUp"
       style-button="green"
     >
       ЗАПОЛНИТЕ АНКЕТУ
@@ -94,7 +92,7 @@
     display: none;
 
     padding: max(0.5%, 10px) max(2.25%, 28px) max(0.5%, 10px) max(1%, 10px); 
-    font-size: 10px;    
+    font-size: min(9px, 0.7vw + 1vh);  
     
     @media(--tablet-width){
       display: flex;
@@ -103,6 +101,7 @@
     }
 
     @media(--mobile-medium){
+      font-size: min(9px, 0.7vw + 1vh);   
       padding: min(0.5%, 10px) min(2.25%, 28px) min(0.5%, 10px) min(1%, 10px);     
     }
   }
