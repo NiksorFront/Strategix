@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-
 import lineMdArrowUp from '@/assets/images/line-md_arrow-up.svg';
 import arrowForward from '@/assets/images/arrow-forward.svg';
 
@@ -59,6 +57,7 @@ const iconSrc = computed(() => {
     width: 100%;
     height: fit-content;
     padding: 2vh 9% 2vh 0;
+    box-sizing: border-box;
 
     text-decoration: none;
     font-size: min(20px, 5.5vw);

@@ -161,10 +161,8 @@
 }
 
 .submit{
-  width: 91%;
-
   @media(--tablet-width){
-    min-width: 26%;
+    min-width: 36%;
     width: fit-content;
   }
 }

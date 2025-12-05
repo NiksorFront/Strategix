@@ -3,6 +3,7 @@
   import strategixLogo from "@/assets/images/strategix-white.svg";
   import LangSwitcher from './LangSwitcher.vue'
   import Navigation from "./Navigation.vue";
+  import NavigationMenu from "./NavigationMenu.vue";
 
   const navData = {
     links: [
@@ -11,6 +12,14 @@
       { href: '#contacts', label: 'Контакты' },
       { href: '#our-projects', label: 'Проекты' },
       { href: '#market-response', label: 'Команда' }
+    ]
+  }
+  const navData2 = {
+    links: [
+      { href: '#about-us', label: 'О нас' },
+      {href: '#services', label: 'Услуги' },
+      { href: '#our-projects', label: 'Проекты' },
+      { href: '#contacts', label: 'Контакты' },
     ]
   }
 </script>
@@ -28,7 +37,7 @@
     
     <span class="space" />
 
-    <Navigation :nav-data="navData" />
+    <Navigation :nav-data="navData" /> <!-- планшет - пк -->
 
     <LangSwitcher />
 
@@ -39,13 +48,15 @@
     >
       ЗАПОЛНИТЕ АНКЕТУ
     </ButtonWithIcon>
+
+    <NavigationMenu :nav-data="navData2" /> <!-- мобилка -->
   </header>
 </template>
 
 <style scoped>
   .header {
     width: 100vw;
-    min-height: 10vh;
+    max-height: 10vh;
     padding: 6.75vh var(--padding-section-x) 0;
     box-sizing: border-box;
 
@@ -77,6 +88,7 @@
 
   .space{
     display: none;
+    width: 0;
 
     @media(--tablet-width){
       display: block;

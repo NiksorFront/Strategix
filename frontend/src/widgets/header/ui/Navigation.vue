@@ -1,9 +1,9 @@
 <script setup lang="ts">
-defineProps<{
-  navData: {
-    links: { href: string; label: string }[]
-  }
-}>()
+    const {navData} = defineProps<{
+            navData: {
+                links: { href: string; label: string }[]
+            }
+        }>()
 </script>
 
 <template>
@@ -27,24 +27,28 @@ defineProps<{
     width: min(370px, 40vw);
     height: fit-content;
 
-    @media(--laptop-width){
+    display: none;
+
+    @media(--tablet-width){
+      display: inline;
       width: clamp(370px, 31vw, 780px);
+    }
+
+    @media(--mobile-medium){
+      display: inline;
     }
   }
 
   .navigation ul{
     list-style: none;
-    display: none;
     
     margin: 0;
     padding: 0;
 
-    @media(--tablet-width) {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      align-items: center;
-    }
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
   }
 
   .navigation ul li a{

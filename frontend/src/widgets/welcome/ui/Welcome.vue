@@ -138,7 +138,7 @@
 .welcome-buttons{
   width: 100%;
   margin-top: auto;
-  margin-bottom: 8%;
+  margin-bottom: var(--padding-section-x);
   gap: 1.2vh;
 
   display: flex;
@@ -151,7 +151,8 @@
   }
 
   @media(--mobile-medium){
-    margin-top: 5vh;
+    padding-top: 5vh;
+    margin: 0;
   }
 }
 

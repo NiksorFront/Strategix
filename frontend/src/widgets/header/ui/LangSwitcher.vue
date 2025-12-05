@@ -7,7 +7,7 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
     <div class="lang-switcher">
       <!-- активный язык со стрелкой -->
       <button
-        class="lang-current small-text"
+        class="small-text lang-current "
         type="button"
       >
         Rus
@@ -47,12 +47,15 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
 
   /* активный язык + стрелка */
   .lang-current {
+    font-size: min(18px, 4.5vw);
+    
     display: inline-flex;
     align-items: center;
     gap: 6px;
 
     padding: 0;
     margin: 0;
+    margin-left: 15vw;
 
     border: none;
     background: transparent;
@@ -60,6 +63,15 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
 
     cursor: pointer;
     white-space: nowrap;
+
+    @media(--tablet-width){
+      margin-left: 0;
+      font-size: clamp(14px, 1.1675vw, 28px);
+    }
+
+    @media(--mobile-medium) {
+      font-size: min(14px, 2.917vh);
+    }
   }
 
   /* стрелка вниз по умолчанию */
@@ -103,9 +115,18 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
   }
 
   .lang-link {
+    font-size: min(18px, 4.5vw);
     text-decoration: none;
     color: white;
     white-space: nowrap;
+
+    @media(--tablet-width){
+      font-size: clamp(14px, 1.1675vw, 28px);
+    }
+
+    @media(--mobile-medium) {
+      font-size: min(14px, 2.917vh);
+    }
   }
 
   .lang-switcher:hover .lang-list,
