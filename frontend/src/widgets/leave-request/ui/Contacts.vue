@@ -104,7 +104,8 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
   font-weight: 400;
 
   @media (--tablet-width) {
-    font-size: clamp(28px, 3vw, 72px);
+    width: 90%;
+    font-size: clamp(28px, calc(2vw + 1.5vh), 72px);
     margin: 5.75vh 0;
   }
 

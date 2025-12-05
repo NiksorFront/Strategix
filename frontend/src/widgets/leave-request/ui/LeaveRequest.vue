@@ -30,6 +30,7 @@ import Form from './Form.vue';
     );
 
     @media(--tablet-width){
+        height: 90vh;
         flex-direction: row;
         flex-wrap: nowrap;
 

@@ -88,7 +88,7 @@
 .title {
   margin: 0;
 
-  font-size: clamp(20px, 2.6vw, 32px);
+  font-size: min(25px, 6.4vw);
   font-weight: 500;     
   line-height: 110%;  
   letter-spacing: 0;
@@ -96,10 +96,9 @@
   text-transform: none;
 
   color: var(--strategix-dark);
-  font-size: min(25px, 6.4vw);
 
   @media(--tablet-width){
-    font-size: clamp(25px, 2.166vw, 52px);
+    font-size: clamp(25px, calc(1.166vw + 1.3vh), 52px);
     padding: 1.5vh 0 0 0;
   }
 
@@ -125,7 +124,7 @@
 
   @media(--tablet-width){
     padding: min(16px, 1.2vh) min(40px, 1.8vw);
-    font-size: clamp(18px, 1.5vw, 42px);
+    font-size: clamp(18px, calc(1.1vw + 0.6vh), 42px);
   }
 
   @media(--mobile-medium) {
@@ -183,12 +182,12 @@
   color: black; 
 
   @media(--tablet-width){
-    min-width: 30%;
+    min-width: 20%;
     width: fit-content;
-    max-width: 50%;
+    max-width: 40%;
     margin: 0;
 
-    font-size: clamp(8px, 0.667vw, 16px);
+    font-size: clamp(8px, calc(0.567vw + 0.2vh), 16px);
   }
 
   @media(--mobile-medium) {

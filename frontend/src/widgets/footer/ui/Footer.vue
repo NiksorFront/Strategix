@@ -83,7 +83,7 @@ import linkedinIcon from "@/assets/images/linkedin-icon.svg";
   }
 
   @media(--laptop-width){
-     width: clamp(350px, 50%, 1070px);
+     width: clamp(350px, 45%, 1070px);
   }
 }
 
@@ -111,7 +111,7 @@ import linkedinIcon from "@/assets/images/linkedin-icon.svg";
   text-transform: uppercase;
 
   @media(--tablet-width){
-    font-size: clamp(10px, 1.075vw, 26px);
+    font-size: clamp(10px, 0.675vw + 0.4vh, 26px);
   }
 
   @media(--mobile-medium){
@@ -127,7 +127,7 @@ import linkedinIcon from "@/assets/images/linkedin-icon.svg";
   text-transform: uppercase;
 
   @media(--tablet-width){
-    font-size: clamp(10px, 1.075vw, 26px);
+    font-size: clamp(10px, 0.675vw + 0.4vh, 26px);
   }
 
   @media(--mobile-medium){
@@ -144,7 +144,7 @@ import linkedinIcon from "@/assets/images/linkedin-icon.svg";
   text-transform: uppercase;
 
   @media(--tablet-width){
-    font-size: clamp(10px, 1.075vw, 26px);
+    font-size: clamp(10px, 0.675vw + 0.4vh, 26px);
   }
 
   @media(--mobile-medium){
@@ -164,12 +164,12 @@ import linkedinIcon from "@/assets/images/linkedin-icon.svg";
   }
 
   @media(--laptop-width){
-    width: clamp(265px, 24.44%, 530px);
+    width: clamp(265px, 22.44%, 530px);
   }
 }
 
 .email {
-  font-size: clamp(16px, 1.335vw, 32px);
+  font-size: clamp(16px, 0.835vw + 0.5vh , 32px);
   font-weight: 400;
   text-decoration: none;
   color: white;
