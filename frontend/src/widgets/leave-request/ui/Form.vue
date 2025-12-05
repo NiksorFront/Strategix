@@ -109,7 +109,7 @@
 
 .field {
   width: 100%;
-  padding: 1.95vh 4vw;
+  padding: min(15px, 1.95vh) min(15px, 3.85vw);
   box-sizing: border-box;
   border-radius: var(--card-radius);
   border: 1px solid var(--strategix-dark);
@@ -138,7 +138,7 @@
 }
 
 .textarea {
-  height: 21%;
+  min-height: 21%;
   resize: vertical; 
   color: var(--strategix-dark);
 

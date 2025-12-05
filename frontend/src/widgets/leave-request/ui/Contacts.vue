@@ -85,7 +85,7 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
   height: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 90% 90%;
+  grid-template-rows: 4vh 4vh;
 
   @media (--tablet-width) {
     width: 93%;
@@ -99,7 +99,7 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
   font-family: "Liberty-MT", "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   text-align: left;
   color: white;
-  font-size: min(28px, 7.2vw);
+  font-size: min(28px, 4.2vw + 1.5vh);
   line-height: 110%;
   font-weight: 400;
 

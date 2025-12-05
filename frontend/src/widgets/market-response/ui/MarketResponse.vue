@@ -22,8 +22,9 @@
 <style scped>
 .market-response {
     width: 100vw;
+    min-height: 30vh;
     height: fit-content;
-    padding: 4vh var(--padding-section-x) 2vh;
+    padding: 4vh var(--padding-section-x) 2.25vh;
     box-sizing: border-box;
 
     background-color: var(--strategix-light);
@@ -69,7 +70,7 @@
   width: 100%;
   height: fit-content;
 
-  margin: 0.5vh 0 0;
+  margin: 2vh 0 0;
 
   color: var(--strategix-dark);
   text-align: left;
@@ -77,6 +78,8 @@
   @media(--tablet-width){
     width: 49.6%;
     height: fit-content;
+
+    margin: 0.5vh 0 0;
   }
 }
 </style>

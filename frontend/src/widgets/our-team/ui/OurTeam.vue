@@ -64,11 +64,16 @@ import src4 from '@/assets/images/kuznetsov.png';
 <style scoped>
 .our-team {
     width: 100vw;
-    height: max(70vh, fit-content); 
-    padding: 0 var(--padding-section-x) 8vh;
+    min-height: 70vh;
+    height: fit-content; 
+    padding: 0 var(--padding-section-x);
     box-sizing: border-box;
 
     background-color: var(--strategix-light);
+
+    @media(--tablet-width){
+      padding: 0 var(--padding-section-x) 8vh;
+    }
 }
 
 .team{

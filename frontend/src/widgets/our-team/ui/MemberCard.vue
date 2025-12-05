@@ -60,30 +60,38 @@ const {src, name, lastname, position} = defineProps<{src: string, name: string, 
 .name{
     margin: 2.5% 4% 0;
 
-    font-size: clamp(10px, calc(0.9vw + 0.4vh), 30px);
+    font-size: min(12px, calc(1.2vw + 0.8vh));
     line-height: 110%;
     font-weight: 600;
     text-align: left;
 
     color: var(--strategix-dark);
 
+    @media(--tablet-width){
+      font-size: clamp(12px, calc(0.9vw + 0.5vh), 30px);
+    }
+
     @media(--mobile-medium) {
-      font-size: min(10px, 2.1vh);
+      font-size: min(12px, 2.5vh);
     }
 }
 
 .position{
     margin: 0 4% 2.5%;
 
-    font-size: clamp(10px, calc(0.9vw + 0.4vh), 30px);
+    font-size: min(12px, calc(1.2vw + 0.8vh));
     line-height: 110%;
     font-weight: 600;
     text-align: left;
 
     color: var(--strategix-gray);
 
+    @media(--tablet-width){
+      font-size: clamp(10px, calc(0.9vw + 0.5vh), 30px);
+    }
+
     @media(--mobile-medium) {
-      font-size: min(10px, 2.1vh);
+      font-size: min(12px, 2.5vh);
     }
 }
 
