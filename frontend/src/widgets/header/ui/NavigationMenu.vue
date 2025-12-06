@@ -1,32 +1,43 @@
 <script setup lang="ts">
-    import strategixLogo from "@/assets/images/strategix-white-2.svg";
-    import ButtonWithIcon from "@/shared/ui/button-with-icon";
+import strategixLogo from "@/assets/images/strategix-white-2.svg";
+import ButtonWithIcon from "@/shared/ui/button-with-icon";
 
-    const {navData} = defineProps<{
-            navData: {
-                links: { href: string; label: string }[]
-            }
-        }>()
+const { navData } = defineProps<{
+  navData: {
+    links: { href: string; label: string }[]
+  }
+}>();
 </script>
 
 <template>
   <div class="navigation-menu">
-    <input
+    <!-- Триггер открытия меню -->
+    <a
       id="menu-toggle"
-      class="checkbox"
-      type="checkbox"
-    >
+      class="checkbox checkbox--open"
+      href="#menu"
+      aria-label="Открыть меню"
+    />
 
-    <label
-      for="menu-toggle"
-      class="checkbox-button"
-    >
-      <span />
-      <span />
-      <span />
-    </label>
+    <!-- Триггер закрытия меню (показывается только при открытом меню) -->
+    <a
+      class="checkbox checkbox--close"
+      href="#"
+      aria-label="Закрыть меню"
+    />
 
-    <div class="menu">
+    <!-- Визуальный "бургер" -->
+    <div class="checkbox-button">
+      <span />
+      <span />
+      <span />
+    </div>
+
+    <!-- Само меню: работает через :target -->
+    <div
+      id="menu"
+      class="menu"
+    >
       <NuxtImg
         class="strategix-logo"
         :src="strategixLogo"
@@ -42,7 +53,9 @@
             <a
               :href="link.href"
               class="base-text big-text"
-            >{{ link.label }}</a>
+            >
+              {{ link.label }}
+            </a>
           </li>
         </ul>
       </nav>
@@ -53,7 +66,7 @@
         href="#contacts"
       >
         ЗАПОЛНИТЕ АНКЕТУ
-      </ButtonWithIcon> 
+      </ButtonWithIcon>
     </div>
   </div>
 </template>
@@ -69,10 +82,22 @@
     --anim-delay-initial: calc(3.4 * var(--anim-base)); /* ~0.17s */
     --anim-delay-show: calc(4 * var(--anim-base));     /* 0.2s  */
  }
-  body:has(.checkbox:checked) {
+
+  /* Блокировка скролла, когда меню открыто */
+  body:has(#menu:target) {
     overflow: hidden;
   }
+
+  /* Переключение «открыть / закрыть» триггеров */
+  body:has(#menu:target) .checkbox--open {
+    display: none;
+  }
+
+  body:has(#menu:target) .checkbox--close {
+    display: block;
+  }
 </style>
+
 <style scoped>
 .navigation-menu{
     width: 28px;
@@ -87,11 +112,11 @@
     @media(--mobile-medium) {
       display: none;
     }
-    /* background-color: violet; */
+    
 }
 
+/* Два "чекбокса" теперь — два <a>, наложенные друг на друга */
 .checkbox{
-  content: '';
   width: 100%;
   height: 100%;
   margin: 0;
@@ -103,8 +128,13 @@
 
   opacity: 0;
   pointer-events: auto;
-  z-index: 2;
+  z-index: 3;
   cursor: pointer;
+}
+
+/* По умолчанию закрывающий триггер скрыт, его включает body:has(#menu:target) */
+.checkbox--close{
+  display: none;
 }
 
 .checkbox-button{
@@ -116,7 +146,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
 }
 
 .checkbox-button span{
@@ -133,13 +162,9 @@
     z-index: 2;
 }
 
-.checkbox:checked ~ .checkbox-button span{
+/* При открытом меню перекрашиваем полоски бургера */
+.navigation-menu:has(#menu:target) .checkbox-button span{
     background-color: var(--strategix-dark);
-}
-
-.checkbox:checked ~ .menu{
-    transform: translateX(0);
-    opacity: 1;
 }
 
 .menu{
@@ -162,6 +187,12 @@
   align-items: flex-start;
 
   transition: all var(--anim-menu) ease;
+}
+
+/* Открытие меню через :target */
+.menu:target{
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .strategix-logo{
@@ -220,7 +251,7 @@
     color: white;
 }
 
-/* Начальное состояние: логотип и CTA скрыты и слегка смещены вниз. */
+/* Начальное состояние: логотип и нижняя кнопка скрыты и слегка смещены вниз. */
 .menu .button,
 .menu .strategix-logo {
     opacity: 0;
@@ -236,46 +267,52 @@
 }
 
 /* После открытия меню — показать элементы с небольшой задержкой. */
-.checkbox:checked ~ .menu .strategix-logo,
-.checkbox:checked ~ .menu .button {
+.menu:target .strategix-logo,
+.menu:target .button {
   opacity: 1;
   transform: translateX(0);
   transition-delay: var(--anim-delay-show);
 }
 
-.checkbox:checked ~ .menu .navigation ul li:nth-child(1) {
+.menu:target .navigation ul li:nth-child(1) {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(5 * var(--anim-base));
 }
 
-.checkbox:checked ~ .menu .navigation ul li:nth-child(2) {
+.menu:target .navigation ul li:nth-child(2) {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(6 * var(--anim-base));
 }
 
-.checkbox:checked ~ .menu .navigation ul li:nth-child(3) {
+.menu:target .navigation ul li:nth-child(3) {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(7 * var(--anim-base));
 }
 
-.checkbox:checked ~ .menu .navigation ul li:nth-child(4) {
+.menu:target .navigation ul li:nth-child(4) {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(8 * var(--anim-base));
 }
 
-.checkbox:checked ~ .menu .navigation ul li:nth-child(5) {
+.menu:target .navigation ul li:nth-child(5) {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(9 * var(--anim-base));
 }
 
-.checkbox:checked ~ .menu .navigation ul li:nth-child(5) {
+.menu:target .navigation ul li:nth-child(6) {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(10 * var(--anim-base));
+}
+
+.menu:target .navigation ul li:nth-child(7) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: calc(11 * var(--anim-base));
 }
 </style>
