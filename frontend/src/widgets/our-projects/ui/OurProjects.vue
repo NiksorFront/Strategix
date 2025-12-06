@@ -48,5 +48,13 @@
     box-sizing: border-box;
 
     background-color: var(--strategix-dark);
+
+    @media(--laptop-width){
+      height: 105vh;
+    }
+
+    @media(--mobile-medium){
+      height: 105vh;
+    }
 }
 </style>

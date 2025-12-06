@@ -25,20 +25,24 @@
 .project-card{
   min-width: 74.36vw;
   height: 100%;
+  box-sizing: border-box;
+  border-radius: var(--card-radius);
 
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
 
+  transition: all 0.3s;
+  
   @media(--mobile-width){
     min-width: min(32.5%, 74.36vw);
   }
 
   @media(--mobile-medium){
-    height: fit-content;
+    /* height: fit-content; */
   }
-  /* position: relative; */
+
 }
 
 .img-card{
@@ -68,6 +72,8 @@
   font-size: clamp(23px, calc(1.25vw + 1.5vh), 50px);
   font-weight: 500;
 
+  transition: all 0.3s;
+
   @media(--mobile-medium){
     font-size: min(23px, 5vh)
   }
@@ -81,9 +87,31 @@
   text-align: left;
   line-height: 125%;
 
+  transition: all 0.3s;
+
   @media(--laptop-width){
     width: 70%;
     margin: auto 0 min(7%, 3vh) 6%;
   }
+}
+
+.project-card:hover{
+  margin-top: 1vh;
+  height: calc(100% - 1.5vh);
+  border: clamp(2px, 0.175vw, 6px) solid var(--strategix-accent);
+  cursor: pointer;
+}
+
+.project-card:hover .img-card{
+  height: calc(68.5% + 0.5vh);
+}
+
+.project-card:hover .title-card{
+  /* margin: min(8.5%, 3.75vh) 0 0 6%; */
+  font-weight: 700;
+}
+
+.project-card:hover .description-card{
+  margin: auto 0 min(5%, 2.25vh) 6%;
 }
 </style>
