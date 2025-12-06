@@ -47,15 +47,13 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
 
   /* активный язык + стрелка */
   .lang-current {
-    font-size: min(18px, 4.5vw);
-    
     display: inline-flex;
     align-items: center;
     gap: 6px;
 
     padding: 0;
     margin: 0;
-    margin-left: 15vw;
+    margin-left: 0;
 
     border: none;
     background: transparent;
@@ -63,13 +61,14 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
 
     cursor: pointer;
     white-space: nowrap;
-
-    @media(--tablet-width){
-      margin-left: 0;
-      font-size: clamp(14px, 1.1675vw, 28px);
+ 
+    @media(width < 768px){
+       margin-left: 15vw;
+       font-size: min(18px, 4.5vw);
     }
 
-    @media(--mobile-medium) {
+    @media(--mobile-medium){
+      margin-left: 0;
       font-size: min(14px, 2.917vh);
     }
   }
@@ -115,16 +114,15 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
   }
 
   .lang-link {
-    font-size: min(18px, 4.5vw);
     text-decoration: none;
     color: white;
     white-space: nowrap;
 
-    @media(--tablet-width){
-      font-size: clamp(14px, 1.1675vw, 28px);
+    @media(width < 768px){
+       font-size: min(18px, 4.5vw);
     }
 
-    @media(--mobile-medium) {
+    @media(--mobile-medium){
       font-size: min(14px, 2.917vh);
     }
   }
@@ -171,7 +169,7 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
 
     .lang-item + .lang-item {
       margin-top: 0;
-      margin-left: 24px; /* расстояние между языками */
+      margin-left: clamp(20px, 2vw, 48px); /* расстояние между языками */
     }
   }
 </style>

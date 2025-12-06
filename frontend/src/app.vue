@@ -38,7 +38,7 @@
     text-align: center;
 
     @media(--tablet-width){
-      font-size: clamp(14px, 1.1675vw, 28px);
+      font-size: clamp(12px, 1.1675vw, 28px);
     }
 
     @media(--mobile-medium) {

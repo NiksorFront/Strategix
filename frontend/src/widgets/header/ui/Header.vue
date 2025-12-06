@@ -2,8 +2,8 @@
   import ButtonWithIcon from "@/shared/ui/button-with-icon"
   import strategixLogo from "@/assets/images/strategix-white.svg";
   import LangSwitcher from './LangSwitcher.vue'
-  import Navigation from "./Navigation.vue";
   import NavigationMenu from "./NavigationMenu.vue";
+  import NavigationMenuMobile from "./NavigationMenuMobile.vue";
 
   const navData = {
     links: [
@@ -37,7 +37,7 @@
     
     <span class="space" />
 
-    <Navigation :nav-data="navData" /> <!-- планшет - пк -->
+    <NavigationMenu :nav-data="navData" /> <!-- планшет - пк -->
 
     <LangSwitcher />
 
@@ -49,7 +49,7 @@
       ЗАПОЛНИТЕ АНКЕТУ
     </ButtonWithIcon>
 
-    <NavigationMenu :nav-data="navData2" /> <!-- мобилка -->
+    <NavigationMenuMobile :nav-data="navData2" /> <!-- мобилка -->
   </header>
 </template>
 
@@ -104,14 +104,14 @@
   .fill-form-button{
     display: none;
 
-    padding: max(0.5%, 10px) max(2.25%, 28px) max(0.5%, 10px) max(1%, 10px); 
-    font-size: min(9px, 0.7vw + 1vh);  
+    padding: max(0.7%, 10px) max(2%, 28px) max(0.5%, 9px) max(1%, 10px); 
+    font-size: clamp(9px, 0.6vw + 0.25vh, 20px);
+    margin-left: clamp(0px, 175px - 15vw, 25px); /*margin уменьшаеьтся по мере увеличения ширины*/
     
     @media(--tablet-width){
       display: flex;
-      font-size: clamp(9px, 0.45vw + 0.45vh, 20px);
-      margin-left: clamp(0px, 175px - 15vw, 25px); /*margin уменьшаеьтся по мере увеличения ширины*/
     }
+
 
     @media(--mobile-medium){
       font-size: min(9px, 0.7vw + 1vh);   
