@@ -54,6 +54,9 @@ const iconSrc = computed(() => {
 
 <style scoped>
   .button {
+    /* duration for all transitions in this component */
+    --button-transition-duration: 0.3s;
+
     width: 100%;
     height: fit-content;
     padding: 2vh 9% 2vh 0;
@@ -78,7 +81,7 @@ const iconSrc = computed(() => {
     cursor: pointer;
     position: relative;
 
-    transition: all 0.3s;
+    transition: background-color var(--button-transition-duration), color var(--button-transition-duration), border var(--button-transition-duration);
 
     @media (--tablet-width) {
       width: fit-content;
@@ -140,6 +143,7 @@ const iconSrc = computed(() => {
   }
 
   .base .icon img {
+    transition: filter var(--button-transition-duration);
     height: 90%;
   }
 
@@ -165,6 +169,13 @@ const iconSrc = computed(() => {
 
   .green .icon {
     background-color: var(--strategix-accent);
+    
+    transition: background-color var(--button-transition-duration);
+  } 
+
+  .green:hover .icon img{
+    transition: filter var(--button-transition-duration);
+    filter: invert(0);
   }
 
   /* hover: фон зелёный, фон иконки белый */
@@ -192,9 +203,11 @@ const iconSrc = computed(() => {
   /* иконка крупнее, на белом фоне */
   .white .icon {
     background-color: var(--strategix-light);
+    transition: background-color var(--button-transition-duration);
   }
 
   .white .icon img {
+    transition: filter var(--button-transition-duration);
     filter: invert(1);
   }
 
