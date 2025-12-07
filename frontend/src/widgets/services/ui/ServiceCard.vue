@@ -44,8 +44,8 @@ const {service} = defineProps<{service: ServiceItem;}>();
 }
 
 .service-card__title {
-  margin: 0;
-  margin: 0.5vh 0 0;
+  padding-top: 5px;
+  margin: auto 0 auto;
   text-align: left;
 
   text-transform: uppercase;
@@ -65,7 +65,6 @@ const {service} = defineProps<{service: ServiceItem;}>();
 .service-card__decor{
   width: calc(1.5vw + 1.5vh);
   height: auto;
-  /* aspect-ratio: 1 / 1; */
   margin: 0;
 
   transition: all 0.3s ease-in-out;
@@ -80,7 +79,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
   text-align: left;
 
   font-size: clamp(12px, calc(0.446vw + 1.14vh), 32px);
-  /* line-height: 120%; */
+  /* line-height: 100%; */
   transition: all 0.3s ease-in-out;
 
   @media(--tablet-width){
@@ -95,14 +94,15 @@ const {service} = defineProps<{service: ServiceItem;}>();
 
 @media(--tablet-width){
   .service-card:hover{
-    padding: calc(clamp(12px, 0.666vw + 1.5vh, 40px) / 2) clamp(12px, 0.666vw + 1.5vh, 40px);
+    /* padding: calc(clamp(12px, 0.666vw + 1.5vh, 40px) / 2) clamp(12px, 0.666vw + 1.5vh, 40px); */
+    padding: clamp(12px, 0.666vw + 1.5vh, 40px) clamp(12px, 0.666vw + 1.5vh, 40px) calc(clamp(12px, 0.666vw + 1.5vh, 40px) / 2);
     background-color: var(--strategix-accent);
     cursor: pointer;
   }
 
   .service-card:hover .service-card__title{
-    margin: 2.5vh 0 -0.5vh;
-
+    padding-top: 15px;
+    
     color: var(--strategix-light);
 
     font-size: clamp(20px, calc(0.675vw + 2.1vh), 44px);
@@ -126,35 +126,51 @@ const {service} = defineProps<{service: ServiceItem;}>();
   }
 
 
+
+  /*При hover каждая из икнок по размеру становиться в 1.3 раза больше оригинала*/
   .reputation{
       grid-area: reputation;
   }
 
   .reputation .service-card__decor {
-    width: 3.85%;
+    width: 4.075%;
     height: auto;
-
-    transition: all 0.3s ease-in-out;
   }
 
   .reputation:hover .service-card__decor{
-    width: 5%;
+    /* width: 5.35%; */
+    transform: scale(1.3) translateX(15%) translateY(10%);
   }
 
   .reputation:hover .service-card__decor .reputation__decor .reputation__decor__column{
     animation: reputation-anim 2s infinite ease-in-out;
   }
 
+
+
+
   .media{
       grid-area: media;
   }
 
   .media .service-card__decor {
-    width: calc(1.5vw + 1.5vh);
+    width: 15.8%;
     height: auto;
-    aspect-ratio: 1 / 1;
+
     margin: 0;
   }
+
+  .media:hover .service-card__decor{
+    transform: scale(1.3) translateX(15%) translateY(15%);
+  }
+
+  .media:hover .service-card__decor .media__decor .media__decor__dot{
+    background-color: var(--strategix-accent-light);
+    animation: media-anim 2s infinite ease-in-out;
+  }
+
+
+
 
   .branding{
       grid-area: branding;
