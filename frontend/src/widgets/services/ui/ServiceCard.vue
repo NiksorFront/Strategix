@@ -156,8 +156,6 @@ const {service} = defineProps<{service: ServiceItem;}>();
   .media .service-card__decor {
     width: 15.8%;
     height: auto;
-
-    margin: 0;
   }
 
   .media:hover .service-card__decor{
@@ -177,11 +175,19 @@ const {service} = defineProps<{service: ServiceItem;}>();
   }
 
   .branding .service-card__decor {
-    width: calc(1.5vw + 1.5vh);
+    width: 5.6%;
     height: auto;
-    aspect-ratio: 1 / 1;
-    margin: 0;
   }
+
+  .branding:hover .service-card__decor{
+    transform: scale(1.3) translateX(15%) translateY(15%);
+  }
+
+  .branding:hover .service-card__decor .branding__decor .branding__decor__square{
+    animation: square-anim 3s infinite linear;
+  }
+
+
 
   .production{
       grid-area: production;
