@@ -210,13 +210,25 @@ const {service} = defineProps<{service: ServiceItem;}>();
 
 
   .events{
-      grid-area: events;
+    grid-area: events;
   }
 
   .events .service-card__decor {
-    width: 15.85%;
+    width: 26.54%;
     height: auto;
   }
+
+  .events:hover .service-card__decor{
+    transform: scale(1.3) translateX(15%) translateY(15%);
+  }
+
+  .events:hover .service-card__decor .events__decor .events__decor__quarter-square{
+    background-color: var(--strategix-accent);
+    animation: events-anim 2s infinite linear;
+  }
+
+
+
 
   .ai-marketing{
       grid-area: ai-marketing;
