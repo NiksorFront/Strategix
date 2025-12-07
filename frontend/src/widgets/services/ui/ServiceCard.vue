@@ -175,7 +175,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
   }
 
   .branding .service-card__decor {
-    width: 5.6%;
+    width: 6.04%;
     height: auto;
   }
 
@@ -190,25 +190,32 @@ const {service} = defineProps<{service: ServiceItem;}>();
 
 
   .production{
-      grid-area: production;
+    grid-area: production;
   }
 
   .production .service-card__decor {
-    width: calc(1.5vw + 1.5vh);
+    width: 15.85%;
     height: auto;
-    aspect-ratio: 1 / 1;
-    margin: 0;
   }
+
+  .production:hover .service-card__decor{
+    transform: scale(1.3) translateX(15%) translateY(15%);
+  }
+
+  .production:hover .service-card__decor .production__decor .production__decor__quarter-circle{
+    background-color: var(--strategix-accent);
+    animation: production-anim 2s infinite linear;
+  }
+
+
 
   .events{
       grid-area: events;
   }
 
   .events .service-card__decor {
-    width: calc(1.5vw + 1.5vh);
+    width: 15.85%;
     height: auto;
-    aspect-ratio: 1 / 1;
-    margin: 0;
   }
 
   .ai-marketing{
