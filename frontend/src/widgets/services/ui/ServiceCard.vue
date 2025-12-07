@@ -118,7 +118,6 @@ const {service} = defineProps<{service: ServiceItem;}>();
     color: var(--strategix-light);
 
     font-size: clamp(14px, calc(0.4vw + 1.5vh), 34px);
-    transition: all 0.3s;
 
     @media(--mobile-medium) {
         font-size: min(14px, 3.325vh);
@@ -184,7 +183,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
   }
 
   .branding:hover .service-card__decor .branding__decor .branding__decor__square{
-    animation: square-anim 3s infinite linear;
+    animation: branding-anim 3s infinite linear;
   }
 
 
@@ -228,8 +227,6 @@ const {service} = defineProps<{service: ServiceItem;}>();
   }
 
 
-
-
   .ai-marketing{
       grid-area: ai-marketing;
   }
@@ -241,16 +238,38 @@ const {service} = defineProps<{service: ServiceItem;}>();
     margin: 0;
   }
 
+
+
+
   .ads{
-      grid-area: ads;
+    grid-area: ads;
   }
-  
+
   .ads .service-card__decor {
-    width: calc(1.5vw + 1.5vh);
+    width: 10.935%;
     height: auto;
-    aspect-ratio: 1 / 1;
-    margin: 0;
   }
+
+  .ads:hover .ads__decor{
+    transform: scale(1.3) translateX(15%) translateY(15%);
+  }
+
+  .ads:hover .service-card__decor .ads__decor .ads__decor__circle{
+    border-color: white;
+  }
+
+  .ads:hover .service-card__decor .ads__decor .ads__decor__point{
+    width: 20%;
+    height: 20%;
+    background-color: var(--strategix-accent-light);
+  }
+
+  .ads:hover .service-card__decor .ads__decor .ads__decor__orbit{
+     animation: ads-anim 2s infinite linear;
+  }
+
+
+
 
   .questions{
       grid-area: questions;

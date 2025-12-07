@@ -19,10 +19,10 @@
 
   background-color: var(--strategix-accent);
 
-  /* animation: square-anim 2s infinite ease-in-out; /* запускается в ServiceCard.vue */
+  /* animation: branding-anim 2s infinite ease-in-out; /* запускается в ServiceCard.vue */
 }
 
-@keyframes square-anim {
+@keyframes branding-anim {
   0%{
     width: 100%;
     height: 100%;
