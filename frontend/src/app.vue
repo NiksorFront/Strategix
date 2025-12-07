@@ -15,6 +15,7 @@
   :root {
     --strategix-dark: #202226;
     --strategix-light: #F1F1F1;
+    --strategix-accent-light: #B0E3C6;
     --strategix-accent: #2AB464;
     --strategix-gray: #A7A7A7;
     

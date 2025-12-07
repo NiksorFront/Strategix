@@ -33,6 +33,7 @@
 <style scped>
 .services {
     width: 100vw;
+    min-height: 100vh;
     height: fit-content;
     padding: 0 var(--padding-section-x) 10vh;
     box-sizing: border-box;
@@ -40,18 +41,25 @@
     background-color: var(--strategix-light);
 
     overflow: hidden;
+
+    @media(--tablet-width){
+      height: 100vh;
+    }
 }
 
 .services-grid{
   width: 100%;
-  height: 100%;
+  height: 90%;
 
   gap: var(--gap-grid);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  /* grid-template-rows: repeat(2, 170px); */
-  grid-auto-columns: 170px;
-  grid-auto-rows: 170px;
+  grid-template-columns: repeat(2, calc((100% - var(--gap-grid)) / 2));
+  grid-auto-rows: 23vh;
+
+  @media(--mobile-width ){
+    grid-template-columns: repeat(3, calc((100% - var(--gap-grid)*2) / 3));
+    grid-auto-rows: 27.5vh;
+  }
 
   @media(--tablet-width){
     grid-template-columns: calc(25% - var(--gap-grid)) calc(25% - var(--gap-grid)) calc(17% - var(--gap-grid)) 33%;

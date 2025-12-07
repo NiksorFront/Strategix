@@ -84,7 +84,7 @@ const props = defineProps<{ telegram: string; whatsapp: string }>();
 
   @media(--mobile-width){
     margin-top: calc(var(--welcome-padding-top) + 10vh);
-    font-size: clamp(min(min(10vw, 5.5vh), 42px), 3.5vw, 100px);
+    font-size: clamp(min(min(10vw, 5.5vh), 42px), calc(1.925vw + 2.8vh), 100px);
   }
 
   @media(--mobile-medium) {
@@ -104,7 +104,7 @@ const props = defineProps<{ telegram: string; whatsapp: string }>();
 
   @media(--tablet-width){
     width: 82%;
-    font-size: clamp(20px, 2vw, 50px);
+    font-size: clamp(20px, calc(1.1vw + 1.6vh), 50px);
     margin-top: 3.5%;
   }
 

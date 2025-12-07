@@ -7,7 +7,7 @@ import {
   EventsDecor,
   AiMarketingDecor,
   AdsDecor,
-} from "@/shared/ui/service-decor";
+} from "../ui/service-decor";
 
 export type ServiceId =
   | "reputation"

@@ -57,7 +57,7 @@
     @media(--tablet-width){
       width: 50.4%;
       height: fit-content;
-      font-size: clamp(25px, 2.166vw, 52px);
+      font-size: clamp(25px, calc(1.191vw + 1.733vh), 52px);
     }
 
     @media(--mobile-medium) {

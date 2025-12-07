@@ -60,7 +60,7 @@ const email = 'hello@strategix.com';
   color:  var(--strategix-dark);
   font-weight: 500;
   line-height: 110%;
-  font-size: clamp(18px, 6.4vw, 24px);
+  font-size: clamp(18px, calc(3.52vw + 5.12vh), 24px);
 
   @media(--mobile-medium){
     font-size: min(18px, 3.75vh);
@@ -106,8 +106,12 @@ const email = 'hello@strategix.com';
   text-align: left;
 
   color: white;
+  
+  font-size: min(11px, 2.8vw);
 
-  font-size: clamp(5px, 2.565vw, 15px);
+  @media(--tablet-width){
+    font-size: clamp(5px, calc(1.411vw + 2.052vh), 15px);
+  }
 
   @media(--mobile-medium) {
       font-size: min(10px, 2.075vh);
