@@ -14,7 +14,6 @@
 
 <style scoped>
   .h2-text {
-    font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 800;    
     letter-spacing: 0;
     text-align: left;

@@ -6,35 +6,33 @@
 
 <style>
 .branding__decor {
-  width: 100%;
+  width: 100;
   height: auto;
   aspect-ratio: 1 / 1;
-}
 
-.branding__decor__square{
-  width: 100%;
-  height: 100%;
-
-  transform: rotate(45deg);
-
-  background-color: var(--strategix-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   /* animation: branding-anim 2s infinite ease-in-out; /* запускается в ServiceCard.vue */
 }
 
+.branding__decor__square{
+  width: 70.71%; /* 100% / √2 ≈ 70.71%*/
+  height: 70.71%;
+
+  transform: rotate(45deg);
+
+  background-color: var(--strategix-accent);
+}
+
 @keyframes branding-anim {
   0%{
-    width: 100%;
-    height: 100%;
-    background-color: var(--strategix-accent-light);
-    transform: rotate(45deg);
+    transform: rotate(0);
   }
 
   100%{
-    width: 100%;
-    height: 100%;
-    background-color: var(--strategix-accent-light);
-    transform: rotate(405deg);
+    transform: rotate(360deg);
   }
 }
 </style>

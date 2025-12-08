@@ -126,9 +126,12 @@ const {service} = defineProps<{service: ServiceItem;}>();
 
 .service-card__decor{
   width: min-content;
+  min-height: 18.75%;
   height: 18.75%;
   aspect-ratio: 1 / 1 ;
   margin: 0;
+
+  transition: all 0.3s ease-in-out;
 }
 
 .service-card__description {
@@ -146,7 +149,6 @@ const {service} = defineProps<{service: ServiceItem;}>();
   @media(--tablet-width){
     width: 85%;
   }
-
 
   @media(--mobile-medium) {
       font-size: min(12px, 2vh);
@@ -239,7 +241,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
   }
 
   .branding .service-card__decor {
-    width: 6.04%;
+    width: 8.5415%;
     height: auto;
   }
 
@@ -247,8 +249,12 @@ const {service} = defineProps<{service: ServiceItem;}>();
     transform: scale(1.3) translateX(15%) translateY(15%);
   }
 
-  .branding:hover .service-card__decor .branding__decor .branding__decor__square{
+  .branding:hover .service-card__decor .branding__decor{
     animation: branding-anim 3s infinite linear;
+  }
+
+  .branding:hover .service-card__decor .branding__decor .branding__decor__square{
+    background-color: var(--strategix-accent-light);
   }
 
 

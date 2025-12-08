@@ -2,6 +2,8 @@
   import IndexSectionTitle from '@/shared/ui/index-section-title/';
   import ServiceCard from './ServiceCard.vue';
   import ServiceCtaCard from './ServiceCtaCard.vue';
+  import ModalWindow from './ModalWindow.vue';
+  import AboutService from './AboutService.vue';
   import {services} from "../model/config"
 </script>
 
@@ -20,11 +22,15 @@
         <ServiceCard
           v-if="service.id !== 'questions'"
           :service="service"
+          :onclick="`location.hash=''; location.hash='services';document.getElementById('${service.id}-modal').showModal()`"
         />
         <ServiceCtaCard
           v-else
           :service="service"
         />
+        <ModalWindow :id="`${service.id}-modal`">
+          <AboutService :about-service="service.aboutService" />
+        </ModalWindow>
       </template>
     </div>
   </section>
@@ -34,7 +40,7 @@
 .services {
     width: 100vw;
     min-height: 100vh;
-    height: fit-content;
+    height: auto;
     padding: 0 var(--padding-section-x) 10vh;
     box-sizing: border-box;
 
@@ -54,11 +60,11 @@
   gap: var(--gap-grid);
   display: grid;
   grid-template-columns: repeat(2, calc((100% - var(--gap-grid)) / 2));
-  grid-auto-rows: 23vh;
+  grid-auto-rows: minmax(23vh, max-content);
 
   @media(--mobile-width ){
     grid-template-columns: repeat(3, calc((100% - var(--gap-grid)*2) / 3));
-    grid-auto-rows: 27.5vh;
+    grid-auto-rows: minmax(27.5vh, max-content);
   }
 
   @media(--tablet-width){
@@ -77,9 +83,9 @@
 
   @media(--mobile-medium){
     grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(40vh, 1fr));
+    grid-template-rows: repeat(2, minmax(40vh, max-content));
     grid-auto-columns: 20vw;
-    grid-auto-rows: 40vh;
+    grid-auto-rows: minmax(40vh, max-content);
     grid-template-areas: 
       "reputation media branding production"
       "events ai-marketing ads questions"
