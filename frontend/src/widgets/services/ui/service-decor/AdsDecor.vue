@@ -42,8 +42,8 @@
 
 /* точка внизу по центру орбиты */
 .ads__decor__point{
-  width: 30%;
-  height: 30%;
+  width: 33.25%;
+  height: 33.25%;
 
   position: absolute;
   left: 50%;

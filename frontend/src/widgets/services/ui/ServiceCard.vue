@@ -226,16 +226,30 @@ const {service} = defineProps<{service: ServiceItem;}>();
     animation: events-anim 2s infinite linear;
   }
 
+  
 
   .ai-marketing{
-      grid-area: ai-marketing;
+    grid-area: ai-marketing;
   }
 
   .ai-marketing .service-card__decor {
-    width: calc(1.5vw + 1.5vh);
+    width: 16.4025%; /*если разделить на 1.5, то размер будет как у всех остальных */
     height: auto;
-    aspect-ratio: 1 / 1;
-    margin: 0;
+  }
+
+  .ai-marketing:hover .service-card__decor{
+    width: 14.7%;
+    transform: scale(1.3) translateX(15%) translateY(15%);
+  }
+
+  .ai-marketing:hover .service-card__decor .ai-marketing__decor {
+    gap: 13%;
+  }
+
+  .ai-marketing:hover .service-card__decor .ai-marketing__decor .ai-marketing__decor__dot{
+    transform: scale(1);
+    background-color: var(--strategix-accent);
+    animation: ai-marketing-anim 2s infinite ease-in-out;
   }
 
 
