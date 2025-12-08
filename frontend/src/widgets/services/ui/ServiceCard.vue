@@ -1,6 +1,7 @@
 
 <script setup lang="ts">
-import ServiceCtaCard from "./ServiceCtaCard.vue";
+// import arrowForward from '@/assets/images/arrow-forward.svg';
+
 import type { ServiceItem } from "../model/config";
 
 const {service} = defineProps<{service: ServiceItem;}>();
@@ -16,6 +17,8 @@ const {service} = defineProps<{service: ServiceItem;}>();
         :is="service.Decor"
       />
     </div>
+
+    <div class="icon-arrow" />
 
     <h3 class="base-text service-card__title">
       {{ service.title }}
@@ -39,8 +42,67 @@ const {service} = defineProps<{service: ServiceItem;}>();
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  position: relative;
 
   transition: all 0.3s ease-in-out;
+}
+
+.icon-arrow{
+  width: 8.75%;
+  height: auto;
+  box-sizing: border-box;
+  aspect-ratio: 1 / 1;
+
+  position: absolute;
+  top: clamp(12px, 0.666vw + 1.5vh, 40px);
+  right: clamp(12px, 0.666vw + 1.5vh, 40px);
+
+  background: transparent;
+  border: 1px solid var(--strategix-accent);
+  border-bottom: 1px;
+  border-left: 1px;
+
+  transition: all 0.3s ease-in-out;
+
+  @media(--tablet-width){
+    width: clamp(15px, 2.1vw, 50px);
+    height: auto;
+
+    transform: scale(0.7);
+
+    border-color: white;
+  }
+
+  @media(--mobile-medium){
+    width: 8.75%;
+    height: auto;
+
+    border-color: var(--strategix-accent);
+  }
+}
+
+.icon-arrow::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  /* длина линии чуть больше диагонали квадрата: √2 ≈ 1.414 */
+  width: 141%;
+  height: 1px;
+
+  background-color: var(--strategix-accent);
+
+  transform-origin: left bottom;
+  transform: rotate(-45deg);
+
+  @media(--tablet-width){
+    background-color: white;
+  }
+
+  @media(--mobile-medium){
+    background-color: var(--strategix-accent);
+  }
 }
 
 .service-card__title {
@@ -63,11 +125,10 @@ const {service} = defineProps<{service: ServiceItem;}>();
 }
 
 .service-card__decor{
-  width: calc(1.5vw + 1.5vh);
-  height: auto;
+  width: min-content;
+  height: 18.75%;
+  aspect-ratio: 1 / 1 ;
   margin: 0;
-
-  transition: all 0.3s ease-in-out;
 }
 
 .service-card__description {
@@ -98,6 +159,10 @@ const {service} = defineProps<{service: ServiceItem;}>();
     padding: clamp(12px, 0.666vw + 1.5vh, 40px) clamp(12px, 0.666vw + 1.5vh, 40px) calc(clamp(12px, 0.666vw + 1.5vh, 40px) / 2);
     background-color: var(--strategix-accent);
     cursor: pointer;
+  }
+
+  .service-card:hover .icon-arrow{
+    transform: scale(1);
   }
 
   .service-card:hover .service-card__title{

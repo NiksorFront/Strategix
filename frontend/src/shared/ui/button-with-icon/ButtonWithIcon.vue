@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import lineMdArrowUp from '@/assets/images/line-md_arrow-up.svg';
-import arrowForward from '@/assets/images/arrow-forward.svg';
+import arrowForwardInCircle from '@/assets/images/arrow-forward-in-circle.svg';
 
 /**
  * styleButton:
@@ -30,7 +30,7 @@ const iconSrc = computed(() => {
       return lineMdArrowUp;
     case 'base':
     default:
-      return arrowForward;
+      return arrowForwardInCircle;
   }
 });
 </script>
@@ -46,7 +46,7 @@ const iconSrc = computed(() => {
     <span class="icon">
       <NuxtImg
         :src="iconSrc"
-        alt="icon"
+        alt="icon-arrow"
       />
     </span>
   </a>
