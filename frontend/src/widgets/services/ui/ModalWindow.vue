@@ -8,7 +8,21 @@ const { id } = defineProps<{ id: string }>();
     class="modal"
     closedby="any"
   >
-    <slot />
+    <!-- "Фон", клика по которому закрывает диалог -->
+    <form
+      method="dialog"
+      class="modal__backdrop-form"
+    >
+      <button
+        type="submit"
+        class="modal__backdrop-button"
+        aria-label="Закрыть модальное окно по клику на фон"
+      />
+    </form>
+
+    <div class="modal__window">
+      <slot />
+    </div>
   </dialog>
 </template>
 
@@ -22,40 +36,61 @@ const { id } = defineProps<{ id: string }>();
 
 <style scoped>
 .modal {
-  width: calc(100vw - 2 * var(--padding-section-x));
-  height: 86vh;
-  margin: calc(clamp(18px, 2vw, 48px) + min(40px, 4vh)) var(--padding-section-x) 10vh; /*Рассчет идет исходя из margin-bottom IndexSectionTitle.vue и padding-bottom у Services.vue */
-  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
 
   /* убираем чёрную стандартную рамку/фон */
   border: none;
   outline: none;
   padding: 0;
   background: transparent;
+}
 
-  /* стартовое состояние — "невидим снизу" */
-  filter: blur(2px);
-  transform: scale(0.98);
+/* форма-фон, растянутая на весь экран */
+.modal__backdrop-form {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  margin: 0;
+  padding: 0;
+}
+
+.modal__backdrop-button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  /* cursor: pointer; */
+
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
+.modal__window {
+  width: calc(100vw - 2 * var(--padding-section-x));
+  height: 86vh;
+
+  position: fixed;
+  left: var(--padding-section-x);
+  right: var(--padding-section-x);
+  top: calc(clamp(18px, 2vw, 48px) + min(40px, 4vh)); /*Рассчет идет исходя из margin-bottom IndexSectionTitle.vue и padding-bottom у Services.vue */
+  bottom: 10vh;
+  
+  /* margin: calc(clamp(18px, 2vw, 48px) + min(40px, 4vh)) var(--padding-section-x) 10vh;  */
+
+  animation: modal-fly-in 0.3s ease-in-out;
 
   @media(--tablet-width){
     height: calc(100vh - (clamp(14px, 2.25vw, 52px) + clamp(40px, 5vh, 80px)) - 10vh);
-    margin: calc(clamp(14px, 2.25vw, 52px) + clamp(40px, 5vh, 80px)) var(--padding-section-x) 10vh;
+    top: calc(clamp(14px, 2.25vw, 52px) + clamp(40px, 5vh, 80px));
   }
 
   @media(--mobile-medium){
     height: calc(100vh - clamp(40px, 5vh, 80px) - 10vh);
-    margin: clamp(40px, 5vh, 80px) var(--padding-section-x) 10vh;
+    top: clamp(40px, 5vh, 80px);
   }
 }
 
-/* когда диалог открыт — запускаем анимацию*/
-.modal[open] {
-  animation: modal-fly-in 0.3s ease-in-out forwards;
-}
-
-.modal::backdrop {
-  background: rgba(0, 0, 0, 0.6);
-}
 
 /* анимация "влёта" */
 @keyframes modal-fly-in {

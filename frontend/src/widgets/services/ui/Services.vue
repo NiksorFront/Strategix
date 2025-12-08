@@ -22,7 +22,15 @@
         <ServiceCard
           v-if="service.id !== 'questions'"
           :service="service"
-          :onclick="`location.hash=''; location.hash='services';document.getElementById('${service.id}-modal').showModal()`"
+          :onclick="`
+            if ('replaceState' in history) {
+              history.replaceState(null, document.title, location.pathname + location.search);
+            } else {
+              location.hash = '';
+            }
+            location.hash = 'services';
+            document.getElementById('${service.id}-modal').showModal();
+          `"
         />
         <ServiceCtaCard
           v-else
