@@ -68,22 +68,24 @@ const { id } = defineProps<{ id: string }>();
 
 .modal__window {
   width: calc(100vw - 2 * var(--padding-section-x));
-  height: fit-content;
+  height: auto;
   max-height: 86vh;
+  overflow: auto;
 
   position: fixed;
   left: var(--padding-section-x);
   right: var(--padding-section-x);
   top: calc(clamp(18px, 2vw, 48px) + min(40px, 4vh)); /*Рассчет идет исходя из margin-bottom IndexSectionTitle.vue и padding-bottom у Services.vue */
-  bottom: 10vh;
   
   /* margin: calc(clamp(18px, 2vw, 48px) + min(40px, 4vh)) var(--padding-section-x) 10vh;  */
 
   animation: modal-fly-in 0.3s ease-in-out;
 
   @media(--tablet-width){
-    height: calc(100vh - (clamp(14px, 2.25vw, 52px) + clamp(40px, 5vh, 80px)) - 10vh);
+    /* height: calc(100vh - (clamp(14px, 2.25vw, 52px) + clamp(40px, 5vh, 80px)) - 10vh);*/
     top: calc(clamp(14px, 2.25vw, 52px) + clamp(40px, 5vh, 80px));
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
   }
 
   @media(--mobile-medium){

@@ -6,13 +6,6 @@ const props = defineProps<{ aboutService: AboutServiceForModal, gridArea: string
 
 const {title, Decor, lead, bullets, text} = props.aboutService
 
-const formattedText = computed(() => {
-  // preserve paragraph breaks from the source text
-  return text
-    .split('\n\n')
-    .map(p => `<p>${p}</p>`)
-    .join('');
-});
 </script>
 
 <template>
@@ -35,66 +28,58 @@ const formattedText = computed(() => {
       </form>
       
       <h3 class="upperscase-text about-service-title">
-        {{ props.aboutService.title }}
+        {{ title }}
       </h3>
        
       <p class="base-text about-service-lead">
-        {{ props.aboutService.lead }}
+        {{ lead }}
       </p>
       
       <ul class="about-service-bullets">
         <li
-          v-for="(b, i) in props.aboutService.bullets"
+          v-for="(bulletText, i) in bullets"
           :key="i"
           class="bullet"
         >
-          <!-- <span class="bullets__dot" /> -->
-          <span class="small-text bullet-text">{{ b }}</span>
+          <span class="small-text bullet-text">{{ bulletText }}</span>
         </li>
       </ul>
 
       <div class="service-decor" />
     </div>
     <div class="about-service-pc">
-      <aside class="about-service__card">
-        <div class="about-service__card-top">
-          <form method="dialog">
-            <button
-              type="submit"
-              class="about-service__corner"
-              aria-label="Закрыть модальное окно"
-            />
-          </form>
-        </div>
+      <div class="pc-left-content">
+        <form
+          method="dialog"
+          class="icon-arrow"
+        >
+          <button
+            type="submit"
+            aria-label="Закрыть модальное окно"
+          />
+        </form>
 
-        <h3 class="base-text about-service__title">
-          {{ props.aboutService.title }}
+        <h3 class="upperscase-text about-service-title">
+          {{ title }}
         </h3>
 
-        <p class="small-text about-service__lead">
-          {{ props.aboutService.lead }}
-        </p>
-
-        <ul class="about-service__bullets">
+        <ul class="about-service-bullets">
           <li
-            v-for="(b, i) in props.aboutService.bullets"
+            v-for="(bulletText, i) in bullets"
             :key="i"
+            class="bullet"
           >
-            <span class="about-service__dot" />
-            <span class="about-service__bullet-text">{{ b }}</span>
+            <span class="small-text bullet-text">{{ bulletText }}</span>
           </li>
         </ul>
-      </aside>
-
-      <div class="about-service__content">
-        <p class="about-service__content-lead">
-          {{ props.aboutService.lead }}
+      </div>
+      <div class="pc-right-content">
+        <p class="base-text about-service-lead">
+          {{ lead }}
         </p>
-
-        <div
-          class="about-service__text"
-          v-html="formattedText"
-        />
+        <p class="small-text bullet-text about-service-text">
+          {{ text }}
+        </p>
       </div>
     </div>
   </div>
@@ -127,6 +112,65 @@ const formattedText = computed(() => {
   border-radius: var(--card-radius);
 
   overflow-y: scroll;
+
+  @media(--tablet-width){
+    display: none;
+  }
+
+  @media(--mobile-medium){
+    display: flex;
+  }
+}
+
+.about-service-pc{
+  width: 100%;
+  height: fit-content;
+
+  display: none;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background: white;
+  border-radius: var(--card-radius);
+
+  @media(--tablet-width){
+    display: flex;
+  }
+
+  @media(--mobile-medium){
+    display: none;
+  }
+}
+
+.pc-left-content{
+  min-height: 100%;
+  width: 40%;
+  max-width: 40%;
+  padding: clamp(30px, 8.75vh, 135px) clamp(20px, 3.75vw, 90px);
+  box-sizing: border-box;
+  background-color: var(--strategix-accent);
+  border-radius: var(--card-radius);
+
+  display: flex;
+  flex-direction: column;
+  gap: clamp(15px, 4.325vh, 70px);
+
+  position: relative;
+
+  /* @media(--mobile-medium){
+    padding: min(30px, 6.25vh) min(20px, 3.75vw);
+  } */
+}
+
+.pc-right-content{
+    min-height: 100%;
+    width: 60%;
+    max-width: 60%;
+    padding: clamp(30px, 8.75vh, 135px) clamp(20px, 3.75vw, 90px);
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(15px, 4.325vh, 70px);
 }
 
 .service-decor{
@@ -155,8 +199,11 @@ const formattedText = computed(() => {
   z-index: 5;
 
   @media(--tablet-width){
-    width: clamp(15px, 2.1vw, 50px);
-    height: auto;
+    width: clamp(20px, 2.5vw, 60px);
+    height: clamp(20px, 2.5vw, 60px);
+    border: 2px solid white;
+    border-top: 2px;
+    border-right: 2px;
   }
 
   @media(--mobile-medium){
@@ -179,6 +226,11 @@ const formattedText = computed(() => {
 
   transform-origin: left bottom;
   transform: rotate(-45deg);
+
+  @media(--tablet-width){
+    width: 135%;
+    height: 2px;
+  }
 }
 
 .icon-arrow button{
@@ -194,14 +246,6 @@ const formattedText = computed(() => {
   outline: none;
 }
 
-.about-service-pc{
-  width: 100%;
-  display: none;
-  flex-direction: column;
-  gap: clamp(12px, 1.5vw, 28px);
-  height: 100%;
-}
-
 /* Left green card */
 .about-service__card{
   background: var(--strategix-accent);
@@ -214,7 +258,6 @@ const formattedText = computed(() => {
   gap: clamp(12px, 1.2vh, 18px);
 }
 
-
 .about-service-title{
   margin: 0;
 
@@ -223,7 +266,7 @@ const formattedText = computed(() => {
   color: white;
 
   @media(--tablet-width){
-    font-size: clamp(32px, 8.2vw, 64px);
+    font-size: clamp(24px, 2.9175vw, 64px);
   }
 
   @media(--mobile-medium){
@@ -241,7 +284,8 @@ const formattedText = computed(() => {
   color: white;
 
   @media(--tablet-width){
-    font-size: clamp(18px, calc(1.1vw + 0.6vh), 42px);
+    font-size: clamp(18px, calc(1.4vw + 1.025vh), 42px);
+    color: var(--strategix-accent);
   }
 
   @media(--mobile-medium) {
@@ -260,7 +304,6 @@ const formattedText = computed(() => {
 .about-service-bullets{
   padding: 0;
   margin: 0;
-  margin-left: min(4.4%, 15px);
   display: flex;
   flex-direction: column;
   gap: min(1.2vh, 12px);
@@ -268,88 +311,44 @@ const formattedText = computed(() => {
 }
 
 .bullet{
-  /* display: flex; */
-  /* align-items: flex-start; */
-  /* gap: 12px; */
+  margin-left: min(4.4%, 15px);
+
+  @media(--tablet-width){
+    font-size: 36px; /* Изменение размера точек рядом с шрифтом*/
+    line-height: 60%;
+    margin-left: 7.75%;
+    margin-bottom: 0.8vh;
+  }
+
+  @media(--mobile-medium){
+    font-size: min(16px, 4.1vw);
+    margin-left: min(5%, 15px);
+    line-height: 110%;
+  }
 }
 
 .bullet-text{
+  margin: 0;
+  
+  text-align: left;
   font-size: min(16px, 4.1vw);
   line-height: 130%;
+
+  @media(--tablet-width){
+    font-size: clamp(14px, 1.335vw, 32px);
+
+    vertical-align: top;
+    line-height: 165%;
+  }
 
   @media(--mobile-medium) {
     font-size: min(16px, 3.325vh);
   }
 }
 
-/* Right white content for desktop */
-.about-service__content{
-  background: white;
-  border-radius: var(--card-radius);
-  padding: clamp(18px, 2.2vh, 36px);
-  box-sizing: border-box;
-  margin-top: 0;
-  color: var(--strategix-dark);
+.about-service-text{
+    font-weight: 300;
 }
-
-.about-service__content-title{
-  text-align: left;
-  color: var(--strategix-accent);
-  font-size: clamp(18px, 3.5vw, 32px);
-}
-
-.about-service__content-lead{
-  color: var(--strategix-accent);
-  font-weight: 700;
-  font-size: clamp(14px, 2.6vw, 22px);
-  margin-top: 6px;
-  margin-bottom: 12px;
-}
-
-.about-service__text{
-  color: var(--strategix-dark);
-  font-size: clamp(12px, 1.6vw, 16px);
-  line-height: 1.45;
-}
-
-/* Mobile first: single column with green card full width, white content below (as in mobile mockup) */
-.about-service__card{
-  width: 100%;
-}
-
-.about-service__content{
-  width: 100%;
-}
-
-@media(--tablet-width){
-  .about-service__inner{
-    flex-direction: row;
-    align-items: stretch;
-    gap: clamp(24px, 2.2vw, 40px);
-  }
-
-  .about-service__card{
-    width: 40%;
-    min-width: 360px;
-    padding: clamp(28px, 3.5vh, 48px);
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  .about-service__content{
-    width: 60%;
-    padding: clamp(28px, 3.5vh, 48px);
-  }
-
-  .about-service__title{
-    font-size: clamp(28px, 2.4vw, 44px);
-  }
-
-  .about-service__content-title{
-    font-size: clamp(28px, 2.4vw, 44px);
-  }
-}
-
 </style>
 
 <style>
