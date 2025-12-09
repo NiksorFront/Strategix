@@ -116,6 +116,10 @@ const {service} = defineProps<{service: ServiceItem;}>();
   transition: all 0.3s ease-in-out;
 
   @media(--tablet-width){
+    font-size: clamp(16px, calc(0.525vw + 1.35vh), 40px);
+  }
+
+  @media (--laptop-width) and (min-aspect-ratio: 4/3){
     font-size: clamp(16px, calc(0.525vw + 1.75vh), 40px);
   }
 
@@ -146,7 +150,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
   /* line-height: 100%; */
   transition: all 0.3s ease-in-out;
 
-  @media(--tablet-width){
+  @media (--laptop-width) and (min-aspect-ratio: 4/3){
     width: 85%;
   }
 
@@ -155,7 +159,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
   }
 }
 
-@media(--tablet-width){
+@media (--laptop-width) and (min-aspect-ratio: 4/3){
   .service-card:hover{
     /* padding: calc(clamp(12px, 0.666vw + 1.5vh, 40px) / 2) clamp(12px, 0.666vw + 1.5vh, 40px); */
     padding: clamp(12px, 0.666vw + 1.5vh, 40px) clamp(12px, 0.666vw + 1.5vh, 40px) calc(clamp(12px, 0.666vw + 1.5vh, 40px) / 2);

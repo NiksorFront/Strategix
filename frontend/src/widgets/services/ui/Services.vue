@@ -59,7 +59,7 @@
 
     overflow: hidden;
 
-    @media(--tablet-width){
+    @media (--laptop-width) and (min-aspect-ratio: 4/3){
       height: 100vh;
     }
 }
@@ -71,14 +71,14 @@
   gap: var(--gap-grid);
   display: grid;
   grid-template-columns: repeat(2, calc((100% - var(--gap-grid)) / 2));
-  grid-auto-rows: max(25vh, 700px - 70vh);
+  grid-auto-rows: max(25vh, 480px - 37vh);
 
   @media(--mobile-width ){
     grid-template-columns: repeat(3, calc((100% - var(--gap-grid)*2) / 3));
     grid-auto-rows: max(27.5vh, 575px - 70vh);
   }
 
-  @media(--tablet-width){
+  @media (--laptop-width) and (min-aspect-ratio: 4/3){
     grid-template-columns: calc(25% - var(--gap-grid)) calc(25% - var(--gap-grid)) calc(17% - var(--gap-grid)) 33%;
     grid-template-rows: calc(29% - var(--gap-grid)) calc(29% - var(--gap-grid)) 42%;
     grid-template-areas: 
