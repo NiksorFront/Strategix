@@ -68,7 +68,8 @@ const { id } = defineProps<{ id: string }>();
 
 .modal__window {
   width: calc(100vw - 2 * var(--padding-section-x));
-  height: 86vh;
+  height: fit-content;
+  max-height: 86vh;
 
   position: fixed;
   left: var(--padding-section-x);

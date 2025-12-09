@@ -21,6 +21,7 @@ export type ServiceId =
 
 export interface AboutServiceForModal {
   title: string;
+  Decor: Component;
   lead: string;
   bullets: string[];
   text: string;
@@ -45,6 +46,7 @@ export const services: ServiceItem[] = [
     gridArea: "reputation",
     aboutService: {
       title: "Построение репутации",
+      Decor: ReputationDecor,
       lead:
         "Репутация бренда — стратегический актив, который формируется через каждое касание с аудиторией.",
       bullets: [
@@ -67,8 +69,9 @@ export const services: ServiceItem[] = [
     gridArea: "media",
     aboutService: {
       title: "Медиа-сопровождение",
+      Decor: MediaDecor,
       lead:
-        "Медиа-сопровождение — это комплексная работа с информационным полем вокруг бренда в СМИ и digital-среде.",
+        "Медиа-сопровождение — это комплексная работа с информационным полем вокруг бренда. Мы выстраиваем стратегию коммуникаций в СМИ и digital-среде, формируем правильные.",
       bullets: [
         "Разработка медиа-стратегии и коммуникационного плана.",
         "Формирование и управление информационными поводами.",
@@ -89,6 +92,7 @@ export const services: ServiceItem[] = [
     gridArea: "branding",
     aboutService: {
       title: "Брендинг",
+      Decor: BrandingDecor,
       lead:
         "Брендинг — это не только логотип и айдентика, а целостная система смыслов, образов и впечатлений о компании.",
       bullets: [
@@ -111,6 +115,7 @@ export const services: ServiceItem[] = [
     gridArea: "production",
     aboutService: {
       title: "Продакшн",
+      Decor: ProductionDecor,
       lead:
         "Качественный контент — один из ключевых инструментов, который делает бренд живым и запоминающимся.",
       bullets: [
@@ -133,6 +138,7 @@ export const services: ServiceItem[] = [
     gridArea: "events",
     aboutService: {
       title: "Ивенты",
+      Decor: EventsDecor,
       lead:
         "События — это способ выстроить живое взаимодействие с аудиторией и усилить эмоции вокруг бренда.",
       bullets: [
@@ -155,6 +161,7 @@ export const services: ServiceItem[] = [
     gridArea: "ai-marketing",
     aboutService: {
       title: "ИИ-маркетинг",
+      Decor: AiMarketingDecor,
       lead:
         "Искусственный интеллект помогает принимать решения на основе данных и значительно повышать эффективность маркетинга.",
       bullets: [
@@ -177,6 +184,7 @@ export const services: ServiceItem[] = [
     gridArea: "ads",
     aboutService: {
       title: "Реклама",
+      Decor: AdsDecor,
       lead:
         "Эффективная рекламная кампания — это сочетание сильной идеи, точного таргетинга и продуманной воронки.",
       bullets: [
@@ -198,6 +206,7 @@ export const services: ServiceItem[] = [
     gridArea: "questions",
     aboutService: {
       title: "Остались вопросы?",
+      Decor: AdsDecor,
       lead:
         "Если Вы не нашли нужную услугу или хотите обсудить нестандартный запрос, мы подготовим индивидуальное решение.",
       bullets: [

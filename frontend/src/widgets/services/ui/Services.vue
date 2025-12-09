@@ -37,7 +37,10 @@
           :service="service"
         />
         <ModalWindow :id="`${service.id}-modal`">
-          <AboutService :about-service="service.aboutService" />
+          <AboutService
+            :grid-area="service.gridArea"
+            :about-service="service.aboutService"
+          />
         </ModalWindow>
       </template>
     </div>
@@ -68,11 +71,11 @@
   gap: var(--gap-grid);
   display: grid;
   grid-template-columns: repeat(2, calc((100% - var(--gap-grid)) / 2));
-  grid-auto-rows: minmax(23vh, max-content);
+  grid-auto-rows: max(25vh, 700px - 70vh);
 
   @media(--mobile-width ){
     grid-template-columns: repeat(3, calc((100% - var(--gap-grid)*2) / 3));
-    grid-auto-rows: minmax(27.5vh, max-content);
+    grid-auto-rows: max(27.5vh, 575px - 70vh);
   }
 
   @media(--tablet-width){

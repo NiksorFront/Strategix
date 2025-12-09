@@ -12,7 +12,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
     class="service-card"
     :class="service.gridArea"
   >
-    <div class="base-text service-card__decor">
+    <div class="service-card__decor">
       <component
         :is="service.Decor"
       />
