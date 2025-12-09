@@ -84,7 +84,11 @@ const props = defineProps<{ telegram: string; whatsapp: string }>();
 
   @media(--mobile-width){
     margin-top: calc(var(--welcome-padding-top) + 10vh);
-    font-size: clamp(min(min(10vw, 5.5vh), 42px), calc(1.925vw + 2.8vh), 100px);
+    font-size: clamp(min(min(4vw, 3vh), 42px), calc(1.95vw + 2.85vh), 100px);
+  }
+
+  @media (--mobile-width) and (max-aspect-ratio: 4/5){
+      font-size: clamp(min(4vw, 3vh), calc(1.325vw + 2.2vh), 100px);
   }
 
   @media(--mobile-medium) {
@@ -104,9 +108,11 @@ const props = defineProps<{ telegram: string; whatsapp: string }>();
 
   @media(--tablet-width){
     width: 82%;
-    font-size: clamp(20px, calc(1.1vw + 1.6vh), 50px);
+    font-size: clamp(20px, calc(1vw + 1.25vh), 50px);
     margin-top: 3.5%;
   }
+
+  
 
   @media(--mobile-medium) {
     font-size: min(14px, 3.75vh);

@@ -56,7 +56,7 @@
  .columns {
     width: auto;
     height: auto;
-    margin: var(--welcome-padding-top) 1vw var(--welcome-padding-bottom) 10vw;
+    margin: var(--welcome-padding-top) min(1vw, 75px) var(--welcome-padding-bottom) auto;
 
     display: flex;
     flex-direction: row;

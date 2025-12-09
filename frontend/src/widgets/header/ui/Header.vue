@@ -80,7 +80,7 @@
       width: clamp(121px, 10.1vw, 245px);
     }
 
-    @media(--mobile-small) {
+    @media(--mobile-medium) {
       width: auto;
       height: 100%;
     }
