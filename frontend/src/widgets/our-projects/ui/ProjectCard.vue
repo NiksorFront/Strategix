@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 
 const {src, title, description} = defineProps<{src: string, title: string, description: string}>()
 
+const { locale } = useI18n()
 const router = useRouter()
 
 function slugify(s: string) {
@@ -24,7 +25,7 @@ function slugify(s: string) {
 const slug = computed(() => slugify(title))
 
 function go() {
-  router.push(`/project/${slug.value}`)
+  router.push(`/${locale.value}/project/${slug.value}`)
 }
 </script>
 

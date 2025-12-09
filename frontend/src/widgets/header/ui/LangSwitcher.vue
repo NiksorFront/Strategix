@@ -1,5 +1,18 @@
 <script setup lang="ts">
-const languages = ['Rus', 'Eng', 'Der', 'Esp']
+import localesConfig from '@/content/locales.json'
+
+
+const { locale, setLocale } = useI18n()
+
+const CurrentLanguage = localesConfig.locales.find(langConfig => langConfig.code === locale.value)
+
+const changeLanguage = (langCode: string) => {
+  // @ts-ignore
+  setLocale(langCode);
+
+  window.setTimeout(() => location.hash = '', 50);
+};
+
 </script>
 
 <template>
@@ -10,22 +23,22 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
         class="small-text lang-current "
         type="button"
       >
-        Rus
+        {{ CurrentLanguage ? CurrentLanguage.name : localesConfig.default }}
       </button>
 
       <!-- выпадающий список всех языков -->
       <ul class="lang-list">
         <li
-          v-for="language in languages"
-          :key="language"
+          v-for="language in localesConfig.locales"
+          :key="language.name"
           class="lang-item"
         >
-          <a
-            href="#"
+          <button
             class="small-text lang-link hover"
+            @click.prevent="changeLanguage(language.code)"
           >
-            {{ language }}
-          </a>
+            {{ language.name }}
+          </button>
         </li>
       </ul>
     </div>
@@ -90,7 +103,7 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
   .lang-list {
     position: absolute;
     top: 100%;
-    right: -15%;
+    right: -12px;
 
     margin: 0;
     padding: 12px 18px;
@@ -101,7 +114,7 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
 
     opacity: 0;
     pointer-events: none;
-    transform: translateY(0); /*убрать*/
+    /* transform: translateX(50%); */
     transition:
       opacity 0.15s ease,
       transform 0.15s ease;
@@ -114,6 +127,10 @@ const languages = ['Rus', 'Eng', 'Der', 'Esp']
   }
 
   .lang-link {
+    border: none;
+    background: transparent;
+    outline: none;
+
     text-decoration: none;
     color: white;
     white-space: nowrap;
