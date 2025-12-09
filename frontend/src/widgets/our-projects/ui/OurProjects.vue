@@ -53,6 +53,10 @@
       height: 105vh;
     }
 
+    @media(--tablet-width) and (max-aspect-ratio: 4/3){
+      height: 75vh;
+    }
+
     @media(--mobile-medium){
       height: 105vh;
     }

@@ -1,9 +1,41 @@
 <script setup lang="ts">
-  const {src, title, description} = defineProps<{src: string, title: string, description: string}>()
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+const {src, title, description} = defineProps<{src: string, title: string, description: string}>()
+
+const router = useRouter()
+
+function slugify(s: string) {
+  const map: Record<string, string> = {
+    'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'e','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'kh','ц':'ts','ч':'ch','ш':'sh','щ':'shch','ъ':'','ы':'y','ь':'','э':'e','ю':'yu','я':'ya'
+  }
+  return s
+    .toLowerCase()
+    .trim()
+    .split('')
+    .map(ch => map[ch] ?? ch)
+    .join('')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+}
+
+const slug = computed(() => slugify(title))
+
+function go() {
+  router.push(`/project/${slug.value}`)
+}
 </script>
 
 <template>
-  <li class="project-card">
+  <li
+    class="project-card"
+    role="link"
+    tabindex="0"
+    @click="go"
+    @keydown.enter="go"
+  >
     <NuxtImg
       :src="src"
       class="img-card"
@@ -35,11 +67,12 @@
 
   transition: all 0.3s;
   
-  @media(--mobile-width){
+  @media(--tablet-width){
     min-width: min(32.5%, 74.36vw);
   }
 
   @media(--mobile-medium){
+    min-width: 32.5%;
     /* height: fit-content; */
   }
 

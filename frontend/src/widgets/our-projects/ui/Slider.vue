@@ -27,7 +27,12 @@
   overflow: hidden;
   transform: translateX(calc(-1 * var(--padding-section-x)));
 
-  @media(--mobile-width){
+  @media(--tablet-width){
+    width: 100%;
+    transform: none;
+  }
+
+  @media(--mobile-medium){
     width: 100%;
     transform: none;
   }
@@ -62,7 +67,12 @@
 	min-width: calc(var(--padding-section-x) - 1.25%); /* padding у края*/
 	pointer-events: none;
 
-  @media(--mobile-width){
+  @media(--tablet-width){
+    min-width: 0;
+    margin-left: -1.25%;
+  }
+
+  @media(--mobile-medium){
     min-width: 0;
     margin-left: -1.25%;
   }

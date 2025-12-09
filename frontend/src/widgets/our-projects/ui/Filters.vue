@@ -55,6 +55,7 @@
 
 .item{
     border: 0;
+    color: black;
     background-color: white;
     /* padding: 10px 13px; */
     padding: clamp(9px, 0.75vw, 18px) clamp(12px, 0.916vw, 22px);
@@ -63,7 +64,6 @@
     /* text-decoration: none; */
     font-family: "Liberty-MT", "Onest", Arial, sans-serif;
     font-size: clamp(15px, 1.334vw, 36px);
-
     line-height: 110%;
     font-weight: 700;
     letter-spacing: 0;
