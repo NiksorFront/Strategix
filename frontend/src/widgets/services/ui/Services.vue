@@ -5,9 +5,14 @@
   import ModalWindow from './ModalWindow.vue';
   import AboutService from './AboutService.vue';
   import { getServices } from "../model/config"
+  import index from '@/content/pages/index.json'
 
   const { locale } = useI18n()
   const services = computed(() => getServices(locale.value || 'ru'))
+  
+  const currentLocale = locale.value || 'ru'
+  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+  const sectionTitle = translations.services.title
 </script>
 
 <template>
@@ -15,7 +20,7 @@
     id="services"
     class="services"
   >
-    <IndexSectionTitle>Услуги</IndexSectionTitle>
+    <IndexSectionTitle>{{ sectionTitle }}</IndexSectionTitle>
 
     <div class="services-grid">
       <template
