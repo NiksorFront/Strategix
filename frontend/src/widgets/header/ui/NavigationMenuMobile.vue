@@ -50,6 +50,9 @@ const buttonHref = translations.header.mobile_menu.button.href
         class="strategix-logo"
         :src="strategixLogo"
         alt="strategix logo"
+        :width="172"
+        :height="36"
+        loading="lazy"
       />
 
       <nav class="navigation">

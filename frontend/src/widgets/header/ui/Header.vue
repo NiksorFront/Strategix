@@ -35,6 +35,9 @@
       class="strategix-logo"
       :src="strategixLogo"
       alt="strategix logo"
+      :width="172"
+      :height="36"
+      fetchpriority="high"
     />
     
     <span class="space" />

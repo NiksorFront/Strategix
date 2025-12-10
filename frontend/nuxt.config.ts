@@ -11,11 +11,42 @@ export default defineNuxtConfig({
   app:{
     baseURL: process.env.NUXT_APP_BASE_URL ?? "/",
   },
+  experimental: {
+    payloadExtraction: false,
+  },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor': ['vue', 'vue-router'],
+          }
+        }
+      }
+    },
+    css: {
+      devSourcemap: false,
+    }
+  },
   nitro: {
     preset: "github_pages",
     prerender: {
       crawlLinks: true
-    }
+    },
+    compressPublicAssets: true,
+    minify: true
+  },
+  image: {
+    quality: 80,
+    format: ['webp'],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
   },
   eslint: {
     config: {

@@ -162,7 +162,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
 @media (--laptop-width) and (min-aspect-ratio: 4/3){
   .service-card:hover{
     /* padding: calc(clamp(12px, 0.666vw + 1.5vh, 40px) / 2) clamp(12px, 0.666vw + 1.5vh, 40px); */
-    padding: clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px) clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px) calc(clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px) / 2);
+    padding: clamp(12px, 0.666vw + var(--vh) * 1.5, 40px) clamp(12px, 0.666vw + var(--vh) * 1.5, 40px) calc(clamp(12px, 0.666vw + var(--vh) * 1.5, 40px) / 2);
     background-color: var(--strategix-accent);
     cursor: pointer;
   }

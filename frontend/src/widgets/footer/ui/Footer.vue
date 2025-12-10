@@ -22,6 +22,9 @@ const icon2 = translations.footer.icon2
       <NuxtImg
         :src="xWhite"
         class="logo"
+        :width="50"
+        :height="43"
+        loading="lazy"
       />
 
       <div class="info">
@@ -59,6 +62,9 @@ const icon2 = translations.footer.icon2
           :src="telegramIcon"
           alt="telegram icon"
           class="telegram"
+          :width="24"
+          :height="24"
+          loading="lazy"
         />
       </a>
 
@@ -72,6 +78,9 @@ const icon2 = translations.footer.icon2
           :src="linkedinIcon"
           alt="linkedin icon"
           class="linkedin"
+          :width="24"
+          :height="24"
+          loading="lazy"
         />
       </a>
     </div>

@@ -97,12 +97,12 @@ const button3Text = translations.welcome.button3.text
   margin-bottom: 0;
 
   @media(--mobile-width){
-    margin-top: calc(var(--welcome-padding-top) + calc(var(--vh) * 10));
-    font-size: clamp(min(min(4vw, calc(var(--vh) * 3)), 42px), calc(1.95vw + var(--vh) * 2.85), 100px);
+    margin-top: calc(var(--welcome-padding-top) + var(--vh) * 10);
+    font-size: clamp(min(min(4vw, var(--vh) * 3), 42px), 1.95vw + var(--vh) * 2.85, 100px);
   }
 
   @media (--mobile-width) and (max-aspect-ratio: 4/5){
-      font-size: clamp(min(4vw, calc(var(--vh) * 3)), calc(1.325vw + var(--vh) * 2.2), 100px);
+      font-size: clamp(min(4vw, var(--vh) * 3), 1.325vw + var(--vh) * 2.2, 100px);
   }
 
   @media(--mobile-medium) {

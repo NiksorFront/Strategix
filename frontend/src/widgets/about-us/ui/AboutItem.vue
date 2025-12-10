@@ -20,7 +20,12 @@ const props = defineProps({
         class="about-icon"
         aria-hidden="true"
       >
-        <NuxtImg :src="plusIconUrl" />
+        <NuxtImg 
+          :src="plusIconUrl" 
+          :width="20"
+          :height="20"
+          loading="lazy"
+        />
       </span>
     </summary>
 

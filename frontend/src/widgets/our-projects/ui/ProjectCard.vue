@@ -44,6 +44,9 @@ function go() {
       format="webp"
       :quality="80"
       :alt="title"
+      loading="lazy"
+      :width="600"
+      :height="400"
     />
     <h4 class="base-text title-card">
       {{ title }}
@@ -83,6 +86,7 @@ function go() {
   width: 100%;
   height: 68.5%;
   max-height: calc(var(--vh) * 45.5);
+  aspect-ratio: 3 / 2;
 
   object-fit: cover;
   border-radius: var(--card-radius);
@@ -131,13 +135,13 @@ function go() {
 
 .project-card:hover{
   margin-top: calc(var(--vh) * 1);
-  height: calc(100% - calc(var(--vh) * 1.5));
+  height: calc(100% - var(--vh) * 1.5);
   border: clamp(2px, 0.175vw, 6px) solid var(--strategix-accent);
   cursor: pointer;
 }
 
 .project-card:hover .img-card{
-  height: calc(68.5% + calc(var(--vh) * 0.5));
+  height: calc(68.5% + var(--vh) * 0.5);
 }
 
 .project-card:hover .title-card{

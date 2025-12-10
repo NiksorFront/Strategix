@@ -47,6 +47,9 @@ const iconSrc = computed(() => {
       <NuxtImg
         :src="iconSrc"
         alt="icon-arrow"
+        :width="24"
+        :height="24"
+        loading="lazy"
       />
     </span>
   </a>

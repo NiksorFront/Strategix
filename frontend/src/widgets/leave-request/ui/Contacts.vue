@@ -51,6 +51,9 @@ const whatsapp = translations.leave_request.contacts.whatsapp
           class="contact-icon"
           :src="telegramIcon"
           alt="Telegram"
+          :width="24"
+          :height="24"
+          loading="lazy"
         />
         <span class="base-text contact-text hover">{{ telegram.text }}</span>
       </a>
@@ -66,6 +69,9 @@ const whatsapp = translations.leave_request.contacts.whatsapp
           class="contact-icon"
           :src="whatsappIcon"
           alt="WhatsApp"
+          :width="24"
+          :height="24"
+          loading="lazy"
         />
         <span class="base-text contact-text hover">{{ whatsapp.text }}</span>
       </a>

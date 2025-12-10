@@ -104,7 +104,6 @@
     font-weight: 400;        
     letter-spacing: 0;
     text-align: center;
-    text-transform: none;
     text-transform: uppercase;
   }
 
