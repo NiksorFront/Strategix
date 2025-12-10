@@ -60,7 +60,7 @@ const {src, name, lastname, position} = defineProps<{src: string, name: string, 
 .name{
     margin: 2.5% 4% 0;
 
-    font-size: min(12px, calc(1.2vw + 0.8vh));
+    font-size: min(12px, calc(1.2vw + var(--vh) * 0.8));
     line-height: 110%;
     font-weight: 600;
     text-align: left;
@@ -68,18 +68,18 @@ const {src, name, lastname, position} = defineProps<{src: string, name: string, 
     color: var(--strategix-dark);
 
     @media(--tablet-width){
-      font-size: clamp(12px, calc(0.9vw + 0.5vh), 30px);
+      font-size: clamp(12px, calc(0.9vw + var(--vh) * 0.5), 30px);
     }
 
     @media(--mobile-medium) {
-      font-size: min(12px, 2.5vh);
+      font-size: min(12px, calc(var(--vh) * 2.5));
     }
 }
 
 .position{
     margin: 0 4% 2.5%;
 
-    font-size: min(12px, calc(1.2vw + 0.8vh));
+    font-size: min(12px, calc(1.2vw + var(--vh) * 0.8));
     line-height: 110%;
     font-weight: 600;
     text-align: left;
@@ -87,11 +87,11 @@ const {src, name, lastname, position} = defineProps<{src: string, name: string, 
     color: var(--strategix-gray);
 
     @media(--tablet-width){
-      font-size: clamp(10px, calc(0.9vw + 0.5vh), 30px);
+      font-size: clamp(10px, calc(0.9vw + var(--vh) * 0.5), 30px);
     }
 
     @media(--mobile-medium) {
-      font-size: min(12px, 2.5vh);
+      font-size: min(12px, calc(var(--vh) * 2.5));
     }
 }
 

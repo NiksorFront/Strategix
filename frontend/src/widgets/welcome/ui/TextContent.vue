@@ -86,8 +86,10 @@ const button3Text = translations.welcome.button3.text
 }
 
 .title{
+  max-width: 100%;
+  overflow: hidden;
   text-align: left;
-  font-size: min(min(10vw, 5.5vh), 42px);
+  font-size: min(min(10vw, calc(var(--vh) * 4.5)), 42px);
   color: white;
   line-height: 120%;
 
@@ -95,16 +97,16 @@ const button3Text = translations.welcome.button3.text
   margin-bottom: 0;
 
   @media(--mobile-width){
-    margin-top: calc(var(--welcome-padding-top) + 10vh);
-    font-size: clamp(min(min(4vw, 3vh), 42px), calc(1.95vw + 2.85vh), 100px);
+    margin-top: calc(var(--welcome-padding-top) + calc(var(--vh) * 10));
+    font-size: clamp(min(min(4vw, calc(var(--vh) * 3)), 42px), calc(1.95vw + var(--vh) * 2.85), 100px);
   }
 
   @media (--mobile-width) and (max-aspect-ratio: 4/5){
-      font-size: clamp(min(4vw, 3vh), calc(1.325vw + 2.2vh), 100px);
+      font-size: clamp(min(4vw, calc(var(--vh) * 3)), calc(1.325vw + var(--vh) * 2.2), 100px);
   }
 
   @media(--mobile-medium) {
-    font-size: min(min(10vw, 5.5vh), 42px);
+    font-size: min(min(10vw, calc(var(--vh) * 5.5)), 42px);
   }
 }
 
@@ -120,14 +122,14 @@ const button3Text = translations.welcome.button3.text
 
   @media(--tablet-width){
     width: 82%;
-    font-size: clamp(20px, calc(1vw + 1.25vh), 50px);
+    font-size: clamp(20px, calc(1vw + var(--vh) * 1.25), 50px);
     margin-top: 3.5%;
   }
 
   
 
   @media(--mobile-medium) {
-    font-size: min(14px, 3.75vh);
+    font-size: min(14px, calc(var(--vh) * 3.75));
   }
   
 }
@@ -136,7 +138,7 @@ const button3Text = translations.welcome.button3.text
   width: 100%;
   margin-top: auto;
   margin-bottom: var(--padding-section-x);
-  gap: 1.2vh;
+  gap: calc(var(--vh) * 1.2);
 
   display: flex;
   flex-wrap: wrap;
@@ -148,7 +150,7 @@ const button3Text = translations.welcome.button3.text
   }
 
   @media(--mobile-medium){
-    padding-top: 5vh;
+    padding-top: calc(var(--vh) * 5);
   }
 }
 

@@ -38,7 +38,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
   box-sizing: border-box;
   border-radius: var(--card-radius);
   background: white;
-  padding: clamp(12px, 0.666vw + 1.5vh, 40px);
+  padding: clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -54,8 +54,8 @@ const {service} = defineProps<{service: ServiceItem;}>();
   aspect-ratio: 1 / 1;
 
   position: absolute;
-  top: clamp(12px, 0.666vw + 1.5vh, 40px);
-  right: clamp(12px, 0.666vw + 1.5vh, 40px);
+  top: clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px);
+  right: clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px);
 
   background: transparent;
   border: 1px solid var(--strategix-accent);
@@ -116,15 +116,15 @@ const {service} = defineProps<{service: ServiceItem;}>();
   transition: all 0.3s ease-in-out;
 
   @media(--tablet-width){
-    font-size: clamp(16px, calc(0.525vw + 1.35vh), 40px);
+    font-size: clamp(16px, calc(0.525vw + var(--vh) * 1.35), 40px);
   }
 
   @media (--laptop-width) and (min-aspect-ratio: 4/3){
-    font-size: clamp(16px, calc(0.525vw + 1.75vh), 40px);
+    font-size: clamp(16px, calc(0.525vw + var(--vh) * 1.75), 40px);
   }
 
   @media(--mobile-medium){
-    font-size: min(16px, 3.35vh);
+    font-size: min(16px, calc(var(--vh) * 3.35));
   }
 }
 
@@ -146,7 +146,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
   color: var(--strategix-gray);
   text-align: left;
 
-  font-size: clamp(12px, calc(0.446vw + 1.14vh), 32px);
+  font-size: clamp(12px, calc(0.446vw + var(--vh) * 1.14), 32px);
   /* line-height: 100%; */
   transition: all 0.3s ease-in-out;
 
@@ -155,14 +155,14 @@ const {service} = defineProps<{service: ServiceItem;}>();
   }
 
   @media(--mobile-medium) {
-      font-size: min(12px, 2vh);
+      font-size: min(12px, calc(var(--vh) * 2));
   }
 }
 
 @media (--laptop-width) and (min-aspect-ratio: 4/3){
   .service-card:hover{
     /* padding: calc(clamp(12px, 0.666vw + 1.5vh, 40px) / 2) clamp(12px, 0.666vw + 1.5vh, 40px); */
-    padding: clamp(12px, 0.666vw + 1.5vh, 40px) clamp(12px, 0.666vw + 1.5vh, 40px) calc(clamp(12px, 0.666vw + 1.5vh, 40px) / 2);
+    padding: clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px) clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px) calc(clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px) / 2);
     background-color: var(--strategix-accent);
     cursor: pointer;
   }
@@ -176,10 +176,10 @@ const {service} = defineProps<{service: ServiceItem;}>();
     
     color: var(--strategix-light);
 
-    font-size: clamp(20px, calc(0.675vw + 2.1vh), 44px);
+    font-size: clamp(20px, calc(0.675vw + var(--vh) * 2.1), 44px);
 
     @media(--mobile-medium){
-      font-size: min(20px, 4.6vh);
+      font-size: min(20px, calc(var(--vh) * 4.6));
     }
   }
 
@@ -188,10 +188,10 @@ const {service} = defineProps<{service: ServiceItem;}>();
 
     color: var(--strategix-light);
 
-    font-size: clamp(14px, calc(0.4vw + 1.5vh), 34px);
+    font-size: clamp(14px, calc(0.4vw + var(--vh) * 1.5), 34px);
 
     @media(--mobile-medium) {
-        font-size: min(14px, 3.325vh);
+        font-size: min(14px, calc(var(--vh) * 3.325));
     }
   }
 

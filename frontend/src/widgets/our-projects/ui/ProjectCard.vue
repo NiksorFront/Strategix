@@ -82,40 +82,40 @@ function go() {
 .img-card{
   width: 100%;
   height: 68.5%;
-  max-height: 45.5vh;
+  max-height: calc(var(--vh) * 45.5);
 
   object-fit: cover;
   border-radius: var(--card-radius);
 
   @media(--tablet-width){
-    max-height: 48.6vh;
+    max-height: calc(var(--vh) * 48.6);
   }
 
   @media(--mobile-medium){
-    max-height: 40vh;
+    max-height: calc(var(--vh) * 40);
   }
 }
 
 .title-card{
   width: 70%;
   text-align: left;
-  margin: min(7%, 3vh) 0 0 6%;
+  margin: min(7%, calc(var(--vh) * 3)) 0 0 6%;
 
   color: white;
   text-transform: uppercase;
-  font-size: clamp(23px, calc(1.25vw + 1.5vh), 50px);
+  font-size: clamp(23px, calc(1.25vw + var(--vh) * 1.5), 50px);
   font-weight: 500;
 
   transition: all 0.3s;
 
   @media(--mobile-medium){
-    font-size: min(23px, 5vh)
+    font-size: min(23px, calc(var(--vh) * 5))
   }
 }
 
 .description-card{
   width: 90%;
-  margin: auto 0 min(12.5%, 5vh) 6%;
+  margin: auto 0 min(12.5%, calc(var(--vh) * 5)) 6%;
 
   color: white;
   text-align: left;
@@ -125,19 +125,19 @@ function go() {
 
   @media(--laptop-width){
     width: 70%;
-    margin: auto 0 min(7%, 3vh) 6%;
+    margin: auto 0 min(7%, calc(var(--vh) * 3)) 6%;
   }
 }
 
 .project-card:hover{
-  margin-top: 1vh;
-  height: calc(100% - 1.5vh);
+  margin-top: calc(var(--vh) * 1);
+  height: calc(100% - calc(var(--vh) * 1.5));
   border: clamp(2px, 0.175vw, 6px) solid var(--strategix-accent);
   cursor: pointer;
 }
 
 .project-card:hover .img-card{
-  height: calc(68.5% + 0.5vh);
+  height: calc(68.5% + calc(var(--vh) * 0.5));
 }
 
 .project-card:hover .title-card{
@@ -146,6 +146,6 @@ function go() {
 }
 
 .project-card:hover .description-card{
-  margin: auto 0 min(5%, 2.25vh) 6%;
+  margin: auto 0 min(5%, calc(var(--vh) * 2.25)) 6%;
 }
 </style>

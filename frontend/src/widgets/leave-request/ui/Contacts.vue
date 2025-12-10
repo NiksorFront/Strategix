@@ -90,7 +90,7 @@ const whatsapp = translations.leave_request.contacts.whatsapp
   height: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 4vh 4vh;
+  grid-template-rows: calc(var(--vh) * 4) calc(var(--vh) * 4);
 
   @media (--tablet-width) {
     width: 93%;
@@ -99,23 +99,23 @@ const whatsapp = translations.leave_request.contacts.whatsapp
 }
 
 .title {
-  margin: 3.75vh 0 1.25vh;
+  margin: calc(var(--vh) * 3.75) 0 calc(var(--vh) * 1.25);
 
   font-family: "Liberty-MT", "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   text-align: left;
   color: white;
-  font-size: min(28px, 4.2vw + 1.5vh);
+  font-size: min(28px, calc(4.2vw + var(--vh) * 1.5));
   line-height: 110%;
   font-weight: 400;
 
   @media (--tablet-width) {
     width: 90%;
-    font-size: clamp(28px, calc(2vw + 1.5vh), 72px);
-    margin: 5.75vh 0;
+    font-size: clamp(28px, calc(2vw + var(--vh) * 1.5), 72px);
+    margin: calc(var(--vh) * 5.75) 0;
   }
 
   @media(--mobile-medium){
-    font-size: min(28px, 6vh);
+    font-size: min(28px, calc(var(--vh) * 6));
   }
 }
 
@@ -151,11 +151,11 @@ const whatsapp = translations.leave_request.contacts.whatsapp
   text-wrap: nowrap;
 
   @media (--tablet-width) {
-    font-size: clamp(16px, calc(0.8vw + 0.6vh), 36px);
+    font-size: clamp(16px, calc(0.8vw + var(--vh) * 0.6), 36px);
   }
 
   @media (--mobile-medium) {
-    font-size: min(14px, 2.71vh);
+    font-size: min(14px, calc(var(--vh) * 2.71));
   }
 }
 

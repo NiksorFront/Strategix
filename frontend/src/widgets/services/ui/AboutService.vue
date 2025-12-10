@@ -73,7 +73,7 @@
 .about-service {
   width: 100%;
   height: 100%;
-  max-height: 86vh;
+  max-height: calc(var(--vh) * 86);
   box-sizing: border-box;
   display: flex;
 
@@ -84,13 +84,13 @@
 .about-service-mobile{
   width: 100%;
   height: 100%;
-  padding: min(20px, 2.5vw + 1.2vh);
+  padding: min(20px, calc(2.5vw + var(--vh) * 1.2));
   box-sizing: border-box;
 
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: min(32px, 3.2vh);
+  gap: min(32px, calc(var(--vh) * 3.2));
 
   background: var(--strategix-accent);
   border-radius: var(--card-radius);
@@ -129,19 +129,19 @@
   min-height: 100%;
   width: 40%;
   max-width: 40%;
-  padding: clamp(30px, 8.75vh, 135px) clamp(20px, 3.75vw, 90px);
+  padding: clamp(30px, calc(var(--vh) * 8.75), 135px) clamp(20px, 3.75vw, 90px);
   box-sizing: border-box;
   background-color: var(--strategix-accent);
   border-radius: var(--card-radius);
 
   display: flex;
   flex-direction: column;
-  gap: clamp(15px, 4.325vh, 70px);
+  gap: clamp(15px, calc(var(--vh) * 4.325), 70px);
 
   position: relative;
 
   /* @media(--mobile-medium){
-    padding: min(30px, 6.25vh) min(20px, 3.75vw);
+    padding: min(30px, calc(var(--vh) * 6.25)) min(20px, 3.75vw);
   } */
 }
 
@@ -149,16 +149,16 @@
     min-height: 100%;
     width: 60%;
     max-width: 60%;
-    padding: clamp(30px, 8.75vh, 135px) clamp(20px, 3.75vw, 90px);
+    padding: clamp(30px, calc(var(--vh) * 8.75), 135px) clamp(20px, 3.75vw, 90px);
     box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
-    gap: clamp(15px, 4.325vh, 70px);
+    gap: clamp(15px, calc(var(--vh) * 4.325), 70px);
 }
 
 .service-decor{
-  width: min(15vh, min(22.58%, 120px));
+  width: min(calc(var(--vh) * 15), min(22.58%, 120px));
   height: auto;
   aspect-ratio: 1 / 1 ;
   margin: 0;
@@ -169,12 +169,12 @@
 .about-service__card{
   background: var(--strategix-accent);
   border-radius: var(--card-radius);
-  padding: clamp(18px, 2.2vh, 32px);
+  padding: clamp(18px, calc(var(--vh) * 2.2), 32px);
   color: white;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 1.2vh, 18px);
+  gap: clamp(12px, calc(var(--vh) * 1.2), 18px);
 }
 
 .about-service-title{
@@ -189,7 +189,7 @@
   }
 
   @media(--mobile-medium){
-    font-size: min(28px, 5vh);
+    font-size: min(28px, calc(var(--vh) * 5));
   }
 }
 
@@ -203,12 +203,12 @@
   color: white;
 
   @media(--tablet-width){
-    font-size: clamp(18px, calc(1.4vw + 1.025vh), 42px);
+    font-size: clamp(18px, calc(1.4vw + var(--vh) * 1.025), 42px);
     color: var(--strategix-accent);
   }
 
   @media(--mobile-medium) {
-    font-size: min(18px, 3.75vh);
+    font-size: min(18px, calc(var(--vh) * 3.75));
   }
 }
 
@@ -225,7 +225,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: min(1.2vh, 12px);
+  gap: min(calc(var(--vh) * 1.2), 12px);
   color: white;
 }
 
@@ -236,7 +236,7 @@
     font-size: 36px; /* Изменение размера точек рядом с шрифтом*/
     line-height: 60%;
     margin-left: 7.75%;
-    margin-bottom: 0.8vh;
+    margin-bottom: calc(var(--vh) * 0.8);
   }
 
   @media(--mobile-medium){
@@ -261,7 +261,7 @@
   }
 
   @media(--mobile-medium) {
-    font-size: min(16px, 3.325vh);
+    font-size: min(16px, calc(var(--vh) * 3.325));
   }
 }
 

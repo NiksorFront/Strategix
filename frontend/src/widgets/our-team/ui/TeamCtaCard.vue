@@ -40,7 +40,7 @@ const email = translations.our_team.lastcard.email
 .team-cta-card {
   width: 100%;
   height: 50%;
-  padding: min(10px, 2.25vh) min(14px, 3.5vw);
+  padding: min(10px, calc(var(--vh) * 2.25)) min(14px, 3.5vw);
   box-sizing: border-box;
   border-radius: var(--card-radius);
   background-color: var(--strategix-accent);
@@ -82,13 +82,13 @@ const email = translations.our_team.lastcard.email
   text-wrap: nowrap;
 
   @media(--tablet-width){
-    font-size: clamp(20px, calc(1.5vw + 1vh), 56px);
+    font-size: clamp(20px, calc(1.5vw + var(--vh) * 1), 56px);
     color: white;
     text-wrap: wrap;
   }
 
   @media(--mobile-medium){
-    font-size: min(20px, 4.175vh);
+    font-size: min(20px, calc(var(--vh) * 4.175));
   }
 }
 
@@ -105,12 +105,12 @@ const email = translations.our_team.lastcard.email
   text-wrap: nowrap;
 
   @media(--tablet-width){
-    font-size: clamp(14px, calc(1vw + 0.35vh), 28px);
+    font-size: clamp(14px, calc(1vw + var(--vh) * 0.35), 28px);
     text-wrap: wrap;
   }
 
   @media(--mobile-medium){
-    font-size: min(14px, 2.71vh);
+    font-size: min(14px, calc(var(--vh) * 2.71));
   }
 }
 
@@ -152,11 +152,11 @@ const email = translations.our_team.lastcard.email
   color: white;
 
   @media(--tablet-width){
-    font-size: clamp(16px, calc(1vw + 0.35vh), 28px);
+    font-size: clamp(16px, calc(1vw + var(--vh) * 0.35), 28px);
   }
 
   @media(--mobile-medium){
-    font-size: min(14px, 2.71vh);
+    font-size: min(14px, calc(var(--vh) * 2.71));
   }
 }
 </style>

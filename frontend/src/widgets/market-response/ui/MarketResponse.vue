@@ -30,9 +30,9 @@ const description2 = translations.market_response.description2
 <style scped>
 .market-response {
     width: 100vw;
-    min-height: 30vh;
+    min-height: calc(var(--vh) * 30);
     height: fit-content;
-    padding: 4vh var(--padding-section-x) 2.25vh;
+    padding: calc(var(--vh) * 4) var(--padding-section-x) calc(var(--vh) * 2.25);
     box-sizing: border-box;
 
     background-color: var(--strategix-light);
@@ -42,7 +42,7 @@ const description2 = translations.market_response.description2
     flex-wrap: wrap;
 
     @media(--tablet-width){
-      padding: 8.5vh var(--padding-section-x) 4vh;
+      padding: calc(var(--vh) * 8.5) var(--padding-section-x) calc(var(--vh) * 4);
     }
 }
 
@@ -65,11 +65,11 @@ const description2 = translations.market_response.description2
     @media(--tablet-width){
       width: 50.4%;
       height: fit-content;
-      font-size: clamp(25px, calc(1.191vw + 1.733vh), 52px);
+      font-size: clamp(25px, calc(1.191vw + var(--vh) * 1.733), 52px);
     }
 
     @media(--mobile-medium) {
-      font-size: min(25px, 5vh);
+      font-size: min(25px, calc(var(--vh) * 5));
     }
     
 }
@@ -78,7 +78,7 @@ const description2 = translations.market_response.description2
   width: 100%;
   height: fit-content;
 
-  margin: 2vh 0 0;
+  margin: calc(var(--vh) * 2) 0 0;
 
   color: var(--strategix-dark);
   text-align: left;
@@ -87,7 +87,7 @@ const description2 = translations.market_response.description2
     width: 49.6%;
     height: fit-content;
 
-    margin: 0.5vh 0 0;
+    margin: calc(var(--vh) * 0.5) 0 0;
   }
 }
 </style>

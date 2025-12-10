@@ -58,9 +58,9 @@
 <style scped>
 .services {
     width: 100vw;
-    min-height: 100vh;
+    min-height: calc(var(--vh) * 100);
     height: auto;
-    padding: 0 var(--padding-section-x) 10vh;
+    padding: 0 var(--padding-section-x) calc(var(--vh) * 10);
     box-sizing: border-box;
 
     background-color: var(--strategix-light);
@@ -68,7 +68,7 @@
     overflow: hidden;
 
     @media (--laptop-width) and (min-aspect-ratio: 4/3){
-      height: 100vh;
+      height: calc(var(--vh) * 100);
     }
 }
 
@@ -79,11 +79,11 @@
   gap: var(--gap-grid);
   display: grid;
   grid-template-columns: repeat(2, calc((100% - var(--gap-grid)) / 2));
-  grid-auto-rows: max(25vh, 480px - 37vh);
+  grid-auto-rows: max(calc(var(--vh) * 25), calc(480px - var(--vh) * 37));
 
   @media(--mobile-width ){
     grid-template-columns: repeat(3, calc((100% - var(--gap-grid)*2) / 3));
-    grid-auto-rows: max(27.5vh, 575px - 70vh);
+    grid-auto-rows: max(calc(var(--vh) * 27.5), calc(575px - var(--vh) * 70));
   }
 
   @media (--laptop-width) and (min-aspect-ratio: 4/3){
@@ -102,9 +102,9 @@
 
   @media(--mobile-medium){
     grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
-    grid-template-rows: repeat(2, minmax(40vh, max-content));
+    grid-template-rows: repeat(2, minmax(calc(var(--vh) * 40), max-content));
     grid-auto-columns: 20vw;
-    grid-auto-rows: minmax(40vh, max-content);
+    grid-auto-rows: minmax(calc(var(--vh) * 40), max-content);
     grid-template-areas: 
       "reputation media branding production"
       "events ai-marketing ads questions"

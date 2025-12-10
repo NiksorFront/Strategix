@@ -82,7 +82,7 @@ const changeLanguage = (langCode: string) => {
 
     @media(--mobile-medium){
       margin-left: 0;
-      font-size: min(14px, 2.917vh);
+      font-size: min(14px, calc(var(--vh) * 2.917));
     }
   }
 
@@ -140,7 +140,7 @@ const changeLanguage = (langCode: string) => {
     }
 
     @media(--mobile-medium){
-      font-size: min(14px, 2.917vh);
+      font-size: min(14px, calc(var(--vh) * 2.917));
     }
   }
 

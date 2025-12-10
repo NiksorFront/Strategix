@@ -81,7 +81,7 @@
   .bar-text {
       width: 100%;
       margin: 0;
-      margin-bottom: 1vh;
+      margin-bottom: calc(var(--vh) * 1);
       font-weight: 300;
       text-align: center;
 
@@ -150,13 +150,13 @@
       box-shadow: 0 0 0 0 var(--bar-glow-color);
     }
     15% {
-      box-shadow: 0 -25vh var(--bar-glow-color);
+      box-shadow: 0 calc(var(--vh) * -25) var(--bar-glow-color);
     }
     40% {
       box-shadow: 0 0 var(--bar-glow-color);
     }
     60% {
-      box-shadow: 0 -3vh var(--bar-glow-color);
+      box-shadow: 0 calc(var(--vh) * -3) var(--bar-glow-color);
     }
     70% {
       box-shadow: 0 0 var(--bar-glow-color);

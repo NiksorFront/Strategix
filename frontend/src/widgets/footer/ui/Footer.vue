@@ -81,7 +81,7 @@ const icon2 = translations.footer.icon2
 <style scoped>
 .footer {
   width: 100vw;
-  height: 10vh;
+  height: calc(var(--vh) * 10);
   padding: 0 var(--padding-section-x);
   box-sizing: border-box;
   background-color: var(--strategix-dark);
@@ -115,7 +115,7 @@ const icon2 = translations.footer.icon2
 
   @media(--mobile-medium){
     width: auto;
-    height: 5vh;
+    height: calc(var(--vh) * 5);
   }
 }
 
@@ -132,11 +132,11 @@ const icon2 = translations.footer.icon2
   text-transform: uppercase;
 
   @media(--tablet-width){
-    font-size: clamp(10px, 0.675vw + 0.4vh, 26px);
+    font-size: clamp(10px, calc(0.675vw + var(--vh) * 0.4), 26px);
   }
 
   @media(--mobile-medium){
-    font-size: min(10px, 2.085vh);
+    font-size: min(10px, calc(var(--vh) * 2.085));
   }
 }
 
@@ -148,11 +148,11 @@ const icon2 = translations.footer.icon2
   text-transform: uppercase;
 
   @media(--tablet-width){
-    font-size: clamp(10px, 0.675vw + 0.4vh, 26px);
+    font-size: clamp(10px, calc(0.675vw + var(--vh) * 0.4), 26px);
   }
 
   @media(--mobile-medium){
-    font-size: min(10px, 2.085vh);
+    font-size: min(10px, calc(var(--vh) * 2.085));
   }
 }
 
@@ -169,11 +169,11 @@ const icon2 = translations.footer.icon2
   text-transform: uppercase;
 
   @media(--tablet-width){
-    font-size: clamp(10px, 0.675vw + 0.4vh, 26px);
+    font-size: clamp(10px, calc(0.675vw + var(--vh) * 0.4), 26px);
   }
 
   @media(--mobile-medium){
-    font-size: min(10px, 2.085vh);
+    font-size: min(10px, calc(var(--vh) * 2.085));
   }
 }
 
@@ -194,14 +194,14 @@ const icon2 = translations.footer.icon2
 }
 
 .email {
-  font-size: clamp(16px, 0.835vw + 0.5vh , 32px);
+  font-size: clamp(16px, calc(0.835vw + var(--vh) * 0.5) , 32px);
   font-weight: 400;
   text-decoration: none;
   color: white;
   margin:0 3% 0 0;
 
   @media(--mobile-medium){
-    font-size: min(16px, 3.334vh);
+    font-size: min(16px, calc(var(--vh) * 3.334));
   }
 }
 
@@ -221,7 +221,7 @@ const icon2 = translations.footer.icon2
 
   @media(--mobile-medium){
     width: auto;
-    height: 4vh;
+    height: calc(var(--vh) * 4);
   }
 }
 

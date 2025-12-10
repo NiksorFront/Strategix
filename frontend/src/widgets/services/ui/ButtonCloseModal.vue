@@ -16,8 +16,8 @@
   height: min(5vw, 20px);
   box-sizing: border-box;
   position: absolute;
-  top: clamp(12px, 0.666vw + 1.5vh, 40px);
-  right: clamp(12px, 0.666vw + 1.5vh, 40px);
+  top: clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px);
+  right: clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px);
   background: transparent;
   border: 1px solid white;
   border-top: 1px;
@@ -66,8 +66,8 @@
 
 @media(--mobile-medium) {
   .button-close-modal {
-    width: min(4.1675vh, 20px);
-    height: min(4.1675vh, 20px);
+    width: min(calc(var(--vh) * 4.1675), 20px);
+    height: min(calc(var(--vh) * 4.1675), 20px);
   }
 }
 </style>
@@ -78,8 +78,8 @@
   box-sizing: border-box;
 
   position: absolute;
-  top: clamp(12px, 0.666vw + 1.5vh, 40px);
-  right: clamp(12px, 0.666vw + 1.5vh, 40px);
+  top: clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px);
+  right: clamp(12px, calc(0.666vw + var(--vh) * 1.5), 40px);
 
   background: transparent;
   border: 1px solid white;
@@ -97,8 +97,8 @@
   }
 
   @media(--mobile-medium){
-    width: min(4.1675vh, 20px);
-    height: min(4.1675vh, 20px);
+    width: min(calc(var(--vh) * 4.1675), 20px);
+    height: min(calc(var(--vh) * 4.1675), 20px);
   }
 }
 

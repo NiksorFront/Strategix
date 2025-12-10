@@ -20,14 +20,14 @@
     text-transform: uppercase;
     font-size: clamp(18px, 2vw, 48px);
     font-weight: 800;
-    margin: 0 0 min(40px, 4vh);
+    margin: 0 0 min(40px, calc(var(--vh) * 4));
 
     @media(--big-laptop-width){
-      margin: 0 0 clamp(40px, 5vh, 80px);
+      margin: 0 0 clamp(40px, calc(var(--vh) * 5), 80px);
     }
 
     @media(--mobile-medium){
-      font-size: min(24px, 4.25vh);
+      font-size: min(24px, calc(var(--vh) * 4.25));
     }
   }
 

@@ -43,7 +43,7 @@ const description = translations.our_team.firstcard.description
   width: 80%;
   margin: 0;    
 
-  font-size: clamp(20px, calc(1.5vw + 1vh), 56px);
+  font-size: clamp(20px, calc(1.5vw + var(--vh) * 1), 56px);
   line-height: 115%;
   font-weight: 500;
   text-align: left;
@@ -51,7 +51,7 @@ const description = translations.our_team.firstcard.description
   color: var(--strategix-accent);
 
   @media(--mobile-medium){
-    font-size: min(20px, 4.175vh);
+    font-size: min(20px, calc(var(--vh) * 4.175));
   }
 }
 
@@ -59,7 +59,7 @@ const description = translations.our_team.firstcard.description
   width: 80%;
   margin: 0;
 
-  font-size: clamp(14px, calc(1vw + 0.35vh), 28px);
+  font-size: clamp(14px, calc(1vw + var(--vh) * 0.35), 28px);
   line-height: 115%;
   font-weight: 400;
   text-align: left;
@@ -67,7 +67,7 @@ const description = translations.our_team.firstcard.description
   color: var(--strategix-dark);
 
   @media(--mobile-medium){
-    font-size: min(14px, 2.71vh);
+    font-size: min(14px, calc(var(--vh) * 2.71));
   }
 }
 

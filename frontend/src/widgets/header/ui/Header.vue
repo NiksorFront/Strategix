@@ -58,8 +58,8 @@
 <style scoped>
   .header {
     width: 100vw;
-    max-height: 10vh;
-    padding: 6.75vh var(--padding-section-x) 0;
+    max-height: calc(var(--vh) * 10);
+    padding: calc(var(--vh) * 6.75) var(--padding-section-x) 0;
     box-sizing: border-box;
 
     background-color: var(--strategix-dark);
@@ -107,7 +107,7 @@
     display: none;
 
     padding: max(0.7%, 10px) max(2%, 28px) max(0.5%, 9px) max(1%, 10px); 
-    font-size: clamp(9px, 0.6vw + 0.25vh, 20px);
+    font-size: clamp(9px, calc(0.6vw + var(--vh) * 0.25), 20px);
     margin-left: clamp(0px, 175px - 15vw, 25px); /*margin уменьшаеьтся по мере увеличения ширины*/
     
     @media(--tablet-width){
@@ -116,7 +116,7 @@
 
 
     @media(--mobile-medium){
-      font-size: min(9px, 0.7vw + 1vh);   
+      font-size: min(9px, calc(0.7vw + var(--vh) * 1));   
       padding: min(0.5%, 10px) min(2.25%, 28px) min(0.5%, 10px) min(1%, 10px);     
     }
   }

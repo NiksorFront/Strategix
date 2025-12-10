@@ -177,8 +177,8 @@ const buttonHref = translations.header.mobile_menu.button.href
 
 .menu{
   width: 100vw;
-  height: 100vh;
-  padding: 6.75vh var(--padding-section-x) var(--padding-section-x);
+  height: calc(var(--vh) * 100);
+  padding: calc(var(--vh) * 6.75) var(--padding-section-x) var(--padding-section-x);
   box-sizing: border-box;
 
   position: fixed;
@@ -222,7 +222,7 @@ const buttonHref = translations.header.mobile_menu.button.href
     width: 100%;
     height: fit-content;
     padding: 0;
-    margin: 10vh 0 auto;
+    margin: calc(var(--vh) * 10) 0 auto;
     box-sizing: border-box;
 
     display: flex;
@@ -240,7 +240,7 @@ const buttonHref = translations.header.mobile_menu.button.href
     display: flex;
     flex-direction: column;
     text-align: right;
-    gap: 3vh;
+    gap: calc(var(--vh) * 3);
 
 }
 

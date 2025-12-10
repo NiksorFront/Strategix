@@ -59,7 +59,7 @@ const iconSrc = computed(() => {
 
     width: 100%;
     height: fit-content;
-    padding: 2vh 9% 2vh 0;
+    padding: calc(var(--vh) * 2) 9% calc(var(--vh) * 2) 0;
     box-sizing: border-box;
 
     text-decoration: none;
@@ -99,9 +99,9 @@ const iconSrc = computed(() => {
 
     @media (--mobile-medium) {
       border-width: 1px !important;
-      font-size: min(12px, 3vh);
+      font-size: min(12px, calc(var(--vh) * 3));
 
-      padding: 2vh 6vh 2vh 2vh;
+      padding: calc(var(--vh) * 2) calc(var(--vh) * 6) calc(var(--vh) * 2) calc(var(--vh) * 2);
     }
   }
 

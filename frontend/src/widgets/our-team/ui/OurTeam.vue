@@ -38,7 +38,7 @@ const members = translations.our_team.members
 <style scoped>
 .our-team {
     width: 100vw;
-    min-height: 70vh;
+    min-height: calc(var(--vh) * 70);
     height: fit-content; 
     padding: 0 var(--padding-section-x);
     box-sizing: border-box;
@@ -46,7 +46,7 @@ const members = translations.our_team.members
     background-color: var(--strategix-light);
 
     @media(--tablet-width){
-      padding: 0 var(--padding-section-x) 8vh;
+      padding: 0 var(--padding-section-x) calc(var(--vh) * 8);
     }
 }
 
@@ -62,7 +62,7 @@ const members = translations.our_team.members
 
   @media(--tablet-width){
     grid-template-columns: repeat(auto-fit, minmax(calc(25.175% - var(--gap-grid)), 1fr));
-    grid-auto-rows: clamp(250px, 30.75vh, 600px);
+    grid-auto-rows: clamp(250px, calc(var(--vh) * 30.75), 600px);
   }
 
   @media(--mobile-medium){

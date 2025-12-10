@@ -34,18 +34,18 @@ const props = defineProps({
 <style scoped>
 .about-item {
   border-top: clamp(1px, 0.125vw, 4px) solid var(--strategix-dark);
-  padding: min(23px, 2.5vh) 0;
+  padding: min(23px, calc(var(--vh) * 2.5)) 0;
 
   @media(--tablet-width){
     padding: 20.5px 0;
   }
 
   @media(--big-laptop-width){
-    padding: clamp(23px, 3vh, 50px) 0;
+    padding: clamp(23px, calc(var(--vh) * 3), 50px) 0;
   }
 
   @media(--mobile-medium){
-    padding: min(23px, 2.5vh) 0;
+    padding: min(23px, calc(var(--vh) * 2.5)) 0;
     border-top: 1px solid var(--strategix-dark);
   }
 }
@@ -82,7 +82,7 @@ const props = defineProps({
   }
 
   @media(--mobile-medium){
-    font-size: min(28px, 5vh);
+    font-size: min(28px, calc(var(--vh) * 5));
   }
 }
 
@@ -94,7 +94,7 @@ const props = defineProps({
   display: none;
 
   @media(--mobile-medium){
-    font-size: min(20px, 3.6vh);
+    font-size: min(20px, calc(var(--vh) * 3.6));
   }
 
   @media(--tablet-width){
@@ -112,7 +112,7 @@ const props = defineProps({
   display: block;
 
   @media(--mobile-medium){
-    font-size: min(23px, 4vh);
+    font-size: min(23px, calc(var(--vh) * 4));
   }
 
   @media(--tablet-width){
@@ -140,7 +140,7 @@ const props = defineProps({
     margin-top 0.4s ease;
 
   @media (--mobile-medium) {
-    font-size: min(16px, 2.8vh);
+    font-size: min(16px, calc(var(--vh) * 2.8));
   }
 
   @media (--tablet-width) {
@@ -152,17 +152,17 @@ const props = defineProps({
 
 details[open] .about-answer {
   opacity: 1;
-  margin-top: min(13px, 1.5vh);
+  margin-top: min(13px, calc(var(--vh) * 1.5));
 
   @media (--tablet-width) {
-    margin-top: min(33px, 3.3vh);
+    margin-top: min(33px, calc(var(--vh) * 3.3));
   }
 }
 
 
 .about-icon {
   width: auto;
-  height: min(40px, 6vh);
+  height: min(40px, calc(var(--vh) * 6));
   aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
@@ -173,11 +173,11 @@ details[open] .about-answer {
   border-radius: 50%;
 
   @media(--big-laptop-width){
-    height: clamp(40px, 6vh, 80px);
+    height: clamp(40px, calc(var(--vh) * 6), 80px);
   }
 
   @media (--mobile-medium) {
-    height: min(40px, 6vh);
+    height: min(40px, calc(var(--vh) * 6));
   }
 }
 

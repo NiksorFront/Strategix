@@ -61,15 +61,15 @@ const email = translations.services.questions.email;
 }
 
 .title {
-  margin: 0.3vh 0;
+  margin: calc(var(--vh) * 0.3) 0;
   text-align: left;
   color:  var(--strategix-dark);
   font-weight: 500;
   line-height: 110%;
-  font-size: clamp(18px, calc(3.52vw + 5.12vh), 24px);
+  font-size: clamp(18px, calc(3.52vw + var(--vh) * 5.12), 24px);
 
   @media(--mobile-medium){
-    font-size: min(18px, 3.75vh);
+    font-size: min(18px, calc(var(--vh) * 3.75));
   }
 }
 
@@ -116,11 +116,11 @@ const email = translations.services.questions.email;
   font-size: min(11px, 2.8vw);
 
   @media(--tablet-width){
-    font-size: clamp(5px, calc(1.411vw + 2.052vh), 15px);
+    font-size: clamp(5px, calc(1.411vw + var(--vh) * 2.052), 15px);
   }
 
   @media(--mobile-medium) {
-      font-size: min(10px, 2.075vh);
+      font-size: min(10px, calc(var(--vh) * 2.075));
   }
 }
 </style>

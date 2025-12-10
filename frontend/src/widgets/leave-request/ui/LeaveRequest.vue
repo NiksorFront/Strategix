@@ -13,7 +13,7 @@ import Form from './Form.vue';
 <style scped>
 .leave-request {
     width: 100vw;
-    height: 100vh;
+    height: calc(var(--vh) * 100);
     padding: 0 var(--padding-section-x);
     box-sizing: border-box;
 
@@ -30,7 +30,7 @@ import Form from './Form.vue';
     );
 
     @media(--tablet-width){
-        height: 90vh;
+        height: calc(var(--vh) * 90);
         flex-direction: row;
         flex-wrap: nowrap;
 

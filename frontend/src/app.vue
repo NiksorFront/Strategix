@@ -1,3 +1,44 @@
+<script setup lang="ts">
+  import { onMounted, onBeforeUnmount } from 'vue';
+
+  onMounted(() => {
+    let prevInnerHeight = window.innerHeight;
+
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
+    const onResize = () => {
+      const current = window.innerHeight;
+      // фильтруем мелкие изменения высоты (движение панелей)
+      if (Math.abs(current - prevInnerHeight) > 120) {
+        prevInnerHeight = current;
+        setVh();
+      }
+    };
+
+    const onOrientationChange = () => {
+      // даём WebView стабилизироваться
+      setTimeout(() => {
+        prevInnerHeight = window.innerHeight;
+        setVh();
+      }, 300);
+    };
+
+    // первый замер — только на клиенте, уже внутри onMounted
+    setVh();
+
+    window.addEventListener('resize', onResize);
+    window.addEventListener('orientationchange', onOrientationChange);
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('orientationchange', onOrientationChange);
+    });
+  });
+</script>
+
 <template>
   <NuxtLayout>
     <NuxtPage />
@@ -13,6 +54,8 @@
   }
 
   :root {
+    --vh: 1vh; /* фоллбек */
+
     --strategix-dark: #202226;
     --strategix-light: #F1F1F1;
     --strategix-accent-light: #B0E3C6;
@@ -20,7 +63,7 @@
     --strategix-gray: #A7A7A7;
     
     
-    --card-radius: min(24px, 1vw + 1vh);
+    --card-radius: min(24px, calc(1vw + var(--vh) * 1));
     --gap-grid: clamp(10px, 0.834vw, 20px);
 
     --padding-section-x: 5vw;
@@ -43,7 +86,7 @@
     }
 
     @media(--mobile-medium) {
-      font-size: min(14px, 2.917vh);
+      font-size: min(14px, calc(var(--vh) * 2.917));
     }
 
   }

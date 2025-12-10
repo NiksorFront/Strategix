@@ -26,15 +26,15 @@
 
 <style>
   :root{
-    --welcome-padding-top: 5vh;
-    --welcome-padding-bottom: 15vh;
+    --welcome-padding-top: calc(var(--vh) * 5);
+    --welcome-padding-bottom: calc(var(--vh) * 15);
   }
 </style>
 
 <style scoped>
 .welcome {
     width: 100vw;
-    height: calc(90vh + 1px);
+    height: calc(calc(var(--vh) * 90) + 1px);
     padding-inline: var(--padding-section-x);
     box-sizing: border-box;
 
@@ -46,8 +46,8 @@
     transform: translateY(-1px); /* мини косытль, т.к. иногда может просвечиватся белая полоса между Header и Welcome */
 
     @media (max-aspect-ratio: 4/5){
-      --welcome-padding-top: 10vh;
-      --welcome-padding-bottom: 25vh;
+      --welcome-padding-top: calc(var(--vh) * 10);
+      --welcome-padding-bottom: calc(var(--vh) * 25);
     }
 }
 </style>

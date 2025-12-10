@@ -40,22 +40,22 @@
 <style scoped>
 .our-projects {
     width: 100vw;
-    height: 100vh;
-    padding: 7.5vh var(--padding-section-x);
+    height: calc(var(--vh) * 100);
+    padding: calc(var(--vh) * 7.5) var(--padding-section-x);
     box-sizing: border-box;
 
     background-color: var(--strategix-dark);
 
     @media(--laptop-width){
-      height: 105vh;
+      height: calc(var(--vh) * 105);
     }
 
     @media(--tablet-width) and (max-aspect-ratio: 4/3){
-      height: 75vh;
+      height: calc(var(--vh) * 75);
     }
 
     @media(--mobile-medium){
-      height: 105vh;
+      height: calc(var(--vh) * 105);
     }
 }
 </style>

@@ -37,7 +37,7 @@
     margin-block-start: 0;
     margin-block-end: 0;
 
-    margin: 0 0 min(20px, 1.5vh);
+    margin: 0 0 min(20px, calc(var(--vh) * 1.5));
 
     @media(--mobile-width){
       gap: clamp(10px, 1.5%, 40px);
@@ -77,8 +77,8 @@
 
 
     @media(--mobile-medium){
-        font-size: min(15px, 3.35vh);
-        padding: 2vh 1vw;
+        font-size: min(15px, calc(var(--vh) * 3.35));
+        padding: calc(var(--vh) * 2) 1vw;
     }
 }
 </style>

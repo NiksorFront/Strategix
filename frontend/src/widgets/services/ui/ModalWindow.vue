@@ -37,7 +37,7 @@ const { id } = defineProps<{ id: string }>();
 <style scoped>
 .modal {
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh) * 100);
 
   /* убираем чёрную стандартную рамку/фон */
   border: none;
@@ -69,13 +69,13 @@ const { id } = defineProps<{ id: string }>();
 .modal__window {
   width: calc(100vw - 2 * var(--padding-section-x));
   height: auto;
-  max-height: 86vh;
+  max-height: calc(var(--vh) * 86);
   overflow: auto;
 
   position: fixed;
   left: var(--padding-section-x);
   right: var(--padding-section-x);
-  top: calc(clamp(18px, 2vw, 48px) + min(40px, 4vh)); /*Рассчет идет исходя из margin-bottom IndexSectionTitle.vue и padding-bottom у Services.vue */
+  top: calc(clamp(18px, 2vw, 48px) + min(40px, calc(var(--vh) * 4))); /*Рассчет идет исходя из margin-bottom IndexSectionTitle.vue и padding-bottom у Services.vue */
   
   /* margin: calc(clamp(18px, 2vw, 48px) + min(40px, 4vh)) var(--padding-section-x) 10vh;  */
 
@@ -83,14 +83,14 @@ const { id } = defineProps<{ id: string }>();
 
   @media(--tablet-width){
     /* height: calc(100vh - (clamp(14px, 2.25vw, 52px) + clamp(40px, 5vh, 80px)) - 10vh);*/
-    top: calc(clamp(14px, 2.25vw, 52px) + clamp(40px, 5vh, 80px));
+    top: calc(clamp(14px, 2.25vw, 52px) + clamp(40px, calc(var(--vh) * 5), 80px));
     /* top: 50%; */
     /* transform: translateY(-50%); */
   }
 
   @media(--mobile-medium){
-    height: calc(100vh - clamp(40px, 5vh, 80px) - 10vh);
-    top: clamp(40px, 5vh, 80px);
+    height: calc(calc(var(--vh) * 100) - clamp(40px, calc(var(--vh) * 5), 80px) - calc(var(--vh) * 10));
+    top: clamp(40px, calc(var(--vh) * 5), 80px);
   }
 }
 

@@ -33,7 +33,7 @@
 .about-us{
     width: 100vw;
     height: fit-content;
-    padding: 10vh var(--padding-section-x);
+    padding: calc(var(--vh) * 10) var(--padding-section-x);
     box-sizing: border-box;
 
     background-color: var(--strategix-light);
