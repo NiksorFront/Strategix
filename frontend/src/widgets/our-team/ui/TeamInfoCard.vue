@@ -1,14 +1,22 @@
 <script setup lang="ts">
+import index from '@/content/pages/index.json'
+
+const { locale } = useI18n()
+const currentLocale = locale.value || 'ru'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+const title = translations.our_team.firstcard.title
+const description = translations.our_team.firstcard.description
 </script>
 
 <template>
   <article class="team-info-card">
     <h3 class="base-text team-info-card__title">
-      Наша команда
+      {{ title }}
     </h3>
 
     <p class="base-text team-info-card__text">
-      Разрабатываем и&nbsp;развиваем проекты, актуальные сегодня, завтра и&nbsp;через 10&nbsp;лет.
+      {{ description }}
     </p>
   </article>
 </template>

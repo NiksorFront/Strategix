@@ -1,9 +1,15 @@
 
 <script setup lang="ts">
 import type { ServiceItem } from "../model/config";
+import index from '@/content/pages/index.json'
 
 const {service} = defineProps<{service: ServiceItem;}>();
-const email = 'hello@strategix.com';
+
+const { locale } = useI18n()
+const currentLocale = locale.value || 'ru'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+const email = translations.services.questions.email;
 </script>
 
 <template>

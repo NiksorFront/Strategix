@@ -4,24 +4,26 @@
   import LangSwitcher from './LangSwitcher.vue'
   import NavigationMenu from "./NavigationMenu.vue";
   import NavigationMenuMobile from "./NavigationMenuMobile.vue";
+  import index from '@/content/pages/index.json'
+
+  const { locale } = useI18n()
+  const currentLocale = locale.value || 'ru'
+  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
 
   const navData = {
-    links: [
-      { href: '#header', label: 'Главная' },
-      { href: '#about-us', label: 'О нас' },
-      { href: '#contacts', label: 'Контакты' },
-      { href: '#our-projects', label: 'Проекты' },
-      { href: '#market-response', label: 'Команда' }
-    ]
+    links: translations.header.navigation_desktop.map(item => ({
+      href: item.href,
+      label: item.text
+    }))
   }
   const navData2 = {
-    links: [
-      { href: '#about-us', label: 'О нас' },
-      {href: '#services', label: 'Услуги' },
-      { href: '#our-projects', label: 'Проекты' },
-      { href: '#contacts', label: 'Контакты' },
-    ]
+    links: translations.header.mobile_menu.navigation_mobile.map(item => ({
+      href: item.href,
+      label: item.text
+    }))
   }
+  const buttonText = translations.header.button.text
+  const buttonHref = translations.header.button.href
 </script>
 
 <template>
@@ -44,9 +46,9 @@
     <ButtonWithIcon
       class="fill-form-button"
       style-button="green"
-      href="#contacts"
+      :href="buttonHref"
     >
-      ЗАПОЛНИТЕ АНКЕТУ
+      {{ buttonText }}
     </ButtonWithIcon>
 
     <NavigationMenuMobile :nav-data="navData2" /> <!-- мобилка -->

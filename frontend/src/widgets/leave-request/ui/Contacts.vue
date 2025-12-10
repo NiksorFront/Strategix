@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import telegramIcon from "@/assets/images/telegram-icon.svg";
 import whatsappIcon from "@/assets/images/whatsapp-icon.svg";
+import index from '@/content/pages/index.json'
 
-const email = 'hello@strategix.com'
-const phone = '+595955084893' // убрал пробелы и плюсик только один — так надёжнее для tel:
-const telegram = 'https://t.me/strategix'   // ← замени на свой настоящий ник/ссылку
-const whatsapp = 'https://wa.me/595955084893' // ← номер без +, пробелов и скобок
+const { locale } = useI18n()
+const currentLocale = locale.value || 'ru'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+const title = translations.leave_request.contacts.title
+const email = translations.leave_request.contacts.email
+const phone = translations.leave_request.contacts.phone.replace(/\s/g, '') // убираем пробелы для tel:
+const telegram = translations.leave_request.contacts.telegram
+const whatsapp = translations.leave_request.contacts.whatsapp
 </script>
 
 <template>
@@ -14,7 +20,7 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
     class="contacts"
   > 
     <h3 class="title">
-      Оставьте заявку, чтобы&nbsp;обсудить&nbsp;проект
+      {{ title }}
     </h3>
 
     <div class="lr-contacts">
@@ -31,13 +37,13 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
         class="base-text contact-link contact-text hover"
         :href="`tel:${phone}`"
       >
-        {{ phone.replace(/(\d{3})(\d{3})(\d{3})(\d{3})/, '$1 $2 $3 $4') }}
+        {{ translations.leave_request.contacts.phone }}
       </a>
 
       <!-- Telegram -->
       <a
         class="contact-link"
-        :href="telegram"
+        :href="telegram.href"
         target="_blank"
         rel="noopener"
       >
@@ -46,13 +52,13 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
           :src="telegramIcon"
           alt="Telegram"
         />
-        <span class="base-text contact-text hover">телеграмм</span>
+        <span class="base-text contact-text hover">{{ telegram.text }}</span>
       </a>
 
       <!-- WhatsApp -->
       <a
         class="contact-link whatsapp"
-        :href="whatsapp"
+        :href="whatsapp.href"
         target="_blank"
         rel="noopener"
       >
@@ -61,7 +67,7 @@ const whatsapp = 'https://wa.me/595955084893' // ← номер без +, про
           :src="whatsappIcon"
           alt="WhatsApp"
         />
-        <span class="base-text contact-text hover">whatsapp</span>
+        <span class="base-text contact-text hover">{{ whatsapp.text }}</span>
       </a>
     </div>
   </div>

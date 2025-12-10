@@ -1,9 +1,14 @@
 <script setup lang="ts">
   import TextContent from './TextContent.vue';
   import Histogram from './Histogram.vue';
+  import index from '@/content/pages/index.json'
 
-  const telegram = 'https://t.me/strategix'   // ← замени на свой настоящий ник/ссылку
-  const whatsapp = 'https://wa.me/595955084893' // ← номер без +, пробелов и скобок
+  const { locale } = useI18n()
+  const currentLocale = locale.value || 'ru'
+  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+  const telegram = translations.welcome.button2.href
+  const whatsapp = translations.welcome.button3.href
 </script>
 
 <template>

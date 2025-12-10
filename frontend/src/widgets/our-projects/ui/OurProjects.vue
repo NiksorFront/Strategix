@@ -3,10 +3,15 @@
   import Filters from "./Filters.vue";
   import Slider from "./Slider.vue";
   import ProjectCard from "./ProjectCard.vue";
+  import index from '@/content/pages/index.json'
 
-  // import src1 from '@/assets/images/toba.jpg';
-  // import src2 from '@/assets/images/touch.jpg';
-  // import src3 from '@/assets/images/PTI.jpg';
+  const { locale } = useI18n()
+  const currentLocale = locale.value || 'ru'
+  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+  const sectionTitle = translations.our_projects.section_title
+  const filters = translations.our_projects.filters
+  const projects = translations.our_projects.projects
 </script>
 
 <template>
@@ -15,25 +20,17 @@
     class="our-projects"
   >
     <IndexSectionTitle :is-white="true">
-      Наши проекты
+      {{ sectionTitle }}
     </IndexSectionTitle>
 
-    <Filters :categories="['Кейсы', 'Брендинг', 'Продакшн', 'Реклама', 'Построение репутации']" />
+    <Filters :categories="filters" />
     <Slider>
       <ProjectCard
-        src="./images/toba.jpg"
-        title="toba"
-        description="Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
-      />
-      <ProjectCard
-        src="./images/touch.jpg"
-        title="touch"
-        description="Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
-      />
-      <ProjectCard
-        src="./images/PTI.jpg"
-        title="PTI vehicle inspection"
-        description="Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
+        v-for="(project, index) in projects"
+        :key="index"
+        :src="project.src"
+        :title="project.title"
+        :description="project.description"
       />
     </Slider>
     <div />

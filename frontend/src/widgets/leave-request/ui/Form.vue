@@ -1,35 +1,43 @@
 <script setup lang="ts">
   import ButtonWithIcon from '@/shared/ui/button-with-icon';
+  import index from '@/content/pages/index.json'
+
+  const { locale } = useI18n()
+  const currentLocale = locale.value || 'ru'
+  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+  const formData = translations.leave_request.form
+  const agreeData = translations.leave_request.agree
 </script>
 
 <template>
   <form class="form">
     <div class="lr-form">
       <h4 class="base-text title">
-        Ваши контакты
+        {{ formData.title }}
       </h4>
       <input
         class="base-text field"
         type="text"
-        placeholder="Имя Фамилия *"
+        :placeholder="`${formData.name} *`"
       >
       <input
         class="base-text field"
         type="tel"
-        placeholder="Телефон *"
+        :placeholder="`${formData.phone} *`"
       >
 
       <h4 class="base-text title">
-        О проекте
+        {{ formData.title2 }}
       </h4>
       <input
         class="base-text field"
         type="text"
-        placeholder="Какие услуги вас интересуют?"
+        :placeholder="formData.question"
       >
       <textarea
         class="base-text field textarea"
-        placeholder="С чем вам нужна помощь?"
+        :placeholder="formData.description"
       />
 
       <div class="form-row">
@@ -37,13 +45,13 @@
           style-button="white"
           class="submit"
         >
-          ОТПРАВИТЬ
+          {{ formData.button }}
         </ButtonWithIcon>
         <p class="base-text agree">
-          Нажимая на кнопку, я&nbsp;соглашаюсь с&nbsp;обработкой <a
+          {{ agreeData.text }} <a
             href="./processing-personal-data.pdf"
             class="hover"
-          >персональных данных</a>
+          >{{ agreeData.link }}</a>
         </p>
       </div>
     </div>

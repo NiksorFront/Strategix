@@ -1,16 +1,24 @@
 <script setup lang="ts">
-const email = 'hello@strategix.com';
+import index from '@/content/pages/index.json'
+
+const { locale } = useI18n()
+const currentLocale = locale.value || 'ru'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+const title = translations.our_team.lastcard.title
+const description = translations.our_team.lastcard.description
+const email = translations.our_team.lastcard.email
 </script>
 
 <template>
   <article class="team-cta-card">
     <div class="content">
       <h3 class="base-text title">
-        Хочешь стать частью команды?
+        {{ title }}
       </h3>
 
       <p class="base-text description">
-        Хочешь работать с нами, присылай резюме.
+        {{ description }}
       </p>
     </div>
 

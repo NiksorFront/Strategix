@@ -1,12 +1,20 @@
 <script setup lang="ts">
 import strategixLogo from "@/assets/images/strategix-white-2.svg";
 import ButtonWithIcon from "@/shared/ui/button-with-icon";
+import index from '@/content/pages/index.json'
 
 const { navData } = defineProps<{
   navData: {
     links: { href: string; label: string }[]
   }
 }>();
+
+const { locale } = useI18n()
+const currentLocale = locale.value || 'ru'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+const buttonText = translations.header.mobile_menu.button.text
+const buttonHref = translations.header.mobile_menu.button.href
 </script>
 
 <template>
@@ -63,9 +71,9 @@ const { navData } = defineProps<{
       <ButtonWithIcon
         class="button"
         style-button="white"
-        href="#contacts"
+        :href="buttonHref"
       >
-        ЗАПОЛНИТЕ АНКЕТУ
+        {{ buttonText }}
       </ButtonWithIcon>
     </div>
   </div>

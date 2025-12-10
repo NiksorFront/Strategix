@@ -1,6 +1,14 @@
 <script setup lang="ts">
   import IndexSectionTitle from '@/shared/ui/index-section-title/';
   import AboutItem from './AboutItem.vue';
+  import index from '@/content/pages/index.json'
+
+  const { locale } = useI18n()
+  const currentLocale = locale.value || 'ru'
+  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+  const sectionTitle = translations.about_us.title
+  const items = translations.about_us.items
 </script>
 
 <template>
@@ -9,24 +17,14 @@
     class="about-us"
     aria-labelledby="about-title"
   >
-    <IndexSectionTitle>О нас</IndexSectionTitle>
+    <IndexSectionTitle>{{ sectionTitle }}</IndexSectionTitle>
   
     <AboutItem
-      title="МИССИЯ"
-      subtitle="Репутация как стратегический актив"
-      content=" Мы создаём и внедряем комплексные решения, которые помогают компаниям управлять своим образом в медиа, усиливать влияние и укреплять позиции на рынке. Репутация становится не только отражением деятельности, но и мощным инструментом стратегического развития, открывающим новые возможности для роста и партнёрства."
-    />
-
-    <AboutItem
-      title="ЦЕННОСТИ"
-      subtitle="Глубина анализа, конфиденциальность и работа на результат"
-      content="тут нужно содержаение"
-    />
-
-    <AboutItem
-      title="НАШ ПОДХОД"
-      subtitle="Мы ценим долгосрочные отношения, прозрачность процессов"
-      content="тут нужно содержаение"
+      v-for="(item, index) in items"
+      :key="index"
+      :title="item.title"
+      :subtitle="item.subtitle"
+      :content="item.content"
     />
   </section>
 </template>

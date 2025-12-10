@@ -3,11 +3,13 @@
 import MemberCard from './MemberCard.vue';
 import TeamInfoCard from './TeamInfoCard.vue';
 import TeamCtaCard from './TeamCtaCard.vue';
+import index from '@/content/pages/index.json'
 
-import src1 from '@/assets/images/savvateev.jpg';
-import src2 from '@/assets/images/boris.png';
-import src3 from '@/assets/images/lebedev.png';
-import src4 from '@/assets/images/kuznetsov.png';
+const { locale } = useI18n()
+const currentLocale = locale.value || 'ru'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+const members = translations.our_team.members
 </script>
 
 
@@ -20,40 +22,12 @@ import src4 from '@/assets/images/kuznetsov.png';
       <TeamInfoCard />
 
       <MemberCard
-        src="./images/savvateev.jpg"
-        name="Алексей"
-        lastname="Савватеев"
-        position="Математик"
-      />
-      <MemberCard
-        src="./images/boris.png"
-        name="Борис"
-        lastname="Бояршинов"
-        position="Физик"
-      />
-      <MemberCard
-        src="./images/savvateev.jpg"
-        name="Алексей"
-        lastname="Савватеев"
-        position="Математик"
-      />
-      <MemberCard
-        src="./images/lebedev.png"
-        name="Артемий"
-        lastname="Лебедев"
-        position="Дизайнер"
-      />
-      <MemberCard
-        src="./images/lebedev.png"
-        name="Артемий"
-        lastname="Лебедев"
-        position="Дизайнер"
-      />
-      <MemberCard
-        src="./images/kuznetsov.png"
-        name="Сергей"
-        lastname="Кузнецов"
-        position="Архитектор"
+        v-for="(member, index) in members"
+        :key="index"
+        :src="member.src"
+        :name="member.name"
+        :lastname="member.lastname"
+        :position="member.position"
       />
 
       <TeamCtaCard />

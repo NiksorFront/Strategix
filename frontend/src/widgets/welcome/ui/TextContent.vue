@@ -1,23 +1,35 @@
 <script setup lang="ts">
 import ButtonWithIcon from '~/shared/ui/button-with-icon';
+import index from '@/content/pages/index.json'
 
 const props = defineProps<{ telegram: string; whatsapp: string }>();
+
+const { locale } = useI18n()
+const currentLocale = locale.value || 'ru'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+const title = translations.welcome.title
+const subtitle = translations.welcome.subtitle
+const button1Text = translations.welcome.button1.text
+const button1Href = translations.welcome.button1.href
+const button2Text = translations.welcome.button2.text
+const button3Text = translations.welcome.button3.text
 </script>
 
 <template>
   <div class="text-content">
     <h1 class="upperscase-text title">
-      МЫ&nbsp;СТРОИМ РЕПУТАЦИЮ И&nbsp;ОТКРЫВАЕМ ДВЕРИ&nbsp;НА МЕЖДУНАРОДНЫЕ РЫНКИ
+      {{ title }}
     </h1>
     <h2 class="base-text subtitle">
-      Международное позиционирование через медиа, ивенты и&nbsp;доверие профессионального сообщества.
+      {{ subtitle }}
     </h2>
     <div class="welcome-buttons">
       <ButtonWithIcon
         style-button="green"
-        href="#contacts"
+        :href="button1Href"
       >
-        ЗАПОЛНИТЕ АНКЕТУ
+        {{ button1Text }}
       </ButtonWithIcon>
       <ButtonWithIcon
         class="desktop"
@@ -25,7 +37,7 @@ const props = defineProps<{ telegram: string; whatsapp: string }>();
         :href="props.telegram"
         target="_blank"
       >
-        TELEGRAM
+        {{ button2Text }}
       </ButtonWithIcon>
       <ButtonWithIcon
         class="desktop"
@@ -33,21 +45,21 @@ const props = defineProps<{ telegram: string; whatsapp: string }>();
         :href="props.whatsapp"
         target="_blank"
       >
-        WHATSAPP
+        {{ button3Text }}
       </ButtonWithIcon>
       <ButtonWithIcon
         class="mobile"
         :href="props.telegram"
         target="_blank"
       >
-        TELEGRAM
+        {{ button2Text }}
       </ButtonWithIcon>
       <ButtonWithIcon
         class="mobile"
         :href="props.whatsapp"
         target="_blank"
       >
-        WHATSAPP
+        {{ button3Text }}
       </ButtonWithIcon>
     </div>
   </div>

@@ -4,7 +4,10 @@
   import ServiceCtaCard from './ServiceCtaCard.vue';
   import ModalWindow from './ModalWindow.vue';
   import AboutService from './AboutService.vue';
-  import {services} from "../model/config"
+  import { getServices } from "../model/config"
+
+  const { locale } = useI18n()
+  const services = computed(() => getServices(locale.value || 'ru'))
 </script>
 
 <template>

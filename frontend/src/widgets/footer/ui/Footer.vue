@@ -2,8 +2,18 @@
 import xWhite from "@/assets/images/x-white.svg";
 import telegramIcon from "@/assets/images/telegram-icon.svg";
 import linkedinIcon from "@/assets/images/linkedin-icon.svg";
+import index from '@/content/pages/index.json'
 
-// import privacyPolicy from "@/privacy-policy.pdf"
+const { locale } = useI18n()
+const currentLocale = locale.value || 'ru'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+const brand = translations.footer.brand
+const rights = translations.footer.rights
+const privacyPolicy = translations.footer.privacy_policy
+const email = translations.footer.email
+const icon1 = translations.footer.icon1
+const icon2 = translations.footer.icon2
 </script>
 
 <template>
@@ -16,45 +26,51 @@ import linkedinIcon from "@/assets/images/linkedin-icon.svg";
 
       <div class="info">
         <div class="base-text brand">
-          STRATEGIX
+          {{ brand }}
         </div>
         <div class="base-text rights">
-          © 2022–2025 ВСЕ ПРАВА ЗАЩИЩЕНЫ
+          {{ rights }}
         </div>
       </div>
 
       <a
-        href="./privacy-policy.pdf"
+        :href="privacyPolicy.href"
         class="base-text policy hover"
       >
-        ПОЛИТИКА<br>КОНФИДЕНЦИАЛЬНОСТИ
+        {{ privacyPolicy.text }}
       </a>
     </div>
 
     <div class="footer__right">
       <a
-        href="mailto:hello@strategix.com"
+        :href="`mailto:${email}`"
         class="base-text email hover"
       >
-        hello@strategix.com
+        {{ email }}
       </a>
 
       <a
-        href="#"
+        :href="icon1.href"
         class="icon"
+        target="_blank"
+        rel="noopener"
       >
         <NuxtImg
           :src="telegramIcon"
+          alt="telegram icon"
           class="telegram"
         />
       </a>
 
       <a
-        href="#"
+        :href="icon2.href"
         class="icon"
+        target="_blank"
+        rel="noopener"
       >
         <NuxtImg
           :src="linkedinIcon"
+          alt="linkedin icon"
           class="linkedin"
         />
       </a>
@@ -149,6 +165,7 @@ import linkedinIcon from "@/assets/images/linkedin-icon.svg";
   font-weight: 400;
   line-height: 120%;
   text-align: left;
+  white-space: pre-line;
   text-transform: uppercase;
 
   @media(--tablet-width){

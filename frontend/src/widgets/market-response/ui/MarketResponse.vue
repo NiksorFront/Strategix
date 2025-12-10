@@ -1,6 +1,14 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
+import index from '@/content/pages/index.json'
 
-</script> -->
+const { locale } = useI18n()
+const currentLocale = locale.value || 'ru'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+
+const title = translations.market_response.title
+const description1 = translations.market_response.description1
+const description2 = translations.market_response.description2
+</script>
 
 <template>
   <section
@@ -8,13 +16,13 @@
     class="market-response"
   >
     <h3 class="market-title">
-      Быстро отвечаем на вызовы международного рынка
+      {{ title }}
     </h3>
     <p class="small-text market-description">
-      Профессиональная команда в&nbsp;области репутационного маркетинга. Мы&nbsp;создаём бренды, поддерживаем хорошую репутацию клиентов в&nbsp;интернете, прогнозируем возможные риски, кризисы и&nbsp;профессионально устраняем&nbsp;их.
+      {{ description1 }}
       <br>
       <br>
-      Под разные ситуации находим решения, чтобы у&nbsp;вас была узнаваемость, доверие к&nbsp;вам, инвесторы потом к&nbsp;вам несли денег и&nbsp;доверяли. Мыслить нестандарнтно.
+      {{ description2 }}
     </p>
   </section>
 </template>
