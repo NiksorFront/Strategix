@@ -41,7 +41,7 @@
         </ButtonWithIcon>
         <p class="base-text agree">
           Нажимая на кнопку, я&nbsp;соглашаюсь с&nbsp;обработкой <a
-            href="#"
+            href="./processing-personal-data.pdf"
             class="hover"
           >персональных данных</a>
         </p>
@@ -115,7 +115,6 @@
   
   font-size: min(18px, 4.65vw);
   font-weight: 400;
-  /* box-sizing: border-box; */
   outline: none;
   text-align: left;
   color: var(--strategix-dark);

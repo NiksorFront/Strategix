@@ -2,6 +2,8 @@
 import xWhite from "@/assets/images/x-white.svg";
 import telegramIcon from "@/assets/images/telegram-icon.svg";
 import linkedinIcon from "@/assets/images/linkedin-icon.svg";
+
+// import privacyPolicy from "@/privacy-policy.pdf"
 </script>
 
 <template>
@@ -21,9 +23,12 @@ import linkedinIcon from "@/assets/images/linkedin-icon.svg";
         </div>
       </div>
 
-      <div class="base-text policy hover">
+      <a
+        href="./privacy-policy.pdf"
+        class="base-text policy hover"
+      >
         ПОЛИТИКА<br>КОНФИДЕНЦИАЛЬНОСТИ
-      </div>
+      </a>
     </div>
 
     <div class="footer__right">
@@ -137,6 +142,9 @@ import linkedinIcon from "@/assets/images/linkedin-icon.svg";
 
 /* Политика */
 .policy {
+  text-decoration: none;
+  color: white;
+
   font-size: min(10px, 2.4vw);
   font-weight: 400;
   line-height: 120%;

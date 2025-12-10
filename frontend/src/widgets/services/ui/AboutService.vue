@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { AboutServiceForModal } from "../model/config";
+  import ButtonCloseModal from "./ButtonCloseModal.vue";
+  import type { AboutServiceForModal } from "../model/config";
 
-const props = defineProps<{ aboutService: AboutServiceForModal, gridArea: string }>();
+  const props = defineProps<{ aboutService: AboutServiceForModal, gridArea: string }>();
 
-const {title, Decor, lead, bullets, text} = props.aboutService
+  const {title, Decor, lead, bullets, text} = props.aboutService
 
 </script>
 
@@ -17,15 +17,7 @@ const {title, Decor, lead, bullets, text} = props.aboutService
       <div class="service-decor">
         <component :is="Decor" />
       </div>
-      <form
-        method="dialog"
-        class="icon-arrow"
-      >
-        <button
-          type="submit"
-          aria-label="Закрыть модальное окно"
-        />
-      </form>
+      <ButtonCloseModal />
       
       <h3 class="upperscase-text about-service-title">
         {{ title }}
@@ -49,15 +41,7 @@ const {title, Decor, lead, bullets, text} = props.aboutService
     </div>
     <div class="about-service-pc">
       <div class="pc-left-content">
-        <form
-          method="dialog"
-          class="icon-arrow"
-        >
-          <button
-            type="submit"
-            aria-label="Закрыть модальное окно"
-          />
-        </form>
+        <ButtonCloseModal />
 
         <h3 class="upperscase-text about-service-title">
           {{ title }}
@@ -182,71 +166,6 @@ const {title, Decor, lead, bullets, text} = props.aboutService
   transition: all 0.3s ease-in-out;
 }
 
-.icon-arrow{
-  width: min(5vw, 20px);
-  height: min(5vw, 20px);
-  box-sizing: border-box;
-
-  position: absolute;
-  top: clamp(12px, 0.666vw + 1.5vh, 40px);
-  right: clamp(12px, 0.666vw + 1.5vh, 40px);
-
-  background: transparent;
-  border: 1px solid white;
-  border-top: 1px;
-  border-right: 1px;
-
-  z-index: 5;
-
-  @media(--tablet-width){
-    width: clamp(20px, 2.5vw, 60px);
-    height: clamp(20px, 2.5vw, 60px);
-    border: 2px solid white;
-    border-top: 2px;
-    border-right: 2px;
-  }
-
-  @media(--mobile-medium){
-    width: min(4.1675vh, 20px);
-    height: min(4.1675vh, 20px);
-  }
-}
-
-.icon-arrow::after{
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -0.5px;
-
-  /* длина линии чуть больше диагонали квадрата: √2 ≈ 1.414 */
-  width: 141%;
-  height: 1px;
-
-  background-color: white;
-
-  transform-origin: left bottom;
-  transform: rotate(-45deg);
-
-  @media(--tablet-width){
-    width: 135%;
-    height: 2px;
-  }
-}
-
-.icon-arrow button{
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-
-  /* новое — чтобы не было дефолтного вида кнопки */
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  outline: none;
-}
-
-/* Left green card */
 .about-service__card{
   background: var(--strategix-accent);
   border-radius: var(--card-radius);
