@@ -40,12 +40,12 @@ export default defineNuxtConfig({
     quality: 80,
     format: ['webp'],
     screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536,
+      xs: 480,   // --mobile-width
+      sm: 768,   // --tablet-width
+      md: 1024,  // --laptop-width
+      lg: 1440,  // --big-laptop-width
+      xl: 1920,  // --mini-pc-width
+      xxl: 2620, // --pc-width
     },
   },
   eslint: {

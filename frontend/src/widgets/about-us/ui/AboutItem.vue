@@ -80,7 +80,8 @@ const props = defineProps({
   text-align: left;
   font-weight: 600;
   font-size: clamp(28px, 2.4vw, 56px);
-   
+  color: var(--strategix-dark);
+  
 
   @media(--tablet-width){
     width: 30vw;
@@ -97,6 +98,8 @@ const props = defineProps({
   text-align: left;
   font-size: clamp(20px, 1.65vw, 40px);
   display: none;
+
+  color: var(--strategix-dark);
 
   @media(--mobile-medium){
     font-size: min(20px, calc(var(--vh) * 3.6));
@@ -116,6 +119,8 @@ const props = defineProps({
   font-size: min(23px, 10vw);
   display: block;
 
+  color: var(--strategix-dark);
+
   @media(--mobile-medium){
     font-size: min(23px, calc(var(--vh) * 4));
   }
@@ -133,6 +138,7 @@ const props = defineProps({
   font-size: clamp(16px, 1.2vw, 32px);
   text-align: left;
   font-weight: 300;
+  color: var(--strategix-dark);
 
   /* анимация раскрытия */
   overflow: hidden;

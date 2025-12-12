@@ -112,6 +112,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
 
   text-transform: uppercase;
   font-size: min(16px, 3.75vw);
+  color: var(--strategix-dark);
 
   transition: all 0.3s ease-in-out;
 

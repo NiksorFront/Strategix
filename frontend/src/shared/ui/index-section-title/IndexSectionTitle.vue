@@ -21,6 +21,7 @@
     font-size: clamp(18px, 2vw, 48px);
     font-weight: 800;
     margin: 0 0 min(40px, calc(var(--vh) * 4));
+    color: var(--strategix-dark);
 
     @media(--big-laptop-width){
       margin: 0 0 clamp(40px, calc(var(--vh) * 5), 80px);

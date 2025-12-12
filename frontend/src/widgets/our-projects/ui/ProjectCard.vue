@@ -40,13 +40,13 @@ function go() {
     <NuxtImg
       :src="src"
       class="img-card"
-      sizes="(max-width: 600px) 74.36vw, (max-width: 1024px) 50vw, 33vw"
+      sizes="(max-width: 767px) 74.36vw, (max-width: 1023px) 32.5vw, 33vw"
       format="webp"
       :quality="80"
       :alt="title"
       loading="lazy"
-      :width="600"
-      :height="400"
+      :width="1000"
+      :height="1000"
     />
     <h4 class="base-text title-card">
       {{ title }}
@@ -86,7 +86,6 @@ function go() {
   width: 100%;
   height: 68.5%;
   max-height: calc(var(--vh) * 45.5);
-  aspect-ratio: 3 / 2;
 
   object-fit: cover;
   border-radius: var(--card-radius);

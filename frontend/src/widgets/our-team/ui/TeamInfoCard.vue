@@ -30,13 +30,9 @@ const description = translations.our_team.firstcard.description
   border-radius: var(--card-radius);
   background-color: white;
 
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  @media(--tablet-width){
-    display: flex;
-  }
 }
 
 .team-info-card__title {
@@ -51,7 +47,7 @@ const description = translations.our_team.firstcard.description
   color: var(--strategix-accent);
 
   @media(--mobile-medium){
-    font-size: min(20px, calc(var(--vh) * 4.175));
+    font-size: min(20px, calc(var(--vh) * 3.575));
   }
 }
 
@@ -67,7 +63,7 @@ const description = translations.our_team.firstcard.description
   color: var(--strategix-dark);
 
   @media(--mobile-medium){
-    font-size: min(14px, calc(var(--vh) * 2.71));
+    font-size: min(14px, calc(var(--vh) * 2.21));
   }
 }
 

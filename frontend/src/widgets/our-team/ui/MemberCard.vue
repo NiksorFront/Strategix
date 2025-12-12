@@ -7,13 +7,13 @@ const {src, name, lastname, position} = defineProps<{src: string, name: string, 
     <NuxtImg
       class="image-card"
       :src="src"
-      sizes="(max-width: 600px) 48vw, 25vw"
+      sizes="(max-width: 767px) 170px, (max-width: 1023px) 25vw, 25vw"
       format="webp"
       :quality="70"
       :alt="`${name} ${lastname}`"
       loading="lazy"
-      :width="300"
-      :height="400"
+      :width="600"
+      :height="600"
     />
     <div class="text-background">
       <h4 class="small-text name">
@@ -39,8 +39,8 @@ const {src, name, lastname, position} = defineProps<{src: string, name: string, 
 .image-card{
     width: 100%;
     height: 100%;
-    aspect-ratio: 3 / 4;
     object-fit: cover;
+    object-position: center top;
 }
 
 .text-background{

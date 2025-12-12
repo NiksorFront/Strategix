@@ -56,16 +56,25 @@ const email = translations.our_team.lastcard.email
     padding: clamp(16px, 6%, 32px) clamp(10px, 7%, 40px);
     grid-column: auto;
   }
+
+  @media(--mobile-medium){
+    height: 100%;
+    padding: min(10px, calc(var(--vh) * 2.25)) min(14px, 3.5vw);
+    grid-column: auto;
+  }
 }
 
 .content {
-  height: 60%;
+  height: 65%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   @media(--tablet-width){
     height: 88%;
+  }
+  @media(--mobile-medium){
+    height: 100%;
   }
 }
 
@@ -88,7 +97,8 @@ const email = translations.our_team.lastcard.email
   }
 
   @media(--mobile-medium){
-    font-size: min(20px, calc(var(--vh) * 4.175));
+    font-size: min(20px, calc(var(--vh) * 3.575));
+    text-wrap: wrap;
   }
 }
 
@@ -110,7 +120,8 @@ const email = translations.our_team.lastcard.email
   }
 
   @media(--mobile-medium){
-    font-size: min(14px, calc(var(--vh) * 2.71));
+    font-size: min(14px, calc(var(--vh) * 2.21));
+    text-wrap: wrap;
   }
 }
 

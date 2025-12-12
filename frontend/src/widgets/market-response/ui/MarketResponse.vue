@@ -65,11 +65,11 @@ const description2 = translations.market_response.description2
     @media(--tablet-width){
       width: 50.4%;
       height: fit-content;
-      font-size: clamp(25px, calc(1.191vw + var(--vh) * 1.733), 52px);
+      font-size: clamp(25px, calc(1.291vw + var(--vh) * 1.533), 52px);
     }
 
     @media(--mobile-medium) {
-      font-size: min(25px, calc(var(--vh) * 5));
+      font-size: min(25px, calc(var(--vh) * 6));
     }
     
 }
