@@ -61,13 +61,16 @@
 <style scoped>
 .form{
   width: 100%;
-  height: 76%;
+  height: calc(var(--vh) * 76);
+  padding: 0 var(--padding-section-x);
+  box-sizing: border-box;
 
   background-color: var(--strategix-accent);
 
   @media(--tablet-width){
     width: 50%;
     height: 100%;
+    padding: 0 var(--padding-section-x) 0 0;
   }
 }
 

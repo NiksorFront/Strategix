@@ -83,11 +83,14 @@ const whatsapp = translations.leave_request.contacts.whatsapp
 .contacts {
   width: 100%;
   height: 24%;
+  padding: 0 var(--padding-section-x) var(--padding-section-x);
+  box-sizing: border-box;
   background-color: var(--strategix-dark);
 
   @media (--tablet-width) {
     width: 50%;
     height: 100%;
+    padding: 0 0 0 var(--padding-section-x);
   }
 }
 
@@ -130,14 +133,18 @@ const whatsapp = translations.leave_request.contacts.whatsapp
   color: white;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: min(1vh, 8px);
 }
 
 .contact-icon {
-  width: min(7.5%, 14px);
+  width: min(7.25%, 28px);
   height: auto;
   aspect-ratio: 1 / 1;
   flex-shrink: 0;
+
+  @media(--mobile-medium){
+    width: min(3.5%, 14px);
+  }
 }
 
 .email-icon {
