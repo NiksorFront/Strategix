@@ -5,11 +5,19 @@
     { height: '39', color: 'gray' },
     { height: '36', color: 'gray' },
     { height: '54', color: 'green' },
-    { height: '76', color: 'green' },
-    { height: '66', color: 'green' },
+    { height: '65', color: 'green' },
+    { height: '77', color: 'green' },
+    { height: '70', color: 'green' },
     { height: '86', color: 'green' },
-    { height: '76', color: 'green' },
   ]
+
+  const animate = ref(true)
+
+  onMounted(() => {
+    setTimeout(() => {
+      animate.value = false
+    }, 1000)
+  })
 </script>
 
 <template>
@@ -19,13 +27,14 @@
         v-for="(column, index) in columns"
         :key="index"
         class="column"
+        :class="`column.color`"
       >
         <p class="small-text bar-text">
           {{ Math.floor(Number(column.height) * 15.78) }}
         </p>
         <div
           class="bar-column"
-          :class="column.color"
+          :class="[column.color, { animate }]"
           :style="{ '--h': column.height + '%' }"
         />
       </div>
@@ -69,13 +78,45 @@
   }
 
  .column {
-    width: clamp(20px, 3.25vw, 80px);
+    width: clamp(20px, 4vw, 80px);
     height: 100%;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center; 
+    align-items: center;
+
+    @media(--laptop-width){
+      width: clamp(20px, 3.25vw, 80px);
+    }
+
+    @media(--mobile-medium){
+      width: clamp(20px, 3.25vw, 80px);
+    }
+  }
+
+  .column:nth-child(2){
+    display: none;
+    
+    @media(--laptop-width){
+      display: flex;
+    }
+
+    @media(--mobile-medium){
+      display: flex;
+    }
+  }
+
+  .column:nth-child(8){
+    display: none;
+
+    @media(--laptop-width){
+      display: flex;
+    }
+
+    @media(--mobile-medium){
+      display: flex;
+    }
   }
 
   .bar-text {
@@ -90,16 +131,22 @@
 
   .bar-column {
       width: 100%;
+      height: var(--h);
       border-radius: calc(var(--card-radius) / 2);
 
-      /* базовая высота */
-      height: var(--h);
+      transition: height 0.25s ease-in-out;
+  }
 
-      /* общие настройки анимации */
-      animation-name: wobble-height, bar-glow;
-      animation-timing-function: ease-out;
-      animation-iteration-count: 1;
-      animation-fill-mode: forwards;
+  .bar-column:hover{
+    height: calc(var(--h) + clamp(10%, ((100% - var(--h)) * (100% - var(--h)) / 200%), 32%));
+  }
+
+  /* анимация только когда есть класс */
+  .animate {
+    animation-name: wobble-height, bar-glow;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
   }
 
   /* разная длительность для каждого столбца */
@@ -108,10 +155,10 @@
   .columns .column:nth-child(3) .bar-column { animation-duration: calc(var(--base-duration) + 0.425s); }
   .columns .column:nth-child(4) .bar-column { animation-duration: calc(var(--base-duration) + 0.45s); }
   .columns .column:nth-child(5) .bar-column { animation-duration: calc(var(--base-duration) + 0.3s); }
-  .columns .column:nth-child(6) .bar-column { animation-duration: calc(var(--base-duration) + 0.175s); }
-  .columns .column:nth-child(7) .bar-column { animation-duration: calc(var(--base-duration) + 0.2s); }
-  .columns .column:nth-child(8) .bar-column { animation-duration: calc(var(--base-duration) + 0.1s); }
-  .columns .column:nth-child(9) .bar-column { animation-duration: calc(var(--base-duration) + 0.15s); }
+  .columns .column:nth-child(6) .bar-column { animation-duration: calc(var(--base-duration) + 0.2s); }
+  .columns .column:nth-child(7) .bar-column { animation-duration: calc(var(--base-duration) + 0.15s); }
+  .columns .column:nth-child(8) .bar-column { animation-duration: calc(var(--base-duration) + 0.175s); }
+  .columns .column:nth-child(9) .bar-column { animation-duration: calc(var(--base-duration) + 0.1s); }
 
   .gray {
       background-color: var(--strategix-gray);
