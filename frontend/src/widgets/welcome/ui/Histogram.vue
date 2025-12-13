@@ -12,6 +12,22 @@
   ]
 
   const animate = ref(true)
+  const hoveredColumnIndex = ref<number | null>(null)
+
+  const clampValue = (value: number, min: number, max: number) =>
+    Math.min(Math.max(value, min), max)
+
+  const getHoveredHeight = (height: number) => {
+    const delta = clampValue(((100 - height) * (100 - height)) / 200, 10, 32)
+    return height + delta
+  }
+
+  const getDisplayValue = (height: string, isHovered: boolean) => {
+    const baseHeight = Number(height)
+    const targetHeight = isHovered ? getHoveredHeight(baseHeight) : baseHeight
+
+    return Math.floor(targetHeight * 15.78)
+  }
 
   onMounted(() => {
     setTimeout(() => {
@@ -30,12 +46,14 @@
         :class="`column.color`"
       >
         <p class="small-text bar-text">
-          {{ Math.floor(Number(column.height) * 15.78) }}
+          {{ getDisplayValue(column.height, hoveredColumnIndex === index) }}
         </p>
         <div
           class="bar-column"
           :class="[column.color, { animate }]"
           :style="{ '--h': column.height + '%' }"
+          @mouseenter="hoveredColumnIndex = index"
+          @mouseleave="hoveredColumnIndex = null"
         />
       </div>
     </div>
