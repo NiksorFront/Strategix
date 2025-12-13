@@ -57,7 +57,7 @@
 
 <style scped>
 .services {
-    width: 100vw;
+    width: var(--section-width);
     min-height: calc(var(--vh) * 100);
     height: auto;
     padding: 0 var(--padding-section-x) calc(var(--vh) * 10);

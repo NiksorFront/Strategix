@@ -89,7 +89,7 @@ const icon2 = translations.footer.icon2
 
 <style scoped>
 .footer {
-  width: 100vw;
+  width: var(--section-width);
   height: calc(var(--vh) * 10);
   padding: 0 var(--padding-section-x);
   box-sizing: border-box;

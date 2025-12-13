@@ -66,10 +66,11 @@
     --card-radius: min(24px, calc(1vw + var(--vh) * 1));
     --gap-grid: clamp(10px, 0.834vw, 20px);
 
+    --section-width: 100%; /*Не 100vw, потому что важно учитваять вертикальный скролл, чтобы избежать горизонтального */
     --padding-section-x: 5vw;
 
     @media (--pc-width) {
-      --padding-section-x: calc((100vw - 2560px) / 2);
+      --padding-section-x: calc((var(--section-width) - 2560px) / 2);
     }
   }
   

@@ -179,7 +179,7 @@ const buttonHref = translations.header.mobile_menu.button.href
 }
 
 .menu{
-  width: 100vw;
+  width: var(--section-width);
   height: calc(var(--vh) * 100);
   padding: calc(var(--vh) * 6.75) var(--padding-section-x) var(--padding-section-x);
   box-sizing: border-box;

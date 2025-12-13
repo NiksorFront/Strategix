@@ -60,7 +60,7 @@
 
 <style scoped>
   .header {
-    width: 100vw;
+    width: var(--section-width);
     max-height: calc(var(--vh) * 10);
     padding: calc(var(--vh) * 6.75) var(--padding-section-x) 0;
     box-sizing: border-box;

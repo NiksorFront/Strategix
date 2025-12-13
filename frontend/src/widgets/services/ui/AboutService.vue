@@ -79,6 +79,7 @@
 
   border-radius: var(--card-radius);
   overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .about-service-mobile{
@@ -96,6 +97,7 @@
   border-radius: var(--card-radius);
 
   overflow-y: scroll;
+  scrollbar-width: none;
 
   @media(--tablet-width){
     display: none;

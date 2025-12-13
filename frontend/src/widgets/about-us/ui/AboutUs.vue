@@ -31,7 +31,7 @@
 
 <style scoped>
 .about-us{
-    width: 100vw;
+    width: var(--section-width);
     height: fit-content;
     padding: calc(var(--vh) * 10) var(--padding-section-x);
     box-sizing: border-box;

@@ -12,7 +12,7 @@ import Form from './Form.vue';
 
 <style scped>
 .leave-request {
-    width: 100vw;
+    width: var(--section-width);
     min-height: calc(var(--vh) * 100);
     height: fit-content;
     padding: 0;

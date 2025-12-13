@@ -73,7 +73,7 @@
 
     gap: clamp(5px, 0.6vw, 30px);
 
-    --base-duration: 0.5s;
+    --base-duration: 0.75s;
     --bar-glow-color: color-mix(in srgb, var(--strategix-accent) 60%, var(--strategix-dark) 40%);
   }
 

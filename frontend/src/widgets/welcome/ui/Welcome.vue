@@ -33,7 +33,7 @@
 
 <style scoped>
 .welcome {
-    width: 100vw;
+    width: var(--section-width);
     height: calc(var(--vh) * 90 + 1px);
     padding-inline: var(--padding-section-x);
     box-sizing: border-box;

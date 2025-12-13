@@ -39,7 +39,7 @@
 
 <style scoped>
 .our-projects {
-    width: 100vw;
+    width: var(--section-width);
     height: calc(var(--vh) * 100);
     padding: calc(var(--vh) * 7.5) var(--padding-section-x);
     box-sizing: border-box;

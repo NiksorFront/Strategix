@@ -40,7 +40,7 @@ const members = translations.our_team.members
 
 <style scoped>
 .our-team {
-    width: 100vw;
+    width: var(--section-width);
     min-height: calc(var(--vh) * 70);
     height: fit-content; 
     padding: 0 var(--padding-section-x);

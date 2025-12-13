@@ -28,7 +28,7 @@ const { id } = defineProps<{ id: string }>();
 
 
 <style>
-  /* Блокировка скролла, когда модалка открыта */
+  /* Блокировка скролла сайта, когда модалка открыта */
   body:has(dialog.modal[open]) {
     overflow: hidden;
   }
@@ -36,7 +36,7 @@ const { id } = defineProps<{ id: string }>();
 
 <style scoped>
 .modal {
-  width: 100vw;
+  width: var(--section-width);
   height: calc(var(--vh) * 100);
 
   /* убираем чёрную стандартную рамку/фон */
@@ -67,10 +67,11 @@ const { id } = defineProps<{ id: string }>();
 
 
 .modal__window {
-  width: calc(100vw - 2 * var(--padding-section-x));
+  width: calc(var(--section-width) - 2 * var(--padding-section-x));
   height: auto;
   max-height: calc(var(--vh) * 86);
-  overflow: auto;
+  overflow-y: auto;
+  scrollbar-width: none;
 
   position: fixed;
   left: var(--padding-section-x);

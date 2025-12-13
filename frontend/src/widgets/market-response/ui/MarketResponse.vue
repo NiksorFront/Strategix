@@ -29,7 +29,7 @@ const description2 = translations.market_response.description2
 
 <style scped>
 .market-response {
-    width: 100vw;
+    width: var(--section-width);
     min-height: calc(var(--vh) * 30);
     height: fit-content;
     padding: calc(var(--vh) * 4) var(--padding-section-x) calc(var(--vh) * 2.25);
