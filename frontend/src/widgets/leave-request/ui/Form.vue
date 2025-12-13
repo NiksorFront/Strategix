@@ -72,6 +72,12 @@
     height: 100%;
     padding: 0 var(--padding-section-x) 0 0;
   }
+/* 
+  @media(--mobile-medium){
+    width: 100%;
+    height: calc(var(--vh) * 76);
+    padding: 0 var(--padding-section-x);
+  } */
 }
 
 .lr-form {

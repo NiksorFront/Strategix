@@ -70,7 +70,7 @@ const members = translations.our_team.members
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-auto-rows: min(calc(var(--vh) * 30), 250px);
+  grid-auto-rows: min(calc(var(--vh) * 23), 250px);
 
   gap: var(--gap-grid);
 

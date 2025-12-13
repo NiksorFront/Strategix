@@ -25,10 +25,15 @@ import Form from './Form.vue';
     background-color: var(--strategix-accent);
 
     @media(--tablet-width){
+        min-height: calc(var(--vh) * 90);
         height: calc(var(--vh) * 90);
         flex-direction: row;
         flex-wrap: nowrap;
     }
     
+    @media(--mobile-medium){
+      min-height: calc(var(--vh) * 105);
+      height: calc(var(--vh) * 105);
+    }
 }
 </style>
