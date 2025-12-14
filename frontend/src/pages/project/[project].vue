@@ -6,8 +6,6 @@ const route = useRoute()
 // slug из урла
 const project = computed(() => route.params.project as string)
 
-console.log()
-
 const { locale } = useI18n()
 const currentLocale = computed(() => locale.value || 'ru')
 const projectType = computed(() => projectsContent.projects.group1[currentLocale.value].title)

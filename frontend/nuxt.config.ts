@@ -3,11 +3,17 @@
 // eslint-disable-next-line import/no-internal-modules
 import localesConfig from './src/content/locales.json';
 
+// CMS включён только в dev, а при generate (и в любых других командах) — выключен
+const cmsEnabled = process.argv.some((arg) => arg === 'dev') && !process.argv.some((arg) => arg === 'generate');
+const modules = cmsEnabled 
+                  ? ["@nuxt/eslint", "@nuxt/image", "@nuxtjs/i18n", "@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "shadcn-nuxt"] 
+                  : ["@nuxt/eslint", "@nuxt/image", "@nuxtjs/i18n"];
+
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   srcDir: "src",
-  modules: ["@nuxt/eslint", "@nuxt/image", "@nuxtjs/i18n"],
+  modules,
   app:{
     baseURL: process.env.NUXT_APP_BASE_URL ?? "/",
   },
@@ -27,6 +33,22 @@ export default defineNuxtConfig({
     css: {
       devSourcemap: false,
     }
+  },
+  hooks: {
+    // Отрубаем CMS-страницы из роутинга, если флаг не выставлен (например, на generate)
+    'pages:extend'(pages) {
+      if (cmsEnabled) {
+        return;
+      }
+
+      const cmsRoutes = pages.filter((page) => page.path?.startsWith('/cms'));
+      cmsRoutes.forEach((page) => {
+        const index = pages.indexOf(page);
+        if (index !== -1) {
+          pages.splice(index, 1);
+        }
+      });
+    },
   },
   nitro: {
     preset: "github_pages",
@@ -63,6 +85,22 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  tailwindcss: cmsEnabled ? {
+    cssPath: '@/shared/ui/shadcn/styles/tailwind.css',
+    configPath: 'tailwind.config.ts',
+    viewer: false,
+    exposeConfig: false,
+  } : undefined,
+  colorMode: cmsEnabled ? {
+    classSuffix: '',
+    preference: 'light',
+    fallback: 'light',
+  } : undefined,
+  shadcn: cmsEnabled ? {
+    prefix: '',
+    componentDir: 'src/shared/ui/shadcn/components',
+    utilsDir: 'src/shared/ui/shadcn/lib',
+  } : undefined,
   i18n: {
     //Код языков опираются на https://w3schoolsrus.github.io/tags/ref_language_codes.html#gsc.tab=0
     locales: localesConfig.locales.map((l: {code: string; iso: string; name: string;}) => ({
