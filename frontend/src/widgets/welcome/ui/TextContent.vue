@@ -76,12 +76,12 @@ const button3Text = translations.welcome.button3.text
   z-index: 1;
 
   @media(--tablet-width){
-    width: 65%;
+    width: 60%;
     height: 100%;
   }
 
   @media(--laptop-width){
-    width: 50%;
+    width: 60%;
   }
 }
 
@@ -89,7 +89,7 @@ const button3Text = translations.welcome.button3.text
   max-width: 100%;
   overflow: hidden;
   text-align: left;
-  font-size: min(min(10vw, calc(var(--vh) * 4.5)), 42px);
+  font-size: min(min(10vw, calc(var(--vh) * 5.25)), 42px);
   color: white;
   line-height: 120%;
 
@@ -102,7 +102,9 @@ const button3Text = translations.welcome.button3.text
   }
 
   @media (--mobile-width) and (max-aspect-ratio: 4/5){
-      font-size: clamp(min(4vw, var(--vh) * 3), 1.325vw + var(--vh) * 2.2, 100px);
+      width: 100%;
+      margin-top: var(--welcome-padding-top);
+      font-size: clamp(min(4vw, var(--vh) * 3), min(10vw, calc(var(--vh) * 5.25)), 100px);
   }
 
   @media(--mobile-medium) {
@@ -113,7 +115,7 @@ const button3Text = translations.welcome.button3.text
 .subtitle{
   width: 100%;
   text-align: left;
-  font-size: min(20px, 5.125vw);
+  font-size: min(min(5.125vw, calc(var(--vh) * 2.5)), 20px);
   color: var(--strategix-accent);
   line-height: 120%;
 
@@ -125,8 +127,6 @@ const button3Text = translations.welcome.button3.text
     font-size: clamp(20px, calc(1vw + var(--vh) * 1.25), 50px);
     margin-top: 3.5%;
   }
-
-  
 
   @media(--mobile-medium) {
     font-size: min(14px, calc(var(--vh) * 3.75));

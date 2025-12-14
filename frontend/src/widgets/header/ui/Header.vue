@@ -95,13 +95,16 @@
     display: none;
     width: 0;
 
-    @media(--tablet-width){
+    @media(--mobile-width){
       display: block;
+      width: 20vw;
+    }
+
+    @media(--tablet-width){
       width: 0.5vw;
     }
 
     @media(--laptop-width){
-      display: block;
       width: 2.5vw;
     }
   }

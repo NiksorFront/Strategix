@@ -71,12 +71,12 @@
     display: none;
 
     @media(--tablet-width){
-        width: 50%;
+        width: 40%;
         display: flex;
     }
 
     @media(--laptop-width){
-        width: 50%;
+        width: 40%;
     }
  }
 
