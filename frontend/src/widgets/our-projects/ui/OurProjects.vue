@@ -4,14 +4,45 @@
   import Slider from "./Slider.vue";
   import ProjectCard from "./ProjectCard.vue";
   import index from '@/content/pages/index.json'
+  import projectsContent from '@/content/pages/projects.json'
+
+  type ProjectCase = { src: string; title: string; description: string }
+  type ProjectCardData = ProjectCase & { route: string }
+  type ProjectLocaleData = { title: string; cases?: Record<string, ProjectCase> }
+  type ProjectsContent = Record<string, Record<string, ProjectLocaleData>>
+
+  const projectsData = (projectsContent.projects || {}) as ProjectsContent
 
   const { locale } = useI18n()
-  const currentLocale = locale.value || 'ru'
-  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+  const currentLocale = computed(() => locale.value || 'ru')
+  const translations = computed(() => index.translations[currentLocale.value as keyof typeof index.translations] || index.translations.ru)
 
-  const sectionTitle = translations.our_projects.section_title
-  const filters = translations.our_projects.filters
-  const projects = translations.our_projects.projects
+  const sectionTitle = computed(() => translations.value.our_projects.section_title)
+
+  const filters = computed(() => {
+    const baseFilters = translations.value.our_projects.filters || []
+    const localeCode = currentLocale.value
+
+    const groupTitles = Object.values(projectsData)
+      .map((group) => (group[localeCode] || group.ru)?.title)
+      .filter((title): title is string => Boolean(title))
+
+    return [...baseFilters, ...groupTitles]
+  })
+
+  const projectCards = computed<ProjectCardData[]>(() => {
+    const localeCode = currentLocale.value
+
+    return Object.values(projectsData).flatMap((group) => {
+      const localized = group[localeCode] || group.ru
+      if (!localized?.cases) return []
+
+      return Object.entries(localized.cases).map(([caseKey, data]) => ({
+        route: caseKey,
+        ...data,
+      }))
+    })
+  })
 </script>
 
 <template>
@@ -26,8 +57,9 @@
     <Filters :categories="filters" />
     <Slider>
       <ProjectCard
-        v-for="(project, index) in projects"
+        v-for="(project, index) in projectCards"
         :key="index"
+        :route="project.route"
         :src="project.src"
         :title="project.title"
         :description="project.description"

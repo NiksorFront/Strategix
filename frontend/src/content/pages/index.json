@@ -182,24 +182,8 @@
 
             "our_projects": {
                 "section_title": "Наши проекты",
-                "filters": ["Кейсы", "Брендинг", "Продакшн", "Реклама", "Построение репутации"],
-                "projects": [
-                    {
-                        "src": "./images/toba.jpg",
-                        "title": "toba",
-                        "description": "Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
-                    },
-                    {
-                        "src": "./images/touch.jpg",
-                        "title": "touch",
-                        "description": "Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
-                    },
-                    {
-                        "src": "./images/PTI.jpg",
-                        "title": "PTI vehicle inspection",
-                        "description": "Как мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
-                    }
-                ]
+                "filters": ["Кейсы"],
+                "projects": "хранятся в projects.json"
             },
 
             "market_response": {
@@ -471,24 +455,8 @@
 
             "our_projects": {
                 "section_title": "Our Projects",
-                "filters": ["Cases", "Branding", "Production", "Advertising", "Reputation Building"],
-                "projects": [
-                    {
-                        "src": "./images/toba.jpg",
-                        "title": "toba",
-                        "description": "How we made a Russian backup software developer a newsmaker"
-                    },
-                    {
-                        "src": "./images/touch.jpg",
-                        "title": "touch",
-                        "description": "How we made a Russian backup software developer a newsmaker"
-                    },
-                    {
-                        "src": "./images/PTI.jpg",
-                        "title": "PTI vehicle inspection",
-                        "description": "How we made a Russian backup software developer a newsmaker"
-                    }
-                ]
+                "filters": ["Cases"],
+                "projects": "stored in projects.json"
             },
 
             "market_response": {
@@ -760,24 +728,8 @@
 
             "our_projects": {
                 "section_title": "Unsere Projekte",
-                "filters": ["Fälle", "Branding", "Produktion", "Werbung", "Reputationsaufbau"],
-                "projects": [
-                    {
-                        "src": "./images/toba.jpg",
-                        "title": "toba",
-                        "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
-                    },
-                    {
-                        "src": "./images/touch.jpg",
-                        "title": "touch",
-                        "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
-                    },
-                    {
-                        "src": "./images/PTI.jpg",
-                        "title": "PTI vehicle inspection",
-                        "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
-                    }
-                ]
+                "filters": ["Fälle"],
+                "projects": "werden in projects.json gespeichert"
             },
 
             "market_response": {
@@ -1049,24 +1001,8 @@
 
             "our_projects": {
                 "section_title": "Nuestros Proyectos",
-                "filters": ["Casos", "Branding", "Producción", "Publicidad", "Construcción de Reputación"],
-                "projects": [
-                    {
-                        "src": "./images/toba.jpg",
-                        "title": "toba",
-                        "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
-                    },
-                    {
-                        "src": "./images/touch.jpg",
-                        "title": "touch",
-                        "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
-                    },
-                    {
-                        "src": "./images/PTI.jpg",
-                        "title": "PTI vehicle inspection",
-                        "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
-                    }
-                ]
+                "filters": ["Casos"],
+                "projects": "se almacenan en projects.json"
             },
 
             "market_response": {
