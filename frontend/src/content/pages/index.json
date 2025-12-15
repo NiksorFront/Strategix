@@ -6,7 +6,7 @@
                 "navigation_desktop": [
                     {
                         "href": "#header",
-                        "text": "ГлавнаяГлавная"
+                        "text": "Главная"
                     },
                     {
                         "href": "#about-us",
@@ -28,14 +28,29 @@
                 "languages": {
                     "default": "ru",
                     "locales": [
-                        {"code": "ru", "name": "Rus"},
-                        {"code": "en", "name": "Eng"},
-                        {"code": "de", "name": "Der"},
-                        {"code": "es", "name": "Esp"}
+                        {
+                            "code": "ru",
+                            "name": "Rus"
+                        },
+                        {
+                            "code": "en",
+                            "name": "Eng"
+                        },
+                        {
+                            "code": "de",
+                            "name": "Der"
+                        },
+                        {
+                            "code": "es",
+                            "name": "Esp"
+                        }
                     ]
                 },
-                "button": {"text": "ЗАПОЛНИТЕ АНКЕТУ", "href": "#contacts"},
-                "mobile_menu":{
+                "button": {
+                    "text": "ЗАПОЛНИТЕ АНКЕТУ",
+                    "href": "#contacts"
+                },
+                "mobile_menu": {
                     "navigation_mobile": [
                         {
                             "href": "#about-us",
@@ -54,20 +69,30 @@
                             "text": "Контакты"
                         }
                     ],
-                    "button": {"text": "ЗАПОЛНИТЕ АНКЕТУ", "href": "#contacts"}
+                    "button": {
+                        "text": "ЗАПОЛНИТЕ АНКЕТУ",
+                        "href": "#contacts"
+                    }
                 }
             },
-            
             "welcome": {
-                "title": "МЫ\u00A0СТРОИМ РЕПУТАЦИЮ\u00A0И ОТКРЫВАЕМ ДВЕРИ\u00A0НА МЕЖДУНАРОДНЫЕ РЫНКИ",
+                "title": "МЫ СТРОИМ РЕПУТАЦИЮ И ОТКРЫВАЕМ ДВЕРИ НА МЕЖДУНАРОДНЫЕ РЫНКИ",
                 "subtitle": "Международное позиционирование через медиа, ивенты и доверие профессионального сообщества.",
-                "button": {"text": "ЗАПОЛНИТЕ АНКЕТУ", "href": "#contacts"},
-                "urls":{
-                    "button1": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
-                    "button2": {"text": "WHATSAPP", "href": "https://wa.me/595955084893"}
+                "button": {
+                    "text": "ЗАПОЛНИТЕ АНКЕТУ",
+                    "href": "#contacts"
+                },
+                "urls": {
+                    "button1": {
+                        "text": "TELEGRAM",
+                        "href": "https://t.me/strategix"
+                    },
+                    "button2": {
+                        "text": "WHATSAPP",
+                        "href": "https://wa.me/595955084893"
+                    }
                 }
             },
-
             "about_us": {
                 "title": "О нас",
                 "items": [
@@ -88,7 +113,6 @@
                     }
                 ]
             },
-
             "services": {
                 "title": "Услуги",
                 "reputation": {
@@ -181,19 +205,18 @@
                     "email": "hello@strategix.com"
                 }
             },
-
             "our_projects": {
                 "section_title": "Наши проекты",
-                "filters": ["Кейсы"],
+                "filters": [
+                    "Кейсы"
+                ],
                 "projects": "хранятся в projects.json"
             },
-
             "market_response": {
                 "title": "Быстро отвечаем на вызовы международного рынка",
                 "description1": "Профессиональная команда в области репутационного маркетинга. Мы создаём бренды, поддерживаем хорошую репутацию клиентов в интернете, прогнозируем возможные риски, кризисы и профессионально устраняем их.",
-                "description2": "Под разные ситуации находим решения, чтобы у вас была узнаваемость, доверие к вам, инвесторы потом к вам несли денег и доверяли. Мыслить нестандарнтно."
+                "description2": "Под разные ситуации находим решения, чтобы у вас была узнаваемость, доверие к вам, инвесторы потом к вам несли денег и доверяли. Мыслить нестандарнтноооо"
             },
-
             "our_team": {
                 "firstcard": {
                     "title": "Наша команда",
@@ -202,8 +225,8 @@
                 "members": [
                     {
                         "src": "./images/savvateev.jpg",
-                        "name": "Алексей",
-                        "lastname": "Савватеев",
+                        "name": "Вася",
+                        "lastname": "Пупкин",
                         "position": "Математик"
                     },
                     {
@@ -242,16 +265,20 @@
                     "description": "Хочешь работать с нами, присылай резюме.",
                     "email": "hello@strategix.com"
                 }
-
             },
-
             "leave_request": {
                 "contacts": {
                     "title": "Оставьте заявку, чтобы обсудить проект",
                     "email": "hello@strategix.com",
                     "phone": "+595 955 084 893",
-                    "telegram": {"text": "телеграмм", "href": "https://t.me/strategix"},
-                    "whatsapp": {"text": "whatsapp", "href": "https://wa.me/595955084893"}
+                    "telegram": {
+                        "text": "телеграмм",
+                        "href": "https://t.me/strategix"
+                    },
+                    "whatsapp": {
+                        "text": "whatsapp",
+                        "href": "https://wa.me/595955084893"
+                    }
                 },
                 "form": {
                     "title": "Ваши контакты",
@@ -267,14 +294,22 @@
                     "link": "персональных данных"
                 }
             },
-            
             "footer": {
                 "brand": "STRATEGIX",
                 "rights": "© 2022–2025 ВСЕ ПРАВА ЗАЩИЩЕНЫ",
-                "privacy_policy": {"text": "ПОЛИТИКА\nКОНФИДЕНЦИАЛЬНОСТИ", "href": "./privacy-policy.pdf"},
+                "privacy_policy": {
+                    "text": "ПОЛИТИКА\nКОНФИДЕНЦИАЛЬНОСТИ",
+                    "href": "./privacy-policy.pdf"
+                },
                 "email": "hello@strategix.com",
-                "icon1": {"src": "./images/telegram-icon.svg", "href": "https://t.me/strategix"},
-                "icon2": {"src": "./images/linkedin-icon.svg", "href": "https://www.linkedin.com/company/strategix/"}
+                "icon1": {
+                    "src": "./images/telegram-icon.svg",
+                    "href": "https://t.me/strategix"
+                },
+                "icon2": {
+                    "src": "./images/linkedin-icon.svg",
+                    "href": "https://www.linkedin.com/company/strategix/"
+                }
             }
         },
         "en": {
@@ -304,14 +339,29 @@
                 "languages": {
                     "default": "en",
                     "locales": [
-                        {"code": "ru", "name": "Rus"},
-                        {"code": "en", "name": "Eng"},
-                        {"code": "de", "name": "Der"},
-                        {"code": "es", "name": "Esp"}
+                        {
+                            "code": "ru",
+                            "name": "Rus"
+                        },
+                        {
+                            "code": "en",
+                            "name": "Eng"
+                        },
+                        {
+                            "code": "de",
+                            "name": "Der"
+                        },
+                        {
+                            "code": "es",
+                            "name": "Esp"
+                        }
                     ]
                 },
-                "button": {"text": "FILL OUT THE FORM", "href": "#contacts"},
-                "mobile_menu":{
+                "button": {
+                    "text": "FILL OUT THE FORM",
+                    "href": "#contacts"
+                },
+                "mobile_menu": {
                     "navigation_mobile": [
                         {
                             "href": "#about-us",
@@ -330,20 +380,30 @@
                             "text": "Contacts"
                         }
                     ],
-                    "button": {"text": "FILL OUT THE FORM", "href": "#contacts"}
+                    "button": {
+                        "text": "FILL OUT THE FORM",
+                        "href": "#contacts"
+                    }
                 }
             },
-            
             "welcome": {
                 "title": "WE BUILD REPUTATION AND OPEN DOORS TO INTERNATIONAL MARKETS",
                 "subtitle": "International positioning through media, events and trust of the professional community.",
-                "button": {"text": "FILL OUT THE FORM", "href": "#contacts"},
-                "urls":{
-                    "button1": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
-                    "button2":  {"text": "FILL OUT THE FORM", "href": "#contacts"}
+                "button": {
+                    "text": "FILL OUT THE FORM",
+                    "href": "#contacts"
+                },
+                "urls": {
+                    "button1": {
+                        "text": "TELEGRAM",
+                        "href": "https://t.me/strategix"
+                    },
+                    "button2": {
+                        "text": "FILL OUT THE FORM",
+                        "href": "#contacts"
+                    }
                 }
             },
-
             "about_us": {
                 "title": "About Us",
                 "items": [
@@ -364,7 +424,6 @@
                     }
                 ]
             },
-
             "services": {
                 "title": "Services",
                 "reputation": {
@@ -457,19 +516,18 @@
                     "email": "hello@strategix.com"
                 }
             },
-
             "our_projects": {
                 "section_title": "Our Projects",
-                "filters": ["Cases"],
+                "filters": [
+                    "Cases"
+                ],
                 "projects": "stored in projects.json"
             },
-
             "market_response": {
                 "title": "Quickly respond to international market challenges",
                 "description1": "Professional team in reputation marketing. We create brands, maintain good reputation of clients online, predict possible risks, crises and professionally eliminate them.",
                 "description2": "For different situations we find solutions so that you have recognition, trust in you, investors then bring money to you and trust. Think outside the box."
             },
-
             "our_team": {
                 "firstcard": {
                     "title": "Our Team",
@@ -518,15 +576,20 @@
                     "description": "Want to work with us, send your resume.",
                     "email": "hello@strategix.com"
                 }
-
             },
             "leave_request": {
                 "contacts": {
                     "title": "Leave a request to discuss the project",
                     "email": "hello@strategix.com",
                     "phone": "+595 955 084 893",
-                    "telegram": {"text": "telegram", "href": "https://t.me/strategix"},
-                    "whatsapp": {"text": "whatsapp", "href": "https://wa.me/595955084893"}
+                    "telegram": {
+                        "text": "telegram",
+                        "href": "https://t.me/strategix"
+                    },
+                    "whatsapp": {
+                        "text": "whatsapp",
+                        "href": "https://wa.me/595955084893"
+                    }
                 },
                 "form": {
                     "title": "Your Contacts",
@@ -535,21 +598,30 @@
                     "title2": "About the Project",
                     "question": "What services are you interested in?",
                     "description": "What do you need help with?",
-                    "button": "SEND"
+                    "button": "SEND",
+                    "question2": ""
                 },
                 "agree": {
                     "text": "By clicking the button, I agree to the processing",
                     "link": "of personal data"
                 }
             },
-            
             "footer": {
                 "brand": "STRATEGIX",
                 "rights": "© 2022–2025 ALL RIGHTS RESERVED",
-                "privacy_policy": {"text": "PRIVACY\nPOLICY", "href": "./privacy-policy.pdf"},
+                "privacy_policy": {
+                    "text": "PRIVACY\nPOLICY",
+                    "href": "./privacy-policy.pdf"
+                },
                 "email": "hello@strategix.com",
-                "icon1": {"src": "./images/telegram-icon.svg", "href": "https://t.me/strategix"},
-                "icon2": {"src": "./images/linkedin-icon.svg", "href": "https://www.linkedin.com/company/strategix/"}
+                "icon1": {
+                    "src": "./images/telegram-icon.svg",
+                    "href": "https://t.me/strategix"
+                },
+                "icon2": {
+                    "src": "./images/linkedin-icon.svg",
+                    "href": "https://www.linkedin.com/company/strategix/"
+                }
             }
         },
         "de": {
@@ -579,14 +651,29 @@
                 "languages": {
                     "default": "de",
                     "locales": [
-                        {"code": "ru", "name": "Rus"},
-                        {"code": "en", "name": "Eng"},
-                        {"code": "de", "name": "Der"},
-                        {"code": "es", "name": "Esp"}
+                        {
+                            "code": "ru",
+                            "name": "Rus"
+                        },
+                        {
+                            "code": "en",
+                            "name": "Eng"
+                        },
+                        {
+                            "code": "de",
+                            "name": "Der"
+                        },
+                        {
+                            "code": "es",
+                            "name": "Esp"
+                        }
                     ]
                 },
-                "button": {"text": "FORMULAR AUSFÜLLEN", "href": "#contacts"},
-                "mobile_menu":{
+                "button": {
+                    "text": "FORMULAR AUSFÜLLEN",
+                    "href": "#contacts"
+                },
+                "mobile_menu": {
                     "navigation_mobile": [
                         {
                             "href": "#about-us",
@@ -605,20 +692,30 @@
                             "text": "Kontakte"
                         }
                     ],
-                    "button": {"text": "FORMULAR AUSFÜLLEN", "href": "#contacts"}
+                    "button": {
+                        "text": "FORMULAR AUSFÜLLEN",
+                        "href": "#contacts"
+                    }
                 }
             },
-            
             "welcome": {
                 "title": "WIR BAUEN REPUTATION AUF UND ÖFFNEN TÜREN ZU INTERNATIONALEN MÄRKTEN",
                 "subtitle": "Internationale Positionierung durch Medien, Events und Vertrauen der Fachgemeinschaft.",
-                "button": {"text": "FORMULAR AUSFÜLLEN", "href": "#contacts"},
-                "urls":{
-                    "button1": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
-                    "button2":  {"text": "WHATSAPP", "href": "https://wa.me/595955084893"}
+                "button": {
+                    "text": "FORMULAR AUSFÜLLEN",
+                    "href": "#contacts"
+                },
+                "urls": {
+                    "button1": {
+                        "text": "TELEGRAM",
+                        "href": "https://t.me/strategix"
+                    },
+                    "button2": {
+                        "text": "WHATSAPP",
+                        "href": "https://wa.me/595955084893"
+                    }
                 }
             },
-
             "about_us": {
                 "title": "Über uns",
                 "items": [
@@ -639,7 +736,6 @@
                     }
                 ]
             },
-
             "services": {
                 "title": "Dienstleistungen",
                 "reputation": {
@@ -732,19 +828,18 @@
                     "email": "hello@strategix.com"
                 }
             },
-
             "our_projects": {
                 "section_title": "Unsere Projekte",
-                "filters": ["Fälle"],
+                "filters": [
+                    "Fälle"
+                ],
                 "projects": "werden in projects.json gespeichert"
             },
-
             "market_response": {
                 "title": "Schnell auf internationale Marktherausforderungen reagieren",
                 "description1": "Professionelles Team im Reputationsmarketing. Wir schaffen Marken, pflegen gute Reputation von Kunden online, prognostizieren mögliche Risiken, Krisen und eliminieren sie professionell.",
                 "description2": "Für verschiedene Situationen finden wir Lösungen, damit Sie Wiedererkennung haben, Vertrauen in Sie, Investoren dann Geld zu Ihnen bringen und vertrauen. Außerhalb der Box denken."
             },
-
             "our_team": {
                 "firstcard": {
                     "title": "Unser Team",
@@ -793,15 +888,20 @@
                     "description": "Möchten Sie mit uns arbeiten, senden Sie Ihren Lebenslauf.",
                     "email": "hello@strategix.com"
                 }
-
             },
             "leave_request": {
                 "contacts": {
                     "title": "Hinterlassen Sie eine Anfrage, um das Projekt zu besprechen",
                     "email": "hello@strategix.com",
                     "phone": "+595 955 084 893",
-                    "telegram": {"text": "telegramm", "href": "https://t.me/strategix"},
-                    "whatsapp": {"text": "whatsapp", "href": "https://wa.me/595955084893"}
+                    "telegram": {
+                        "text": "telegramm",
+                        "href": "https://t.me/strategix"
+                    },
+                    "whatsapp": {
+                        "text": "whatsapp",
+                        "href": "https://wa.me/595955084893"
+                    }
                 },
                 "form": {
                     "title": "Ihre Kontakte",
@@ -810,21 +910,30 @@
                     "title2": "Über das Projekt",
                     "question": "Welche Dienstleistungen interessieren Sie?",
                     "description": "Womit brauchen Sie Hilfe?",
-                    "button": "SENDEN"
+                    "button": "SENDEN",
+                    "question2": ""
                 },
                 "agree": {
                     "text": "Durch Klicken auf die Schaltfläche stimme ich der Verarbeitung zu",
                     "link": "personenbezogener Daten"
                 }
             },
-            
             "footer": {
                 "brand": "STRATEGIX",
                 "rights": "© 2022–2025 ALLE RECHTE VORBEHALTEN",
-                "privacy_policy": {"text": "DATENSCHUTZ\nRICHTLINIE", "href": "./privacy-policy.pdf"},
+                "privacy_policy": {
+                    "text": "DATENSCHUTZ\nRICHTLINIE",
+                    "href": "./privacy-policy.pdf"
+                },
                 "email": "hello@strategix.com",
-                "icon1": {"src": "./images/telegram-icon.svg", "href": "https://t.me/strategix"},
-                "icon2": {"src": "./images/linkedin-icon.svg", "href": "https://www.linkedin.com/company/strategix/"}
+                "icon1": {
+                    "src": "./images/telegram-icon.svg",
+                    "href": "https://t.me/strategix"
+                },
+                "icon2": {
+                    "src": "./images/linkedin-icon.svg",
+                    "href": "https://www.linkedin.com/company/strategix/"
+                }
             }
         },
         "es": {
@@ -854,14 +963,29 @@
                 "languages": {
                     "default": "es",
                     "locales": [
-                        {"code": "ru", "name": "Rus"},
-                        {"code": "en", "name": "Eng"},
-                        {"code": "de", "name": "Der"},
-                        {"code": "es", "name": "Esp"}
+                        {
+                            "code": "ru",
+                            "name": "Rus"
+                        },
+                        {
+                            "code": "en",
+                            "name": "Eng"
+                        },
+                        {
+                            "code": "de",
+                            "name": "Der"
+                        },
+                        {
+                            "code": "es",
+                            "name": "Esp"
+                        }
                     ]
                 },
-                "button": {"text": "LLENAR EL FORMULARIO", "href": "#contacts"},
-                "mobile_menu":{
+                "button": {
+                    "text": "LLENAR EL FORMULARIO",
+                    "href": "#contacts"
+                },
+                "mobile_menu": {
                     "navigation_mobile": [
                         {
                             "href": "#about-us",
@@ -880,20 +1004,30 @@
                             "text": "Contactos"
                         }
                     ],
-                    "button": {"text": "LLENAR EL FORMULARIO", "href": "#contacts"}
+                    "button": {
+                        "text": "LLENAR EL FORMULARIO",
+                        "href": "#contacts"
+                    }
                 }
             },
-            
             "welcome": {
                 "title": "CONSTRUIMOS REPUTACIÓN Y ABRIMOS PUERTAS A MERCADOS INTERNACIONALES",
                 "subtitle": "Posicionamiento internacional a través de medios, eventos y confianza de la comunidad profesional.",
-                "button": {"text": "LLENAR EL FORMULARIO", "href": "#contacts"},
-                "urls":{
-                    "button1": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
-                    "button2":  {"text": "WHATSAPP", "href": "https://wa.me/595955084893"}
+                "button": {
+                    "text": "LLENAR EL FORMULARIO",
+                    "href": "#contacts"
+                },
+                "urls": {
+                    "button1": {
+                        "text": "TELEGRAM",
+                        "href": "https://t.me/strategix"
+                    },
+                    "button2": {
+                        "text": "WHATSAPP",
+                        "href": "https://wa.me/595955084893"
+                    }
                 }
             },
-
             "about_us": {
                 "title": "Sobre Nosotros",
                 "items": [
@@ -914,7 +1048,6 @@
                     }
                 ]
             },
-
             "services": {
                 "title": "Servicios",
                 "reputation": {
@@ -1007,19 +1140,18 @@
                     "email": "hello@strategix.com"
                 }
             },
-
             "our_projects": {
                 "section_title": "Nuestros Proyectos",
-                "filters": ["Casos"],
+                "filters": [
+                    "Casos"
+                ],
                 "projects": "se almacenan en projects.json"
             },
-
             "market_response": {
                 "title": "Respondemos rápidamente a los desafíos del mercado internacional",
                 "description1": "Equipo profesional en marketing de reputación. Creamos marcas, mantenemos buena reputación de clientes en línea, predecimos posibles riesgos, crisis y los eliminamos profesionalmente.",
                 "description2": "Para diferentes situaciones encontramos soluciones para que tengas reconocimiento, confianza en ti, los inversores luego traigan dinero y confíen. Pensar fuera de la caja."
             },
-
             "our_team": {
                 "firstcard": {
                     "title": "Nuestro Equipo",
@@ -1068,16 +1200,20 @@
                     "description": "¿Quieres trabajar con nosotros? Envía tu currículum.",
                     "email": "hello@strategix.com"
                 }
-
             },
-            
             "leave_request": {
                 "contacts": {
                     "title": "Deja una solicitud para discutir el proyecto",
                     "email": "hello@strategix.com",
                     "phone": "+595 955 084 893",
-                    "telegram": {"text": "telegram", "href": "https://t.me/strategix"},
-                    "whatsapp": {"text": "whatsapp", "href": "https://wa.me/595955084893"}
+                    "telegram": {
+                        "text": "telegram",
+                        "href": "https://t.me/strategix"
+                    },
+                    "whatsapp": {
+                        "text": "whatsapp",
+                        "href": "https://wa.me/595955084893"
+                    }
                 },
                 "form": {
                     "title": "Tus Contactos",
@@ -1086,21 +1222,30 @@
                     "title2": "Sobre el Proyecto",
                     "question": "¿Qué servicios te interesan?",
                     "description": "¿Con qué necesitas ayuda?",
-                    "button": "ENVIAR"
+                    "button": "ENVIAR",
+                    "question2": ""
                 },
                 "agree": {
                     "text": "Al hacer clic en el botón, acepto el procesamiento",
                     "link": "de datos personales"
                 }
             },
-            
             "footer": {
                 "brand": "STRATEGIX",
                 "rights": "© 2022–2025 TODOS LOS DERECHOS RESERVADOS",
-                "privacy_policy": {"text": "POLÍTICA DE\nPRIVACIDAD", "href": "./privacy-policy.pdf"},
+                "privacy_policy": {
+                    "text": "POLÍTICA DE\nPRIVACIDAD",
+                    "href": "./privacy-policy.pdf"
+                },
                 "email": "hello@strategix.com",
-                "icon1": {"src": "./images/telegram-icon.svg", "href": "https://t.me/strategix"},
-                "icon2": {"src": "./images/linkedin-icon.svg", "href": "https://www.linkedin.com/company/strategix/"}
+                "icon1": {
+                    "src": "./images/telegram-icon.svg",
+                    "href": "https://t.me/strategix"
+                },
+                "icon2": {
+                    "src": "./images/linkedin-icon.svg",
+                    "href": "https://www.linkedin.com/company/strategix/"
+                }
             }
         }
     }
