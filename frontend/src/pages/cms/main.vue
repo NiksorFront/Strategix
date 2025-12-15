@@ -38,6 +38,7 @@ const activeLocale = ref(initialActiveLocale);
 const isSaving = ref(false);
 const saveMessage = ref('');
 const saveError = ref('');
+const uploadingMember = ref<number | null>(null);
 
 const welcomeLinkMode = reactive<Record<string, 'urls' | 'flat'>>({});
 
@@ -303,6 +304,36 @@ const moveTeamMember = (index: number, direction: number) => {
 const removeTeamMember = (index: number) => {
   const members = currentLocaleData.value.our_team.members;
   members.splice(index, 1);
+};
+
+const uploadMemberImage = async (index: number, fileList: FileList | null) => {
+  const file = fileList?.[0];
+  if (!file) return;
+  const member = currentLocaleData.value.our_team.members[index];
+  if (!member) return;
+  const formData = new FormData();
+  formData.append('file', file);
+  if (member.src) {
+    formData.append('oldSrc', member.src);
+  }
+  uploadingMember.value = index;
+  saveError.value = '';
+  try {
+    const response = await fetch('/api/cms/upload', {
+      method: 'POST',
+      body: formData,
+    });
+    if (!response.ok) {
+      const text = await response.text().catch(() => '');
+      throw new Error(text || `Не удалось загрузить файл (${response.status})`);
+    }
+    const data = await response.json();
+    member.src = data.path;
+  } catch (error: any) {
+    saveError.value = error?.message || 'Ошибка загрузки изображения.';
+  } finally {
+    uploadingMember.value = null;
+  }
 };
 
 const inputClass = 'h-8 px-3 py-2 text-sm leading-tight w-full box-border';
@@ -1148,27 +1179,53 @@ const saveIndex = async () => {
                             Участник {{ index + 1 }}
                           </CardTitle>
                         </CardHeader>
-                        <CardContent class="grid w-full grid-cols-2 gap-[3%] box-border">
-                          <Input
-                            v-model="member.src"
-                            :class="inputClass"
-                            placeholder="Изображение (svg/путь)"
-                          />
-                          <Input
-                            v-model="member.position"
-                            :class="inputClass"
-                            placeholder="Должность"
-                          />
-                          <Input
-                            v-model="member.name"
-                            :class="inputClass"
-                            placeholder="Имя"
-                          />
-                          <Input
-                            v-model="member.lastname"
-                            :class="inputClass"
-                            placeholder="Фамилия"
-                          />
+                        <CardContent class="space-y-3">
+                          <div class="member-media">
+                            <div class="member-preview">
+                              <NuxtImg
+                                v-if="member.src"
+                                :src="member.src"
+                                alt="Фото участника"
+                                class="member-thumb"
+                              />
+                              <div
+                                v-else
+                                class="member-placeholder"
+                              >
+                                рекомендуеться брать картинку размером 600 на 600 формата .jpg
+                              </div>
+                            </div>
+                            <label
+                              class="member-upload"
+                              :class="{ 'is-disabled': uploadingMember === index }"
+                            >
+                              <input
+                                type="file"
+                                accept="image/*"
+                                class="hidden"
+                                :disabled="uploadingMember === index"
+                                @change="(e) => uploadMemberImage(index, (e.target as HTMLInputElement).files)"
+                              >
+                              <span>{{ uploadingMember === index ? 'Загружается...' : 'Загрузить новую' }}</span>
+                            </label>
+                          </div>
+                          <div class="grid w-full grid-cols-1 gap-[3%] box-border">
+                            <Input
+                              v-model="member.name"
+                              :class="inputClass"
+                              placeholder="Имя"
+                            />
+                            <Input
+                              v-model="member.lastname"
+                              :class="inputClass"
+                              placeholder="Фамилия"
+                            />
+                            <Input
+                              v-model="member.position"
+                              :class="inputClass"
+                              placeholder="Должность"
+                            />
+                          </div>
                         </CardContent>
                         <div class="action-stack">
                           <Button
@@ -1598,10 +1655,64 @@ const saveIndex = async () => {
 }
 
 .section-box{
-  padding: 0;
+  padding: 10px;
   border: 1px solid rgba(0,0,0,0.06);
   border-radius: 10px;
   background: rgba(0,0,0,0.02);
   box-sizing: border-box;
+}
+
+.member-media{
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.member-preview{
+  flex: 3;
+  min-height: 120px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.member-thumb{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-placeholder{
+  padding: 10px;
+  font-size: 12px;
+  color: rgba(0,0,0,0.6);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.member-upload{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed rgba(0,0,0,0.25);
+  border-radius: 10px;
+  background: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.member-upload.is-disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 </style>

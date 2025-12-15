@@ -225,16 +225,10 @@
                 },
                 "members": [
                     {
-                        "src": "./images/savvateev.jpg",
+                        "src": "/images/1765793404929-52878961-a76e-4926-9f3b-63724b67c84a.png",
                         "name": "Вася",
-                        "lastname": "Пупкин",
-                        "position": "Математик"
-                    },
-                    {
-                        "src": "./images/savvateev.jpg",
-                        "name": "Алексей",
-                        "lastname": "Савватеев",
-                        "position": "Математик"
+                        "lastname": "Вышматович",
+                        "position": "советский лектор"
                     },
                     {
                         "src": "./images/boris.png",
@@ -259,6 +253,12 @@
                         "name": "Сергей",
                         "lastname": "Кузнецов",
                         "position": "Архитектор"
+                    },
+                    {
+                        "src": "/images/1765793418710-68755b84-4344-464c-8adf-4aaa4f9c4bed.png",
+                        "name": "фпмишки",
+                        "lastname": "",
+                        "position": ""
                     }
                 ],
                 "lastcard": {
