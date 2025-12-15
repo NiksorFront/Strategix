@@ -95,7 +95,13 @@ const ensureDefaults = (localeData: LocaleTranslation) => {
   });
   services.questions ??= { title: '', description: '', email: '' };
 
-  localeData.our_projects ??= localeData.our_projects || {};
+  localeData.our_projects ??= {};
+  const projects = localeData.our_projects;
+  projects.enable ??= false;
+  projects.title ??= '';
+  if (!Array.isArray(projects.filters) || projects.filters.length === 0) {
+    projects.filters = [''];
+  }
 
   localeData.market_response ??= { title: '', description1: '', description2: '' };
 
@@ -306,6 +312,13 @@ const rowTwoCols = 'grid w-full box-border grid-cols-[55%_43%] gap-[2%] items-ce
 const rowTwoColsTop = 'grid w-full box-border grid-cols-[55%_43%] gap-[2%] items-start';
 const twoColGrid = 'grid w-full box-border grid-cols-2 gap-[3%]';
 
+const collapsed = reactive<Record<string, boolean>>({});
+
+const isCollapsed = (key: string) => collapsed[key] ?? true;
+const toggleSection = (key: string) => {
+  collapsed[key] = !isCollapsed(key);
+};
+
 const saveIndex = async () => {
   if (hasBlockingErrors.value) {
     saveError.value = 'Сначала исправьте ошибки перед сохранением.';
@@ -386,917 +399,1056 @@ const saveIndex = async () => {
           >
             <Card>
               <CardHeader class="flex flex-row items-center justify-between gap-2">
-                <CardTitle class="text-sm uppercase tracking-wide">
-                  Header
-                </CardTitle>
+                <div class="flex items-center gap-2">
+                  <CardTitle class="text-sm uppercase tracking-wide">
+                    Header
+                  </CardTitle>
+                  <button
+                    type="button"
+                    class="toggle-btn"
+                    :aria-expanded="!isCollapsed('header')"
+                    aria-label="Toggle header"
+                    @click="toggleSection('header')"
+                  >
+                    {{ isCollapsed('header') ? '▼' : '▲' }}
+                  </button>
+                </div>
                 <span class="text-[11px] text-muted-foreground">
                   Навигация: {{ desktopNavCharCount }}/40
                 </span>
               </CardHeader>
-              <CardContent class="space-y-4">
-                <div>
-                  <div class="mb-1 text-sm font-medium text-foreground">
-                    Навигация на пк
-                  </div>
-                  <Alert
-                    v-if="desktopNavError"
-                    variant="destructive"
-                    class="mb-2"
-                  >
-                    <AlertTitle>Лимит 40 символов</AlertTitle>
-                    <AlertDescription>
-                      Превышено 40 символов. Удалите пункт или сократите текст.
-                    </AlertDescription>
-                  </Alert>
-                  <div class="space-y-2">
-                    <div
-                      v-for="(item, index) in currentLocaleData.header.navigation_desktop"
-                      :key="`nav-${index}`"
-                      class="row-wrap"
-                    >
-                      <div :class="rowTwoCols">
-                        <Input
-                          v-model="item.text"
-                          :class="inputClass"
-                          placeholder="Текст"
-                        />
-                        <Select v-model="item.href">
-                          <SelectTrigger :class="selectTriggerClass">
-                            <SelectValue placeholder="Секция" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem
-                              v-for="id in sectionIdOptions"
-                              :key="id"
-                              :value="id"
-                            >
-                              {{ id }}
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div class="action-stack">
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          :disabled="index === 0"
-                          @click="moveDesktopNav(index, -1)"
-                        >
-                          ↑
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          :disabled="index === currentLocaleData.header.navigation_desktop.length - 1"
-                          @click="moveDesktopNav(index, 1)"
-                        >
-                          ↓
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          @click="removeDesktopNav(index)"
-                        >
-                          −
-                        </Button>
-                      </div>
+              <div
+                class="collapsible"
+                :data-open="!isCollapsed('header')"
+              >
+                <CardContent class="space-y-4">
+                  <div>
+                    <div class="mb-1 text-sm font-medium text-foreground">
+                      Навигация на пк
                     </div>
-                  </div>
-                  <Button
-                    variant="secondary"
-                    class="mt-2 h-8 w-full"
-                    @click="addDesktopNav"
-                  >
-                    + Добавить пункт
-                  </Button>
-                </div>
-
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Кнопка ведущая к форме на пк
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.header.button.text"
-                    :class="inputClass"
-                    placeholder="Текст кнопки"
-                  />
-                </div>
-
-                <div>
-                  <div class="mb-1 flex items-center justify-between">
-                    <p class="text-sm font-medium text-foreground">
-                      Навигация в боковом меню на телефоне
-                    </p>
-                    <p class="text-[11px] text-muted-foreground">
-                      {{ currentLocaleData.header.mobile_menu.navigation_mobile.length }}/5
-                    </p>
-                  </div>
-                  <div class="space-y-2">
-                    <div
-                      v-for="(item, index) in currentLocaleData.header.mobile_menu.navigation_mobile"
-                      :key="`mobile-${index}`"
-                      class="row-wrap"
+                    <Alert
+                      v-if="desktopNavError"
+                      variant="destructive"
+                      class="mb-2"
                     >
-                      <div :class="rowTwoColsTop">
-                        <div class="space-y-1">
+                      <AlertTitle>Лимит 40 символов</AlertTitle>
+                      <AlertDescription>
+                        Превышено 40 символов. Удалите пункт или сократите текст.
+                      </AlertDescription>
+                    </Alert>
+                    <div class="space-y-2">
+                      <div
+                        v-for="(item, index) in currentLocaleData.header.navigation_desktop"
+                        :key="`nav-${index}`"
+                        class="row-wrap"
+                      >
+                        <div :class="rowTwoCols">
                           <Input
                             v-model="item.text"
                             :class="inputClass"
                             placeholder="Текст"
                           />
-                          <Alert
-                            v-if="mobileNavWarnings[index]"
-                            class="border-amber-200 bg-amber-50 text-amber-800"
-                          >
-                            <AlertDescription class="text-[11px]">
-                              >10 символов подряд без пробелов — вёрстка может поехать.
-                            </AlertDescription>
-                          </Alert>
+                          <Select v-model="item.href">
+                            <SelectTrigger :class="selectTriggerClass">
+                              <SelectValue placeholder="Секция" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem
+                                v-for="id in sectionIdOptions"
+                                :key="id"
+                                :value="id"
+                              >
+                                {{ id }}
+                              </SelectItem>
+                            </SelectContent>
+                          </Select>
                         </div>
-                        <Select v-model="item.href">
-                          <SelectTrigger :class="selectTriggerClass">
-                            <SelectValue placeholder="Секция" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem
-                              v-for="id in sectionIdOptions"
-                              :key="id"
-                              :value="id"
-                            >
-                              {{ id }}
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div class="action-stack">
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          :disabled="index === 0"
-                          @click="moveMobileNav(index, -1)"
-                        >
-                          ↑
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          :disabled="index === currentLocaleData.header.mobile_menu.navigation_mobile.length - 1"
-                          @click="moveMobileNav(index, 1)"
-                        >
-                          ↓
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          :disabled="currentLocaleData.header.mobile_menu.navigation_mobile.length <= 1"
-                          @click="removeMobileNav(index)"
-                        >
-                          −
-                        </Button>
+                        <div class="action-stack">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="index === 0"
+                            @click="moveDesktopNav(index, -1)"
+                          >
+                            ↑
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="index === currentLocaleData.header.navigation_desktop.length - 1"
+                            @click="moveDesktopNav(index, 1)"
+                          >
+                            ↓
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            @click="removeDesktopNav(index)"
+                          >
+                            −
+                          </Button>
+                        </div>
                       </div>
                     </div>
+                    <Button
+                      variant="secondary"
+                      class="mt-2 h-8 w-full"
+                      @click="addDesktopNav"
+                    >
+                      + Добавить пункт
+                    </Button>
                   </div>
-                  <Button
-                    variant="secondary"
-                    class="mt-2 h-8 w-full"
-                    :disabled="currentLocaleData.header.mobile_menu.navigation_mobile.length >= 5"
-                    @click="addMobileNav"
-                  >
-                    + Добавить пункт
-                  </Button>
-                </div>
 
-                <div class="space-y-1">
-                  <p class=" text-sm font-medium text-foreground">
-                    Кнопка ведущая к форме в боковом меню на телефоне
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.header.mobile_menu.button.text"
-                    placeholder="Текст кнопки"
-                    :class="inputClass"
-                  />
-                </div>
-              </CardContent>
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Кнопка ведущая к форме на пк
+                    </p>
+                    <Input
+                      v-model="currentLocaleData.header.button.text"
+                      :class="inputClass"
+                      placeholder="Текст кнопки"
+                    />
+                  </div>
+
+                  <div>
+                    <div class="mb-1 flex items-center justify-between">
+                      <p class="text-sm font-medium text-foreground">
+                        Навигация в боковом меню на телефоне
+                      </p>
+                      <p class="text-[11px] text-muted-foreground">
+                        {{ currentLocaleData.header.mobile_menu.navigation_mobile.length }}/5
+                      </p>
+                    </div>
+                    <div class="space-y-2">
+                      <div
+                        v-for="(item, index) in currentLocaleData.header.mobile_menu.navigation_mobile"
+                        :key="`mobile-${index}`"
+                        class="row-wrap"
+                      >
+                        <div :class="rowTwoColsTop">
+                          <div class="space-y-1">
+                            <Input
+                              v-model="item.text"
+                              :class="inputClass"
+                              placeholder="Текст"
+                            />
+                            <Alert
+                              v-if="mobileNavWarnings[index]"
+                              class="border-amber-200 bg-amber-50 text-amber-800"
+                            >
+                              <AlertDescription class="text-[11px]">
+                                >10 символов подряд без пробелов — вёрстка может поехать.
+                              </AlertDescription>
+                            </Alert>
+                          </div>
+                          <Select v-model="item.href">
+                            <SelectTrigger :class="selectTriggerClass">
+                              <SelectValue placeholder="Секция" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem
+                                v-for="id in sectionIdOptions"
+                                :key="id"
+                                :value="id"
+                              >
+                                {{ id }}
+                              </SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div class="action-stack">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="index === 0"
+                            @click="moveMobileNav(index, -1)"
+                          >
+                            ↑
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="index === currentLocaleData.header.mobile_menu.navigation_mobile.length - 1"
+                            @click="moveMobileNav(index, 1)"
+                          >
+                            ↓
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="currentLocaleData.header.mobile_menu.navigation_mobile.length <= 1"
+                            @click="removeMobileNav(index)"
+                          >
+                            −
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                    <Button
+                      variant="secondary"
+                      class="mt-2 h-8 w-full"
+                      :disabled="currentLocaleData.header.mobile_menu.navigation_mobile.length >= 5"
+                      @click="addMobileNav"
+                    >
+                      + Добавить пункт
+                    </Button>
+                  </div>
+
+                  <div class="space-y-1">
+                    <p class=" text-sm font-medium text-foreground">
+                      Кнопка ведущая к форме в боковом меню на телефоне
+                    </p>
+                    <Input
+                      v-model="currentLocaleData.header.mobile_menu.button.text"
+                      placeholder="Текст кнопки"
+                      :class="inputClass"
+                    />
+                  </div>
+                </CardContent>
+              </div>
             </Card>
 
             <Card>
               <CardHeader class="mb-1">
-                <CardTitle class="text-sm uppercase tracking-wide">
-                  Welcome
-                </CardTitle>
+                <div class="flex items-center gap-2">
+                  <CardTitle class="text-sm uppercase tracking-wide">
+                    Welcome
+                  </CardTitle>
+                  <button
+                    type="button"
+                    class="toggle-btn"
+                    :aria-expanded="!isCollapsed('welcome')"
+                    aria-label="Toggle welcome"
+                    @click="toggleSection('welcome')"
+                  >
+                    {{ isCollapsed('welcome') ? '▼' : '▲' }}
+                  </button>
+                </div>
               </CardHeader>
-              <CardContent class="space-y-4">
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Заголовок
-                  </p>
-                  <Textarea
-                    v-model="currentLocaleData.welcome.title"
-                    :class="textareaClass"
-                    placeholder="Текст заголовка"
-                  />
-                </div>
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Подзаголовок
-                  </p>
-                  <Textarea
-                    v-model="currentLocaleData.welcome.subtitle"
-                    :class="textareaClass"
-                    placeholder="Текст подзаголовка"
-                  />
-                </div>
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Кнопка ведущая на форму заолнения
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.welcome.button.text"
-                    :class="inputClass"
-                    placeholder="Текст кнопки"
-                  />
-                </div>
-
-                <div class="space-y-2">
-                  <div class="flex items-center justify-between">
+              <div
+                class="collapsible"
+                :data-open="!isCollapsed('welcome')"
+              >
+                <CardContent class="space-y-4">
+                  <div class="space-y-1">
                     <p class="text-sm font-medium text-foreground">
-                      Кнопки со ссылками
+                      Заголовок
                     </p>
-                    <p class="text-[11px] text-muted-foreground">
-                      {{ welcomeButtonsList.length }} шт.
+                    <Textarea
+                      v-model="currentLocaleData.welcome.title"
+                      :class="textareaClass"
+                      placeholder="Текст заголовка"
+                    />
+                  </div>
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Подзаголовок
                     </p>
+                    <Textarea
+                      v-model="currentLocaleData.welcome.subtitle"
+                      :class="textareaClass"
+                      placeholder="Текст подзаголовка"
+                    />
+                  </div>
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Кнопка ведущая на форму заолнения
+                    </p>
+                    <Input
+                      v-model="currentLocaleData.welcome.button.text"
+                      :class="inputClass"
+                      placeholder="Текст кнопки"
+                    />
+                  </div>
+
+                  <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                      <p class="text-sm font-medium text-foreground">
+                        Кнопки со ссылками
+                      </p>
+                      <p class="text-[11px] text-muted-foreground">
+                        {{ welcomeButtonsList.length }} шт.
+                      </p>
+                    </div>
+                    <div class="space-y-2">
+                      <div
+                        v-for="link in welcomeButtonsList"
+                        :key="link.key"
+                        class="row-wrap"
+                      >
+                        <div :class="rowTwoCols">
+                          <Input
+                            v-model="link.value.text"
+                            :class="inputClass"
+                            placeholder="Текст"
+                          />
+                          <Input
+                            v-model="link.value.href"
+                            :class="inputClass"
+                            placeholder="Ссылка"
+                          />
+                        </div>
+                        <div class="action-stack">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            @click="removeWelcomeLink(link.key)"
+                          >
+                            −
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                    <Button
+                      variant="secondary"
+                      class="h-8 w-full"
+                      @click="addWelcomeLink"
+                    >
+                      + Добавить кнопку
+                    </Button>
+                  </div>
+                </CardContent>
+              </div>
+            </Card>
+
+            <Card>
+              <CardHeader class="mb-1">
+                <div class="flex items-center gap-2">
+                  <CardTitle class="text-sm uppercase tracking-wide">
+                    About us
+                  </CardTitle>
+                  <button
+                    type="button"
+                    class="toggle-btn"
+                    :aria-expanded="!isCollapsed('about_us')"
+                    aria-label="Toggle about us"
+                    @click="toggleSection('about_us')"
+                  >
+                    {{ isCollapsed('about_us') ? '▼' : '▲' }}
+                  </button>
+                </div>
+              </CardHeader>
+              <div
+                class="collapsible"
+                :data-open="!isCollapsed('about_us')"
+              >
+                <CardContent class="space-y-4">
+                  <div class="space-y-1">
+                    <Input
+                      v-model="currentLocaleData.about_us.title"
+                      :class="inputClass"
+                      placeholder="Заголовок"
+                    />
                   </div>
                   <div class="space-y-2">
-                    <div
-                      v-for="link in welcomeButtonsList"
-                      :key="link.key"
-                      class="row-wrap"
-                    >
-                      <div :class="rowTwoCols">
-                        <Input
-                          v-model="link.value.text"
-                          :class="inputClass"
-                          placeholder="Текст"
-                        />
-                        <Input
-                          v-model="link.value.href"
-                          :class="inputClass"
-                          placeholder="Ссылка"
-                        />
-                      </div>
-                      <div class="action-stack">
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          @click="removeWelcomeLink(link.key)"
-                        >
-                          −
-                        </Button>
-                      </div>
+                    <div class="flex items-center justify-between">
+                      <p class="text-sm font-medium text-foreground">
+                        Пункты
+                      </p>
+                      <p class="text-[11px] text-muted-foreground">
+                        {{ currentLocaleData.about_us.items.length }} шт.
+                      </p>
                     </div>
+                    <div class="space-y-3">
+                      <Card
+                        v-for="(item, index) in currentLocaleData.about_us.items"
+                        :key="`about-${index}`"
+                        class="bg-card/80 row-wrap"
+                      >
+                        <CardHeader class="pb-2">
+                          <CardTitle class="text-[12px] uppercase tracking-wide text-muted-foreground">
+                            Пункт {{ index + 1 }}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent class="space-y-3">
+                          <Input
+                            v-model="item.title"
+                            :class="inputClass"
+                            placeholder="Заголовок"
+                          />
+                          <Input
+                            v-model="item.subtitle"
+                            :class="inputClass"
+                            placeholder="Подзаголовок"
+                          />
+                          <Textarea
+                            v-model="item.content"
+                            class="min-h-[96px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
+                            placeholder="Контент"
+                          />
+                        </CardContent>
+                        <div class="action-stack">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="index === 0"
+                            @click="moveAboutItem(index, -1)"
+                          >
+                            ↑
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="index === currentLocaleData.about_us.items.length - 1"
+                            @click="moveAboutItem(index, 1)"
+                          >
+                            ↓
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="currentLocaleData.about_us.items.length <= 1"
+                            @click="removeAboutItem(index)"
+                          >
+                            −
+                          </Button>
+                        </div>
+                      </Card>
+                    </div>
+                    <Button
+                      variant="secondary"
+                      class="h-8 w-full"
+                      @click="addAboutItem"
+                    >
+                      + Добавить пункт
+                    </Button>
                   </div>
-                  <Button
-                    variant="secondary"
-                    class="h-8 w-full"
-                    @click="addWelcomeLink"
-                  >
-                    + Добавить кнопку
-                  </Button>
-                </div>
-              </CardContent>
+                </CardContent>
+              </div>
             </Card>
 
             <Card>
               <CardHeader class="mb-1">
-                <CardTitle class="text-sm uppercase tracking-wide">
-                  About us
-                </CardTitle>
-              </CardHeader>
-              <CardContent class="space-y-4">
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Заголовок
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.about_us.title"
-                    :class="inputClass"
-                    placeholder="Заголовок"
-                  />
+                <div class="flex items-center gap-2">
+                  <CardTitle class="text-sm uppercase tracking-wide">
+                    Services
+                  </CardTitle>
+                  <button
+                    type="button"
+                    class="toggle-btn"
+                    :aria-expanded="!isCollapsed('services')"
+                    aria-label="Toggle services"
+                    @click="toggleSection('services')"
+                  >
+                    {{ isCollapsed('services') ? '▼' : '▲' }}
+                  </button>
                 </div>
-                <div class="space-y-2">
-                  <div class="flex items-center justify-between">
-                    <p class="text-sm font-medium text-foreground">
-                      Пункты
-                    </p>
-                    <p class="text-[11px] text-muted-foreground">
-                      {{ currentLocaleData.about_us.items.length }} шт.
-                    </p>
+              </CardHeader>
+              <div
+                class="collapsible"
+                :data-open="!isCollapsed('services')"
+              >
+                <CardContent class="space-y-4">
+                  <div class="space-y-1">
+                    <Input
+                      v-model="currentLocaleData.services.title"
+                      :class="inputClass"
+                      placeholder="Заголовок секции"
+                    />
                   </div>
+
                   <div class="space-y-3">
                     <Card
-                      v-for="(item, index) in currentLocaleData.about_us.items"
-                      :key="`about-${index}`"
-                      class="bg-card/80 row-wrap"
+                      v-for="card in serviceCards"
+                      :key="card.key"
+                      class="bg-card/80"
                     >
-                      <CardHeader class="pb-2">
+                      <CardHeader class="flex items-center justify-between pb-2">
                         <CardTitle class="text-[12px] uppercase tracking-wide text-muted-foreground">
-                          Пункт {{ index + 1 }}
+                          {{ card.label }}
                         </CardTitle>
                       </CardHeader>
                       <CardContent class="space-y-3">
                         <Input
-                          v-model="item.title"
+                          v-model="currentLocaleData.services[card.key].title"
                           :class="inputClass"
                           placeholder="Заголовок"
                         />
-                        <Input
-                          v-model="item.subtitle"
-                          :class="inputClass"
-                          placeholder="Подзаголовок"
+                        <Textarea
+                          v-model="currentLocaleData.services[card.key].description"
+                          class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
+                          placeholder="Описание"
                         />
                         <Textarea
-                          v-model="item.content"
+                          v-model="currentLocaleData.services[card.key].lead"
+                          class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
+                          placeholder="Заголовок модального окна"
+                        />
+                        <div class="space-y-2">
+                          <div class="flex items-center justify-between">
+                            <p class="text-sm font-medium text-foreground">
+                              Пункты
+                            </p>
+                            <p class="text-[11px] text-muted-foreground">
+                              {{ currentLocaleData.services[card.key].bullets.length }} шт.
+                            </p>
+                          </div>
+                          <div class="space-y-2">
+                            <div
+                              v-for="(bullet, bulletIndex) in currentLocaleData.services[card.key].bullets"
+                              :key="`bullet-${card.key}-${bulletIndex}`"
+                              class="row-wrap"
+                            >
+                              <Textarea
+                                v-model="currentLocaleData.services[card.key].bullets[bulletIndex]"
+                                class="min-h-[60px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
+                                placeholder="Текст пункта"
+                              />
+                              <div class="action-stack">
+                                <Button
+                                  variant="outline"
+                                  size="icon"
+                                  class="icon-fab"
+                                  :disabled="bulletIndex === 0"
+                                  @click="moveServiceBullet(card.key, bulletIndex, -1)"
+                                >
+                                  ↑
+                                </Button>
+                                <Button
+                                  variant="outline"
+                                  size="icon"
+                                  class="icon-fab"
+                                  :disabled="bulletIndex === currentLocaleData.services[card.key].bullets.length - 1"
+                                  @click="moveServiceBullet(card.key, bulletIndex, 1)"
+                                >
+                                  ↓
+                                </Button>
+                                <Button
+                                  variant="outline"
+                                  size="icon"
+                                  class="icon-fab"
+                                  :disabled="currentLocaleData.services[card.key].bullets.length <= 1"
+                                  @click="removeServiceBullet(card.key, bulletIndex)"
+                                >
+                                  −
+                                </Button>
+                              </div>
+                            </div>
+                          </div>
+                          <Button
+                            variant="secondary"
+                            class="h-8 w-full"
+                            @click="addServiceBullet(card.key)"
+                          >
+                            + Добавить пункт
+                          </Button>
+                        </div>
+                        <Textarea
+                          v-model="currentLocaleData.services[card.key].text"
                           class="min-h-[96px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
-                          placeholder="Контент"
+                          placeholder="Текст модального окна"
                         />
                       </CardContent>
-                      <div class="action-stack">
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          :disabled="index === 0"
-                          @click="moveAboutItem(index, -1)"
-                        >
-                          ↑
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          :disabled="index === currentLocaleData.about_us.items.length - 1"
-                          @click="moveAboutItem(index, 1)"
-                        >
-                          ↓
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          :disabled="currentLocaleData.about_us.items.length <= 1"
-                          @click="removeAboutItem(index)"
-                        >
-                          −
-                        </Button>
-                      </div>
                     </Card>
                   </div>
-                  <Button
-                    variant="secondary"
-                    class="h-8 w-full"
-                    @click="addAboutItem"
-                  >
-                    + Добавить пункт
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
 
-            <Card>
-              <CardHeader class="mb-1">
-                <CardTitle class="text-sm uppercase tracking-wide">
-                  Services
-                </CardTitle>
-              </CardHeader>
-              <CardContent class="space-y-4">
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Заголовок
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.services.title"
-                    :class="inputClass"
-                    placeholder="Заголовок секции"
-                  />
-                </div>
-
-                <div class="space-y-3">
-                  <Card
-                    v-for="card in serviceCards"
-                    :key="card.key"
-                    class="bg-card/80"
-                  >
-                    <CardHeader class="flex items-center justify-between pb-2">
+                  <Card class="bg-card/80">
+                    <CardHeader class="pb-2">
                       <CardTitle class="text-[12px] uppercase tracking-wide text-muted-foreground">
-                        {{ card.label }}
+                        Questions (mobile/tablet)
                       </CardTitle>
                     </CardHeader>
                     <CardContent class="space-y-3">
                       <Input
-                        v-model="currentLocaleData.services[card.key].title"
+                        v-model="currentLocaleData.services.questions.title"
                         :class="inputClass"
                         placeholder="Заголовок"
                       />
                       <Textarea
-                        v-model="currentLocaleData.services[card.key].description"
+                        v-model="currentLocaleData.services.questions.description"
                         class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
-                        placeholder="Описание"
+                        placeholder="Подзаголовок"
                       />
-                      <Textarea
-                        v-model="currentLocaleData.services[card.key].lead"
-                        class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
-                        placeholder="Заголовок модального окна"
-                      />
-                      <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                          <p class="text-sm font-medium text-foreground">
-                            Пункты
-                          </p>
-                          <p class="text-[11px] text-muted-foreground">
-                            {{ currentLocaleData.services[card.key].bullets.length }} шт.
-                          </p>
-                        </div>
-                        <div class="space-y-2">
-                          <div
-                            v-for="(bullet, bulletIndex) in currentLocaleData.services[card.key].bullets"
-                            :key="`bullet-${card.key}-${bulletIndex}`"
-                            class="row-wrap"
-                          >
-                            <Textarea
-                              v-model="currentLocaleData.services[card.key].bullets[bulletIndex]"
-                              class="min-h-[60px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
-                              placeholder="Текст пункта"
-                            />
-                            <div class="action-stack">
-                              <Button
-                                variant="outline"
-                                size="icon"
-                                class="icon-fab"
-                                :disabled="bulletIndex === 0"
-                                @click="moveServiceBullet(card.key, bulletIndex, -1)"
-                              >
-                                ↑
-                              </Button>
-                              <Button
-                                variant="outline"
-                                size="icon"
-                                class="icon-fab"
-                                :disabled="bulletIndex === currentLocaleData.services[card.key].bullets.length - 1"
-                                @click="moveServiceBullet(card.key, bulletIndex, 1)"
-                              >
-                                ↓
-                              </Button>
-                              <Button
-                                variant="outline"
-                                size="icon"
-                                class="icon-fab"
-                                :disabled="currentLocaleData.services[card.key].bullets.length <= 1"
-                                @click="removeServiceBullet(card.key, bulletIndex)"
-                              >
-                                −
-                              </Button>
-                            </div>
-                          </div>
-                        </div>
-                        <Button
-                          variant="secondary"
-                          class="h-8 w-full"
-                          @click="addServiceBullet(card.key)"
-                        >
-                          + Добавить пункт
-                        </Button>
-                      </div>
-                      <Textarea
-                        v-model="currentLocaleData.services[card.key].text"
-                        class="min-h-[96px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
-                        placeholder="Текст модального окна"
+                      <Input
+                        v-model="currentLocaleData.services.questions.email"
+                        type="email"
+                        :class="inputClass"
+                        placeholder="Почта"
                       />
                     </CardContent>
                   </Card>
-                </div>
+                </CardContent>
+              </div>
+            </Card>
 
-                <Card class="bg-card/80">
-                  <CardHeader class="pb-2">
-                    <CardTitle class="text-[12px] uppercase tracking-wide text-muted-foreground">
-                      Questions (mobile/tablet)
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent class="space-y-3">
+            <Card>
+              <CardHeader class="mb-1">
+                <div class="flex items-center gap-2">
+                  <CardTitle class="text-sm uppercase tracking-wide">
+                    Our projects
+                  </CardTitle>
+                  <button
+                    type="button"
+                    class="toggle-btn"
+                    :aria-expanded="!isCollapsed('our_projects')"
+                    aria-label="Toggle our projects"
+                    @click="toggleSection('our_projects')"
+                  >
+                    {{ isCollapsed('our_projects') ? '▼' : '▲' }}
+                  </button>
+                </div>
+              </CardHeader>
+              <div
+                class="collapsible"
+                :data-open="!isCollapsed('our_projects')"
+              >
+                <CardContent class="space-y-3">
+                  <div class="space-y-1">
                     <Input
-                      v-model="currentLocaleData.services.questions.title"
+                      v-model="currentLocaleData.our_projects.title"
+                      :class="inputClass"
+                      placeholder="Заголовок"
+                    />
+                  </div>
+
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium text-foreground">
+                      Фильтрация
+                    </p>
+                    <label class="flex items-center gap-2 text-sm text-muted-foreground">
+                      <input
+                        v-model="currentLocaleData.our_projects.enable"
+                        type="checkbox"
+                        class="h-4 w-4"
+                      >
+                      <span>Включить</span>
+                    </label>
+                  </div>
+
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Фильтры
+                    </p>
+                    <Input
+                      v-model="currentLocaleData.our_projects.filters[0]"
+                      :class="inputClass"
+                      placeholder="Первое слово фильтра"
+                    />
+                    <p class="text-xs text-muted-foreground">
+                      Остальные фильтры и сами проекты редактируются на странице проектов.
+                      <a
+                        href="http://localhost:3000/cms/"
+                        class="font-semibold underline"
+                        target="_blank"
+                      >
+                        Перейти в редактор проектов
+                      </a>
+                    </p>
+                  </div>
+                </CardContent>
+              </div>
+            </Card>
+
+            <Card>
+              <CardHeader class="mb-1">
+                <div class="flex items-center gap-2">
+                  <CardTitle class="text-sm uppercase tracking-wide">
+                    Market response
+                  </CardTitle>
+                  <button
+                    type="button"
+                    class="toggle-btn"
+                    :aria-expanded="!isCollapsed('market_response')"
+                    aria-label="Toggle market response"
+                    @click="toggleSection('market_response')"
+                  >
+                    {{ isCollapsed('market_response') ? '▼' : '▲' }}
+                  </button>
+                </div>
+              </CardHeader>
+              <div
+                class="collapsible"
+                :data-open="!isCollapsed('market_response')"
+              >
+                <CardContent class="space-y-3">
+                  <Input
+                    v-model="currentLocaleData.market_response.title"
+                    :class="inputClass"
+                    placeholder="Заголовок"
+                  />
+                  <Textarea
+                    v-model="currentLocaleData.market_response.description1"
+                    class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
+                    placeholder="Описание 1"
+                  />
+                  <Textarea
+                    v-model="currentLocaleData.market_response.description2"
+                    class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
+                    placeholder="Описание 2"
+                  />
+                </CardContent>
+              </div>
+            </Card>
+
+            <Card>
+              <CardHeader class="mb-1">
+                <div class="flex items-center gap-2">
+                  <CardTitle class="text-sm uppercase tracking-wide">
+                    Our team
+                  </CardTitle>
+                  <button
+                    type="button"
+                    class="toggle-btn"
+                    :aria-expanded="!isCollapsed('our_team')"
+                    aria-label="Toggle our team"
+                    @click="toggleSection('our_team')"
+                  >
+                    {{ isCollapsed('our_team') ? '▼' : '▲' }}
+                  </button>
+                </div>
+              </CardHeader>
+              <div
+                class="collapsible"
+                :data-open="!isCollapsed('our_team')"
+              >
+                <CardContent class="space-y-4">
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Первая карточка
+                    </p>
+                    <Input
+                      v-model="currentLocaleData.our_team.firstcard.title"
                       :class="inputClass"
                       placeholder="Заголовок"
                     />
                     <Textarea
-                      v-model="currentLocaleData.services.questions.description"
+                      v-model="currentLocaleData.our_team.firstcard.description"
+                      class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
+                      placeholder="Описание"
+                    />
+                  </div>
+
+                  <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                      <p class="text-sm font-medium text-foreground">
+                        Команда
+                      </p>
+                      <p class="text-[11px] text-muted-foreground">
+                        {{ currentLocaleData.our_team.members.length }} чел.
+                      </p>
+                    </div>
+                    <div class="space-y-3">
+                      <Card
+                        v-for="(member, index) in currentLocaleData.our_team.members"
+                        :key="`member-${index}`"
+                        class="bg-card/80 row-wrap"
+                      >
+                        <CardHeader class="pb-2">
+                          <CardTitle class="text-[12px] uppercase tracking-wide text-muted-foreground">
+                            Участник {{ index + 1 }}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent class="grid w-full grid-cols-2 gap-[3%] box-border">
+                          <Input
+                            v-model="member.src"
+                            :class="inputClass"
+                            placeholder="Изображение (svg/путь)"
+                          />
+                          <Input
+                            v-model="member.position"
+                            :class="inputClass"
+                            placeholder="Должность"
+                          />
+                          <Input
+                            v-model="member.name"
+                            :class="inputClass"
+                            placeholder="Имя"
+                          />
+                          <Input
+                            v-model="member.lastname"
+                            :class="inputClass"
+                            placeholder="Фамилия"
+                          />
+                        </CardContent>
+                        <div class="action-stack">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="index === 0"
+                            @click="moveTeamMember(index, -1)"
+                          >
+                            ↑
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="index === currentLocaleData.our_team.members.length - 1"
+                            @click="moveTeamMember(index, 1)"
+                          >
+                            ↓
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            @click="removeTeamMember(index)"
+                          >
+                            −
+                          </Button>
+                        </div>
+                      </Card>
+                    </div>
+                    <Button
+                      variant="secondary"
+                      class="h-8 w-full"
+                      @click="addTeamMember"
+                    >
+                      + Добавить участника
+                    </Button>
+                  </div>
+
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Последняя карточка
+                    </p>
+                    <Input
+                      v-model="currentLocaleData.our_team.lastcard.title"
+                      :class="inputClass"
+                      placeholder="Заголовок"
+                    />
+                    <Textarea
+                      v-model="currentLocaleData.our_team.lastcard.description"
                       class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
                       placeholder="Подзаголовок"
                     />
                     <Input
-                      v-model="currentLocaleData.services.questions.email"
+                      v-model="currentLocaleData.our_team.lastcard.email"
                       type="email"
                       :class="inputClass"
                       placeholder="Почта"
                     />
-                  </CardContent>
-                </Card>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader class="mb-1">
-                <CardTitle class="text-sm uppercase tracking-wide">
-                  Our projects
-                </CardTitle>
-              </CardHeader>
-              <CardContent class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <p class="text-sm font-medium text-foreground">
-                    Фильтрация
-                  </p>
-                  <label class="flex items-center gap-2 text-sm text-muted-foreground">
-                    <input
-                      v-model="currentLocaleData.our_projects.enable"
-                      type="checkbox"
-                      class="h-4 w-4"
-                    >
-                    <span>Включить</span>
-                  </label>
-                </div>
-
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Заголовок
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.our_projects.title"
-                    :class="inputClass"
-                    placeholder="Заголовок секции"
-                  />
-                </div>
-
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Фильтры
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.our_projects.filters[0]"
-                    :class="inputClass"
-                    placeholder="Первое слово фильтра"
-                  />
-                  <p class="text-xs text-muted-foreground">
-                    Остальные фильтры и сами проекты редактируются на странице проектов.
-                    <a
-                      href="http://localhost:3000/cms/"
-                      class="font-semibold underline"
-                      target="_blank"
-                    >
-                      Перейти в редактор проектов
-                    </a>
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader class="mb-1">
-                <CardTitle class="text-sm uppercase tracking-wide">
-                  Market response
-                </CardTitle>
-              </CardHeader>
-              <CardContent class="space-y-3">
-                <Input
-                  v-model="currentLocaleData.market_response.title"
-                  :class="inputClass"
-                  placeholder="Заголовок"
-                />
-                <Textarea
-                  v-model="currentLocaleData.market_response.description1"
-                  class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
-                  placeholder="Описание 1"
-                />
-                <Textarea
-                  v-model="currentLocaleData.market_response.description2"
-                  class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
-                  placeholder="Описание 2"
-                />
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader class="mb-1">
-                <CardTitle class="text-sm uppercase tracking-wide">
-                  Our team
-                </CardTitle>
-              </CardHeader>
-              <CardContent class="space-y-4">
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Первая карточка
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.our_team.firstcard.title"
-                    :class="inputClass"
-                    placeholder="Заголовок"
-                  />
-                  <Textarea
-                    v-model="currentLocaleData.our_team.firstcard.description"
-                    class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
-                    placeholder="Описание"
-                  />
-                </div>
-
-                <div class="space-y-2">
-                  <div class="flex items-center justify-between">
-                    <p class="text-sm font-medium text-foreground">
-                      Команда
-                    </p>
-                    <p class="text-[11px] text-muted-foreground">
-                      {{ currentLocaleData.our_team.members.length }} чел.
-                    </p>
                   </div>
-                  <div class="space-y-3">
-                    <Card
-                      v-for="(member, index) in currentLocaleData.our_team.members"
-                      :key="`member-${index}`"
-                      class="bg-card/80 row-wrap"
-                    >
-                      <CardHeader class="pb-2">
-                        <CardTitle class="text-[12px] uppercase tracking-wide text-muted-foreground">
-                          Участник {{ index + 1 }}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent class="grid w-full grid-cols-2 gap-[3%] box-border">
+                </CardContent>
+              </div>
+            </Card>
+
+            <Card>
+              <CardHeader class="mb-1">
+                <div class="flex items-center gap-2">
+                  <CardTitle class="text-sm uppercase tracking-wide">
+                    Leave request
+                  </CardTitle>
+                  <button
+                    type="button"
+                    class="toggle-btn"
+                    :aria-expanded="!isCollapsed('leave_request')"
+                    aria-label="Toggle leave request"
+                    @click="toggleSection('leave_request')"
+                  >
+                    {{ isCollapsed('leave_request') ? '▼' : '▲' }}
+                  </button>
+                </div>
+              </CardHeader>
+              <div
+                class="collapsible"
+                :data-open="!isCollapsed('leave_request')"
+              >
+                <CardContent class="space-y-3">
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Контакты
+                    </p>
+                    <div class="space-y-2">
+                      <Input
+                        v-model="currentLocaleData.leave_request.contacts.title"
+                        :class="inputClass"
+                        placeholder="Заголовок"
+                      />
+                      <div class="grid grid-cols-2 gap-[3%] box-border">
                         <Input
-                          v-model="member.src"
+                          v-model="currentLocaleData.leave_request.contacts.email"
+                          type="email"
                           :class="inputClass"
-                          placeholder="Изображение (svg/путь)"
+                          placeholder="Почта"
                         />
                         <Input
-                          v-model="member.position"
+                          v-model="currentLocaleData.leave_request.contacts.phone"
                           :class="inputClass"
-                          placeholder="Должность"
+                          placeholder="Телефон"
                         />
                         <Input
-                          v-model="member.name"
+                          v-model="currentLocaleData.leave_request.contacts.telegram.text"
+                          :class="inputClass"
+                          placeholder="Telegram текст"
+                        />
+                        <Input
+                          v-model="currentLocaleData.leave_request.contacts.telegram.href"
+                          :class="inputClass"
+                          placeholder="Telegram ссылка"
+                        />
+                        <Input
+                          v-model="currentLocaleData.leave_request.contacts.whatsapp.text"
+                          :class="inputClass"
+                          placeholder="WhatsApp текст"
+                        />
+                        <Input
+                          v-model="currentLocaleData.leave_request.contacts.whatsapp.href"
+                          :class="inputClass"
+                          placeholder="WhatsApp ссылка"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Форма
+                    </p>
+                    <div class="space-y-2">
+                      <div class="grid grid-cols-2 gap-[3%] box-border">
+                        <Input
+                          v-model="currentLocaleData.leave_request.form.title"
+                          :class="inputClass"
+                          placeholder="Заголовок 1"
+                        />
+                        <Input
+                          v-model="currentLocaleData.leave_request.form.name"
                           :class="inputClass"
                           placeholder="Имя"
                         />
                         <Input
-                          v-model="member.lastname"
+                          v-model="currentLocaleData.leave_request.form.phone"
                           :class="inputClass"
-                          placeholder="Фамилия"
+                          placeholder="Телефон"
                         />
-                      </CardContent>
-                      <div class="action-stack">
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          :disabled="index === 0"
-                          @click="moveTeamMember(index, -1)"
-                        >
-                          ↑
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          :disabled="index === currentLocaleData.our_team.members.length - 1"
-                          @click="moveTeamMember(index, 1)"
-                        >
-                          ↓
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          class="icon-fab"
-                          @click="removeTeamMember(index)"
-                        >
-                          −
-                        </Button>
+                        <Input
+                          v-model="currentLocaleData.leave_request.form.title2"
+                          :class="inputClass"
+                          placeholder="Заголовок 2"
+                        />
+                        <Input
+                          v-model="currentLocaleData.leave_request.form.question"
+                          :class="inputClass"
+                          placeholder="Вопрос 1"
+                        />
+                        <Input
+                          v-model="currentLocaleData.leave_request.form.question2"
+                          :class="inputClass"
+                          placeholder="Вопрос 2"
+                        />
+                        <Input
+                          v-model="currentLocaleData.leave_request.form.button"
+                          :class="[inputClass, 'col-span-2']"
+                          placeholder="Текст кнопки"
+                        />
                       </div>
-                    </Card>
+                    </div>
                   </div>
-                  <Button
-                    variant="secondary"
-                    class="h-8 w-full"
-                    @click="addTeamMember"
-                  >
-                    + Добавить участника
-                  </Button>
-                </div>
-
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Последняя карточка
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.our_team.lastcard.title"
-                    :class="inputClass"
-                    placeholder="Заголовок"
-                  />
-                  <Textarea
-                    v-model="currentLocaleData.our_team.lastcard.description"
-                    class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
-                    placeholder="Подзаголовок"
-                  />
-                  <Input
-                    v-model="currentLocaleData.our_team.lastcard.email"
-                    type="email"
-                    :class="inputClass"
-                    placeholder="Почта"
-                  />
-                </div>
-              </CardContent>
+                </CardContent>
+              </div>
             </Card>
 
             <Card>
               <CardHeader class="mb-1">
-                <CardTitle class="text-sm uppercase tracking-wide">
-                  Leave request
-                </CardTitle>
+                <div class="flex items-center gap-2">
+                  <CardTitle class="text-sm uppercase tracking-wide">
+                    Footer
+                  </CardTitle>
+                  <button
+                    type="button"
+                    class="toggle-btn"
+                    :aria-expanded="!isCollapsed('footer')"
+                    aria-label="Toggle footer"
+                    @click="toggleSection('footer')"
+                  >
+                    {{ isCollapsed('footer') ? '▼' : '▲' }}
+                  </button>
+                </div>
               </CardHeader>
-              <CardContent class="space-y-3">
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Контакты
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.leave_request.contacts.title"
-                    :class="inputClass"
-                    placeholder="Заголовок"
-                  />
-                  <div class="grid grid-cols-2 gap-[3%] box-border">
+              <div
+                class="collapsible"
+                :data-open="!isCollapsed('footer')"
+              >
+                <CardContent class="space-y-3">
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Имя компании
+                    </p>
                     <Input
-                      v-model="currentLocaleData.leave_request.contacts.email"
+                      v-model="currentLocaleData.footer.brand"
+                      :class="inputClass"
+                      placeholder="Имя компании"
+                    />
+                  </div>
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Годы и права
+                    </p>
+                    <Input
+                      v-model="currentLocaleData.footer.rights"
+                      :class="inputClass"
+                      placeholder="Права"
+                    />
+                  </div>
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Политика конфиденциальности
+                    </p>
+                    <div class="grid grid-cols-2 gap-[3%] box-border">
+                      <Input
+                        v-model="currentLocaleData.footer.privacy_policy.text"
+                        :class="inputClass"
+                        placeholder="Текст"
+                      />
+                      <Input
+                        v-model="currentLocaleData.footer.privacy_policy.href"
+                        :class="inputClass"
+                        placeholder="Ссылка на PDF"
+                      />
+                    </div>
+                  </div>
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Почта
+                    </p>
+                    <Input
+                      v-model="currentLocaleData.footer.email"
                       type="email"
                       :class="inputClass"
-                      placeholder="Почта"
-                    />
-                    <Input
-                      v-model="currentLocaleData.leave_request.contacts.phone"
-                      :class="inputClass"
-                      placeholder="Телефон"
-                    />
-                    <Input
-                      v-model="currentLocaleData.leave_request.contacts.telegram.text"
-                      :class="inputClass"
-                      placeholder="Telegram текст"
-                    />
-                    <Input
-                      v-model="currentLocaleData.leave_request.contacts.telegram.href"
-                      :class="inputClass"
-                      placeholder="Telegram ссылка"
-                    />
-                    <Input
-                      v-model="currentLocaleData.leave_request.contacts.whatsapp.text"
-                      :class="inputClass"
-                      placeholder="WhatsApp текст"
-                    />
-                    <Input
-                      v-model="currentLocaleData.leave_request.contacts.whatsapp.href"
-                      :class="inputClass"
-                      placeholder="WhatsApp ссылка"
+                      placeholder="Email"
                     />
                   </div>
-                </div>
-
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Форма
-                  </p>
-                  <div class="grid grid-cols-2 gap-[3%] box-border">
-                    <Input
-                      v-model="currentLocaleData.leave_request.form.title"
-                      :class="inputClass"
-                      placeholder="Заголовок 1"
-                    />
-                    <Input
-                      v-model="currentLocaleData.leave_request.form.name"
-                      :class="inputClass"
-                      placeholder="Имя"
-                    />
-                    <Input
-                      v-model="currentLocaleData.leave_request.form.phone"
-                      :class="inputClass"
-                      placeholder="Телефон"
-                    />
-                    <Input
-                      v-model="currentLocaleData.leave_request.form.title2"
-                      :class="inputClass"
-                      placeholder="Заголовок 2"
-                    />
-                    <Input
-                      v-model="currentLocaleData.leave_request.form.question"
-                      :class="inputClass"
-                      placeholder="Вопрос 1"
-                    />
-                    <Input
-                      v-model="currentLocaleData.leave_request.form.question2"
-                      :class="inputClass"
-                      placeholder="Вопрос 2"
-                    />
+                  <div class="space-y-1">
+                    <p class="text-sm font-medium text-foreground">
+                      Иконки
+                    </p>
+                    <div class="grid grid-cols-2 gap-[3%] box-border">
+                      <Input
+                        v-model="currentLocaleData.footer.icon1.src"
+                        :class="inputClass"
+                        placeholder="Icon1 (svg/путь)"
+                      />
+                      <Input
+                        v-model="currentLocaleData.footer.icon1.href"
+                        :class="inputClass"
+                        placeholder="Icon1 ссылка"
+                      />
+                      <Input
+                        v-model="currentLocaleData.footer.icon2.src"
+                        :class="inputClass"
+                        placeholder="Icon2 (svg/путь)"
+                      />
+                      <Input
+                        v-model="currentLocaleData.footer.icon2.href"
+                        :class="inputClass"
+                        placeholder="Icon2 ссылка"
+                      />
+                    </div>
                   </div>
-                  <Input
-                    v-model="currentLocaleData.leave_request.form.button"
-                    :class="inputClass"
-                    placeholder="Текст кнопки"
-                  />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader class="mb-1">
-                <CardTitle class="text-sm uppercase tracking-wide">
-                  Footer
-                </CardTitle>
-              </CardHeader>
-              <CardContent class="space-y-3">
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Имя компании
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.footer.brand"
-                    :class="inputClass"
-                    placeholder="Имя компании"
-                  />
-                </div>
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Годы и права
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.footer.rights"
-                    :class="inputClass"
-                    placeholder="Права"
-                  />
-                </div>
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Политика конфиденциальности
-                  </p>
-                  <div class="grid grid-cols-2 gap-[3%] box-border">
-                    <Input
-                      v-model="currentLocaleData.footer.privacy_policy.text"
-                      :class="inputClass"
-                      placeholder="Текст"
-                    />
-                    <Input
-                      v-model="currentLocaleData.footer.privacy_policy.href"
-                      :class="inputClass"
-                      placeholder="Ссылка на PDF"
-                    />
-                  </div>
-                </div>
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Почта
-                  </p>
-                  <Input
-                    v-model="currentLocaleData.footer.email"
-                    type="email"
-                    :class="inputClass"
-                    placeholder="Email"
-                  />
-                </div>
-                <div class="space-y-1">
-                  <p class="text-sm font-medium text-foreground">
-                    Иконки
-                  </p>
-                  <div class="grid grid-cols-2 gap-[3%] box-border">
-                    <Input
-                      v-model="currentLocaleData.footer.icon1.src"
-                      :class="inputClass"
-                      placeholder="Icon1 (svg/путь)"
-                    />
-                    <Input
-                      v-model="currentLocaleData.footer.icon1.href"
-                      :class="inputClass"
-                      placeholder="Icon1 ссылка"
-                    />
-                    <Input
-                      v-model="currentLocaleData.footer.icon2.src"
-                      :class="inputClass"
-                      placeholder="Icon2 (svg/путь)"
-                    />
-                    <Input
-                      v-model="currentLocaleData.footer.icon2.href"
-                      :class="inputClass"
-                      placeholder="Icon2 ссылка"
-                    />
-                  </div>
-                </div>
-              </CardContent>
+                </CardContent>
+              </div>
             </Card>
           </TabsContent>
         </Tabs>
@@ -1417,5 +1569,39 @@ const saveIndex = async () => {
   border-radius: 6px;
   line-height: 1;
   font-size: 12px;
+}
+
+.toggle-btn{
+  width: 18px;
+  height: 18px;
+  line-height: 1;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 6px;
+  background: white;
+  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.collapsible{
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.collapsible[data-open="true"]{
+  max-height: 4000px;
+  opacity: 1;
+}
+
+.section-box{
+  padding: 0;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 10px;
+  background: rgba(0,0,0,0.02);
+  box-sizing: border-box;
 }
 </style>

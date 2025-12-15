@@ -97,11 +97,6 @@
                 "title": "О нас",
                 "items": [
                     {
-                        "title": "МИССИЯ",
-                        "subtitle": "Репутация как стратегический актив",
-                        "content": "Мы создаём и внедряем комплексные решения, которые помогают компаниям управлять своим образом в медиа, усиливать влияние и укреплять позиции на рынке. Репутация становится не только отражением деятельности, но и мощным инструментом стратегического развития, открывающим новые возможности для роста и партнёрства."
-                    },
-                    {
                         "title": "ЦЕННОСТИ",
                         "subtitle": "Глубина анализа, конфиденциальность и работа на результат",
                         "content": "тут нужно содержаение"
@@ -110,6 +105,11 @@
                         "title": "НАШ ПОДХОД",
                         "subtitle": "Мы ценим долгосрочные отношения, прозрачность процессов",
                         "content": "тут нужно содержаение"
+                    },
+                    {
+                        "title": "МИССИЯ",
+                        "subtitle": "Репутация как стратегический актив",
+                        "content": "Мы создаём и внедряем комплексные решения, которые помогают компаниям управлять своим образом в медиа, усиливать влияние и укреплять позиции на рынке. Репутация становится не только отражением деятельности, но и мощным инструментом стратегического развития, открывающим новые возможности для роста и партнёрства."
                     }
                 ]
             },
@@ -388,7 +388,7 @@
                 }
             },
             "welcome": {
-                "title": "WE BUILD REPUTATION AND OPEN DOORS TO INTERNATIONAL MARKETS",
+                "title": "WE BUILD REPUTATION AND OPEN DOORS TO INTERNATIONAL markets",
                 "subtitle": "International positioning through media, events and trust of the professional community.",
                 "button": {
                     "text": "FILL OUT THE FORM",
@@ -522,7 +522,8 @@
                 "filters": [
                     "Cases"
                 ],
-                "projects": "stored in projects.json"
+                "projects": "stored in projects.json",
+                "enable": false
             },
             "market_response": {
                 "title": "Quickly respond to international market challenges",
@@ -834,7 +835,8 @@
                 "filters": [
                     "Fälle"
                 ],
-                "projects": "werden in projects.json gespeichert"
+                "projects": "werden in projects.json gespeichert",
+                "enable": false
             },
             "market_response": {
                 "title": "Schnell auf internationale Marktherausforderungen reagieren",
@@ -1146,7 +1148,8 @@
                 "filters": [
                     "Casos"
                 ],
-                "projects": "se almacenan en projects.json"
+                "projects": "se almacenan en projects.json",
+                "enable": false
             },
             "market_response": {
                 "title": "Respondemos rápidamente a los desafíos del mercado internacional",
