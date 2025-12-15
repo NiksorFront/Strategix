@@ -206,7 +206,8 @@
                 }
             },
             "our_projects": {
-                "section_title": "Наши проекты",
+                "enable": false,
+                "title": "Наши проекты",
                 "filters": [
                     "Кейсы"
                 ],
@@ -298,7 +299,7 @@
                 "brand": "STRATEGIX",
                 "rights": "© 2022–2025 ВСЕ ПРАВА ЗАЩИЩЕНЫ",
                 "privacy_policy": {
-                    "text": "ПОЛИТИКА\nКОНФИДЕНЦИАЛЬНОСТИ",
+                    "text": "ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ",
                     "href": "./privacy-policy.pdf"
                 },
                 "email": "hello@strategix.com",
@@ -517,7 +518,7 @@
                 }
             },
             "our_projects": {
-                "section_title": "Our Projects",
+                "title": "Our Projects",
                 "filters": [
                     "Cases"
                 ],
@@ -829,7 +830,7 @@
                 }
             },
             "our_projects": {
-                "section_title": "Unsere Projekte",
+                "title": "Unsere Projekte",
                 "filters": [
                     "Fälle"
                 ],
@@ -1141,7 +1142,7 @@
                 }
             },
             "our_projects": {
-                "section_title": "Nuestros Proyectos",
+                "title": "Nuestros Proyectos",
                 "filters": [
                     "Casos"
                 ],

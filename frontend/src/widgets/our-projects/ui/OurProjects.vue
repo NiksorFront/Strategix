@@ -17,7 +17,7 @@
   const currentLocale = computed(() => locale.value || 'ru')
   const translations = computed(() => index.translations[currentLocale.value as keyof typeof index.translations] || index.translations.ru)
 
-  const sectionTitle = computed(() => translations.value.our_projects.section_title)
+  const sectionTitle = computed(() => translations.value.our_projects.title)
 
   const filters = computed(() => {
     const baseFilters = translations.value.our_projects.filters || []

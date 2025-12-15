@@ -910,9 +910,58 @@ const saveIndex = async () => {
               </CardContent>
             </Card>
 
-            <Card class="border-dashed">
-              <CardContent class="p-3 text-sm text-muted-foreground">
-                our_projects: пока без изменений (см. projects.json)
+            <Card>
+              <CardHeader class="mb-1">
+                <CardTitle class="text-sm uppercase tracking-wide">
+                  Our projects
+                </CardTitle>
+              </CardHeader>
+              <CardContent class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <p class="text-sm font-medium text-foreground">
+                    Фильтрация
+                  </p>
+                  <label class="flex items-center gap-2 text-sm text-muted-foreground">
+                    <input
+                      v-model="currentLocaleData.our_projects.enable"
+                      type="checkbox"
+                      class="h-4 w-4"
+                    >
+                    <span>Включить</span>
+                  </label>
+                </div>
+
+                <div class="space-y-1">
+                  <p class="text-sm font-medium text-foreground">
+                    Заголовок
+                  </p>
+                  <Input
+                    v-model="currentLocaleData.our_projects.title"
+                    :class="inputClass"
+                    placeholder="Заголовок секции"
+                  />
+                </div>
+
+                <div class="space-y-1">
+                  <p class="text-sm font-medium text-foreground">
+                    Фильтры
+                  </p>
+                  <Input
+                    v-model="currentLocaleData.our_projects.filters[0]"
+                    :class="inputClass"
+                    placeholder="Первое слово фильтра"
+                  />
+                  <p class="text-xs text-muted-foreground">
+                    Остальные фильтры и сами проекты редактируются на странице проектов.
+                    <a
+                      href="http://localhost:3000/cms/"
+                      class="font-semibold underline"
+                      target="_blank"
+                    >
+                      Перейти в редактор проектов
+                    </a>
+                  </p>
+                </div>
               </CardContent>
             </Card>
 
@@ -1161,6 +1210,91 @@ const saveIndex = async () => {
                     :class="inputClass"
                     placeholder="Текст кнопки"
                   />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader class="mb-1">
+                <CardTitle class="text-sm uppercase tracking-wide">
+                  Footer
+                </CardTitle>
+              </CardHeader>
+              <CardContent class="space-y-3">
+                <div class="space-y-1">
+                  <p class="text-sm font-medium text-foreground">
+                    Имя компании
+                  </p>
+                  <Input
+                    v-model="currentLocaleData.footer.brand"
+                    :class="inputClass"
+                    placeholder="Имя компании"
+                  />
+                </div>
+                <div class="space-y-1">
+                  <p class="text-sm font-medium text-foreground">
+                    Годы и права
+                  </p>
+                  <Input
+                    v-model="currentLocaleData.footer.rights"
+                    :class="inputClass"
+                    placeholder="Права"
+                  />
+                </div>
+                <div class="space-y-1">
+                  <p class="text-sm font-medium text-foreground">
+                    Политика конфиденциальности
+                  </p>
+                  <div class="grid grid-cols-2 gap-[3%] box-border">
+                    <Input
+                      v-model="currentLocaleData.footer.privacy_policy.text"
+                      :class="inputClass"
+                      placeholder="Текст"
+                    />
+                    <Input
+                      v-model="currentLocaleData.footer.privacy_policy.href"
+                      :class="inputClass"
+                      placeholder="Ссылка на PDF"
+                    />
+                  </div>
+                </div>
+                <div class="space-y-1">
+                  <p class="text-sm font-medium text-foreground">
+                    Почта
+                  </p>
+                  <Input
+                    v-model="currentLocaleData.footer.email"
+                    type="email"
+                    :class="inputClass"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="space-y-1">
+                  <p class="text-sm font-medium text-foreground">
+                    Иконки
+                  </p>
+                  <div class="grid grid-cols-2 gap-[3%] box-border">
+                    <Input
+                      v-model="currentLocaleData.footer.icon1.src"
+                      :class="inputClass"
+                      placeholder="Icon1 (svg/путь)"
+                    />
+                    <Input
+                      v-model="currentLocaleData.footer.icon1.href"
+                      :class="inputClass"
+                      placeholder="Icon1 ссылка"
+                    />
+                    <Input
+                      v-model="currentLocaleData.footer.icon2.src"
+                      :class="inputClass"
+                      placeholder="Icon2 (svg/путь)"
+                    />
+                    <Input
+                      v-model="currentLocaleData.footer.icon2.href"
+                      :class="inputClass"
+                      placeholder="Icon2 ссылка"
+                    />
+                  </div>
                 </div>
               </CardContent>
             </Card>
