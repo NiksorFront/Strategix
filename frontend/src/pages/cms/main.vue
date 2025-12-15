@@ -351,7 +351,7 @@ const saveIndex = async () => {
     <Footer />
   </div>
   <div class="edit-json">
-    <ScrollArea class="h-full">
+    <ScrollArea class="w-full h-full">
       <div class="edit-card p-3 box-border">
         <div class="flex items-center justify-between gap-2">
           <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -1336,13 +1336,19 @@ const saveIndex = async () => {
 </template>
 
 <style scoped>
+:global(:root){
+  --cms-panel-width: clamp(300px, 28vw, 450px);
+  --cms-panel-gap: 1px;
+  --cms-scale: clamp(0.1, calc(1 - (var(--cms-panel-width) + var(--cms-panel-gap)) / 100vw), 0.9);
+}
+
 .main{
-  transform: scale(0.75);
+  transform: scale(var(--cms-scale));
   transform-origin: left top;
 }
 
 .edit-json{
-  width: calc(var(--section-width)/4);
+  width: var(--cms-panel-width);
   height: calc(var(--vh) * 100);
   max-height: calc(var(--vh) * 100);
 
@@ -1350,6 +1356,7 @@ const saveIndex = async () => {
   top: 0;
   right: 0;
   overflow: hidden;
+  padding: 12px;
 
   box-sizing: border-box;
   background: linear-gradient(180deg, rgba(241, 241, 241, 0.96) 0%, rgba(255, 255, 255, 0.94) 100%);
