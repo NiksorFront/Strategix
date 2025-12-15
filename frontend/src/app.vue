@@ -2,6 +2,12 @@
   import { onMounted, onBeforeUnmount } from 'vue';
 
   onMounted(() => {
+    const ua = navigator.userAgent;
+    // ограничиваем логику браузерами на WebKit (Safari, iOS WebView/Chrome)
+    const isWebKit = /AppleWebKit/.test(ua) && !/Chrome|Chromium|OPR|Edg/.test(ua);
+
+    if (!isWebKit) return;
+
     let prevInnerHeight = window.innerHeight;
 
     const setVh = () => {
@@ -12,7 +18,7 @@
     const onResize = () => {
       const current = window.innerHeight;
       // фильтруем мелкие изменения высоты (движение панелей)
-      if (Math.abs(current - prevInnerHeight) > 120) {
+      if (Math.abs(current - prevInnerHeight) > 130) {
         prevInnerHeight = current;
         setVh();
       }
