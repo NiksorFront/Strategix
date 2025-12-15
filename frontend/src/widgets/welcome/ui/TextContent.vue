@@ -2,7 +2,10 @@
 import ButtonWithIcon from '~/shared/ui/button-with-icon';
 import index from '@/content/pages/index.json'
 
-const props = defineProps<{ telegram: string; whatsapp: string }>();
+type WelcomeUrl = {
+  text: string;
+  href: string;
+};
 
 const { locale } = useI18n()
 const currentLocale = locale.value || 'ru'
@@ -10,10 +13,18 @@ const translations = index.translations[currentLocale as keyof typeof index.tran
 
 const title = translations.welcome.title
 const subtitle = translations.welcome.subtitle
-const button1Text = translations.welcome.button1.text
-const button1Href = translations.welcome.button1.href
-const button2Text = translations.welcome.button2.text
-const button3Text = translations.welcome.button3.text
+const buttonText = translations.welcome.button.text
+const buttonHref = translations.welcome.button.href
+
+const rawUrls = translations.welcome.urls as WelcomeUrl[] | Record<string, WelcomeUrl> | undefined
+const urls: WelcomeUrl[] = Array.isArray(rawUrls)
+  ? rawUrls
+  : rawUrls
+    ? Object.values(rawUrls)
+    : []
+
+const mobileUrls = urls.slice(0, 2)
+const desktopUrls = urls
 </script>
 
 <template>
@@ -27,39 +38,28 @@ const button3Text = translations.welcome.button3.text
     <div class="welcome-buttons">
       <ButtonWithIcon
         style-button="green"
-        :href="button1Href"
+        :href="buttonHref"
       >
-        {{ button1Text }}
+        {{ buttonText }}
       </ButtonWithIcon>
       <ButtonWithIcon
-        class="desktop"
-        style-button="green"
-        :href="props.telegram"
-        target="_blank"
-      >
-        {{ button2Text }}
-      </ButtonWithIcon>
-      <ButtonWithIcon
-        class="desktop"
-        style-button="green"
-        :href="props.whatsapp"
-        target="_blank"
-      >
-        {{ button3Text }}
-      </ButtonWithIcon>
-      <ButtonWithIcon
+        v-for="(url, index) in mobileUrls"
+        :key="`mobile-${index}-${url.href}`"
         class="mobile"
-        :href="props.telegram"
+        style-button="green"
+        :href="url.href"
         target="_blank"
       >
-        {{ button2Text }}
+        {{ url.text }}
       </ButtonWithIcon>
       <ButtonWithIcon
-        class="mobile"
-        :href="props.whatsapp"
+        v-for="(url, index) in desktopUrls"
+        :key="`desktop-${index}-${url.href}`"
+        class="desktop"
+        :href="url.href"
         target="_blank"
       >
-        {{ button3Text }}
+        {{ url.text }}
       </ButtonWithIcon>
     </div>
   </div>
@@ -154,7 +154,7 @@ const button3Text = translations.welcome.button3.text
   }
 }
 
-.desktop{
+.mobile{
   display: flex;
 
   @media(--tablet-width){
@@ -162,7 +162,7 @@ const button3Text = translations.welcome.button3.text
   }
 }
 
-.mobile{
+.desktop{
   display: none;
 
   @media(--tablet-width){

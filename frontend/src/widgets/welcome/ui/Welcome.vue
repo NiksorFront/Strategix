@@ -1,14 +1,6 @@
 <script setup lang="ts">
   import TextContent from './TextContent.vue';
   import Histogram from './Histogram.vue';
-  import index from '@/content/pages/index.json'
-
-  const { locale } = useI18n()
-  const currentLocale = locale.value || 'ru'
-  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
-
-  const telegram = translations.welcome.button2.href
-  const whatsapp = translations.welcome.button3.href
 </script>
 
 <template>
@@ -16,10 +8,7 @@
     id="welcome"
     class="welcome"
   >
-    <TextContent
-      :telegram="telegram"
-      :whatsapp="whatsapp"
-    />
+    <TextContent />
     <Histogram />
   </section>
 </template>

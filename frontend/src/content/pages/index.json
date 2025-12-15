@@ -6,7 +6,7 @@
                 "navigation_desktop": [
                     {
                         "href": "#header",
-                        "text": "Главная"
+                        "text": "ГлавнаяГлавная"
                     },
                     {
                         "href": "#about-us",
@@ -61,9 +61,11 @@
             "welcome": {
                 "title": "МЫ\u00A0СТРОИМ РЕПУТАЦИЮ\u00A0И ОТКРЫВАЕМ ДВЕРИ\u00A0НА МЕЖДУНАРОДНЫЕ РЫНКИ",
                 "subtitle": "Международное позиционирование через медиа, ивенты и доверие профессионального сообщества.",
-                "button1": {"text": "ЗАПОЛНИТЕ АНКЕТУ", "href": "#contacts"},
-                "button2": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
-                "button3": {"text": "WHATSAPP", "href": "https://wa.me/595955084893"}
+                "button": {"text": "ЗАПОЛНИТЕ АНКЕТУ", "href": "#contacts"},
+                "urls":{
+                    "button1": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
+                    "button2": {"text": "WHATSAPP", "href": "https://wa.me/595955084893"}
+                }
             },
 
             "about_us": {
@@ -242,6 +244,7 @@
                 }
 
             },
+
             "leave_request": {
                 "contacts": {
                     "title": "Оставьте заявку, чтобы обсудить проект",
@@ -256,7 +259,7 @@
                     "phone": "Телефон",
                     "title2": "О проекте",
                     "question": "Какие услуги вас интересуют?",
-                    "description": "С чем вам нужна помощь?",
+                    "question2": "С чем вам нужна помощь?",
                     "button": "ОТПРАВИТЬ"
                 },
                 "agree": {
@@ -334,9 +337,11 @@
             "welcome": {
                 "title": "WE BUILD REPUTATION AND OPEN DOORS TO INTERNATIONAL MARKETS",
                 "subtitle": "International positioning through media, events and trust of the professional community.",
-                "button1": {"text": "FILL OUT THE FORM", "href": "#contacts"},
-                "button2": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
-                "button3": {"text": "WHATSAPP", "href": "https://wa.me/595955084893"}
+                "button": {"text": "FILL OUT THE FORM", "href": "#contacts"},
+                "urls":{
+                    "button1": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
+                    "button2":  {"text": "FILL OUT THE FORM", "href": "#contacts"}
+                }
             },
 
             "about_us": {
@@ -607,9 +612,11 @@
             "welcome": {
                 "title": "WIR BAUEN REPUTATION AUF UND ÖFFNEN TÜREN ZU INTERNATIONALEN MÄRKTEN",
                 "subtitle": "Internationale Positionierung durch Medien, Events und Vertrauen der Fachgemeinschaft.",
-                "button1": {"text": "FORMULAR AUSFÜLLEN", "href": "#contacts"},
-                "button2": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
-                "button3": {"text": "WHATSAPP", "href": "https://wa.me/595955084893"}
+                "button": {"text": "FORMULAR AUSFÜLLEN", "href": "#contacts"},
+                "urls":{
+                    "button1": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
+                    "button2":  {"text": "WHATSAPP", "href": "https://wa.me/595955084893"}
+                }
             },
 
             "about_us": {
@@ -880,9 +887,11 @@
             "welcome": {
                 "title": "CONSTRUIMOS REPUTACIÓN Y ABRIMOS PUERTAS A MERCADOS INTERNACIONALES",
                 "subtitle": "Posicionamiento internacional a través de medios, eventos y confianza de la comunidad profesional.",
-                "button1": {"text": "LLENAR EL FORMULARIO", "href": "#contacts"},
-                "button2": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
-                "button3": {"text": "WHATSAPP", "href": "https://wa.me/595955084893"}
+                "button": {"text": "LLENAR EL FORMULARIO", "href": "#contacts"},
+                "urls":{
+                    "button1": {"text": "TELEGRAM", "href": "https://t.me/strategix"},
+                    "button2":  {"text": "WHATSAPP", "href": "https://wa.me/595955084893"}
+                }
             },
 
             "about_us": {
@@ -1061,6 +1070,7 @@
                 }
 
             },
+            
             "leave_request": {
                 "contacts": {
                     "title": "Deja una solicitud para discutir el proyecto",

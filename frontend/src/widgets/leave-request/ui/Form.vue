@@ -37,7 +37,7 @@
       >
       <textarea
         class="base-text field textarea"
-        :placeholder="formData.description"
+        :placeholder="formData.question2"
       />
 
       <div class="form-row">
