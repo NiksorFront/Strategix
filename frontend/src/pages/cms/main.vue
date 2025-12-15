@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue';
+import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue';
 import { Alert, AlertDescription, AlertTitle } from '@/shared/ui/shadcn/ui/alert';
 import { Button } from '@/shared/ui/shadcn/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/shadcn/ui/card';
@@ -39,6 +39,9 @@ const isSaving = ref(false);
 const saveMessage = ref('');
 const saveError = ref('');
 const uploadingMember = ref<number | null>(null);
+const pendingImageDeletes = ref<string[]>([]);
+const pendingMemberUploads = reactive(new Map<any, { file: File; preview: string }>());
+const pendingMemberVersion = ref(0);
 
 const welcomeLinkMode = reactive<Record<string, 'urls' | 'flat'>>({});
 
@@ -303,38 +306,67 @@ const moveTeamMember = (index: number, direction: number) => {
 
 const removeTeamMember = (index: number) => {
   const members = currentLocaleData.value.our_team.members;
+  const member = members[index];
+  const src = member?.src;
+  const pending = pendingMemberUploads.get(member);
+  if (pending?.preview) {
+    URL.revokeObjectURL(pending.preview);
+  }
+  pendingMemberUploads.delete(member);
+  pendingMemberVersion.value += 1;
   members.splice(index, 1);
+  if (src && src.startsWith('/images/') && !pendingImageDeletes.value.includes(src)) {
+    pendingImageDeletes.value.push(src);
+  }
 };
 
-const uploadMemberImage = async (index: number, fileList: FileList | null) => {
+const getMemberImage = (member: any) => {
+  pendingMemberVersion.value;
+  const pending = pendingMemberUploads.get(member);
+  return pending?.preview || member?.src || '';
+};
+
+const hasPendingUpload = (member: any) => pendingMemberUploads.has(member);
+
+const uploadMemberImage = (index: number, fileList: FileList | null) => {
   const file = fileList?.[0];
   if (!file) return;
   const member = currentLocaleData.value.our_team.members[index];
   if (!member) return;
-  const formData = new FormData();
-  formData.append('file', file);
-  if (member.src) {
-    formData.append('oldSrc', member.src);
+  const existing = pendingMemberUploads.get(member);
+  if (existing?.preview) {
+    URL.revokeObjectURL(existing.preview);
   }
-  uploadingMember.value = index;
-  saveError.value = '';
-  try {
-    const response = await fetch('/api/cms/upload', {
-      method: 'POST',
-      body: formData,
-    });
-    if (!response.ok) {
-      const text = await response.text().catch(() => '');
-      throw new Error(text || `Не удалось загрузить файл (${response.status})`);
-    }
-    const data = await response.json();
-    member.src = data.path;
-  } catch (error: any) {
-    saveError.value = error?.message || 'Ошибка загрузки изображения.';
-  } finally {
-    uploadingMember.value = null;
-  }
+  const preview = URL.createObjectURL(file);
+  pendingMemberUploads.set(member, { file, preview });
+  pendingMemberVersion.value += 1;
 };
+
+const updateLayoutMetrics = () => {
+  if (typeof window === 'undefined') return;
+  const vw = window.innerWidth || 1;
+  const gap = 1;
+  const panelWidth = Math.min(450, Math.max(300, vw * 0.28));
+  const available = Math.max(0, vw - (panelWidth + gap));
+  const scale = Math.min(0.9, Math.max(0.55, available / vw));
+
+  const root = document.documentElement;
+  root.style.setProperty('--cms-panel-width', `${panelWidth}px`);
+  root.style.setProperty('--cms-panel-gap', `${gap}px`);
+  root.style.setProperty('--cms-scale', scale.toString());
+};
+
+onMounted(() => {
+  updateLayoutMetrics();
+  window.addEventListener('resize', updateLayoutMetrics, { passive: true });
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateLayoutMetrics);
+  pendingMemberUploads.forEach((value) => {
+    if (value.preview) URL.revokeObjectURL(value.preview);
+  });
+});
 
 const inputClass = 'h-8 px-3 py-2 text-sm leading-tight w-full box-border';
 const selectTriggerClass = 'h-8 w-full justify-between';
@@ -359,6 +391,32 @@ const saveIndex = async () => {
   saveMessage.value = '';
   saveError.value = '';
   try {
+    // Сначала заливаем все новые изображения участников
+    for (const member of currentLocaleData.value.our_team.members) {
+      const pending = pendingMemberUploads.get(member);
+      if (!pending) continue;
+      uploadingMember.value = currentLocaleData.value.our_team.members.indexOf(member);
+      const formData = new FormData();
+      formData.append('file', pending.file);
+      if (member.src) {
+        formData.append('oldSrc', member.src);
+      }
+      const responseUpload = await fetch('/api/cms/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      if (!responseUpload.ok) {
+        const text = await responseUpload.text().catch(() => '');
+        throw new Error(text || `Не удалось загрузить файл (${responseUpload.status})`);
+      }
+      const uploadData = await responseUpload.json();
+      member.src = uploadData.path;
+      if (pending.preview) URL.revokeObjectURL(pending.preview);
+      pendingMemberUploads.delete(member);
+      pendingMemberVersion.value += 1;
+      uploadingMember.value = null;
+    }
+
     const payload = { ...indexPageContent, translations: clone(editedTranslations.value) };
     const response = await fetch('/api/cms', {
       method: 'PUT',
@@ -372,9 +430,27 @@ const saveIndex = async () => {
     }
 
     saveMessage.value = 'Сохранено в файл';
+
+    if (pendingImageDeletes.value.length) {
+      const toDelete = [...pendingImageDeletes.value];
+      pendingImageDeletes.value = [];
+      for (const src of toDelete) {
+        try {
+          await fetch('/api/cms/delete-image', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ src }),
+          });
+        } catch (error: any) {
+          // не блокируем сохранение, только показываем сообщение
+          saveError.value = error?.message || 'Не удалось удалить файл изображения.';
+        }
+      }
+    }
   } catch (error: any) {
     saveError.value = error?.data?.message || error?.message || 'Не удалось сохранить изменения.';
   } finally {
+    uploadingMember.value = null;
     isSaving.value = false;
   }
 };
@@ -1182,12 +1258,13 @@ const saveIndex = async () => {
                         <CardContent class="space-y-3">
                           <div class="member-media">
                             <div class="member-preview">
-                              <NuxtImg
-                                v-if="member.src"
-                                :src="member.src"
+                              <img
+                                v-if="getMemberImage(member)"
+                                :src="getMemberImage(member)"
                                 alt="Фото участника"
                                 class="member-thumb"
-                              />
+                                loading="lazy"
+                              >
                               <div
                                 v-else
                                 class="member-placeholder"
@@ -1206,7 +1283,7 @@ const saveIndex = async () => {
                                 :disabled="uploadingMember === index"
                                 @change="(e) => uploadMemberImage(index, (e.target as HTMLInputElement).files)"
                               >
-                              <span>{{ uploadingMember === index ? 'Загружается...' : 'Загрузить новую' }}</span>
+                              <span>{{ uploadingMember === index ? 'Загружается...' : hasPendingUpload(member) ? 'Сохранится при сохранении' : 'Загрузить новую' }}</span>
                             </label>
                           </div>
                           <div class="grid w-full grid-cols-1 gap-[3%] box-border">
@@ -1548,7 +1625,7 @@ const saveIndex = async () => {
 :global(:root){
   --cms-panel-width: clamp(300px, 28vw, 450px);
   --cms-panel-gap: 1px;
-  --cms-scale: clamp(0.1, calc(1 - (var(--cms-panel-width) + var(--cms-panel-gap)) / 100vw), 0.9);
+  --cms-scale: 0.8;
 }
 
 .main{

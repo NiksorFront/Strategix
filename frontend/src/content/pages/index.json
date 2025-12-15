@@ -5,12 +5,12 @@
             "header": {
                 "navigation_desktop": [
                     {
-                        "href": "#header",
-                        "text": "Главная"
-                    },
-                    {
                         "href": "#about-us",
                         "text": "О нас"
+                    },
+                    {
+                        "href": "#header",
+                        "text": "Главная"
                     },
                     {
                         "href": "#contacts",
@@ -231,34 +231,34 @@
                         "position": "советский лектор"
                     },
                     {
-                        "src": "./images/boris.png",
+                        "src": "/images/1765795479778-45d8b1a0-dae0-4e28-baf1-428298b29ff8.png",
                         "name": "Борис",
                         "lastname": "Бояршинов",
                         "position": "Физик"
                     },
                     {
-                        "src": "./images/boris.png",
-                        "name": "Борис",
-                        "lastname": "Бояршинов",
-                        "position": "Физик"
+                        "src": "/images/1765795398958-b22136fd-2f5c-4e8e-ac80-3e62d46fbaff.jpg",
+                        "name": "дом ",
+                        "lastname": "домович",
+                        "position": "домовать"
                     },
                     {
-                        "src": "./images/lebedev.png",
-                        "name": "Артемий",
-                        "lastname": "Лебедев",
+                        "src": "/images/1765795479806-3299c9b8-271a-453c-8948-89412f4b66ff.png",
+                        "name": "тест",
+                        "lastname": "а",
                         "position": "Дизайнер"
-                    },
-                    {
-                        "src": "./images/kuznetsov.png",
-                        "name": "Сергей",
-                        "lastname": "Кузнецов",
-                        "position": "Архитектор"
                     },
                     {
                         "src": "/images/1765793418710-68755b84-4344-464c-8adf-4aaa4f9c4bed.png",
                         "name": "фпмишки",
                         "lastname": "",
                         "position": ""
+                    },
+                    {
+                        "src": "/images/1765795479891-76264f70-f6a4-45a9-9d03-b7190935751f.png",
+                        "name": "Сергей",
+                        "lastname": "Кузнецов",
+                        "position": "Архитектор"
                     }
                 ],
                 "lastcard": {
