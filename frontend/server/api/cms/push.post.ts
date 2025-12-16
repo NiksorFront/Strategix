@@ -121,7 +121,21 @@ export default defineEventHandler(async () => {
   const pushUrlWithToken = attachTokenToUrl(remote, token);
   const sanitizedRemote = sanitizeUrl(pushUrlWithToken);
 
-  await runGit(['push', pushUrlWithToken, branch]);
+  try {
+    await runGit(['push', pushUrlWithToken, branch]);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : '';
+    if (message.includes('Permission to')) {
+      throw createError({
+        statusCode: 403,
+        statusMessage: 'Нет прав на push в репозиторий',
+      });
+    }
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Ошибка при push',
+    });
+  }
 
   return {
     ok: true,
