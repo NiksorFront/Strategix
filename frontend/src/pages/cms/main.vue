@@ -371,9 +371,7 @@ onBeforeUnmount(() => {
 const inputClass = 'h-8 px-3 py-2 text-sm leading-tight w-full box-border';
 const selectTriggerClass = 'h-8 w-full justify-between';
 const textareaClass = 'w-full box-border resize-vertical min-h-[88px] px-3 py-2 text-sm leading-tight';
-const rowTwoCols = 'grid w-full box-border grid-cols-[55%_43%] gap-[2%] items-center';
-const rowTwoColsTop = 'grid w-full box-border grid-cols-[55%_43%] gap-[2%] items-start';
-const twoColGrid = 'grid w-full box-border grid-cols-2 gap-[3%]';
+const rowTwoCols = 'grid w-full box-border grid-cols-[43%_55%] gap-[2%] items-center';
 
 const collapsed = reactive<Record<string, boolean>>({});
 
@@ -486,14 +484,14 @@ const saveIndex = async () => {
           v-model:model-value="activeLocale"
           class="space-y-3"
         >
-          <TabsList class="flex flex-wrap justify-between gap-2 bg-muted/70">
+          <TabsList class="flex flex-wrap justify-start sbg-muted/70 p-3 gap-2 bg-[hsl(var(--card))]">
             <TabsTrigger
               v-for="tab in locales"
               :key="tab.code"
               :value="tab.code"
-              class="w-[48%] flex items-center gap-2 text-sm rounded-lg"
+              class="w-19 flex items-center text-sm bg-[var(--background)] hover"
             >
-              <span class="font-semibold">{{ tab.name }}</span>
+              <span class="font-semibold mr-1">{{ tab.name }}</span>
               <span class="text-[11px] text-muted-foreground">({{ tab.code }})</span>
             </TabsTrigger>
           </TabsList>
@@ -536,9 +534,11 @@ const saveIndex = async () => {
                     <Alert
                       v-if="desktopNavError"
                       variant="destructive"
-                      class="mb-2"
+                      class="my-4 box-border"
                     >
-                      <AlertTitle>Лимит 40 символов</AlertTitle>
+                      <AlertTitle class="mt-1">
+                        Лимит 40 символов
+                      </AlertTitle>
                       <AlertDescription>
                         Превышено 40 символов. Удалите пункт или сократите текст.
                       </AlertDescription>
@@ -609,7 +609,7 @@ const saveIndex = async () => {
                     </Button>
                   </div>
 
-                  <div class="space-y-1">
+                  <div class="space-y-2">
                     <p class="text-sm font-medium text-foreground">
                       Кнопка ведущая к форме на пк
                     </p>
@@ -635,22 +635,15 @@ const saveIndex = async () => {
                         :key="`mobile-${index}`"
                         class="row-wrap"
                       >
-                        <div :class="rowTwoColsTop">
-                          <div class="space-y-1">
-                            <Input
-                              v-model="item.text"
-                              :class="inputClass"
-                              placeholder="Текст"
-                            />
-                            <Alert
-                              v-if="mobileNavWarnings[index]"
-                              class="border-amber-200 bg-amber-50 text-amber-800"
-                            >
-                              <AlertDescription class="text-[11px]">
-                                >10 символов подряд без пробелов — вёрстка может поехать.
-                              </AlertDescription>
-                            </Alert>
-                          </div>
+                        <div
+                          :class="rowTwoCols"
+                          class="items-start"
+                        >
+                          <Input
+                            v-model="item.text"
+                            :class="inputClass"
+                            placeholder="Текст"
+                          />
                           <Select v-model="item.href">
                             <SelectTrigger :class="selectTriggerClass">
                               <SelectValue placeholder="Секция" />
@@ -665,6 +658,14 @@ const saveIndex = async () => {
                               </SelectItem>
                             </SelectContent>
                           </Select>
+                          <Alert
+                            v-if="mobileNavWarnings[index]"
+                            class="border-amber-200 bg-amber-50 text-amber-800 w-full col-span-2 box-border my-2"
+                          >
+                            <AlertDescription class="text-[11px]">
+                              >10 символов подряд без пробелов — вёрстка может поехать.
+                            </AlertDescription>
+                          </Alert>
                         </div>
                         <div class="action-stack">
                           <Button
@@ -707,7 +708,7 @@ const saveIndex = async () => {
                     </Button>
                   </div>
 
-                  <div class="space-y-1">
+                  <div class="space-y-2">
                     <p class=" text-sm font-medium text-foreground">
                       Кнопка ведущая к форме в боковом меню на телефоне
                     </p>
@@ -743,7 +744,7 @@ const saveIndex = async () => {
                 :data-open="!isCollapsed('welcome')"
               >
                 <CardContent class="space-y-4">
-                  <div class="space-y-1">
+                  <div class="space-y-2">
                     <p class="text-sm font-medium text-foreground">
                       Заголовок
                     </p>
@@ -753,7 +754,7 @@ const saveIndex = async () => {
                       placeholder="Текст заголовка"
                     />
                   </div>
-                  <div class="space-y-1">
+                  <div class="space-y-2">
                     <p class="text-sm font-medium text-foreground">
                       Подзаголовок
                     </p>
@@ -763,7 +764,7 @@ const saveIndex = async () => {
                       placeholder="Текст подзаголовка"
                     />
                   </div>
-                  <div class="space-y-1">
+                  <div class="space-y-2">
                     <p class="text-sm font-medium text-foreground">
                       Кнопка ведущая на форму заолнения
                     </p>
@@ -847,7 +848,7 @@ const saveIndex = async () => {
                 :data-open="!isCollapsed('about_us')"
               >
                 <CardContent class="space-y-4">
-                  <div class="space-y-1">
+                  <div class="mt-2">
                     <Input
                       v-model="currentLocaleData.about_us.title"
                       :class="inputClass"
@@ -874,7 +875,7 @@ const saveIndex = async () => {
                             Пункт {{ index + 1 }}
                           </CardTitle>
                         </CardHeader>
-                        <CardContent class="space-y-3">
+                        <CardContent class="space-y-2">
                           <Input
                             v-model="item.title"
                             :class="inputClass"
@@ -956,7 +957,7 @@ const saveIndex = async () => {
                 :data-open="!isCollapsed('services')"
               >
                 <CardContent class="space-y-4">
-                  <div class="space-y-1">
+                  <div class="mt-2">
                     <Input
                       v-model="currentLocaleData.services.title"
                       :class="inputClass"
@@ -975,7 +976,7 @@ const saveIndex = async () => {
                           {{ card.label }}
                         </CardTitle>
                       </CardHeader>
-                      <CardContent class="space-y-3">
+                      <CardContent class="space-y-2">
                         <Input
                           v-model="currentLocaleData.services[card.key].title"
                           :class="inputClass"
@@ -986,14 +987,17 @@ const saveIndex = async () => {
                           class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
                           placeholder="Описание"
                         />
+                        <p class="text-sm font-medium text-foreground pt-2">
+                          Контент модального окна
+                        </p>
                         <Textarea
                           v-model="currentLocaleData.services[card.key].lead"
                           class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
                           placeholder="Заголовок модального окна"
                         />
-                        <div class="space-y-2">
+                        <div class="space-y-2 pb-2">
                           <div class="flex items-center justify-between">
-                            <p class="text-sm font-medium text-foreground">
+                            <p class="text-sm font-medium text-foreground my-0">
                               Пункты
                             </p>
                             <p class="text-[11px] text-muted-foreground">
@@ -1065,7 +1069,7 @@ const saveIndex = async () => {
                         Questions (mobile/tablet)
                       </CardTitle>
                     </CardHeader>
-                    <CardContent class="space-y-3">
+                    <CardContent class="space-y-2">
                       <Input
                         v-model="currentLocaleData.services.questions.title"
                         :class="inputClass"
@@ -1110,7 +1114,7 @@ const saveIndex = async () => {
                 :data-open="!isCollapsed('our_projects')"
               >
                 <CardContent class="space-y-3">
-                  <div class="space-y-1">
+                  <div class="mt-2">
                     <Input
                       v-model="currentLocaleData.our_projects.title"
                       :class="inputClass"
@@ -1132,7 +1136,7 @@ const saveIndex = async () => {
                     </label>
                   </div>
 
-                  <div class="space-y-1">
+                  <div>
                     <p class="text-sm font-medium text-foreground">
                       Фильтры
                     </p>
@@ -1141,14 +1145,13 @@ const saveIndex = async () => {
                       :class="inputClass"
                       placeholder="Первое слово фильтра"
                     />
-                    <p class="text-xs text-muted-foreground">
-                      Остальные фильтры и сами проекты редактируются на странице проектов.
-                      <a
+                    <p class="text-xs text-muted-foreground mt-1">
+                      Варианты фильтров зависят от названий, что есть на <a
                         href="http://localhost:3000/cms/"
-                        class="font-semibold underline"
+                        class="font-semibold hover"
                         target="_blank"
                       >
-                        Перейти в редактор проектов
+                        странице проектов
                       </a>
                     </p>
                   </div>
@@ -1177,7 +1180,7 @@ const saveIndex = async () => {
                 class="collapsible"
                 :data-open="!isCollapsed('market_response')"
               >
-                <CardContent class="space-y-3">
+                <CardContent class="space-y-2 mt-2">
                   <Input
                     v-model="currentLocaleData.market_response.title"
                     :class="inputClass"
@@ -1185,12 +1188,12 @@ const saveIndex = async () => {
                   />
                   <Textarea
                     v-model="currentLocaleData.market_response.description1"
-                    class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
+                    class="min-h-[96px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
                     placeholder="Описание 1"
                   />
                   <Textarea
                     v-model="currentLocaleData.market_response.description2"
-                    class="min-h-[72px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
+                    class="min-h-[96px] w-full box-border resize-vertical px-3 py-2 text-sm leading-tight"
                     placeholder="Описание 2"
                   />
                 </CardContent>
@@ -1219,7 +1222,7 @@ const saveIndex = async () => {
                 :data-open="!isCollapsed('our_team')"
               >
                 <CardContent class="space-y-4">
-                  <div class="space-y-1">
+                  <div class="space-y-2">
                     <p class="text-sm font-medium text-foreground">
                       Первая карточка
                     </p>
@@ -1235,7 +1238,7 @@ const saveIndex = async () => {
                     />
                   </div>
 
-                  <div class="space-y-2">
+                  <div>
                     <div class="flex items-center justify-between">
                       <p class="text-sm font-medium text-foreground">
                         Команда
@@ -1255,7 +1258,7 @@ const saveIndex = async () => {
                             Участник {{ index + 1 }}
                           </CardTitle>
                         </CardHeader>
-                        <CardContent class="space-y-3">
+                        <CardContent class="space-y-2">
                           <div class="member-media">
                             <div class="member-preview">
                               <img
@@ -1286,7 +1289,7 @@ const saveIndex = async () => {
                               <span>{{ uploadingMember === index ? 'Загружается...' : hasPendingUpload(member) ? 'Сохранится при сохранении' : 'Загрузить новую' }}</span>
                             </label>
                           </div>
-                          <div class="grid w-full grid-cols-1 gap-[3%] box-border">
+                          <div class="grid w-full grid-cols-1 space-y-2 box-border">
                             <Input
                               v-model="member.name"
                               :class="inputClass"
@@ -1336,14 +1339,14 @@ const saveIndex = async () => {
                     </div>
                     <Button
                       variant="secondary"
-                      class="h-8 w-full"
+                      class="h-8 w-full mt-2"
                       @click="addTeamMember"
                     >
                       + Добавить участника
                     </Button>
                   </div>
 
-                  <div class="space-y-1">
+                  <div class="space-y-2 pt-2">
                     <p class="text-sm font-medium text-foreground">
                       Последняя карточка
                     </p>
@@ -1390,7 +1393,7 @@ const saveIndex = async () => {
                 :data-open="!isCollapsed('leave_request')"
               >
                 <CardContent class="space-y-3">
-                  <div class="space-y-1">
+                  <div class="space-y-2">
                     <p class="text-sm font-medium text-foreground">
                       Контакты
                     </p>
@@ -1400,7 +1403,7 @@ const saveIndex = async () => {
                         :class="inputClass"
                         placeholder="Заголовок"
                       />
-                      <div class="grid grid-cols-2 gap-[3%] box-border">
+                      <div class="grid grid-cols-2 gap-2 box-border">
                         <Input
                           v-model="currentLocaleData.leave_request.contacts.email"
                           type="email"
@@ -1436,12 +1439,12 @@ const saveIndex = async () => {
                     </div>
                   </div>
 
-                  <div class="space-y-1">
+                  <div class="space-y-2">
                     <p class="text-sm font-medium text-foreground">
                       Форма
                     </p>
                     <div class="space-y-2">
-                      <div class="grid grid-cols-2 gap-[3%] box-border">
+                      <div class="grid grid-cols-2 gap-2 box-border">
                         <Input
                           v-model="currentLocaleData.leave_request.form.title"
                           :class="inputClass"
@@ -1505,8 +1508,8 @@ const saveIndex = async () => {
                 class="collapsible"
                 :data-open="!isCollapsed('footer')"
               >
-                <CardContent class="space-y-3">
-                  <div class="space-y-1">
+                <CardContent class="space-y-4">
+                  <div>
                     <p class="text-sm font-medium text-foreground">
                       Имя компании
                     </p>
@@ -1516,7 +1519,7 @@ const saveIndex = async () => {
                       placeholder="Имя компании"
                     />
                   </div>
-                  <div class="space-y-1">
+                  <div>
                     <p class="text-sm font-medium text-foreground">
                       Годы и права
                     </p>
@@ -1526,11 +1529,11 @@ const saveIndex = async () => {
                       placeholder="Права"
                     />
                   </div>
-                  <div class="space-y-1">
+                  <div>
                     <p class="text-sm font-medium text-foreground">
                       Политика конфиденциальности
                     </p>
-                    <div class="grid grid-cols-2 gap-[3%] box-border">
+                    <div class="space-y-2 box-border">
                       <Input
                         v-model="currentLocaleData.footer.privacy_policy.text"
                         :class="inputClass"
@@ -1543,7 +1546,7 @@ const saveIndex = async () => {
                       />
                     </div>
                   </div>
-                  <div class="space-y-1">
+                  <div>
                     <p class="text-sm font-medium text-foreground">
                       Почта
                     </p>
@@ -1554,7 +1557,7 @@ const saveIndex = async () => {
                       placeholder="Email"
                     />
                   </div>
-                  <div class="space-y-1">
+                  <div>
                     <p class="text-sm font-medium text-foreground">
                       Иконки
                     </p>
@@ -1594,7 +1597,7 @@ const saveIndex = async () => {
       <div class="flex flex-col items-start gap-1">
         <Alert
           v-if="saveMessage"
-          class="border-emerald-200 bg-emerald-50 text-emerald-700"
+          class="border-[var(--strategix-accent)] bg-[var(--strategix-accent-light)] text-black box-border text-center p-3"
         >
           <AlertDescription class="text-xs font-semibold">
             {{ saveMessage }}
@@ -1603,6 +1606,7 @@ const saveIndex = async () => {
         <Alert
           v-if="saveError"
           variant="destructive"
+          class="bg-red-200 text-black box-border text-center p-3"
         >
           <AlertDescription class="text-xs font-semibold">
             {{ saveError }}
@@ -1727,7 +1731,7 @@ const saveIndex = async () => {
 }
 
 .collapsible[data-open="true"]{
-  max-height: 4000px;
+  max-height: 6000px;
   opacity: 1;
 }
 
