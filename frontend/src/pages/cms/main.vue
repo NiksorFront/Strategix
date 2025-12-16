@@ -42,6 +42,9 @@ const uploadingMember = ref<number | null>(null);
 const pendingImageDeletes = ref<string[]>([]);
 const pendingMemberUploads = reactive(new Map<any, { file: File; preview: string }>());
 const pendingMemberVersion = ref(0);
+const pendingAgreePdfUploads = reactive(new Map<string, { file: File; name: string; oldHref?: string }>());
+const agreePdfInputs = new Map<string, HTMLInputElement>();
+const agreePdfUploading = ref(false);
 
 const welcomeLinkMode = reactive<Record<string, 'urls' | 'flat'>>({});
 
@@ -115,7 +118,7 @@ const ensureDefaults = (localeData: LocaleTranslation) => {
   if (!Array.isArray(team.members)) team.members = [];
   team.lastcard ??= { title: '', description: '', email: '' };
 
-  localeData.leave_request ??= { contacts: {}, form: {}, agree: {} };
+  localeData.leave_request ??= { contacts: {}, form: {} };
   const contacts = localeData.leave_request.contacts ??= {};
   contacts.title ??= '';
   contacts.email ??= '';
@@ -130,9 +133,13 @@ const ensureDefaults = (localeData: LocaleTranslation) => {
   form.question ??= '';
   form.question2 ??= '';
   form.button ??= '';
+  const agree = form.agree ??= {};
+  agree.text ??= '';
+  agree.link ??= '';
+  agree.href_pdf ??= '';
 
-  localeData.footer ??= { brand: '', rights: '', privacy_policy: { text: '', href: '' }, email: '', icon1: { src: '', href: '' }, icon2: { src: '', href: '' } };
-  localeData.footer.privacy_policy ??= { text: '', href: '' };
+  localeData.footer ??= { brand: '', rights: '', privacy_policy: { text: '', href: '', href_pdf: '' }, email: '', icon1: { src: '', href: '' }, icon2: { src: '', href: '' } };
+  localeData.footer.privacy_policy ??= { text: '', href: '', href_pdf: '' };
   localeData.footer.icon1 ??= { src: '', href: '' };
   localeData.footer.icon2 ??= { src: '', href: '' };
 };
@@ -203,6 +210,45 @@ const welcomeButtonsList = computed(() => {
   );
   return entries.map(([key, value]) => ({ key, value: value as { text: string; href: string } }));
 });
+
+const agreePdfUrl = computed(() => {
+  const href = currentLocaleData.value.leave_request?.form?.agree?.href_pdf || '';
+  if (!href) return '';
+  if (/^https?:\/\//i.test(href)) return href;
+  if (href.startsWith('/')) return href;
+  const normalized = href.replace(/^\.\//, '');
+  return normalized.startsWith('/') ? normalized : `/${normalized}`;
+});
+
+const agreePdfFileName = computed(() => {
+  const url = agreePdfUrl.value;
+  if (!url) return '';
+  const parts = url.split('/');
+  return parts[parts.length - 1] || '';
+});
+
+const pendingAgreePdfName = computed(() => {
+  const pending = pendingAgreePdfUploads.get(activeLocale.value);
+  return pending?.name || '';
+});
+
+const appendLocaleToFileName = (name: string, locale: string) => {
+  const lastDot = name.lastIndexOf('.');
+  if (lastDot <= 0) return `${name}_${locale}`;
+  const base = name.slice(0, lastDot);
+  const ext = name.slice(lastDot);
+  return `${base}_${locale}${ext}`;
+};
+
+const setAgreePdfInputRef = (locale: string, el: HTMLInputElement | null) => {
+  if (el) {
+    agreePdfInputs.set(locale, el);
+  } else {
+    agreePdfInputs.delete(locale);
+  }
+};
+
+const getAgreePdfInput = (locale?: string) => agreePdfInputs.get(locale || activeLocale.value) || null;
 
 const addDesktopNav = () => {
   const header = currentLocaleData.value.header;
@@ -328,6 +374,45 @@ const getMemberImage = (member: any) => {
 
 const hasPendingUpload = (member: any) => pendingMemberUploads.has(member);
 
+const openAgreePdf = () => {
+  if (!agreePdfUrl.value || typeof window === 'undefined') return;
+  window.open(agreePdfUrl.value, '_blank', 'noopener');
+};
+
+const triggerAgreePdfUpload = (locale?: string) => {
+  const inputEl = getAgreePdfInput(locale);
+  if (!inputEl) {
+    saveError.value = 'Поле выбора файла недоступно. Обновите страницу и попробуйте ещё раз.';
+    return;
+  }
+  inputEl.click();
+};
+
+const handleAgreePdfSelected = (locale: string, fileList: FileList | null) => {
+  const file = fileList?.[0];
+  if (!file) return;
+  const targetLocaleData = editedTranslations.value[locale];
+  if (!targetLocaleData) return;
+  const targetInput = getAgreePdfInput(locale);
+
+  if (file.type && file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+    saveError.value = 'Загрузите файл в формате PDF.';
+    saveMessage.value = '';
+    if (targetInput) targetInput.value = '';
+    return;
+  }
+
+  const nameWithLocale = appendLocaleToFileName(file.name, locale);
+  const renamedFile = new File([file], nameWithLocale, { type: file.type || 'application/pdf' });
+  const currentHref = targetLocaleData.leave_request?.form?.agree?.href_pdf;
+
+  pendingAgreePdfUploads.set(locale, { file: renamedFile, name: nameWithLocale, oldHref: currentHref });
+  saveMessage.value = 'PDF выбран, загрузится после сохранения';
+  saveError.value = '';
+
+  if (targetInput) targetInput.value = '';
+};
+
 const uploadMemberImage = (index: number, fileList: FileList | null) => {
   const file = fileList?.[0];
   if (!file) return;
@@ -366,6 +451,8 @@ onBeforeUnmount(() => {
   pendingMemberUploads.forEach((value) => {
     if (value.preview) URL.revokeObjectURL(value.preview);
   });
+  pendingAgreePdfUploads.clear();
+  agreePdfInputs.clear();
 });
 
 const inputClass = 'h-8 px-3 py-2 text-sm leading-tight w-full box-border';
@@ -415,6 +502,36 @@ const saveIndex = async () => {
       uploadingMember.value = null;
     }
 
+    const pendingAgreeEntries = Array.from(pendingAgreePdfUploads.entries());
+    if (pendingAgreeEntries.length) {
+      agreePdfUploading.value = true;
+    }
+
+    for (const [locale, pending] of pendingAgreeEntries) {
+      const formData = new FormData();
+      formData.append('file', pending.file);
+      if (pending.oldHref) {
+        formData.append('oldSrc', pending.oldHref);
+      }
+
+      const responsePdf = await fetch('/api/cms/upload-pdf', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!responsePdf.ok) {
+        const text = await responsePdf.text().catch(() => '');
+        throw new Error(text || `Не удалось загрузить PDF (${responsePdf.status})`);
+      }
+
+      const uploadPdfData = await responsePdf.json();
+      const localeData = editedTranslations.value[locale];
+      if (localeData?.leave_request?.form?.agree) {
+        localeData.leave_request.form.agree.href_pdf = uploadPdfData.path;
+      }
+      pendingAgreePdfUploads.delete(locale);
+    }
+
     const payload = { ...indexPageContent, translations: clone(editedTranslations.value) };
     const response = await fetch('/api/cms', {
       method: 'PUT',
@@ -448,6 +565,7 @@ const saveIndex = async () => {
   } catch (error: any) {
     saveError.value = error?.data?.message || error?.message || 'Не удалось сохранить изменения.';
   } finally {
+    agreePdfUploading.value = false;
     uploadingMember.value = null;
     isSaving.value = false;
   }
@@ -1481,6 +1599,64 @@ const saveIndex = async () => {
                           placeholder="Текст кнопки"
                         />
                       </div>
+                      <div class="space-y-2">
+                        <Input
+                          v-model="currentLocaleData.leave_request.form.agree.text"
+                          :class="inputClass"
+                          placeholder="Текст соглашения"
+                        />
+                        <div class="grid grid-cols-5 gap-2 box-border items-center">
+                          <Input
+                            v-model="currentLocaleData.leave_request.form.agree.link"
+                            :class="[inputClass, 'col-span-3']"
+                            placeholder="Текст ссылки"
+                          />
+                          <Button
+                            type="button"
+                            class="h-8 w-full col-span-2"
+                            :disabled="agreePdfUploading || isSaving"
+                            @click="triggerAgreePdfUpload(tab.code)"
+                          >
+                            {{ agreePdfUploading ? 'Загрузка...' : 'Загрузить PDF' }}
+                          </Button>
+                          <div class="col-span-1" />
+                        </div>
+                        <input
+                          :ref="(el) => setAgreePdfInputRef(tab.code, el as HTMLInputElement | null)"
+                          type="file"
+                          accept="application/pdf"
+                          class="hidden"
+                          @change="(e) => handleAgreePdfSelected(tab.code, (e.target as HTMLInputElement).files)"
+                        >
+                        <div
+                          v-if="!agreePdfUrl && !pendingAgreePdfName"
+                          class="member-preview pdf-preview"
+                        >
+                          <div class="member-placeholder mt-0">
+                            Загрузите файл формата .pdf
+                          </div>
+                        </div>
+                        <p
+                          v-if="agreePdfUrl"
+                          class="text-[11px] text-muted-foreground"
+                        >
+                          Текущий файл:
+                          <button
+                            type="button"
+                            class="underline font-semibold hover:text-black transition-colors bg-transparent"
+                            @click="openAgreePdf"
+                          >
+                            {{ agreePdfFileName }}
+                          </button>
+                        </p>
+                        <p
+                          v-if="pendingAgreePdfName"
+                          class="text-[11px] text-muted-foreground"
+                        >
+                          Новый файл (загрузится при сохранении):
+                          <span class="font-semibold">{{ pendingAgreePdfName }}</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -1751,7 +1927,7 @@ const saveIndex = async () => {
 
 .member-preview{
   flex: 3;
-  min-height: 120px;
+  min-height: 60px;
   border: 1px solid rgba(0,0,0,0.08);
   border-radius: 10px;
   overflow: hidden;
@@ -1760,6 +1936,10 @@ const saveIndex = async () => {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+}
+
+.pdf-preview{
+  width: 100%;
 }
 
 .member-thumb{

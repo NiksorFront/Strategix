@@ -288,19 +288,20 @@
                     "title2": "О проекте",
                     "question": "Какие услуги вас интересуют?",
                     "question2": "С чем вам нужна помощь?",
-                    "button": "ОТПРАВИТЬ"
-                },
-                "agree": {
-                    "text": "Нажимая на кнопку, я соглашаюсь с обработкой",
-                    "link": "персональных данных"
+                    "button": "ОТПРАВИТЬ",
+                    "agree": {
+                        "text": "Нажимая на кнопку, я соглашаюсь с обработкой",
+                        "link": "персональных данных",
+                        "href_pdf": "/pdf/processing-personal-data_ru.pdf"
+                    }
                 }
             },
             "footer": {
                 "brand": "STRATEGIX",
                 "rights": "© 2022–2025 ВСЕ ПРАВА ЗАЩИЩЕНЫ",
                 "privacy_policy": {
-                    "text": "ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ",
-                    "href": "./privacy-policy.pdf"
+                    "text": "ПОЛИТИКА  КОНФИДЕНЦИАЛЬНОСТИ",
+                    "href_pdf": "./privacy-policy.pdf"
                 },
                 "email": "hello@strategix.com",
                 "icon1": {
@@ -537,7 +538,7 @@
                 },
                 "members": [
                     {
-                        "src": "./images/savvateev.jpg",
+                        "src": "/images/1765857489409-8b2b75c0-a965-4a43-a0e1-fe32f5d69ce8.png",
                         "name": "Alexey",
                         "lastname": "Savvateev",
                         "position": "Mathematician"
@@ -601,11 +602,12 @@
                     "question": "What services are you interested in?",
                     "description": "What do you need help with?",
                     "button": "SEND",
-                    "question2": ""
-                },
-                "agree": {
-                    "text": "By clicking the button, I agree to the processing",
-                    "link": "of personal data"
+                    "question2": "",
+                    "agree": {
+                        "text": "By clicking the button, I agree to the processing",
+                        "link": "of personal data",
+                        "href_pdf": "/pdf/processing-personal-data_en.pdf"
+                    }
                 }
             },
             "footer": {
@@ -613,7 +615,7 @@
                 "rights": "© 2022–2025 ALL RIGHTS RESERVED",
                 "privacy_policy": {
                     "text": "PRIVACY\nPOLICY",
-                    "href": "./privacy-policy.pdf"
+                    "href_pdf": "./privacy-policy.pdf"
                 },
                 "email": "hello@strategix.com",
                 "icon1": {
@@ -914,11 +916,12 @@
                     "question": "Welche Dienstleistungen interessieren Sie?",
                     "description": "Womit brauchen Sie Hilfe?",
                     "button": "SENDEN",
-                    "question2": ""
-                },
-                "agree": {
-                    "text": "Durch Klicken auf die Schaltfläche stimme ich der Verarbeitung zu",
-                    "link": "personenbezogener Daten"
+                    "question2": "",
+                    "agree": {
+                        "text": "Durch Klicken auf die Schaltfläche stimme ich der Verarbeitung zu",
+                        "link": "personenbezogener Daten",
+                        "href_pdf": "./processing-personal-data.pdf"
+                    }
                 }
             },
             "footer": {
@@ -926,7 +929,7 @@
                 "rights": "© 2022–2025 ALLE RECHTE VORBEHALTEN",
                 "privacy_policy": {
                     "text": "DATENSCHUTZ\nRICHTLINIE",
-                    "href": "./privacy-policy.pdf"
+                    "href_pdf": "./privacy-policy.pdf"
                 },
                 "email": "hello@strategix.com",
                 "icon1": {
@@ -1227,11 +1230,12 @@
                     "question": "¿Qué servicios te interesan?",
                     "description": "¿Con qué necesitas ayuda?",
                     "button": "ENVIAR",
-                    "question2": ""
-                },
-                "agree": {
-                    "text": "Al hacer clic en el botón, acepto el procesamiento",
-                    "link": "de datos personales"
+                    "question2": "",
+                    "agree": {
+                        "text": "Al hacer clic en el botón, acepto el procesamiento",
+                        "link": "de datos personales",
+                        "href_pdf": ""
+                    }
                 }
             },
             "footer": {
@@ -1239,7 +1243,7 @@
                 "rights": "© 2022–2025 TODOS LOS DERECHOS RESERVADOS",
                 "privacy_policy": {
                     "text": "POLÍTICA DE\nPRIVACIDAD",
-                    "href": "./privacy-policy.pdf"
+                    "href_pdf": "./privacy-policy.pdf"
                 },
                 "email": "hello@strategix.com",
                 "icon1": {

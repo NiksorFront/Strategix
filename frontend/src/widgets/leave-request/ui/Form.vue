@@ -7,7 +7,7 @@
   const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
 
   const formData = translations.leave_request.form
-  const agreeData = translations.leave_request.agree
+  const agreeData = formData?.agree || {}
 </script>
 
 <template>
@@ -49,7 +49,7 @@
         </ButtonWithIcon>
         <p class="base-text agree">
           {{ agreeData.text }} <a
-            href="./processing-personal-data.pdf"
+            :href="agreeData.href_pdf || '#'"
             class="hover"
           >{{ agreeData.link }}</a>
         </p>

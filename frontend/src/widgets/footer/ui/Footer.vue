@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import xWhite from "@/assets/images/x-white.svg";
 import telegramIcon from "@/assets/images/telegram-icon.svg";
 import linkedinIcon from "@/assets/images/linkedin-icon.svg";
@@ -11,9 +12,18 @@ const translations = index.translations[currentLocale as keyof typeof index.tran
 const brand = translations.footer.brand
 const rights = translations.footer.rights
 const privacyPolicy = translations.footer.privacy_policy
+const privacyPolicyLink = privacyPolicy.href_pdf || '#'
 const email = translations.footer.email
 const icon1 = translations.footer.icon1
 const icon2 = translations.footer.icon2
+
+const formattedPrivacyPolicyText = computed(() => {
+  const text = privacyPolicy.text || ''
+  const [firstWord, ...restWords] = text.trim().split(/\s+/)
+
+  if (!firstWord) return ''
+  return restWords.length ? `${firstWord}\n${restWords.join(' ')}` : firstWord
+})
 </script>
 
 <template>
@@ -37,10 +47,10 @@ const icon2 = translations.footer.icon2
       </div>
 
       <a
-        :href="privacyPolicy.href"
+        :href="privacyPolicyLink"
         class="base-text policy hover"
       >
-        {{ privacyPolicy.text }}
+        {{ formattedPrivacyPolicyText }}
       </a>
     </div>
 
