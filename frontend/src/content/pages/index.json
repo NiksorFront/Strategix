@@ -94,10 +94,10 @@
                 }
             },
             "about_us": {
-                "title": "о тесты, тесты, тестasdf",
+                "title": "о нас",
                 "items": [
                     {
-                        "title": "ЦЕННОСТИияяя",
+                        "title": "ЦЕННОСТИ",
                         "subtitle": "Глубина анализа, конфиденциальность и работа на результат",
                         "content": "тут нужно содержаение"
                     },
@@ -389,7 +389,7 @@
                 }
             },
             "welcome": {
-                "title": "WE BUILD BUILD BUILD REPUTATION AND OPEN DOORS TO INTERNATIONAL markets",
+                "title": "WE BUILD REPUTATION AND OPEN DOORS TO INTERNATIONAL markets",
                 "subtitle": "International positioning through media, events and trust of the professional community.",
                 "button": {
                     "text": "FILL OUT THE FORM",
