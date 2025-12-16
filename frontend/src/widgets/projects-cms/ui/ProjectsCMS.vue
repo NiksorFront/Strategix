@@ -53,82 +53,84 @@
 </script>
 
 <template>
-  <div
-    class="main"
-    role="link"
-    tabindex="0"
-    @click="goToMainProjects"
-    @keydown.enter.prevent="goToMainProjects"
-  >
-    <h2 class="upperscase-text cms-layout-title">
-      ГЛАВНАЯ
-    </h2>
-    <img
-      :src="MainPage"
-      alt="main"
-      class="main-image"
+  <div class="cms-layout ">
+    <div
+      class="main"
+      role="link"
+      tabindex="0"
+      @click="goToMainProjects"
+      @keydown.enter.prevent="goToMainProjects"
     >
-  </div>
-  <div class="projects">
-    <h2 class="upperscase-text cms-layout-title">
-      ПРОЕКТЫ
-    </h2>
-    <div class="projects-projects">
-      <div
-        v-for="group in projectGroups"
-        :key="group.key"
-        class="project-group-card"
-        role="link"
-        tabindex="0"
-        @click="goToGroup(group.key)"
-        @keydown.enter.prevent="goToGroup(group.key)"
+      <h2 class="upperscase-text main-title">
+        ГЛАВНАЯ
+      </h2>
+      <img
+        :src="MainPage"
+        alt="main"
+        class="main-image"
       >
-        <div class="projects-header">
-          <h2 class="projects-title">
-            {{ group.title }}
-          </h2>
-        </div>
-        <div class="projects-grid">
-          <div
-            v-for="project in group.cases"
-            :key="project.key"
-            class="project-tile"
-          >
-            <div class="project-media">
-              <NuxtImg
-                v-if="project.image"
-                :src="project.image"
-                :alt="project.title"
-                class="project-image"
-                :width="600"
-                :height="400"
-              />
-              <div
-                v-else
-                class="project-placeholder"
-              />
-            </div>
-            <div class="project-meta">
-              <p
-                v-if="project.title"
-                class="project-case-title"
-              >
-                {{ project.title }}
-              </p>
-            </div>
+    </div>
+    <div class="projects">
+      <h2 class="upperscase-text projects-title">
+        ПРОЕКТЫ
+      </h2>
+      <div class="projects-projects">
+        <div
+          v-for="group in projectGroups"
+          :key="group.key"
+          class="project-group-card"
+          role="link"
+          tabindex="0"
+          @click="goToGroup(group.key)"
+          @keydown.enter.prevent="goToGroup(group.key)"
+        >
+          <div class="projects-header">
+            <h2 class="projects-projects-title">
+              {{ group.title }}
+            </h2>
           </div>
-          <div
-            v-if="group.hiddenCount > 0"
-            class="project-tile more-tile"
-          >
-            <div class="more-count">
-              +{{ group.hiddenCount }}
+          <div class="projects-grid">
+            <div
+              v-for="project in group.cases"
+              :key="project.key"
+              class="project-tile"
+            >
+              <div class="project-media">
+                <NuxtImg
+                  v-if="project.image"
+                  :src="project.image"
+                  :alt="project.title"
+                  class="project-image"
+                  :width="600"
+                  :height="400"
+                />
+                <div
+                  v-else
+                  class="project-placeholder"
+                />
+              </div>
+              <div class="project-meta">
+                <p
+                  v-if="project.title"
+                  class="project-case-title"
+                >
+                  {{ project.title }}
+                </p>
+              </div>
             </div>
+            <div
+              v-if="group.hiddenCount > 0"
+              class="project-tile more-tile"
+            >
+              <div class="more-count">
+                +{{ group.hiddenCount }}
+              </div>
+            </div>
+            <div
+              v-else
+              class="project-tile empty-tile"
+            />
           </div>
-          <div
-            v-else
-            class="project-tile empty-tile"
-          />
         </div>
       </div>
     </div>
@@ -136,8 +138,20 @@
 </template>
 
 <style scoped>
-  .cms-layout-title{
-    text-align: left;
+  .cms-layout {
+    width: 100%;
+    min-height: 70vh;
+    height: fit-content;
+    padding: 0 24px 12px;
+    box-sizing: border-box;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 39.5% 0.5% 30% 30%;
+    grid-template-rows: 50% 50%;
+
+    border: 2px solid color-mix(in srgb, var(--strategix-light) 50%, white 50%);
+    background-color: hsl(var(--card));
+    border-radius: var(--card-radius);
   }
 
   .main{
@@ -145,7 +159,13 @@
     grid-row: 1 / 3;
     width: 100%;
     height: 100%;
-    /* background-color: var(--strategix-light); */
+    
+    /* background-color: hsl(var(--card));
+    border-radius: var(--card-radius); */
+  }
+
+  .main-title{
+    text-align: left;
   }
 
   .main-image {
@@ -169,25 +189,33 @@
   .projects{
     grid-column: 3 / 5;
     grid-row: 1 / 3;
-    /* background-color: var(--strategix-light); */
+    
+    /* background-color: hsl(var(--card));
+    border-radius: var(--card-radius); */
+  }
+
+  .projects-title{
+    text-align: left;
+    padding-left: 16px;
   }
   
   .projects-projects{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: calc(0.5vw + 0.5vh);
+    gap: 5px;
     height: 90%;
   }
 
   .project-group-card{
-    background-color: color-mix(in srgb, var(--strategix-light) 50%, white 50%);
+    background-color: hsl(var(--card));
+    border-radius: var(--card-radius);
+
     box-sizing: border-box;
     border: 2px solid color-mix(in srgb, var(--strategix-light) 50%, white 50%);
-    border-radius: var(--card-radius);
     display: flex;
     flex-direction: column;
-    padding: 4px;
+    padding: 16px;
     gap: var(--gap-grid);
     transition: all 0.2s ease;
   }
@@ -198,12 +226,12 @@
     cursor: pointer;
   }
 
-  .projects-title{
+  .projects-projects-title{
     margin: 0;
     font-weight: 700;
     font-size: 18px;
     color: #1f2933;
-    text-align: center;
+    text-align: left;
   }
 
   .projects-grid{
@@ -257,8 +285,8 @@
     margin: 0;
     font-weight: 700;
     font-size: 16px;
-    color: #1f2933;
-    padding: 6px 12px;
+    color: var(--strategix-dark);
+    padding: 6px 16px;
   }
 
   .more-tile{
