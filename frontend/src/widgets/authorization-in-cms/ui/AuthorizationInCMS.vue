@@ -98,8 +98,19 @@
     message.value = '';
     invalidPaths.value = [];
     try {
-      await $fetch('/api/cms/push', { method: 'POST' });
+      const response = await $fetch<{ ok?: boolean; invalidPaths?: string[] }>('/api/cms/push', { method: 'POST' });
+      if (response?.invalidPaths?.length) {
+        invalidPaths.value = response.invalidPaths;
+        showInvalidModal.value = true;
+        return;
+      }
+      if (response?.ok === false) {
+        errorMessage.value = 'Не удалось отправить изменения';
+        setTimeout(() => errorMessage.value = '', 5000);
+        return;
+      }
       message.value = 'Изменения отправлены';
+      setTimeout(() => message.value = '', 5000);
     } catch (error: any) {
       if (error?.data?.invalidPaths) {
         invalidPaths.value = error.data.invalidPaths;

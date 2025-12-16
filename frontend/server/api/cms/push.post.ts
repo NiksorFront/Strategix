@@ -1,4 +1,6 @@
 import { createError } from 'h3';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { readStoredToken } from '../../utils/cmsToken';
 import {
   allowedContentRoots,
@@ -58,21 +60,46 @@ export default defineEventHandler(async () => {
   const invalidPaths = findInvalidPaths(changedPaths);
 
   if (invalidPaths.length > 0) {
-    return {
-      ok: false,
-      invalidPaths: uniqueList(invalidPaths),
-    };
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Недопустимые изменения',
+      data: {
+        invalidPaths: uniqueList(invalidPaths),
+      },
+    });
   }
 
   const targets = allowedContentRoots
     .filter((root) => changedPaths.some((path) => path.startsWith(root)))
     .map((root) => root.replace(/\/$/, ''));
 
-  if (targets.length === 0) {
+  const repoPrefix = await runGit(['rev-parse', '--show-prefix']);
+
+  const normalizeTarget = (target: string) => {
+    let normalized = target;
+    const trimmedPrefix = repoPrefix?.trim();
+
+    if (trimmedPrefix && normalized.startsWith(trimmedPrefix)) {
+      normalized = normalized.slice(trimmedPrefix.length);
+    }
+    if (normalized.startsWith('./')) {
+      normalized = normalized.slice(2);
+    }
+
+    return normalized;
+  };
+
+  const targetsToAdd = uniqueList(
+    targets
+      .map(normalizeTarget)
+      .filter((t) => existsSync(join(process.cwd(), t))),
+  );
+
+  if (targetsToAdd.length === 0) {
     throw createError({ statusCode: 400, statusMessage: 'Нет разрешённых изменений' });
   }
 
-  await runGit(['add', ...targets]);
+  await runGit(['add', ...targetsToAdd]);
 
   try {
     await runGit(['commit', '-m', `CMS: update content ${new Date().toISOString()}`]);

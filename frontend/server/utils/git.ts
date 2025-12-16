@@ -3,7 +3,12 @@ import { promisify } from 'node:util';
 
 const execFileAsync = promisify(execFile);
 
-export const allowedContentRoots = ['public/', 'src/content/'];
+export const allowedContentRoots = [
+  'public/',
+  'src/content/',
+  'frontend/public/',
+  'frontend/src/content/',
+];
 
 export const runGit = async (args: string[]) => {
   const { stdout } = await execFileAsync('git', args, {
@@ -28,8 +33,8 @@ export const extractChangedPaths = (statusOutput: string) => statusOutput
   .map((path) => path.trim())
   .filter(Boolean);
 
-export const findInvalidPaths = (paths: string[]) => paths.filter(
-  (path) => !allowedContentRoots.some((prefix) => path.startsWith(prefix)),
-);
+export const findInvalidPaths = (paths: string[]) => paths
+  .filter((path) => path !== '.DS_Store')
+  .filter((path) => !allowedContentRoots.some((prefix) => path.startsWith(prefix)));
 
 export const uniqueList = (paths: string[]) => [...new Set(paths)];
