@@ -38,13 +38,29 @@ const activeLocale = ref(initialActiveLocale);
 const isSaving = ref(false);
 const saveMessage = ref('');
 const saveError = ref('');
+let saveMessageFlashToken: symbol | null = null;
 const uploadingMember = ref<number | null>(null);
 const pendingImageDeletes = ref<string[]>([]);
 const pendingMemberUploads = reactive(new Map<any, { file: File; preview: string }>());
 const pendingMemberVersion = ref(0);
 const pendingAgreePdfUploads = reactive(new Map<string, { file: File; name: string; oldHref?: string }>());
+const pendingPrivacyPdfUploads = reactive(new Map<string, { file: File; name: string; oldHref?: string }>());
 const agreePdfInputs = new Map<string, HTMLInputElement>();
+const privacyPdfInputs = new Map<string, HTMLInputElement>();
 const agreePdfUploading = ref(false);
+const privacyPdfUploading = ref(false);
+
+const flashSaveMessage = (message: string, duration = 5000) => {
+  saveMessage.value = message;
+  const token = Symbol('saveMessageFlash');
+  saveMessageFlashToken = token;
+  setTimeout(() => {
+    if (saveMessageFlashToken !== token) return;
+    if (saveMessage.value === message) {
+      saveMessage.value = '';
+    }
+  }, duration);
+};
 
 const welcomeLinkMode = reactive<Record<string, 'urls' | 'flat'>>({});
 
@@ -232,6 +248,27 @@ const pendingAgreePdfName = computed(() => {
   return pending?.name || '';
 });
 
+const privacyPdfUrl = computed(() => {
+  const href = currentLocaleData.value.footer?.privacy_policy?.href_pdf || '';
+  if (!href) return '';
+  if (/^https?:\/\//i.test(href)) return href;
+  if (href.startsWith('/')) return href;
+  const normalized = href.replace(/^\.\//, '');
+  return normalized.startsWith('/') ? normalized : `/${normalized}`;
+});
+
+const privacyPdfFileName = computed(() => {
+  const url = privacyPdfUrl.value;
+  if (!url) return '';
+  const parts = url.split('/');
+  return parts[parts.length - 1] || '';
+});
+
+const pendingPrivacyPdfName = computed(() => {
+  const pending = pendingPrivacyPdfUploads.get(activeLocale.value);
+  return pending?.name || '';
+});
+
 const appendLocaleToFileName = (name: string, locale: string) => {
   const lastDot = name.lastIndexOf('.');
   if (lastDot <= 0) return `${name}_${locale}`;
@@ -249,6 +286,16 @@ const setAgreePdfInputRef = (locale: string, el: HTMLInputElement | null) => {
 };
 
 const getAgreePdfInput = (locale?: string) => agreePdfInputs.get(locale || activeLocale.value) || null;
+
+const setPrivacyPdfInputRef = (locale: string, el: HTMLInputElement | null) => {
+  if (el) {
+    privacyPdfInputs.set(locale, el);
+  } else {
+    privacyPdfInputs.delete(locale);
+  }
+};
+
+const getPrivacyPdfInput = (locale?: string) => privacyPdfInputs.get(locale || activeLocale.value) || null;
 
 const addDesktopNav = () => {
   const header = currentLocaleData.value.header;
@@ -379,6 +426,11 @@ const openAgreePdf = () => {
   window.open(agreePdfUrl.value, '_blank', 'noopener');
 };
 
+const openPrivacyPdf = () => {
+  if (!privacyPdfUrl.value || typeof window === 'undefined') return;
+  window.open(privacyPdfUrl.value, '_blank', 'noopener');
+};
+
 const triggerAgreePdfUpload = (locale?: string) => {
   const inputEl = getAgreePdfInput(locale);
   if (!inputEl) {
@@ -407,7 +459,41 @@ const handleAgreePdfSelected = (locale: string, fileList: FileList | null) => {
   const currentHref = targetLocaleData.leave_request?.form?.agree?.href_pdf;
 
   pendingAgreePdfUploads.set(locale, { file: renamedFile, name: nameWithLocale, oldHref: currentHref });
-  saveMessage.value = 'PDF выбран, загрузится после сохранения';
+  flashSaveMessage('PDF выбран, загрузится после сохранения');
+  saveError.value = '';
+
+  if (targetInput) targetInput.value = '';
+};
+
+const triggerPrivacyPdfUpload = (locale?: string) => {
+  const inputEl = getPrivacyPdfInput(locale);
+  if (!inputEl) {
+    saveError.value = 'Поле выбора файла недоступно. Обновите страницу и попробуйте ещё раз.';
+    return;
+  }
+  inputEl.click();
+};
+
+const handlePrivacyPdfSelected = (locale: string, fileList: FileList | null) => {
+  const file = fileList?.[0];
+  if (!file) return;
+  const targetLocaleData = editedTranslations.value[locale];
+  if (!targetLocaleData) return;
+  const targetInput = getPrivacyPdfInput(locale);
+
+  if (file.type && file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+    saveError.value = 'Загрузите файл в формате PDF.';
+    saveMessage.value = '';
+    if (targetInput) targetInput.value = '';
+    return;
+  }
+
+  const nameWithLocale = appendLocaleToFileName(file.name, locale);
+  const renamedFile = new File([file], nameWithLocale, { type: file.type || 'application/pdf' });
+  const currentHref = targetLocaleData.footer?.privacy_policy?.href_pdf;
+
+  pendingPrivacyPdfUploads.set(locale, { file: renamedFile, name: nameWithLocale, oldHref: currentHref });
+  flashSaveMessage('PDF выбран, загрузится после сохранения');
   saveError.value = '';
 
   if (targetInput) targetInput.value = '';
@@ -425,6 +511,7 @@ const uploadMemberImage = (index: number, fileList: FileList | null) => {
   const preview = URL.createObjectURL(file);
   pendingMemberUploads.set(member, { file, preview });
   pendingMemberVersion.value += 1;
+  flashSaveMessage('Фото выбрано, загрузится после сохранения');
 };
 
 const updateLayoutMetrics = () => {
@@ -452,7 +539,9 @@ onBeforeUnmount(() => {
     if (value.preview) URL.revokeObjectURL(value.preview);
   });
   pendingAgreePdfUploads.clear();
+  pendingPrivacyPdfUploads.clear();
   agreePdfInputs.clear();
+  privacyPdfInputs.clear();
 });
 
 const inputClass = 'h-8 px-3 py-2 text-sm leading-tight w-full box-border';
@@ -532,6 +621,36 @@ const saveIndex = async () => {
       pendingAgreePdfUploads.delete(locale);
     }
 
+    const pendingPrivacyEntries = Array.from(pendingPrivacyPdfUploads.entries());
+    if (pendingPrivacyEntries.length) {
+      privacyPdfUploading.value = true;
+    }
+
+    for (const [locale, pending] of pendingPrivacyEntries) {
+      const formData = new FormData();
+      formData.append('file', pending.file);
+      if (pending.oldHref) {
+        formData.append('oldSrc', pending.oldHref);
+      }
+
+      const responsePdf = await fetch('/api/cms/upload-pdf', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!responsePdf.ok) {
+        const text = await responsePdf.text().catch(() => '');
+        throw new Error(text || `Не удалось загрузить PDF (${responsePdf.status})`);
+      }
+
+      const uploadPdfData = await responsePdf.json();
+      const localeData = editedTranslations.value[locale];
+      if (localeData?.footer?.privacy_policy) {
+        localeData.footer.privacy_policy.href_pdf = uploadPdfData.path;
+      }
+      pendingPrivacyPdfUploads.delete(locale);
+    }
+
     const payload = { ...indexPageContent, translations: clone(editedTranslations.value) };
     const response = await fetch('/api/cms', {
       method: 'PUT',
@@ -566,6 +685,7 @@ const saveIndex = async () => {
     saveError.value = error?.data?.message || error?.message || 'Не удалось сохранить изменения.';
   } finally {
     agreePdfUploading.value = false;
+    privacyPdfUploading.value = false;
     uploadingMember.value = null;
     isSaving.value = false;
   }
@@ -1715,11 +1835,51 @@ const saveIndex = async () => {
                         :class="inputClass"
                         placeholder="Текст"
                       />
-                      <Input
-                        v-model="currentLocaleData.footer.privacy_policy.href"
-                        :class="inputClass"
-                        placeholder="Ссылка на PDF"
-                      />
+                      <div class="grid box-border items-center">
+                        <Button
+                          type="button"
+                          class="h-8 w-full"
+                          :disabled="privacyPdfUploading || isSaving"
+                          @click="triggerPrivacyPdfUpload(tab.code)"
+                        >
+                          {{ privacyPdfUploading ? 'Загрузка...' : 'Загрузить PDF' }}
+                        </Button>
+                      </div>
+                      <input
+                        :ref="(el) => setPrivacyPdfInputRef(tab.code, el as HTMLInputElement | null)"
+                        type="file"
+                        accept="application/pdf"
+                        class="hidden"
+                        @change="(e) => handlePrivacyPdfSelected(tab.code, (e.target as HTMLInputElement).files)"
+                      >
+                      <div
+                        v-if="!privacyPdfUrl && !pendingPrivacyPdfName"
+                        class="member-preview pdf-preview"
+                      >
+                        <div class="member-placeholder mt-0">
+                          Загрузите файл формата .pdf
+                        </div>
+                      </div>
+                      <p
+                        v-if="privacyPdfUrl"
+                        class="text-[11px] text-muted-foreground"
+                      >
+                        Текущий файл:
+                        <button
+                          type="button"
+                          class="underline font-semibold hover:text-black transition-colors bg-transparent"
+                          @click="openPrivacyPdf"
+                        >
+                          {{ privacyPdfFileName }}
+                        </button>
+                      </p>
+                      <p
+                        v-if="pendingPrivacyPdfName"
+                        class="text-[11px] text-muted-foreground"
+                      >
+                        Новый файл (загрузится при сохранении):
+                        <span class="font-semibold">{{ pendingPrivacyPdfName }}</span>
+                      </p>
                     </div>
                   </div>
                   <div>

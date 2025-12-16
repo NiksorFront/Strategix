@@ -225,7 +225,7 @@
                 },
                 "members": [
                     {
-                        "src": "/images/1765793404929-52878961-a76e-4926-9f3b-63724b67c84a.png",
+                        "src": "/images/1765863652381-f353e3c0-c591-4178-8672-4bd7d97e2607.png",
                         "name": "Вася",
                         "lastname": "Вышматович",
                         "position": "советский лектор"
@@ -301,7 +301,7 @@
                 "rights": "© 2022–2025 ВСЕ ПРАВА ЗАЩИЩЕНЫ",
                 "privacy_policy": {
                     "text": "ПОЛИТИКА  КОНФИДЕНЦИАЛЬНОСТИ",
-                    "href_pdf": "./privacy-policy.pdf"
+                    "href_pdf": "/pdf/privacy-policy_ru.pdf"
                 },
                 "email": "hello@strategix.com",
                 "icon1": {
