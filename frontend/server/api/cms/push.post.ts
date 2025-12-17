@@ -68,7 +68,14 @@ export default defineEventHandler(async () => {
   );
 
   if (allowedChanges.length === 0) {
-    throw createError({ statusCode: 400, statusMessage: 'Нет разрешённых изменений (json/pdf/png/jpg/webp)' });
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Изменений для отправки нет',
+      data: {
+        reason: 'no_allowed_changes',
+        allowedExtensions,
+      },
+    });
   }
 
   const repoPrefix = await runGit(['rev-parse', '--show-prefix']);

@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { computed, onMounted, ref } from 'vue';
+  import type { FetchError } from 'ofetch';
   import { Button } from '@/shared/ui/shadcn/ui/button';
   import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/shadcn/ui/card';
   import { Input } from '@/shared/ui/shadcn/ui/input';
@@ -20,6 +21,9 @@
   const pushing = ref(false);
   const resetting = ref(false);
 
+  const getStatusCode = (error: unknown) => (error as Partial<FetchError>)?.statusCode;
+  const getErrorData = (error: unknown) => (error as any)?.data || (error as any)?.response?._data || {};
+
   const displayName = computed(() => user.value?.name || user.value?.login || 'Аккаунт');
 
   const notifyStatus = (value: boolean) => emits('status-changed', value);
@@ -33,8 +37,13 @@
       hasToken.value = Boolean(response.hasToken);
       user.value = response.user || null;
       notifyStatus(hasToken.value);
-    } catch (error) {
-      errorMessage.value = error instanceof Error ? error.message : 'Не удалось получить статус';
+    } catch (error: unknown) {
+      const statusCode = getStatusCode(error);
+      if (statusCode === 503) {
+        errorMessage.value = 'GitHub недоступен. Проверьте подключение к интернету.';
+      } else {
+        errorMessage.value = 'Не удалось получить статус';
+      }
       setTimeout(() => errorMessage.value = '', 5000);
     } finally {
       loading.value = false;
@@ -65,8 +74,19 @@
       message.value = 'Токен сохранён';
       setTimeout(() => message.value = '', 5000);
       notifyStatus(hasToken.value);
-    } catch (error: unknown) {
-      errorMessage.value = error instanceof Error ? error.message : 'Не удалось сохранить токен';
+    } catch (error: any) {
+      const statusCode = getStatusCode(error);
+      if (statusCode === 403) {
+        errorMessage.value = 'Нет прав на репозиторий. Добавьте аккаунт в Collaborators.';
+      } else if (statusCode === 503) {
+        errorMessage.value = 'GitHub недоступен. Проверьте подключение.';
+      } else if (statusCode === 401) {
+        errorMessage.value = 'Неверный GitHub token.';
+      } else if (statusCode === 400) {
+        errorMessage.value = 'Токен содержит недопустимые символы.';
+      } else {
+        errorMessage.value = 'Не удалось сохранить токен';
+      }
       setTimeout(() => errorMessage.value = '', 5000);
     } finally {
       loading.value = false;
@@ -112,11 +132,26 @@
       message.value = 'Изменения отправлены';
       setTimeout(() => message.value = '', 5000);
     } catch (error: any) {
+      const statusCode = getStatusCode(error);
+      const data = getErrorData(error);
+      const apiMessage = (data as any)?.statusMessage || (data as any)?.message || '';
+      message.value = '';
       if (error?.data?.invalidPaths) {
         invalidPaths.value = error.data.invalidPaths;
         showInvalidModal.value = true;
+        errorMessage.value = '';
+      } else if (statusCode === 400 && (data?.reason === 'no_allowed_changes')) {
+        errorMessage.value = 'Изменений для отправки нет. Разрешено отправлять только файлы: json/pdf/png/jpg/webp';
+      } else if (statusCode === 401) {
+        errorMessage.value = 'Токен отсутствует или недействителен.';
+      } else if (statusCode === 403) {
+        errorMessage.value = 'Нет прав на push в этот репозиторий.';
+      } else if (statusCode === 503) {
+        errorMessage.value = 'GitHub недоступен. Проверьте подключение.';
       } else {
-        errorMessage.value = error instanceof Error ? error.message : 'Не удалось отправить изменения';
+        errorMessage.value = apiMessage || 'Не удалось отправить изменения';
+      }
+      if (errorMessage.value) {
         setTimeout(() => errorMessage.value = '', 5000);
       }
     } finally {
