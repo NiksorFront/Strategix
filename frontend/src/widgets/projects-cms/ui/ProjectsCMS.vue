@@ -53,7 +53,7 @@
 </script>
 
 <template>
-  <div class="cms-layout ">
+  <div class="cms-layout">
     <div
       class="main"
       role="link"
@@ -238,7 +238,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: var(--gap-grid);
+    gap: 5px;
     flex: 1 1 auto;
   }
 
