@@ -37,6 +37,46 @@ if [[ ! -d "$TARGET_DIR/.git" ]]; then
   exit 1
 fi
 
+cd "$TARGET_DIR"
+
+# --- Update from remote (safe)
+echo "[INFO] Проверяю обновления репозитория..."
+git remote update >/dev/null 2>&1 || true
+
+if [[ -n "$(git status --porcelain)" ]]; then
+  echo "[WARN] Есть незакоммиченные изменения. Авто-обновление (git pull) пропущено, чтобы избежать конфликтов."
+  echo "       Закоммитьте/откатите изменения и запустите снова, если нужно подтянуть обновления."
+else
+  echo "[INFO] Подтягиваю изменения: git pull --rebase"
+  # pull может потребовать авторизацию — это нормально
+  git pull --rebase
+fi
+
+# --- Auto push only if we have local commits ahead of upstream
+UPSTREAM="$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null || true)"
+if [[ -n "$UPSTREAM" ]]; then
+  AHEAD_BEHIND="$(git rev-list --left-right --count "$UPSTREAM"...HEAD 2>/dev/null || echo "0 0")"
+  BEHIND="$(echo "$AHEAD_BEHIND" | awk '{print $1}')"
+  AHEAD="$(echo "$AHEAD_BEHIND" | awk '{print $2}')"
+
+  if [[ "$AHEAD" != "0" ]]; then
+    echo "[INFO] Есть локальные коммиты ($AHEAD) — пытаюсь сделать git push"
+    set +e
+    git push
+    PUSH_EXIT=$?
+    set -e
+    if [[ $PUSH_EXIT -ne 0 ]]; then
+      echo "[WARN] git push не удался (нет прав/не выполнен логин/конфликт на сервере)."
+      echo "       Выполните push вручную после авторизации."
+    fi
+  else
+    echo "[INFO] Локальных коммитов для push нет — пропускаю git push."
+  fi
+else
+  echo "[WARN] Upstream ветка не настроена (нет @{u}). Push/pull по ветке может быть некорректен."
+fi
+
+# --- Frontend run
 FRONTEND_DIR="$TARGET_DIR/frontend"
 if [[ ! -f "$FRONTEND_DIR/package.json" ]]; then
   echo "[ERROR] Не найден frontend/package.json. Структура репозитория неожиданная."
@@ -47,7 +87,6 @@ fi
 cd "$FRONTEND_DIR"
 
 echo "[INFO] Устанавливаю зависимости..."
-# Важно: npm ci может падать, если lock-файл не синхронизирован с package.json.
 if [[ -f "package-lock.json" ]]; then
   set +e
   npm ci
