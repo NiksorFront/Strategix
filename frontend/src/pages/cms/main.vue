@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue';
+import { computed, onBeforeUnmount, onMounted, reactive, ref, watch, type Ref } from 'vue';
 import { Alert, AlertDescription, AlertTitle } from '@/shared/ui/shadcn/ui/alert';
 import { Button } from '@/shared/ui/shadcn/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/shadcn/ui/card';
@@ -248,6 +248,9 @@ const pendingAgreePdfName = computed(() => {
   return pending?.name || '';
 });
 
+const agreePdfIsSameOrigin = computed(() => !!agreePdfUrl.value && agreePdfUrl.value.startsWith('/'));
+const agreePdfIsPublic = computed(() => agreePdfUrl.value.startsWith('/pdf/'));
+
 const privacyPdfUrl = computed(() => {
   const href = currentLocaleData.value.footer?.privacy_policy?.href_pdf || '';
   if (!href) return '';
@@ -268,6 +271,33 @@ const pendingPrivacyPdfName = computed(() => {
   const pending = pendingPrivacyPdfUploads.get(activeLocale.value);
   return pending?.name || '';
 });
+
+const privacyPdfIsSameOrigin = computed(() => !!privacyPdfUrl.value && privacyPdfUrl.value.startsWith('/'));
+const privacyPdfIsPublic = computed(() => privacyPdfUrl.value.startsWith('/pdf/'));
+
+const agreePdfExists = ref<boolean | null>(null);
+const privacyPdfExists = ref<boolean | null>(null);
+const lastCheckedPdfUrl: Record<'agree' | 'privacy', string> = { agree: '', privacy: '' };
+
+const checkPdfExists = async (url: string, target: Ref<boolean | null>, key: 'agree' | 'privacy') => {
+  target.value = null;
+  lastCheckedPdfUrl[key] = url;
+
+  if (!url) return;
+  const isSameOrigin = url.startsWith('/');
+  if (!isSameOrigin) return;
+
+  try {
+    const response = await fetch(url, { method: 'HEAD' });
+    if (lastCheckedPdfUrl[key] !== url) return;
+    const contentType = response.headers.get('content-type') || '';
+    const isPdf = contentType.includes('pdf');
+    target.value = response.ok && isPdf;
+  } catch {
+    if (lastCheckedPdfUrl[key] !== url) return;
+    target.value = false;
+  }
+};
 
 const appendLocaleToFileName = (name: string, locale: string) => {
   const lastDot = name.lastIndexOf('.');
@@ -527,6 +557,24 @@ const updateLayoutMetrics = () => {
   root.style.setProperty('--cms-panel-gap', `${gap}px`);
   root.style.setProperty('--cms-scale', scale.toString());
 };
+
+if (typeof window !== 'undefined') {
+  watch(
+    agreePdfUrl,
+    (url) => {
+      checkPdfExists(url, agreePdfExists, 'agree');
+    },
+    { immediate: true },
+  );
+
+  watch(
+    privacyPdfUrl,
+    (url) => {
+      checkPdfExists(url, privacyPdfExists, 'privacy');
+    },
+    { immediate: true },
+  );
+}
 
 onMounted(() => {
   updateLayoutMetrics();
@@ -1749,7 +1797,7 @@ const saveIndex = async () => {
                           @change="(e) => handleAgreePdfSelected(tab.code, (e.target as HTMLInputElement).files)"
                         >
                         <div
-                          v-if="!agreePdfUrl && !pendingAgreePdfName"
+                          v-if="(!agreePdfUrl || (agreePdfIsSameOrigin && agreePdfExists === false)) && !pendingAgreePdfName"
                           class="member-preview pdf-preview"
                         >
                           <div class="member-placeholder mt-0">
@@ -1757,7 +1805,7 @@ const saveIndex = async () => {
                           </div>
                         </div>
                         <p
-                          v-if="agreePdfUrl"
+                          v-if="agreePdfUrl && agreePdfIsSameOrigin && agreePdfExists === true"
                           class="text-[11px] text-muted-foreground"
                         >
                           Текущий файл:
@@ -1767,6 +1815,25 @@ const saveIndex = async () => {
                             @click="openAgreePdf"
                           >
                             {{ agreePdfFileName }}
+                          </button>
+                        </p>
+                        <p
+                          v-if="agreePdfUrl && agreePdfIsSameOrigin && agreePdfExists === false"
+                          class="text-[11px] text-destructive"
+                        >
+                          Файл {{ agreePdfFileName || 'PDF' }} не найден. Загрузите новый.
+                        </p>
+                        <p
+                          v-if="agreePdfUrl && !agreePdfIsSameOrigin"
+                          class="text-[11px] text-muted-foreground"
+                        >
+                          Ссылка на файл:
+                          <button
+                            type="button"
+                            class="underline font-semibold hover:text-black transition-colors bg-transparent"
+                            @click="openAgreePdf"
+                          >
+                            {{ agreePdfFileName || agreePdfUrl }}
                           </button>
                         </p>
                         <p
@@ -1853,7 +1920,7 @@ const saveIndex = async () => {
                         @change="(e) => handlePrivacyPdfSelected(tab.code, (e.target as HTMLInputElement).files)"
                       >
                       <div
-                        v-if="!privacyPdfUrl && !pendingPrivacyPdfName"
+                        v-if="(!privacyPdfUrl || (privacyPdfIsSameOrigin && privacyPdfExists === false)) && !pendingPrivacyPdfName"
                         class="member-preview pdf-preview"
                       >
                         <div class="member-placeholder mt-0">
@@ -1861,7 +1928,7 @@ const saveIndex = async () => {
                         </div>
                       </div>
                       <p
-                        v-if="privacyPdfUrl"
+                        v-if="privacyPdfUrl && privacyPdfIsSameOrigin && privacyPdfExists === true"
                         class="text-[11px] text-muted-foreground"
                       >
                         Текущий файл:
@@ -1871,6 +1938,25 @@ const saveIndex = async () => {
                           @click="openPrivacyPdf"
                         >
                           {{ privacyPdfFileName }}
+                        </button>
+                      </p>
+                      <p
+                        v-if="privacyPdfUrl && privacyPdfIsSameOrigin && privacyPdfExists === false"
+                        class="text-[11px] text-destructive"
+                      >
+                        Файл {{ privacyPdfFileName || 'PDF' }} не найден. Загрузите новый.
+                      </p>
+                      <p
+                        v-if="privacyPdfUrl && !privacyPdfIsSameOrigin"
+                        class="text-[11px] text-muted-foreground"
+                      >
+                        Ссылка на файл:
+                        <button
+                          type="button"
+                          class="underline font-semibold hover:text-black transition-colors bg-transparent"
+                          @click="openPrivacyPdf"
+                        >
+                          {{ privacyPdfFileName || privacyPdfUrl }}
                         </button>
                       </p>
                       <p

@@ -5,10 +5,16 @@ import { readStoredToken } from '../../utils/cmsToken';
 import {
   allowedContentRoots,
   extractChangedPaths,
-  findInvalidPaths,
   runGit,
   uniqueList,
 } from '../../utils/git';
+
+const allowedExtensions = ['.json', '.pdf', '.png', '.jpg', '.jpeg', '.webp'];
+
+const hasAllowedExtension = (path: string) => {
+  const lower = path.toLowerCase();
+  return allowedExtensions.some((ext) => lower.endsWith(ext));
+};
 
 const normalizeRemoteUrl = (remote: string) => {
   if (remote.startsWith('git@github.com:')) {
@@ -57,21 +63,13 @@ export default defineEventHandler(async () => {
     throw createError({ statusCode: 400, statusMessage: 'Нет изменений для отправки' });
   }
 
-  const invalidPaths = findInvalidPaths(changedPaths);
+  const allowedChanges = changedPaths.filter(
+    (path) => allowedContentRoots.some((prefix) => path.startsWith(prefix)) && hasAllowedExtension(path),
+  );
 
-  if (invalidPaths.length > 0) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Недопустимые изменения',
-      data: {
-        invalidPaths: uniqueList(invalidPaths),
-      },
-    });
+  if (allowedChanges.length === 0) {
+    throw createError({ statusCode: 400, statusMessage: 'Нет разрешённых изменений (json/pdf/png/jpg/webp)' });
   }
-
-  const targets = allowedContentRoots
-    .filter((root) => changedPaths.some((path) => path.startsWith(root)))
-    .map((root) => root.replace(/\/$/, ''));
 
   const repoPrefix = await runGit(['rev-parse', '--show-prefix']);
 
@@ -90,7 +88,7 @@ export default defineEventHandler(async () => {
   };
 
   const targetsToAdd = uniqueList(
-    targets
+    allowedChanges
       .map(normalizeTarget)
       .filter((t) => existsSync(join(process.cwd(), t))),
   );
