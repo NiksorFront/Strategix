@@ -19,10 +19,6 @@
                         "src": "./images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "для пти мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
-                    },
-                    "new-case-4": {
-                        "src": "",
-                        "title": "new-case-4"
                     }
                 }
             },
@@ -43,10 +39,6 @@
                         "src": "./images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "How we made a Russian backup software developer a newsmaker"
-                    },
-                    "new-case-4": {
-                        "src": "",
-                        "title": "new-case-4"
                     }
                 }
             },
@@ -67,10 +59,6 @@
                         "src": "./images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
-                    },
-                    "new-case-4": {
-                        "src": "",
-                        "title": "new-case-4"
                     }
                 }
             },
@@ -91,10 +79,6 @@
                         "src": "./images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
-                    },
-                    "new-case-4": {
-                        "src": "",
-                        "title": "new-case-4"
                     }
                 }
             }
