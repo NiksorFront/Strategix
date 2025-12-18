@@ -19,6 +19,10 @@
                         "src": "./images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "для пти мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
+                    },
+                    "new-case-4": {
+                        "src": "",
+                        "title": "new-case-4"
                     }
                 }
             },
@@ -39,6 +43,10 @@
                         "src": "./images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "How we made a Russian backup software developer a newsmaker"
+                    },
+                    "new-case-4": {
+                        "src": "",
+                        "title": "new-case-4"
                     }
                 }
             },
@@ -59,6 +67,10 @@
                         "src": "./images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
+                    },
+                    "new-case-4": {
+                        "src": "",
+                        "title": "new-case-4"
                     }
                 }
             },
@@ -79,27 +91,55 @@
                         "src": "./images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
+                    },
+                    "new-case-4": {
+                        "src": "",
+                        "title": "new-case-4"
                     }
                 }
             }
         },
         "group2": {
-            "ru": {"title": "Продакшн"},
-            "en": {"title": "Production"},
-            "de": {"title": "Produktion"},
-            "es": {"title": "Producción"}
+            "ru": {
+                "title": "Продакшн"
+            },
+            "en": {
+                "title": "Production"
+            },
+            "de": {
+                "title": "Produktion"
+            },
+            "es": {
+                "title": "Producción"
+            }
         },
         "group3": {
-            "ru": {"title": "Реклама"},
-            "en": {"title": "Advertising"},
-            "de": {"title": "Werbung"},
-            "es": {"title": "Publicidad"}
+            "ru": {
+                "title": "Реклама"
+            },
+            "en": {
+                "title": "Advertising"
+            },
+            "de": {
+                "title": "Werbung"
+            },
+            "es": {
+                "title": "Publicidad"
+            }
         },
         "group4": {
-            "ru": {"title": "Построение репутации"},
-            "en": {"title": "Reputation Building"},
-            "de": {"title": "Reputationsaufbau"},
-            "es": {"title": "Construcción de Reputación"}
+            "ru": {
+                "title": "Построение репутации"
+            },
+            "en": {
+                "title": "Reputation Building"
+            },
+            "de": {
+                "title": "Reputationsaufbau"
+            },
+            "es": {
+                "title": "Construcción de Reputación"
+            }
         }
     }
 }

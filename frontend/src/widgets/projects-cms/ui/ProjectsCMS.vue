@@ -181,17 +181,15 @@
   }
 
   .main-image:hover{
-    /* background-color: var(--strategix-accent); */
     border: 2px solid var(--strategix-accent);
+    height: 89%;
+    transform: translateY(1%);
     cursor: pointer;
   }
 
   .projects{
     grid-column: 3 / 5;
     grid-row: 1 / 3;
-    
-    /* background-color: hsl(var(--card));
-    border-radius: var(--card-radius); */
   }
 
   .projects-title{
@@ -208,6 +206,8 @@
   }
 
   .project-group-card{
+    height: 100%;
+    
     background-color: hsl(var(--card));
     border-radius: var(--card-radius);
 
@@ -221,8 +221,9 @@
   }
 
   .project-group-card:hover{
-    /* background-color: var(--strategix-accent); */
     border: 2px solid var(--strategix-accent);
+    height: 98%;
+    transform: translateY(1%);
     cursor: pointer;
   }
 
@@ -244,7 +245,7 @@
 
   .project-tile{
     background: #f2f2f2;
-    border-radius: var(--card-radius);
+    border-radius: calc(var(--card-radius) / 2);
     overflow: hidden;
     display: flex;
     flex-direction: column;
