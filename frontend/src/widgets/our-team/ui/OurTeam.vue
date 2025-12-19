@@ -44,7 +44,7 @@ const members = translations.our_team.members
     min-height: calc(var(--vh) * 70);
     height: fit-content; 
     padding: 0 var(--padding-section-x);
-    margin-bottom: calc(-4 * var(--padding-section-x));
+    margin-bottom: calc(-2.5 * var(--padding-section-x));
     box-sizing: border-box;
 
     background-color: var(--strategix-light);
