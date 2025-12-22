@@ -439,14 +439,21 @@ const setPrivacyPdfInputRef = (locale: string, el: HTMLInputElement | null) => {
 
 const getPrivacyPdfInput = (locale?: string) => privacyPdfInputs.get(locale || activeLocale.value) || null;
 
+const normalizeIndex = (index: number | string) => {
+  const normalized = typeof index === 'string' ? Number(index) : index;
+  return Number.isInteger(normalized) ? normalized : null;
+};
+
 const addDesktopNav = () => {
   const header = currentLocaleData.value.header;
   header.navigation_desktop.push({ text: '', href: sectionIdOptions.value[0] || '#header' });
 };
 
-const removeDesktopNav = (index: number) => {
+const removeDesktopNav = (index: number | string) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const nav = currentLocaleData.value.header.navigation_desktop;
-  nav.splice(index, 1);
+  nav.splice(idx, 1);
 };
 
 const addMobileNav = () => {
@@ -455,10 +462,12 @@ const addMobileNav = () => {
   nav.push({ text: '', href: sectionIdOptions.value[0] || '#header' });
 };
 
-const removeMobileNav = (index: number) => {
+const removeMobileNav = (index: number | string) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const nav = currentLocaleData.value.header.mobile_menu.navigation_mobile;
   if (nav.length <= 1) return;
-  nav.splice(index, 1);
+  nav.splice(idx, 1);
 };
 
 const addWelcomeLink = () => {
@@ -478,33 +487,41 @@ const addAboutItem = () => {
   currentLocaleData.value.about_us.items.push({ title: '', subtitle: '', content: '' });
 };
 
-const removeAboutItem = (index: number) => {
+const removeAboutItem = (index: number | string) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const items = currentLocaleData.value.about_us.items;
   if (items.length <= 1) return;
-  items.splice(index, 1);
+  items.splice(idx, 1);
 };
 
-const moveAboutItem = (index: number, direction: number) => {
+const moveAboutItem = (index: number | string, direction: number) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const items = currentLocaleData.value.about_us.items;
-  const targetIndex = index + direction;
+  const targetIndex = idx + direction;
   if (targetIndex < 0 || targetIndex >= items.length) return;
-  const [item] = items.splice(index, 1);
+  const [item] = items.splice(idx, 1);
   items.splice(targetIndex, 0, item);
 };
 
-const moveDesktopNav = (index: number, direction: number) => {
+const moveDesktopNav = (index: number | string, direction: number) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const items = currentLocaleData.value.header.navigation_desktop;
-  const target = index + direction;
+  const target = idx + direction;
   if (target < 0 || target >= items.length) return;
-  const [item] = items.splice(index, 1);
+  const [item] = items.splice(idx, 1);
   items.splice(target, 0, item);
 };
 
-const moveMobileNav = (index: number, direction: number) => {
+const moveMobileNav = (index: number | string, direction: number) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const items = currentLocaleData.value.header.mobile_menu.navigation_mobile;
-  const target = index + direction;
+  const target = idx + direction;
   if (target < 0 || target >= items.length) return;
-  const [item] = items.splice(index, 1);
+  const [item] = items.splice(idx, 1);
   items.splice(target, 0, item);
 };
 
@@ -513,18 +530,22 @@ const addServiceBullet = (key: ServiceKey) => {
   bullets.push('');
 };
 
-const moveServiceBullet = (key: ServiceKey, index: number, direction: number) => {
+const moveServiceBullet = (key: ServiceKey, index: number | string, direction: number) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const bullets = currentLocaleData.value.services[key].bullets;
-  const target = index + direction;
+  const target = idx + direction;
   if (target < 0 || target >= bullets.length) return;
-  const [item] = bullets.splice(index, 1);
+  const [item] = bullets.splice(idx, 1);
   bullets.splice(target, 0, item);
 };
 
-const removeServiceBullet = (key: ServiceKey, index: number) => {
+const removeServiceBullet = (key: ServiceKey, index: number | string) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const bullets = currentLocaleData.value.services[key].bullets;
   if (bullets.length <= 1) return;
-  bullets.splice(index, 1);
+  bullets.splice(idx, 1);
 };
 
 const addContactLink = () => {
@@ -542,34 +563,42 @@ const addContactEmail = () => {
   items.push({ type: 'email', value: '' });
 };
 
-const moveContactItem = (index: number, direction: number) => {
+const moveContactItem = (index: number | string, direction: number) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const items = currentLocaleData.value.leave_request.contacts.items;
-  const target = index + direction;
+  const target = idx + direction;
   if (target < 0 || target >= items.length) return;
-  const [item] = items.splice(index, 1);
+  const [item] = items.splice(idx, 1);
   items.splice(target, 0, item);
 };
 
-const removeContactItem = (index: number) => {
+const removeContactItem = (index: number | string) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const items = currentLocaleData.value.leave_request.contacts.items;
-  items.splice(index, 1);
+  items.splice(idx, 1);
 };
 
 const addTeamMember = () => {
   currentLocaleData.value.our_team.members.push({ src: '', name: '', lastname: '', position: '' });
 };
 
-const moveTeamMember = (index: number, direction: number) => {
+const moveTeamMember = (index: number | string, direction: number) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const members = currentLocaleData.value.our_team.members;
-  const target = index + direction;
+  const target = idx + direction;
   if (target < 0 || target >= members.length) return;
-  const [item] = members.splice(index, 1);
+  const [item] = members.splice(idx, 1);
   members.splice(target, 0, item);
 };
 
-const removeTeamMember = (index: number) => {
+const removeTeamMember = (index: number | string) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const members = currentLocaleData.value.our_team.members;
-  const member = members[index];
+  const member = members[idx];
   const src = member?.src;
   const pending = pendingMemberUploads.get(member);
   if (pending?.preview) {
@@ -577,7 +606,7 @@ const removeTeamMember = (index: number) => {
   }
   pendingMemberUploads.delete(member);
   pendingMemberVersion.value += 1;
-  members.splice(index, 1);
+  members.splice(idx, 1);
   if (src && src.startsWith('/images/') && !pendingImageDeletes.value.includes(src)) {
     pendingImageDeletes.value.push(src);
   }
@@ -669,10 +698,12 @@ const handlePrivacyPdfSelected = (locale: string, fileList: FileList | null) => 
   if (targetInput) targetInput.value = '';
 };
 
-const uploadMemberImage = (index: number, fileList: FileList | null) => {
+const uploadMemberImage = (index: number | string, fileList: FileList | null) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
   const file = fileList?.[0];
   if (!file) return;
-  const member = currentLocaleData.value.our_team.members[index];
+  const member = currentLocaleData.value.our_team.members[idx];
   if (!member) return;
   const existing = pendingMemberUploads.get(member);
   if (existing?.preview) {
@@ -1315,7 +1346,7 @@ const saveIndex = async () => {
                       >
                         <CardHeader class="pb-2">
                           <CardTitle class="text-[12px] uppercase tracking-wide text-muted-foreground">
-                            Пункт {{ index + 1 }}
+                            Пункт {{ Number(index) + 1 }}
                           </CardTitle>
                         </CardHeader>
                         <CardContent class="space-y-2">
@@ -1698,7 +1729,7 @@ const saveIndex = async () => {
                       >
                         <CardHeader class="pb-2">
                           <CardTitle class="text-[12px] uppercase tracking-wide text-muted-foreground">
-                            Участник {{ index + 1 }}
+                            Участник {{ Number(index) + 1 }}
                           </CardTitle>
                         </CardHeader>
                         <CardContent class="space-y-2">
