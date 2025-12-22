@@ -1,79 +1,115 @@
 <script setup lang="ts">
-import telegramIcon from "@/assets/images/telegram-icon.svg";
-import whatsappIcon from "@/assets/images/whatsapp-icon.svg";
+import { useI18n } from 'vue-i18n'
 import index from '@/content/pages/index.json'
+
+type ContactItemType = 'link' | 'phone' | 'email'
+type ContactItem = {
+  type: ContactItemType
+  src?: string
+  text?: string
+  href?: string
+  value?: string
+}
+
+type ContactDisplayItem =
+  | { type: 'link'; src: string; text: string; href: string }
+  | { type: 'phone'; value: string; href: string }
+  | { type: 'email'; value: string; href: string }
 
 const { locale } = useI18n()
 const currentLocale = locale.value || 'ru'
 const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
 
-const title = translations.leave_request.contacts.title
-const email = translations.leave_request.contacts.email
-const phone = translations.leave_request.contacts.phone.replace(/\s/g, '') // убираем пробелы для tel:
-const telegram = translations.leave_request.contacts.telegram
-const whatsapp = translations.leave_request.contacts.whatsapp
+const contacts = translations.leave_request.contacts || {}
+const title = contacts.title || ''
+const urls = contacts.urls || {}
+const rawItems = Array.isArray(contacts.items) ? (contacts.items as ContactItem[]) : []
+
+const normalizeContact = (item: ContactItem): ContactDisplayItem | null => {
+  const type: ContactItemType = item?.type === 'phone' || item?.type === 'email' ? item.type : 'link'
+
+  if (type === 'link') {
+    const src = item?.src || ''
+    const text = item?.text || ''
+    const href = item?.href || ''
+    if (!src && !text && !href) return null
+    return { type, src, text, href }
+  }
+
+  const value = item?.value || ''
+  if (!value) return null
+  const href = type === 'email' ? `mailto:${value}` : `tel:${value.replace(/\s/g, '')}`
+  return { type, value, href }
+}
+
+const legacyItems: ContactItem[] = []
+
+if (typeof urls.email === 'string' && urls.email) {
+  legacyItems.push({ type: 'email', value: urls.email })
+}
+
+if (typeof urls.phone === 'string' && urls.phone) {
+  legacyItems.push({ type: 'phone', value: urls.phone })
+}
+
+const legacyLinks = Object.entries(urls)
+  .filter(([key, value]) => key.startsWith('url') && value && typeof value === 'object')
+  .sort(([aKey], [bKey]) => {
+    const aNum = Number(aKey.replace(/\D/g, '')) || 0
+    const bNum = Number(bKey.replace(/\D/g, '')) || 0
+    return aNum - bNum
+  })
+  .map(([, value]) => ({
+    type: 'link',
+    src: (value as Record<string, string>)?.src || '',
+    text: (value as Record<string, string>)?.text || '',
+    href: (value as Record<string, string>)?.href || '',
+  })) as ContactItem[]
+
+legacyItems.push(...legacyLinks)
+
+const sourceItems = rawItems.length ? rawItems : legacyItems
+
+const contactItems = sourceItems
+  .map(normalizeContact)
+  .filter((item): item is ContactDisplayItem => Boolean(item))
+
+const normalizeIconSrc = (src?: string) => {
+  if (!src) return ''
+  return src.startsWith('@/public') ? src.replace(/^@\/public/, '') : src
+}
 </script>
 
 <template>
   <div
     id="contacts"
     class="contacts"
-  > 
+  >
     <h3 class="title">
       {{ title }}
     </h3>
 
     <div class="lr-contacts">
-      <!-- Email -->
       <a
-        class="contact-link email"
-        :href="`mailto:${email}`"
-      >
-        <span class="base-text contact-text hover">{{ email }}</span>
-      </a>
-
-      <!-- Phone -->
-      <a
-        class="base-text contact-link contact-text hover"
-        :href="`tel:${phone}`"
-      >
-        {{ translations.leave_request.contacts.phone }}
-      </a>
-
-      <!-- Telegram -->
-      <a
+        v-for="item in contactItems"
+        :key="item.href || (item.type === 'link' ? item.text : item.value)"
         class="contact-link"
-        :href="telegram.href"
-        target="_blank"
-        rel="noopener"
+        :href="item.href"
+        :target="item.type === 'link' ? '_blank' : undefined"
+        :rel="item.type === 'link' ? 'noopener' : undefined"
       >
         <NuxtImg
+          v-if="item.type === 'link' && item.src"
           class="contact-icon"
-          :src="telegramIcon"
-          alt="Telegram"
+          :src="normalizeIconSrc(item.src)"
+          :alt="item.text || 'contact link'"
           :width="24"
           :height="24"
           loading="lazy"
         />
-        <span class="base-text contact-text hover">{{ telegram.text }}</span>
-      </a>
-
-      <!-- WhatsApp -->
-      <a
-        class="contact-link whatsapp"
-        :href="whatsapp.href"
-        target="_blank"
-        rel="noopener"
-      >
-        <NuxtImg
-          class="contact-icon"
-          :src="whatsappIcon"
-          alt="WhatsApp"
-          :width="24"
-          :height="24"
-          loading="lazy"
-        />
-        <span class="base-text contact-text hover">{{ whatsapp.text }}</span>
+        <span class="base-text contact-text hover">
+          {{ item.type === 'link' ? item.text : item.value }}
+        </span>
       </a>
     </div>
   </div>
@@ -99,11 +135,11 @@ const whatsapp = translations.leave_request.contacts.whatsapp
   height: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: calc(var(--vh) * 4) calc(var(--vh) * 4);
+  row-gap: calc(var(--vh) * 2);
 
   @media (--tablet-width) {
     width: 93%;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(max(13.33vw,160px), 1fr));
   }
 }
 
@@ -171,13 +207,4 @@ const whatsapp = translations.leave_request.contacts.whatsapp
     font-size: min(14px, calc(var(--vh) * 2.71));
   }
 }
-
-.whatsapp{
-  display: flex;
-
-  @media (--tablet-width) {
-    display: none;
-  }
-}
-
 </style>

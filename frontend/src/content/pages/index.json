@@ -270,16 +270,42 @@
             "leave_request": {
                 "contacts": {
                     "title": "Оставьте заявку, чтобы обсудить проект",
-                    "email": "hello@strategix.com",
-                    "phone": "+595 955 084 893",
-                    "telegram": {
-                        "text": "телеграмм",
-                        "href": "https://t.me/strategix"
+                    "urls": {
+                        "email": "hello@strategix.com",
+                        "phone": "+595 955 084 893",
+                        "url1": {
+                            "src": "@/public/icons/telegram-icon.svg",
+                            "text": "телеграмм",
+                            "href": "https://t.me/strategix"
+                        },
+                        "url2": {
+                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "text": "whatsapp",
+                            "href": "https://wa.me/595955084893"
+                        }
                     },
-                    "whatsapp": {
-                        "text": "whatsapp",
-                        "href": "https://wa.me/595955084893"
-                    }
+                    "items": [
+                        {
+                            "type": "phone",
+                            "value": "+595 955 084 893"
+                        },
+                        {
+                            "type": "email",
+                            "value": "hello@strategix.com"
+                        },
+                        {
+                            "type": "link",
+                            "src": "@/public/icons/telegram-icon.svg",
+                            "text": "телеграмм",
+                            "href": "https://t.me/strategix"
+                        },
+                        {
+                            "type": "link",
+                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "text": "whatsapp",
+                            "href": "https://wa.me/595955084893"
+                        }
+                    ]
                 },
                 "form": {
                     "title": "Ваши контакты",
@@ -583,16 +609,42 @@
             "leave_request": {
                 "contacts": {
                     "title": "Leave a request to discuss the project",
-                    "email": "hello@strategix.com",
-                    "phone": "+595 955 084 893",
-                    "telegram": {
-                        "text": "telegram",
-                        "href": "https://t.me/strategix"
+                    "urls": {
+                        "email": "hello@strategix.com",
+                        "phone": "+595 955 084 893",
+                        "url1": {
+                            "src": "@/public/icons/telegram-icon.svg",
+                            "text": "telegram",
+                            "href": "https://t.me/strategix"
+                        },
+                        "url2": {
+                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "text": "whatsapp",
+                            "href": "https://wa.me/595955084893"
+                        }
                     },
-                    "whatsapp": {
-                        "text": "whatsapp",
-                        "href": "https://wa.me/595955084893"
-                    }
+                    "items": [
+                        {
+                            "type": "email",
+                            "value": "hello@strategix.com"
+                        },
+                        {
+                            "type": "phone",
+                            "value": "+595 955 084 893"
+                        },
+                        {
+                            "type": "link",
+                            "src": "@/public/icons/telegram-icon.svg",
+                            "text": "telegram",
+                            "href": "https://t.me/strategix"
+                        },
+                        {
+                            "type": "link",
+                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "text": "whatsapp",
+                            "href": "https://wa.me/595955084893"
+                        }
+                    ]
                 },
                 "form": {
                     "title": "Your Contacts",
@@ -897,16 +949,42 @@
             "leave_request": {
                 "contacts": {
                     "title": "Hinterlassen Sie eine Anfrage, um das Projekt zu besprechen",
-                    "email": "hello@strategix.com",
-                    "phone": "+595 955 084 893",
-                    "telegram": {
-                        "text": "telegramm",
-                        "href": "https://t.me/strategix"
+                    "urls": {
+                        "email": "hello@strategix.com",
+                        "phone": "+595 955 084 893",
+                        "url1": {
+                            "src": "@/public/icons/telegram-icon.svg",
+                            "text": "telegramm",
+                            "href": "https://t.me/strategix"
+                        },
+                        "url2": {
+                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "text": "whatsapp",
+                            "href": "https://wa.me/595955084893"
+                        }
                     },
-                    "whatsapp": {
-                        "text": "whatsapp",
-                        "href": "https://wa.me/595955084893"
-                    }
+                    "items": [
+                        {
+                            "type": "email",
+                            "value": "hello@strategix.com"
+                        },
+                        {
+                            "type": "phone",
+                            "value": "+595 955 084 893"
+                        },
+                        {
+                            "type": "link",
+                            "src": "@/public/icons/telegram-icon.svg",
+                            "text": "telegramm",
+                            "href": "https://t.me/strategix"
+                        },
+                        {
+                            "type": "link",
+                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "text": "whatsapp",
+                            "href": "https://wa.me/595955084893"
+                        }
+                    ]
                 },
                 "form": {
                     "title": "Ihre Kontakte",
@@ -1211,16 +1289,42 @@
             "leave_request": {
                 "contacts": {
                     "title": "Deja una solicitud para discutir el proyecto",
-                    "email": "hello@strategix.com",
-                    "phone": "+595 955 084 893",
-                    "telegram": {
-                        "text": "telegram",
-                        "href": "https://t.me/strategix"
+                    "urls": {
+                        "email": "hello@strategix.com",
+                        "phone": "+595 955 084 893",
+                        "url1": {
+                            "src": "@/public/icons/telegram-icon.svg",
+                            "text": "telegram",
+                            "href": "https://t.me/strategix"
+                        },
+                        "url2": {
+                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "text": "whatsapp",
+                            "href": "https://wa.me/595955084893"
+                        }
                     },
-                    "whatsapp": {
-                        "text": "whatsapp",
-                        "href": "https://wa.me/595955084893"
-                    }
+                    "items": [
+                        {
+                            "type": "email",
+                            "value": "hello@strategix.com"
+                        },
+                        {
+                            "type": "phone",
+                            "value": "+595 955 084 893"
+                        },
+                        {
+                            "type": "link",
+                            "src": "@/public/icons/telegram-icon.svg",
+                            "text": "telegram",
+                            "href": "https://t.me/strategix"
+                        },
+                        {
+                            "type": "link",
+                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "text": "whatsapp",
+                            "href": "https://wa.me/595955084893"
+                        }
+                    ]
                 },
                 "form": {
                     "title": "Tus Contactos",

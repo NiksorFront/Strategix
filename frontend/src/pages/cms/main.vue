@@ -2,6 +2,7 @@
 import { computed, onBeforeUnmount, onMounted, reactive, ref, watch, type Ref } from 'vue';
 import { Alert, AlertDescription, AlertTitle } from '@/shared/ui/shadcn/ui/alert';
 import { Button } from '@/shared/ui/shadcn/ui/button';
+import { ButtonGroup } from '@/shared/ui/shadcn/ui/button-group';
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/shadcn/ui/card';
 import { Input } from '@/shared/ui/shadcn/ui/input';
 import { ScrollArea, ScrollBar } from '@/shared/ui/shadcn/ui/scroll-area';
@@ -25,6 +26,90 @@ type NavItem = { text: string; href: string }
 type LocaleTranslation = Record<string, any>
 type TranslationsMap = Record<string, LocaleTranslation>
 type ServiceKey = 'reputation' | 'media' | 'branding' | 'production' | 'events' | 'aiMarketing' | 'ads'
+type ContactItemType = 'link' | 'phone' | 'email'
+type ContactItem = { type: ContactItemType; src?: string; text?: string; href?: string; value?: string }
+
+const normalizeContactItem = (item: any): ContactItem => {
+  const normalizedType: ContactItemType =
+    item?.type === 'phone' || item?.type === 'email' ? item.type : 'link';
+
+  if (normalizedType === 'link') {
+    return {
+      type: 'link',
+      src: item?.src ?? '',
+      text: item?.text ?? '',
+      href: item?.href ?? '',
+    };
+  }
+
+  return {
+    type: normalizedType,
+    value: item?.value ?? '',
+  };
+};
+
+const contactUrlsToItems = (urls: Record<string, any>): ContactItem[] => {
+  if (!urls || typeof urls !== 'object') return [];
+  const items: ContactItem[] = [];
+
+  if (typeof urls.email === 'string' && urls.email) {
+    items.push({ type: 'email', value: urls.email });
+  }
+
+  if (typeof urls.phone === 'string' && urls.phone) {
+    items.push({ type: 'phone', value: urls.phone });
+  }
+
+  const linkEntries = Object.entries(urls || {})
+    .filter(([key, value]) => key.startsWith('url') && value && typeof value === 'object')
+    .sort(([aKey], [bKey]) => {
+      const aNum = Number(aKey.replace(/\D/g, '')) || 0;
+      const bNum = Number(bKey.replace(/\D/g, '')) || 0;
+      return aNum - bNum;
+    });
+
+  linkEntries.forEach(([, value]) => {
+    const link = value as Record<string, any>;
+    const src = link?.src ?? '';
+    const text = link?.text ?? '';
+    const href = link?.href ?? '';
+    if (src || text || href) {
+      items.push({ type: 'link', src, text, href });
+    }
+  });
+
+  return items.map(normalizeContactItem);
+};
+
+const contactItemsToUrls = (items: ContactItem[]) => {
+  const urls: Record<string, any> = { email: '', phone: '' };
+  let linkIndex = 1;
+
+  items.forEach((item) => {
+    const normalized = normalizeContactItem(item);
+    if (normalized.type === 'email') {
+      if (!urls.email) urls.email = normalized.value || '';
+      return;
+    }
+
+    if (normalized.type === 'phone') {
+      if (!urls.phone) urls.phone = normalized.value || '';
+      return;
+    }
+
+    urls[`url${linkIndex}`] = {
+      src: normalized.src || '',
+      text: normalized.text || '',
+      href: normalized.href || '',
+    };
+    linkIndex += 1;
+  });
+
+  if (!urls.url1) urls.url1 = { src: '', text: '', href: '' };
+  if (!urls.url2) urls.url2 = { src: '', text: '', href: '' };
+
+  return urls;
+};
 
 const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value));
 
@@ -137,10 +222,37 @@ const ensureDefaults = (localeData: LocaleTranslation) => {
   localeData.leave_request ??= { contacts: {}, form: {} };
   const contacts = localeData.leave_request.contacts ??= {};
   contacts.title ??= '';
-  contacts.email ??= '';
-  contacts.phone ??= '';
-  contacts.telegram ??= { text: '', href: '' };
-  contacts.whatsapp ??= { text: '', href: '' };
+  if (!contacts.urls || typeof contacts.urls !== 'object') {
+    contacts.urls = {};
+  }
+  const contactUrls = contacts.urls;
+  contactUrls.email ??= contacts.email ?? '';
+  contactUrls.phone ??= contacts.phone ?? '';
+  if (!contactUrls.url1 || typeof contactUrls.url1 !== 'object') {
+    contactUrls.url1 = { src: '', text: '', href: '' };
+  }
+  if (!contactUrls.url2 || typeof contactUrls.url2 !== 'object') {
+    contactUrls.url2 = { src: '', text: '', href: '' };
+  }
+  if (contacts.telegram?.text && !contactUrls.url1.text) contactUrls.url1.text = contacts.telegram.text;
+  if (contacts.telegram?.href && !contactUrls.url1.href) contactUrls.url1.href = contacts.telegram.href;
+  if (contacts.whatsapp?.text && !contactUrls.url2.text) contactUrls.url2.text = contacts.whatsapp.text;
+  if (contacts.whatsapp?.href && !contactUrls.url2.href) contactUrls.url2.href = contacts.whatsapp.href;
+  contactUrls.url1.src ??= '';
+  contactUrls.url2.src ??= '';
+
+  if (!Array.isArray(contacts.items) || contacts.items.length === 0) {
+    contacts.items = contactUrlsToItems(contactUrls);
+  } else {
+    contacts.items = contacts.items.map(normalizeContactItem);
+  }
+
+  contacts.urls = contactItemsToUrls(contacts.items);
+
+  delete contacts.email;
+  delete contacts.phone;
+  delete contacts.telegram;
+  delete contacts.whatsapp;
   const form = localeData.leave_request.form ??= {};
   form.title ??= '';
   form.name ??= '';
@@ -415,6 +527,34 @@ const removeServiceBullet = (key: ServiceKey, index: number) => {
   bullets.splice(index, 1);
 };
 
+const addContactLink = () => {
+  const items = currentLocaleData.value.leave_request.contacts.items;
+  items.push({ type: 'link', src: '', text: '', href: '' });
+};
+
+const addContactPhone = () => {
+  const items = currentLocaleData.value.leave_request.contacts.items;
+  items.push({ type: 'phone', value: '' });
+};
+
+const addContactEmail = () => {
+  const items = currentLocaleData.value.leave_request.contacts.items;
+  items.push({ type: 'email', value: '' });
+};
+
+const moveContactItem = (index: number, direction: number) => {
+  const items = currentLocaleData.value.leave_request.contacts.items;
+  const target = index + direction;
+  if (target < 0 || target >= items.length) return;
+  const [item] = items.splice(index, 1);
+  items.splice(target, 0, item);
+};
+
+const removeContactItem = (index: number) => {
+  const items = currentLocaleData.value.leave_request.contacts.items;
+  items.splice(index, 1);
+};
+
 const addTeamMember = () => {
   currentLocaleData.value.our_team.members.push({ src: '', name: '', lastname: '', position: '' });
 };
@@ -604,6 +744,21 @@ const toggleSection = (key: string) => {
   collapsed[key] = !isCollapsed(key);
 };
 
+const syncContactsUrls = () => {
+  Object.values(editedTranslations.value).forEach((locale) => {
+    const contacts = locale?.leave_request?.contacts;
+    if (!contacts) return;
+
+    if (!Array.isArray(contacts.items) || contacts.items.length === 0) {
+      contacts.items = contactUrlsToItems(contacts.urls || {});
+    } else {
+      contacts.items = contacts.items.map(normalizeContactItem);
+    }
+
+    contacts.urls = contactItemsToUrls(contacts.items);
+  });
+};
+
 const saveIndex = async () => {
   if (hasBlockingErrors.value) {
     saveError.value = 'Сначала исправьте ошибки перед сохранением.';
@@ -613,6 +768,8 @@ const saveIndex = async () => {
   saveMessage.value = '';
   saveError.value = '';
   try {
+    syncContactsUrls();
+
     // Сначала заливаем все новые изображения участников
     for (const member of currentLocaleData.value.our_team.members) {
       const pending = pendingMemberUploads.get(member);
@@ -888,10 +1045,10 @@ const saveIndex = async () => {
                     </div>
                     <Button
                       variant="secondary"
-                      class="mt-2 h-8 w-full"
+                      class="mt-2 h-8 w-full hover"
                       @click="addDesktopNav"
                     >
-                      + Добавить пункт
+                      + Пункт
                     </Button>
                   </div>
 
@@ -986,11 +1143,11 @@ const saveIndex = async () => {
                     </div>
                     <Button
                       variant="secondary"
-                      class="mt-2 h-8 w-full"
+                      class="mt-2 h-8 w-full hover"
                       :disabled="currentLocaleData.header.mobile_menu.navigation_mobile.length >= 5"
                       @click="addMobileNav"
                     >
-                      + Добавить пункт
+                      + Пункт
                     </Button>
                   </div>
 
@@ -1102,10 +1259,10 @@ const saveIndex = async () => {
                     </div>
                     <Button
                       variant="secondary"
-                      class="h-8 w-full"
+                      class="h-8 w-full hover"
                       @click="addWelcomeLink"
                     >
-                      + Добавить кнопку
+                      + Кнопка
                     </Button>
                   </div>
                 </CardContent>
@@ -1211,10 +1368,10 @@ const saveIndex = async () => {
                     </div>
                     <Button
                       variant="secondary"
-                      class="h-8 w-full"
+                      class="h-8 w-full hover"
                       @click="addAboutItem"
                     >
-                      + Добавить пункт
+                      + Пункт
                     </Button>
                   </div>
                 </CardContent>
@@ -1334,10 +1491,10 @@ const saveIndex = async () => {
                           </div>
                           <Button
                             variant="secondary"
-                            class="h-8 w-full"
+                            class="h-8 w-full hover"
                             @click="addServiceBullet(card.key)"
                           >
-                            + Добавить пункт
+                            + Пункт
                           </Button>
                         </div>
                         <Textarea
@@ -1625,10 +1782,10 @@ const saveIndex = async () => {
                     </div>
                     <Button
                       variant="secondary"
-                      class="h-8 w-full mt-2"
+                      class="h-8 w-full mt-2 hover"
                       @click="addTeamMember"
                     >
-                      + Добавить участника
+                      + Участник
                     </Button>
                   </div>
 
@@ -1661,70 +1818,161 @@ const saveIndex = async () => {
               <CardHeader class="mb-1">
                 <div class="flex items-center gap-2">
                   <CardTitle class="text-sm uppercase tracking-wide">
-                    Leave request
+                    Contacts
                   </CardTitle>
                   <button
                     type="button"
                     class="toggle-btn"
-                    :aria-expanded="!isCollapsed('leave_request')"
-                    aria-label="Toggle leave request"
-                    @click="toggleSection('leave_request')"
+                    :aria-expanded="!isCollapsed('leave_request_contacts')"
+                    aria-label="Toggle contacts"
+                    @click="toggleSection('leave_request_contacts')"
                   >
-                    {{ isCollapsed('leave_request') ? '▼' : '▲' }}
+                    {{ isCollapsed('leave_request_contacts') ? '▼' : '▲' }}
                   </button>
                 </div>
               </CardHeader>
               <div
                 class="collapsible"
-                :data-open="!isCollapsed('leave_request')"
+                :data-open="!isCollapsed('leave_request_contacts')"
               >
                 <CardContent class="space-y-3">
                   <div class="space-y-2">
-                    <p class="text-sm font-medium text-foreground">
-                      Контакты
-                    </p>
+                    <Input
+                      v-model="currentLocaleData.leave_request.contacts.title"
+                      :class="inputClass"
+                      placeholder="Заголовок"
+                    />
+                    <div class="flex items-center justify-between">
+                      <p class="text-sm font-medium text-foreground">
+                        Контакты
+                      </p>
+                      <p class="text-[11px] text-muted-foreground">
+                        {{ currentLocaleData.leave_request.contacts.items.length }} шт.
+                      </p>
+                    </div>
                     <div class="space-y-2">
-                      <Input
-                        v-model="currentLocaleData.leave_request.contacts.title"
-                        :class="inputClass"
-                        placeholder="Заголовок"
-                      />
-                      <div class="grid grid-cols-2 gap-2 box-border">
-                        <Input
-                          v-model="currentLocaleData.leave_request.contacts.email"
-                          type="email"
-                          :class="inputClass"
-                          placeholder="Почта"
-                        />
-                        <Input
-                          v-model="currentLocaleData.leave_request.contacts.phone"
-                          :class="inputClass"
-                          placeholder="Телефон"
-                        />
-                        <Input
-                          v-model="currentLocaleData.leave_request.contacts.telegram.text"
-                          :class="inputClass"
-                          placeholder="Telegram текст"
-                        />
-                        <Input
-                          v-model="currentLocaleData.leave_request.contacts.telegram.href"
-                          :class="inputClass"
-                          placeholder="Telegram ссылка"
-                        />
-                        <Input
-                          v-model="currentLocaleData.leave_request.contacts.whatsapp.text"
-                          :class="inputClass"
-                          placeholder="WhatsApp текст"
-                        />
-                        <Input
-                          v-model="currentLocaleData.leave_request.contacts.whatsapp.href"
-                          :class="inputClass"
-                          placeholder="WhatsApp ссылка"
-                        />
+                      <div class="space-y-2">
+                        <div
+                          v-for="(contact, index) in currentLocaleData.leave_request.contacts.items"
+                          :key="`contact-${index}`"
+                          class="row-wrap"
+                        >
+                          <div
+                            v-if="contact.type === 'link'"
+                            class="grid grid-cols-3 gap-2 box-border w-full"
+                          >
+                            <Input
+                              v-model="contact.src"
+                              :class="inputClass"
+                              placeholder="src иконки"
+                            />
+                            <Input
+                              v-model="contact.text"
+                              :class="inputClass"
+                              placeholder="текст"
+                            />
+                            <Input
+                              v-model="contact.href"
+                              :class="inputClass"
+                              placeholder="ссылки"
+                            />
+                          </div>
+                          <Input
+                            v-else-if="contact.type === 'phone'"
+                            v-model="contact.value"
+                            :class="inputClass"
+                            placeholder="Телефон"
+                          />
+                          <Input
+                            v-else
+                            v-model="contact.value"
+                            :class="inputClass"
+                            placeholder="Почта"
+                          />
+                          <div class="action-stack">
+                            <Button
+                              variant="outline"
+                              size="icon"
+                              class="icon-fab"
+                              :disabled="index === 0"
+                              @click="moveContactItem(index, -1)"
+                            >
+                              ↑
+                            </Button>
+                            <Button
+                              variant="outline"
+                              size="icon"
+                              class="icon-fab"
+                              :disabled="index === currentLocaleData.leave_request.contacts.items.length - 1"
+                              @click="moveContactItem(index, 1)"
+                            >
+                              ↓
+                            </Button>
+                            <Button
+                              variant="outline"
+                              size="icon"
+                              class="icon-fab"
+                              @click="removeContactItem(index)"
+                            >
+                              −
+                            </Button>
+                          </div>
+                        </div>
                       </div>
+                      <ButtonGroup class="w-full">
+                        <Button
+                          type="button"
+                          variant="secondary"
+                          class="h-8 flex-1 hover"
+                          @click="addContactLink"
+                        >
+                          + Cсылку
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="secondary"
+                          class="h-8 flex-1 hover"
+                          @click="addContactPhone"
+                        >
+                          + Телефон
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="secondary"
+                          class="h-8 flex-1 hover"
+                          @click="addContactEmail"
+                        >
+                          + Почта
+                        </Button>
+                      </ButtonGroup>
                     </div>
                   </div>
+                </CardContent>
+              </div>
+            </Card>
 
+            <Card>
+              <CardHeader class="mb-1">
+                <div class="flex items-center gap-2">
+                  <CardTitle class="text-sm uppercase tracking-wide">
+                    Form
+                  </CardTitle>
+                  <button
+                    type="button"
+                    class="toggle-btn"
+                    :aria-expanded="!isCollapsed('leave_request_form')"
+                    aria-label="Toggle form"
+                    @click="toggleSection('leave_request_form')"
+                  >
+                    {{ isCollapsed('leave_request_form') ? '▼' : '▲' }}
+                  </button>
+                </div>
+              </CardHeader>
+              <div
+                class="collapsible"
+                :data-open="!isCollapsed('leave_request_form')"
+              >
+                <CardContent class="space-y-3">
                   <div class="space-y-2">
                     <p class="text-sm font-medium text-foreground">
                       Форма
@@ -1781,7 +2029,7 @@ const saveIndex = async () => {
                           />
                           <Button
                             type="button"
-                            class="h-8 w-full col-span-2"
+                            class="h-8 w-full col-span-2 hover"
                             :disabled="agreePdfUploading || isSaving"
                             @click="triggerAgreePdfUpload(tab.code)"
                           >
@@ -1811,7 +2059,7 @@ const saveIndex = async () => {
                           Текущий файл:
                           <button
                             type="button"
-                            class="underline font-semibold hover:text-black transition-colors bg-transparent"
+                            class="underline font-semibold hover:text-black transition-colors bg-transparent hover"
                             @click="openAgreePdf"
                           >
                             {{ agreePdfFileName }}
@@ -1905,7 +2153,7 @@ const saveIndex = async () => {
                       <div class="grid box-border items-center">
                         <Button
                           type="button"
-                          class="h-8 w-full"
+                          class="h-8 w-full hover"
                           :disabled="privacyPdfUploading || isSaving"
                           @click="triggerPrivacyPdfUpload(tab.code)"
                         >
@@ -1934,7 +2182,7 @@ const saveIndex = async () => {
                         Текущий файл:
                         <button
                           type="button"
-                          class="underline font-semibold hover:text-black transition-colors bg-transparent"
+                          class="underline font-semibold hover:text-black transition-colors bg-transparent hover"
                           @click="openPrivacyPdf"
                         >
                           {{ privacyPdfFileName }}
