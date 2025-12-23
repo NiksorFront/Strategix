@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import xWhite from "@/assets/images/x-white.svg";
-import telegramIcon from "@/assets/images/telegram-icon.svg";
-import linkedinIcon from "@/assets/images/linkedin-icon.svg";
 import index from '@/content/pages/index.json'
 
 const { locale } = useI18n()
@@ -14,8 +12,6 @@ const rights = translations.footer.rights
 const privacyPolicy = translations.footer.privacy_policy
 const privacyPolicyLink = privacyPolicy.href_pdf || '#'
 const email = translations.footer.email
-const icon1 = translations.footer.icon1
-const icon2 = translations.footer.icon2
 
 const normalizeIconSrc = (src?: string) => {
   if (!src || typeof src !== 'string') return ''
@@ -33,14 +29,7 @@ const footerIcons = computed(() => {
     }))
     .filter((icon) => icon.src)
 
-  if (normalizedIcons.length) return normalizedIcons
-
-  const legacyIcons = [
-    { src: normalizeIconSrc((icon1 as any)?.src || telegramIcon), href: (icon1 as any)?.href || '#' },
-    { src: normalizeIconSrc((icon2 as any)?.src || linkedinIcon), href: (icon2 as any)?.href || '#' },
-  ].filter((icon) => icon.src)
-
-  return legacyIcons
+  return normalizedIcons
 })
 
 const formattedPrivacyPolicyText = computed(() => {

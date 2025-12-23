@@ -338,14 +338,6 @@
                     "href_pdf": "/pdf/privacy-policy_ru.pdf"
                 },
                 "email": "hello@strategix.com",
-                "icon1": {
-                    "src": "/icons/1766455160554-d04f861e-1da0-4dbc-a85b-b7872bcbbc12.svg",
-                    "href": "https://t.me/strategix"
-                },
-                "icon2": {
-                    "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
-                    "href": "https://www.linkedin.com/company/strategix/"
-                },
                 "icons": [
                     {
                         "src": "/icons/1766455160554-d04f861e-1da0-4dbc-a85b-b7872bcbbc12.svg",
@@ -631,12 +623,12 @@
                         "email": "hello@strategix.com",
                         "phone": "+595 955 084 893",
                         "url1": {
-                            "src": "@/public/icons/telegram-icon.svg",
+                            "src": "",
                             "text": "telegram",
                             "href": "https://t.me/strategix"
                         },
                         "url2": {
-                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "src": "",
                             "text": "whatsapp",
                             "href": "https://wa.me/595955084893"
                         }
@@ -658,14 +650,14 @@
                         },
                         {
                             "type": "link",
-                            "src": "@/public/icons/telegram-icon.svg",
+                            "src": "",
                             "text": "telegram",
                             "href": "https://t.me/strategix",
                             "value": ""
                         },
                         {
                             "type": "link",
-                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "src": "",
                             "text": "whatsapp",
                             "href": "https://wa.me/595955084893",
                             "value": ""
@@ -696,21 +688,13 @@
                     "href_pdf": "/pdf/privacy-policy_en.pdf"
                 },
                 "email": "hello@strategix.com",
-                "icon1": {
-                    "src": "./images/telegram-icon.svg",
-                    "href": "https://t.me/strategix"
-                },
-                "icon2": {
-                    "src": "./images/linkedin-icon.svg",
-                    "href": "https://www.linkedin.com/company/strategix/"
-                },
                 "icons": [
                     {
-                        "src": "./images/telegram-icon.svg",
+                        "src": "",
                         "href": "https://t.me/strategix"
                     },
                     {
-                        "src": "./images/linkedin-icon.svg",
+                        "src": "",
                         "href": "https://www.linkedin.com/company/strategix/"
                     }
                 ]
@@ -989,12 +973,12 @@
                         "email": "hello@strategix.com",
                         "phone": "+595 955 084 893",
                         "url1": {
-                            "src": "@/public/icons/telegram-icon.svg",
+                            "src": "",
                             "text": "telegramm",
                             "href": "https://t.me/strategix"
                         },
                         "url2": {
-                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "src": "",
                             "text": "whatsapp",
                             "href": "https://wa.me/595955084893"
                         }
@@ -1016,14 +1000,14 @@
                         },
                         {
                             "type": "link",
-                            "src": "@/public/icons/telegram-icon.svg",
+                            "src": "",
                             "text": "telegramm",
                             "href": "https://t.me/strategix",
                             "value": ""
                         },
                         {
                             "type": "link",
-                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "src": "",
                             "text": "whatsapp",
                             "href": "https://wa.me/595955084893",
                             "value": ""
@@ -1054,21 +1038,13 @@
                     "href_pdf": "./privacy-policy.pdf"
                 },
                 "email": "hello@strategix.com",
-                "icon1": {
-                    "src": "./images/telegram-icon.svg",
-                    "href": "https://t.me/strategix"
-                },
-                "icon2": {
-                    "src": "./images/linkedin-icon.svg",
-                    "href": "https://www.linkedin.com/company/strategix/"
-                },
                 "icons": [
                     {
-                        "src": "./images/telegram-icon.svg",
+                        "src": "",
                         "href": "https://t.me/strategix"
                     },
                     {
-                        "src": "./images/linkedin-icon.svg",
+                        "src": "",
                         "href": "https://www.linkedin.com/company/strategix/"
                     }
                 ]
@@ -1347,12 +1323,12 @@
                         "email": "hello@strategix.com",
                         "phone": "+595 955 084 893",
                         "url1": {
-                            "src": "@/public/icons/telegram-icon.svg",
+                            "src": "",
                             "text": "telegram",
                             "href": "https://t.me/strategix"
                         },
                         "url2": {
-                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "src": "",
                             "text": "whatsapp",
                             "href": "https://wa.me/595955084893"
                         }
@@ -1374,14 +1350,14 @@
                         },
                         {
                             "type": "link",
-                            "src": "@/public/icons/telegram-icon.svg",
+                            "src": "",
                             "text": "telegram",
                             "href": "https://t.me/strategix",
                             "value": ""
                         },
                         {
                             "type": "link",
-                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "src": "",
                             "text": "whatsapp",
                             "href": "https://wa.me/595955084893",
                             "value": ""
@@ -1412,21 +1388,13 @@
                     "href_pdf": "./privacy-policy.pdf"
                 },
                 "email": "hello@strategix.com",
-                "icon1": {
-                    "src": "./images/telegram-icon.svg",
-                    "href": "https://t.me/strategix"
-                },
-                "icon2": {
-                    "src": "./images/linkedin-icon.svg",
-                    "href": "https://www.linkedin.com/company/strategix/"
-                },
                 "icons": [
                     {
-                        "src": "./images/telegram-icon.svg",
+                        "src": "",
                         "href": "https://t.me/strategix"
                     },
                     {
-                        "src": "./images/linkedin-icon.svg",
+                        "src": "",
                         "href": "https://www.linkedin.com/company/strategix/"
                     }
                 ]
