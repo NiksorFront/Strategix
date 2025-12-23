@@ -17,6 +17,32 @@ const email = translations.footer.email
 const icon1 = translations.footer.icon1
 const icon2 = translations.footer.icon2
 
+const normalizeIconSrc = (src?: string) => {
+  if (!src || typeof src !== 'string') return ''
+  if (src.startsWith('@/public')) return src.replace(/^@\/public/, '')
+  if (src.startsWith('./')) return src.replace(/^\.\//, '/')
+  return src
+}
+
+const footerIcons = computed(() => {
+  const icons = Array.isArray(translations.footer.icons) ? translations.footer.icons : []
+  const normalizedIcons = icons
+    .map((icon) => ({
+      src: normalizeIconSrc((icon as any)?.src || ''),
+      href: (icon as any)?.href || '#',
+    }))
+    .filter((icon) => icon.src)
+
+  if (normalizedIcons.length) return normalizedIcons
+
+  const legacyIcons = [
+    { src: normalizeIconSrc((icon1 as any)?.src || telegramIcon), href: (icon1 as any)?.href || '#' },
+    { src: normalizeIconSrc((icon2 as any)?.src || linkedinIcon), href: (icon2 as any)?.href || '#' },
+  ].filter((icon) => icon.src)
+
+  return legacyIcons
+})
+
 const formattedPrivacyPolicyText = computed(() => {
   const text = privacyPolicy.text || ''
   const [firstWord, ...restWords] = text.trim().split(/\s+/)
@@ -63,31 +89,16 @@ const formattedPrivacyPolicyText = computed(() => {
       </a>
 
       <a
-        :href="icon1.href"
+        v-for="(icon, index) in footerIcons"
+        :key="icon.href || icon.src || index"
+        :href="icon.href || '#'"
         class="icon"
         target="_blank"
         rel="noopener"
       >
         <NuxtImg
-          :src="telegramIcon"
-          alt="telegram icon"
-          class="telegram"
-          :width="24"
-          :height="24"
-          loading="lazy"
-        />
-      </a>
-
-      <a
-        :href="icon2.href"
-        class="icon"
-        target="_blank"
-        rel="noopener"
-      >
-        <NuxtImg
-          :src="linkedinIcon"
-          alt="linkedin icon"
-          class="linkedin"
+          :src="icon.src"
+          :alt="`footer icon ${index + 1}`"
           :width="24"
           :height="24"
           loading="lazy"
@@ -114,6 +125,8 @@ const formattedPrivacyPolicyText = computed(() => {
 /* Левая часть */
 .footer__left {
   width: 100%;
+  min-width: 0;
+  height: 33%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -199,16 +212,19 @@ const formattedPrivacyPolicyText = computed(() => {
 /* Правая часть */
 .footer__right {
   display: none;
-  align-items: center;
-  justify-content: space-between;
+
   
   @media(--tablet-width){
+    height: 33%;
+
     display: flex;
-    width: 35%;
+    align-items: center;
+
+    gap: clamp(15px, 2.5vw, 60px);
   }
 
   @media(--laptop-width){
-    width: clamp(265px, 22.44%, 530px);
+    gap: clamp(15px, 1.5vw, 60px);
   }
 }
 
@@ -217,7 +233,8 @@ const formattedPrivacyPolicyText = computed(() => {
   font-weight: 400;
   text-decoration: none;
   color: white;
-  margin:0 3% 0 0;
+  margin:0;
+  padding-right: clamp(4px, 0.75vw, 18px);
 
   @media(--mobile-medium){
     font-size: min(16px, calc(var(--vh) * 3.334));
@@ -226,9 +243,10 @@ const formattedPrivacyPolicyText = computed(() => {
 
 
 .icon{
-  width: 9%;
-  height: auto;
+  width: auto;
+  height: 70%;
   aspect-ratio: 1 / 1;
+
   border: 1px solid white;
   border-radius: 50%;
 
@@ -249,17 +267,9 @@ const formattedPrivacyPolicyText = computed(() => {
   opacity: 0.8;
 }
 
-.telegram{
+.icon img{
   width: auto;
-  height: 50%;
+  height: 55%;
   aspect-ratio: 1 / 1;
-  margin-right: 5%;
-}
-
-.linkedin{
-  width: auto;
-  height: 65%;
-  aspect-ratio: 1 / 1;
-  margin-bottom: 10%;
 }
 </style>

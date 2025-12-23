@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import index from '@/content/pages/index.json'
 
@@ -78,6 +79,8 @@ const normalizeIconSrc = (src?: string) => {
   if (!src) return ''
   return src.startsWith('@/public') ? src.replace(/^@\/public/, '') : src
 }
+
+const hasTripleGrid = computed(() => contactItems.length > 0 && (contactItems.length % 3 === 0 || contactItems.length % 5 === 0))
 </script>
 
 <template>
@@ -89,7 +92,10 @@ const normalizeIconSrc = (src?: string) => {
       {{ title }}
     </h3>
 
-    <div class="lr-contacts">
+    <div
+      class="lr-contacts"
+      :class="{ 'lr-contacts--three': hasTripleGrid }"
+    >
       <a
         v-for="item in contactItems"
         :key="item.href || (item.type === 'link' ? item.text : item.value)"
@@ -137,9 +143,14 @@ const normalizeIconSrc = (src?: string) => {
   grid-template-columns: 1fr 1fr;
   row-gap: calc(var(--vh) * 2);
 
-  @media (--tablet-width) {
+  @media (--laptop-width) {
     width: 93%;
-    grid-template-columns: repeat(auto-fit, minmax(max(13.33vw,160px), 1fr));
+  }
+}
+
+@media (--laptop-width) {
+  .lr-contacts--three {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -173,13 +184,13 @@ const normalizeIconSrc = (src?: string) => {
 }
 
 .contact-icon {
-  width: min(7.25%, 28px);
-  height: auto;
+  width: auto;
+  height: min(80%, 28px);
   aspect-ratio: 1 / 1;
   flex-shrink: 0;
 
   @media(--mobile-medium){
-    width: min(3.5%, 14px);
+    height: min(80%, 14px);
   }
 }
 

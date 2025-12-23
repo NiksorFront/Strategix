@@ -274,12 +274,12 @@
                         "email": "hello@strategix.com",
                         "phone": "+595 955 084 893",
                         "url1": {
-                            "src": "@/public/icons/telegram-icon.svg",
+                            "src": "/icons/1766449494696-2821d729-b9b2-413d-b958-240a08f4e4dd.svg",
                             "text": "телеграмм",
                             "href": "https://t.me/strategix"
                         },
                         "url2": {
-                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "src": "/icons/1766449513656-839e75ed-9981-45ed-925d-95352b9514ea.svg",
                             "text": "whatsapp",
                             "href": "https://wa.me/595955084893"
                         }
@@ -287,23 +287,31 @@
                     "items": [
                         {
                             "type": "phone",
-                            "value": "+595 955 084 893"
+                            "value": "+595 955 084 893",
+                            "src": "",
+                            "text": "",
+                            "href": ""
                         },
                         {
                             "type": "email",
-                            "value": "hello@strategix.com"
+                            "value": "hello@strategix.com",
+                            "src": "",
+                            "text": "",
+                            "href": ""
                         },
                         {
                             "type": "link",
-                            "src": "@/public/icons/telegram-icon.svg",
+                            "src": "/icons/1766449494696-2821d729-b9b2-413d-b958-240a08f4e4dd.svg",
                             "text": "телеграмм",
-                            "href": "https://t.me/strategix"
+                            "href": "https://t.me/strategix",
+                            "value": ""
                         },
                         {
                             "type": "link",
-                            "src": "@/public/icons/whatsapp-icon.svg",
+                            "src": "/icons/1766449513656-839e75ed-9981-45ed-925d-95352b9514ea.svg",
                             "text": "whatsapp",
-                            "href": "https://wa.me/595955084893"
+                            "href": "https://wa.me/595955084893",
+                            "value": ""
                         }
                     ]
                 },
@@ -331,13 +339,23 @@
                 },
                 "email": "hello@strategix.com",
                 "icon1": {
-                    "src": "./images/telegram-icon.svg",
+                    "src": "/icons/1766450250735-de36816d-013f-4fb7-a290-b4dd2debeb6b.svg",
                     "href": "https://t.me/strategix"
                 },
                 "icon2": {
-                    "src": "./images/linkedin-icon.svg",
+                    "src": "/icons/1766450240435-c0530534-ee2c-47d9-9929-0c9467453c8a.svg",
                     "href": "https://www.linkedin.com/company/strategix/"
-                }
+                },
+                "icons": [
+                    {
+                        "src": "/icons/1766450250735-de36816d-013f-4fb7-a290-b4dd2debeb6b.svg",
+                        "href": "https://t.me/strategix"
+                    },
+                    {
+                        "src": "/icons/1766450240435-c0530534-ee2c-47d9-9929-0c9467453c8a.svg",
+                        "href": "https://www.linkedin.com/company/strategix/"
+                    }
+                ]
             }
         },
         "en": {
@@ -626,23 +644,31 @@
                     "items": [
                         {
                             "type": "email",
-                            "value": "hello@strategix.com"
+                            "value": "hello@strategix.com",
+                            "src": "",
+                            "text": "",
+                            "href": ""
                         },
                         {
                             "type": "phone",
-                            "value": "+595 955 084 893"
+                            "value": "+595 955 084 893",
+                            "src": "",
+                            "text": "",
+                            "href": ""
                         },
                         {
                             "type": "link",
                             "src": "@/public/icons/telegram-icon.svg",
                             "text": "telegram",
-                            "href": "https://t.me/strategix"
+                            "href": "https://t.me/strategix",
+                            "value": ""
                         },
                         {
                             "type": "link",
                             "src": "@/public/icons/whatsapp-icon.svg",
                             "text": "whatsapp",
-                            "href": "https://wa.me/595955084893"
+                            "href": "https://wa.me/595955084893",
+                            "value": ""
                         }
                     ]
                 },
@@ -677,7 +703,17 @@
                 "icon2": {
                     "src": "./images/linkedin-icon.svg",
                     "href": "https://www.linkedin.com/company/strategix/"
-                }
+                },
+                "icons": [
+                    {
+                        "src": "./images/telegram-icon.svg",
+                        "href": "https://t.me/strategix"
+                    },
+                    {
+                        "src": "./images/linkedin-icon.svg",
+                        "href": "https://www.linkedin.com/company/strategix/"
+                    }
+                ]
             }
         },
         "de": {
@@ -966,23 +1002,31 @@
                     "items": [
                         {
                             "type": "email",
-                            "value": "hello@strategix.com"
+                            "value": "hello@strategix.com",
+                            "src": "",
+                            "text": "",
+                            "href": ""
                         },
                         {
                             "type": "phone",
-                            "value": "+595 955 084 893"
+                            "value": "+595 955 084 893",
+                            "src": "",
+                            "text": "",
+                            "href": ""
                         },
                         {
                             "type": "link",
                             "src": "@/public/icons/telegram-icon.svg",
                             "text": "telegramm",
-                            "href": "https://t.me/strategix"
+                            "href": "https://t.me/strategix",
+                            "value": ""
                         },
                         {
                             "type": "link",
                             "src": "@/public/icons/whatsapp-icon.svg",
                             "text": "whatsapp",
-                            "href": "https://wa.me/595955084893"
+                            "href": "https://wa.me/595955084893",
+                            "value": ""
                         }
                     ]
                 },
@@ -1017,7 +1061,17 @@
                 "icon2": {
                     "src": "./images/linkedin-icon.svg",
                     "href": "https://www.linkedin.com/company/strategix/"
-                }
+                },
+                "icons": [
+                    {
+                        "src": "./images/telegram-icon.svg",
+                        "href": "https://t.me/strategix"
+                    },
+                    {
+                        "src": "./images/linkedin-icon.svg",
+                        "href": "https://www.linkedin.com/company/strategix/"
+                    }
+                ]
             }
         },
         "es": {
@@ -1306,23 +1360,31 @@
                     "items": [
                         {
                             "type": "email",
-                            "value": "hello@strategix.com"
+                            "value": "hello@strategix.com",
+                            "src": "",
+                            "text": "",
+                            "href": ""
                         },
                         {
                             "type": "phone",
-                            "value": "+595 955 084 893"
+                            "value": "+595 955 084 893",
+                            "src": "",
+                            "text": "",
+                            "href": ""
                         },
                         {
                             "type": "link",
                             "src": "@/public/icons/telegram-icon.svg",
                             "text": "telegram",
-                            "href": "https://t.me/strategix"
+                            "href": "https://t.me/strategix",
+                            "value": ""
                         },
                         {
                             "type": "link",
                             "src": "@/public/icons/whatsapp-icon.svg",
                             "text": "whatsapp",
-                            "href": "https://wa.me/595955084893"
+                            "href": "https://wa.me/595955084893",
+                            "value": ""
                         }
                     ]
                 },
@@ -1357,7 +1419,17 @@
                 "icon2": {
                     "src": "./images/linkedin-icon.svg",
                     "href": "https://www.linkedin.com/company/strategix/"
-                }
+                },
+                "icons": [
+                    {
+                        "src": "./images/telegram-icon.svg",
+                        "href": "https://t.me/strategix"
+                    },
+                    {
+                        "src": "./images/linkedin-icon.svg",
+                        "href": "https://www.linkedin.com/company/strategix/"
+                    }
+                ]
             }
         }
     }

@@ -28,6 +28,7 @@ type TranslationsMap = Record<string, LocaleTranslation>
 type ServiceKey = 'reputation' | 'media' | 'branding' | 'production' | 'events' | 'aiMarketing' | 'ads'
 type ContactItemType = 'link' | 'phone' | 'email'
 type ContactItem = { type: ContactItemType; src?: string; text?: string; href?: string; value?: string }
+type FooterIcon = { src?: string; href?: string }
 
 const normalizeContactItem = (item: any): ContactItem => {
   const normalizedType: ContactItemType =
@@ -111,6 +112,13 @@ const contactItemsToUrls = (items: ContactItem[]) => {
   return urls;
 };
 
+const normalizeIconSrc = (src?: string) => {
+  if (!src || typeof src !== 'string') return '';
+  if (src.startsWith('@/public')) return src.replace(/^@\/public/, '');
+  if (src.startsWith('./')) return src.replace(/^\.\//, '/');
+  return src;
+};
+
 const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value));
 
 const baseTranslations = (indexPageContent.translations || {}) as TranslationsMap;
@@ -128,6 +136,12 @@ const uploadingMember = ref<number | null>(null);
 const pendingImageDeletes = ref<string[]>([]);
 const pendingMemberUploads = reactive(new Map<any, { file: File; preview: string }>());
 const pendingMemberVersion = ref(0);
+const uploadingContactIcon = ref<number | null>(null);
+const pendingContactIconUploads = reactive(new Map<ContactItem, { file: File; preview: string }>());
+const pendingContactIconVersion = ref(0);
+const uploadingFooterIcon = ref<number | null>(null);
+const pendingFooterIconUploads = reactive(new Map<FooterIcon, { file: File; preview: string }>());
+const pendingFooterIconVersion = ref(0);
 const pendingAgreePdfUploads = reactive(new Map<string, { file: File; name: string; oldHref?: string }>());
 const pendingPrivacyPdfUploads = reactive(new Map<string, { file: File; name: string; oldHref?: string }>());
 const agreePdfInputs = new Map<string, HTMLInputElement>();
@@ -266,10 +280,26 @@ const ensureDefaults = (localeData: LocaleTranslation) => {
   agree.link ??= '';
   agree.href_pdf ??= '';
 
-  localeData.footer ??= { brand: '', rights: '', privacy_policy: { text: '', href: '', href_pdf: '' }, email: '', icon1: { src: '', href: '' }, icon2: { src: '', href: '' } };
+  localeData.footer ??= { brand: '', rights: '', privacy_policy: { text: '', href: '', href_pdf: '' }, email: '', icon1: { src: '', href: '' }, icon2: { src: '', href: '' }, icons: [] };
   localeData.footer.privacy_policy ??= { text: '', href: '', href_pdf: '' };
   localeData.footer.icon1 ??= { src: '', href: '' };
   localeData.footer.icon2 ??= { src: '', href: '' };
+  if (!Array.isArray(localeData.footer.icons)) localeData.footer.icons = [];
+  const footerIcons = localeData.footer.icons as FooterIcon[];
+  if (footerIcons.length === 0) {
+    if (localeData.footer.icon1?.src || localeData.footer.icon1?.href) {
+      footerIcons.push({ src: localeData.footer.icon1.src || '', href: localeData.footer.icon1.href || '' });
+    }
+    if (localeData.footer.icon2?.src || localeData.footer.icon2?.href) {
+      footerIcons.push({ src: localeData.footer.icon2.src || '', href: localeData.footer.icon2.href || '' });
+    }
+  }
+  footerIcons.forEach((icon, idx) => {
+    footerIcons[idx] = { src: icon?.src || '', href: icon?.href || '' };
+  });
+  while (footerIcons.length < 2) {
+    footerIcons.push({ src: '', href: '' });
+  }
 };
 
 const initializeTranslations = () => {
@@ -577,7 +607,125 @@ const removeContactItem = (index: number | string) => {
   const idx = normalizeIndex(index);
   if (idx === null) return;
   const items = currentLocaleData.value.leave_request.contacts.items;
+  const contact = items[idx];
+  if (contact?.type === 'link') {
+    const pending = pendingContactIconUploads.get(contact);
+    if (pending?.preview) {
+      URL.revokeObjectURL(pending.preview);
+    }
+    pendingContactIconUploads.delete(contact);
+    pendingContactIconVersion.value += 1;
+  }
   items.splice(idx, 1);
+};
+
+const getContactIconSrc = (contact: ContactItem) => {
+  pendingContactIconVersion.value;
+  const pending = pendingContactIconUploads.get(contact);
+  return pending?.preview || normalizeIconSrc(contact?.src);
+};
+
+const hasPendingContactIcon = (contact: ContactItem) => pendingContactIconUploads.has(contact);
+
+const uploadContactIcon = (
+  index: number | string,
+  fileList: FileList | null,
+  inputEl?: HTMLInputElement | null,
+) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
+  const contact = currentLocaleData.value.leave_request.contacts.items[idx];
+  if (!contact || contact.type !== 'link') return;
+  const file = fileList?.[0];
+  if (!file) return;
+
+  const isSvg = file.type === 'image/svg+xml' || file.name.toLowerCase().endsWith('.svg');
+  if (!isSvg) {
+    saveError.value = 'Загрузите иконку в формате SVG.';
+    saveMessage.value = '';
+    if (inputEl) inputEl.value = '';
+    return;
+  }
+
+  const existing = pendingContactIconUploads.get(contact);
+  if (existing?.preview) {
+    URL.revokeObjectURL(existing.preview);
+  }
+  const preview = URL.createObjectURL(file);
+  pendingContactIconUploads.set(contact, { file, preview });
+  pendingContactIconVersion.value += 1;
+  flashSaveMessage('Иконка выбрана, загрузится после сохранения');
+  saveError.value = '';
+  if (inputEl) inputEl.value = '';
+};
+
+const addFooterIcon = () => {
+  currentLocaleData.value.footer.icons.push({ src: '', href: '' });
+};
+
+const moveFooterIcon = (index: number | string, direction: number) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
+  const icons = currentLocaleData.value.footer.icons;
+  const target = idx + direction;
+  if (target < 0 || target >= icons.length) return;
+  const [item] = icons.splice(idx, 1);
+  icons.splice(target, 0, item);
+};
+
+const removeFooterIcon = (index: number | string) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
+  const icons = currentLocaleData.value.footer.icons;
+  const icon = icons[idx];
+  const pending = pendingFooterIconUploads.get(icon);
+  if (pending?.preview) {
+    URL.revokeObjectURL(pending.preview);
+  }
+  pendingFooterIconUploads.delete(icon);
+  pendingFooterIconVersion.value += 1;
+  icons.splice(idx, 1);
+};
+
+const getFooterIconSrc = (icon: FooterIcon) => {
+  pendingFooterIconVersion.value;
+  const pending = pendingFooterIconUploads.get(icon);
+  return pending?.preview || normalizeIconSrc(icon?.src);
+};
+
+const hasPendingFooterIcon = (icon: FooterIcon) => pendingFooterIconUploads.has(icon);
+
+const uploadFooterIcon = (
+  index: number | string,
+  fileList: FileList | null,
+  inputEl?: HTMLInputElement | null,
+) => {
+  const idx = normalizeIndex(index);
+  if (idx === null) return;
+  const icons = currentLocaleData.value.footer.icons;
+  const icon = icons[idx];
+  if (!icon) return;
+  const file = fileList?.[0];
+  if (!file) return;
+
+  const isSvg = file.type === 'image/svg+xml' || file.name.toLowerCase().endsWith('.svg');
+  if (!isSvg) {
+    saveError.value = 'Загрузите иконку в формате SVG.';
+    saveMessage.value = '';
+    if (inputEl) inputEl.value = '';
+    return;
+  }
+
+  const existing = pendingFooterIconUploads.get(icon);
+  if (existing?.preview) {
+    URL.revokeObjectURL(existing.preview);
+  }
+  const preview = URL.createObjectURL(file);
+  pendingFooterIconUploads.set(icon, { file, preview });
+  pendingFooterIconVersion.value += 1;
+  flashSaveMessage('Иконка выбрана, загрузится после сохранения');
+  saveError.value = '';
+  if (inputEl) inputEl.value = '';
 };
 
 const addTeamMember = () => {
@@ -757,6 +905,14 @@ onBeforeUnmount(() => {
   pendingMemberUploads.forEach((value) => {
     if (value.preview) URL.revokeObjectURL(value.preview);
   });
+  pendingContactIconUploads.forEach((value) => {
+    if (value.preview) URL.revokeObjectURL(value.preview);
+  });
+  pendingContactIconUploads.clear();
+  pendingFooterIconUploads.forEach((value) => {
+    if (value.preview) URL.revokeObjectURL(value.preview);
+  });
+  pendingFooterIconUploads.clear();
   pendingAgreePdfUploads.clear();
   pendingPrivacyPdfUploads.clear();
   agreePdfInputs.clear();
@@ -783,10 +939,42 @@ const syncContactsUrls = () => {
     if (!Array.isArray(contacts.items) || contacts.items.length === 0) {
       contacts.items = contactUrlsToItems(contacts.urls || {});
     } else {
-      contacts.items = contacts.items.map(normalizeContactItem);
+      contacts.items = contacts.items.map((item: ContactItem) => {
+        const normalized = normalizeContactItem(item);
+        Object.assign(item, normalized);
+        if (item.type !== 'link') {
+          item.src = '';
+          item.text = '';
+          item.href = '';
+        } else {
+          item.value = '';
+        }
+        return item;
+      });
     }
 
     contacts.urls = contactItemsToUrls(contacts.items);
+  });
+};
+
+const normalizeFooterIconItem = (icon: any): FooterIcon => ({
+  src: icon?.src || '',
+  href: icon?.href || '',
+});
+
+const syncFooterIcons = () => {
+  Object.values(editedTranslations.value).forEach((locale) => {
+    const footer = locale?.footer;
+    if (!footer) return;
+    if (!Array.isArray(footer.icons)) {
+      footer.icons = [];
+    }
+    footer.icons = (footer.icons as any[]).map(normalizeFooterIconItem);
+    while (footer.icons.length < 2) {
+      footer.icons.push({ src: '', href: '' });
+    }
+    footer.icon1 = footer.icons[0] ? { src: footer.icons[0].src || '', href: footer.icons[0].href || '' } : { src: '', href: '' };
+    footer.icon2 = footer.icons[1] ? { src: footer.icons[1].src || '', href: footer.icons[1].href || '' } : { src: '', href: '' };
   });
 };
 
@@ -799,7 +987,74 @@ const saveIndex = async () => {
   saveMessage.value = '';
   saveError.value = '';
   try {
-    syncContactsUrls();
+    const contactItems = Array.isArray(currentLocaleData.value.leave_request.contacts.items)
+      ? currentLocaleData.value.leave_request.contacts.items
+      : [];
+
+    for (const [index, contact] of contactItems.entries()) {
+      if (!contact || contact.type !== 'link') continue;
+      const pendingIcon = pendingContactIconUploads.get(contact);
+      if (!pendingIcon) continue;
+      uploadingContactIcon.value = index;
+      const formData = new FormData();
+      formData.append('file', pendingIcon.file);
+      formData.append('targetDir', 'icons');
+      const oldSrc = normalizeIconSrc(contact.src);
+      if (oldSrc && !/^https?:\/\//i.test(oldSrc)) {
+        formData.append('oldSrc', oldSrc);
+      }
+
+      const responseUploadIcon = await fetch('/api/cms/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!responseUploadIcon.ok) {
+        const text = await responseUploadIcon.text().catch(() => '');
+        throw new Error(text || `Не удалось загрузить иконку (${responseUploadIcon.status})`);
+      }
+
+      const uploadIconData = await responseUploadIcon.json();
+      contact.src = uploadIconData.path;
+      if (pendingIcon.preview) URL.revokeObjectURL(pendingIcon.preview);
+      pendingContactIconUploads.delete(contact);
+      pendingContactIconVersion.value += 1;
+      uploadingContactIcon.value = null;
+    }
+
+    const footerIcons = Array.isArray(currentLocaleData.value.footer.icons)
+      ? currentLocaleData.value.footer.icons
+      : [];
+
+    for (const [index, icon] of footerIcons.entries()) {
+      const pendingIcon = pendingFooterIconUploads.get(icon);
+      if (!pendingIcon) continue;
+      uploadingFooterIcon.value = index;
+      const formData = new FormData();
+      formData.append('file', pendingIcon.file);
+      formData.append('targetDir', 'icons');
+      const oldSrc = normalizeIconSrc(icon.src);
+      if (oldSrc && !/^https?:\/\//i.test(oldSrc)) {
+        formData.append('oldSrc', oldSrc);
+      }
+
+      const responseUploadFooterIcon = await fetch('/api/cms/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!responseUploadFooterIcon.ok) {
+        const text = await responseUploadFooterIcon.text().catch(() => '');
+        throw new Error(text || `Не удалось загрузить иконку (${responseUploadFooterIcon.status})`);
+      }
+
+      const uploadFooterIconData = await responseUploadFooterIcon.json();
+      icon.src = uploadFooterIconData.path;
+      if (pendingIcon.preview) URL.revokeObjectURL(pendingIcon.preview);
+      pendingFooterIconUploads.delete(icon);
+      pendingFooterIconVersion.value += 1;
+      uploadingFooterIcon.value = null;
+    }
 
     // Сначала заливаем все новые изображения участников
     for (const member of currentLocaleData.value.our_team.members) {
@@ -887,6 +1142,9 @@ const saveIndex = async () => {
       pendingPrivacyPdfUploads.delete(locale);
     }
 
+    syncContactsUrls();
+    syncFooterIcons();
+
     const payload = { ...indexPageContent, translations: clone(editedTranslations.value) };
     const response = await fetch('/api/cms', {
       method: 'PUT',
@@ -923,6 +1181,8 @@ const saveIndex = async () => {
     agreePdfUploading.value = false;
     privacyPdfUploading.value = false;
     uploadingMember.value = null;
+    uploadingContactIcon.value = null;
+    uploadingFooterIcon.value = null;
     isSaving.value = false;
   }
 };
@@ -1890,23 +2150,52 @@ const saveIndex = async () => {
                         >
                           <div
                             v-if="contact.type === 'link'"
-                            class="grid grid-cols-3 gap-2 box-border w-full"
+                            class="space-y-2 w-full"
                           >
-                            <Input
-                              v-model="contact.src"
-                              :class="inputClass"
-                              placeholder="src иконки"
-                            />
-                            <Input
-                              v-model="contact.text"
-                              :class="inputClass"
-                              placeholder="текст"
-                            />
-                            <Input
-                              v-model="contact.href"
-                              :class="inputClass"
-                              placeholder="ссылки"
-                            />
+                            <div class="contact-icon-field">
+                              <div class="contact-icon-preview">
+                                <img
+                                  v-if="getContactIconSrc(contact)"
+                                  :src="getContactIconSrc(contact)"
+                                  alt="Иконка контакта"
+                                  class="contact-icon-thumb"
+                                  loading="lazy"
+                                >
+                                <span
+                                  v-else
+                                  class="contact-icon-placeholder"
+                                >
+                                  svg
+                                </span>
+                              </div>
+                              <label
+                                class="contact-icon-upload"
+                                :class="{ 'is-disabled': uploadingContactIcon === index }"
+                              >
+                                <input
+                                  type="file"
+                                  accept=".svg,image/svg+xml"
+                                  class="hidden"
+                                  :disabled="uploadingContactIcon === index"
+                                  @change="(e) => uploadContactIcon(index, (e.target as HTMLInputElement).files, e.target as HTMLInputElement)"
+                                >
+                                <span>
+                                  {{ uploadingContactIcon === index ? 'Загружается...' : hasPendingContactIcon(contact) ? 'Сохранится при сохранении' : 'Загрузить иконку' }}
+                                </span>
+                              </label>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 box-border w-full">
+                              <Input
+                                v-model="contact.text"
+                                :class="inputClass"
+                                placeholder="текст"
+                              />
+                              <Input
+                                v-model="contact.href"
+                                :class="inputClass"
+                                placeholder="ссылки"
+                              />
+                            </div>
                           </div>
                           <Input
                             v-else-if="contact.type === 'phone'"
@@ -2262,27 +2551,89 @@ const saveIndex = async () => {
                     <p class="text-sm font-medium text-foreground">
                       Иконки
                     </p>
-                    <div class="grid grid-cols-2 gap-[3%] box-border">
-                      <Input
-                        v-model="currentLocaleData.footer.icon1.src"
-                        :class="inputClass"
-                        placeholder="Icon1 (svg/путь)"
-                      />
-                      <Input
-                        v-model="currentLocaleData.footer.icon1.href"
-                        :class="inputClass"
-                        placeholder="Icon1 ссылка"
-                      />
-                      <Input
-                        v-model="currentLocaleData.footer.icon2.src"
-                        :class="inputClass"
-                        placeholder="Icon2 (svg/путь)"
-                      />
-                      <Input
-                        v-model="currentLocaleData.footer.icon2.href"
-                        :class="inputClass"
-                        placeholder="Icon2 ссылка"
-                      />
+                    <div class="space-y-2">
+                      <div
+                        v-for="(icon, index) in currentLocaleData.footer.icons"
+                        :key="`footer-icon-${index}`"
+                        class="row-wrap"
+                      >
+                        <div class="space-y-2 w-full">
+                          <div class="contact-icon-field">
+                            <div class="contact-icon-preview">
+                              <img
+                                v-if="getFooterIconSrc(icon)"
+                                :src="getFooterIconSrc(icon)"
+                                alt="Иконка футера"
+                                class="contact-icon-thumb"
+                                loading="lazy"
+                              >
+                              <span
+                                v-else
+                                class="contact-icon-placeholder"
+                              >
+                                svg
+                              </span>
+                            </div>
+                            <label
+                              class="contact-icon-upload"
+                              :class="{ 'is-disabled': uploadingFooterIcon === index }"
+                            >
+                              <input
+                                type="file"
+                                accept=".svg,image/svg+xml"
+                                class="hidden"
+                                :disabled="uploadingFooterIcon === index"
+                                @change="(e) => uploadFooterIcon(index, (e.target as HTMLInputElement).files, e.target as HTMLInputElement)"
+                              >
+                              <span>
+                                {{ uploadingFooterIcon === index ? 'Загружается...' : hasPendingFooterIcon(icon) ? 'Сохранится при сохранении' : 'Загрузить иконку' }}
+                              </span>
+                            </label>
+                          </div>
+                          <Input
+                            v-model="icon.href"
+                            :class="inputClass"
+                            placeholder="Ссылка"
+                          />
+                        </div>
+                        <div class="action-stack">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="index === 0"
+                            @click="moveFooterIcon(index, -1)"
+                          >
+                            ↑
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="index === currentLocaleData.footer.icons.length - 1"
+                            @click="moveFooterIcon(index, 1)"
+                          >
+                            ↓
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            class="icon-fab"
+                            :disabled="currentLocaleData.footer.icons.length <= 1"
+                            @click="removeFooterIcon(index)"
+                          >
+                            −
+                          </Button>
+                        </div>
+                      </div>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        class="h-8 w-full hover"
+                        @click="addFooterIcon"
+                      >
+                        + Иконку
+                      </Button>
                     </div>
                   </div>
                 </CardContent>
@@ -2498,6 +2849,59 @@ const saveIndex = async () => {
 }
 
 .member-upload.is-disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-icon-field{
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  gap: 8px;
+  width: 100%;
+  min-height: 32px;
+  align-items: stretch;
+}
+
+.contact-icon-preview{
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  background: var(--strategix-dark, #0f111a);
+  padding: 6px;
+  box-sizing: border-box;
+  color: white;
+}
+
+.contact-icon-thumb{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.contact-icon-placeholder{
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.contact-icon-upload{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed rgba(0,0,0,0.25);
+  border-radius: 10px;
+  background: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  min-height: 32px;
+}
+
+.contact-icon-upload.is-disabled{
   opacity: 0.6;
   cursor: not-allowed;
 }
