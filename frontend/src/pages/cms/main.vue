@@ -119,6 +119,14 @@ const normalizeIconSrc = (src?: string) => {
   return src;
 };
 
+const queueIconForDeletion = (src?: string) => {
+  const normalized = normalizeIconSrc(src);
+  if (!normalized || !normalized.startsWith('/icons/')) return;
+  if (!pendingIconDeletes.value.includes(normalized)) {
+    pendingIconDeletes.value.push(normalized);
+  }
+};
+
 const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value));
 
 const baseTranslations = (indexPageContent.translations || {}) as TranslationsMap;
@@ -134,6 +142,7 @@ const saveError = ref('');
 let saveMessageFlashToken: symbol | null = null;
 const uploadingMember = ref<number | null>(null);
 const pendingImageDeletes = ref<string[]>([]);
+const pendingIconDeletes = ref<string[]>([]);
 const pendingMemberUploads = reactive(new Map<any, { file: File; preview: string }>());
 const pendingMemberVersion = ref(0);
 const uploadingContactIcon = ref<number | null>(null);
@@ -609,6 +618,7 @@ const removeContactItem = (index: number | string) => {
   const items = currentLocaleData.value.leave_request.contacts.items;
   const contact = items[idx];
   if (contact?.type === 'link') {
+    queueIconForDeletion(contact?.src);
     const pending = pendingContactIconUploads.get(contact);
     if (pending?.preview) {
       URL.revokeObjectURL(pending.preview);
@@ -678,6 +688,7 @@ const removeFooterIcon = (index: number | string) => {
   if (idx === null) return;
   const icons = currentLocaleData.value.footer.icons;
   const icon = icons[idx];
+  queueIconForDeletion(icon?.src);
   const pending = pendingFooterIconUploads.get(icon);
   if (pending?.preview) {
     URL.revokeObjectURL(pending.preview);
@@ -978,6 +989,42 @@ const syncFooterIcons = () => {
   });
 };
 
+const collectUsedIconSources = (translations: TranslationsMap) => {
+  const sources = new Set<string>();
+  Object.values(translations || {}).forEach((locale) => {
+    if (!locale) return;
+    const contacts = locale?.leave_request?.contacts?.items;
+    if (Array.isArray(contacts)) {
+      contacts.forEach((item: ContactItem) => {
+        if (!item || item.type !== 'link') return;
+        const normalized = normalizeIconSrc(item.src);
+        if (normalized && normalized.startsWith('/icons/')) {
+          sources.add(normalized);
+        }
+      });
+    }
+    const footerIcons = locale?.footer?.icons;
+    if (Array.isArray(footerIcons)) {
+      footerIcons.forEach((icon: FooterIcon) => {
+        const normalized = normalizeIconSrc(icon?.src);
+        if (normalized && normalized.startsWith('/icons/')) {
+          sources.add(normalized);
+        }
+      });
+    }
+    const footer = locale?.footer;
+    if (footer) {
+      ['icon1', 'icon2'].forEach((key) => {
+        const normalized = normalizeIconSrc((footer as any)?.[key]?.src);
+        if (normalized && normalized.startsWith('/icons/')) {
+          sources.add(normalized);
+        }
+      });
+    }
+  });
+  return sources;
+};
+
 const saveIndex = async () => {
   if (hasBlockingErrors.value) {
     saveError.value = 'Сначала исправьте ошибки перед сохранением.';
@@ -1145,7 +1192,9 @@ const saveIndex = async () => {
     syncContactsUrls();
     syncFooterIcons();
 
-    const payload = { ...indexPageContent, translations: clone(editedTranslations.value) };
+    const translationsPayload = clone(editedTranslations.value);
+    const payload = { ...indexPageContent, translations: translationsPayload };
+    const usedIconSources = collectUsedIconSources(translationsPayload);
     const response = await fetch('/api/cms', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -1158,6 +1207,28 @@ const saveIndex = async () => {
     }
 
     saveMessage.value = 'Сохранено в файл';
+
+    if (pendingIconDeletes.value.length) {
+      const toDeleteIcons = Array.from(new Set(
+        pendingIconDeletes.value
+          .map((src) => normalizeIconSrc(src))
+          .filter((src): src is string => !!src && src.startsWith('/icons/')),
+      )).filter((src) => !usedIconSources.has(src));
+
+      pendingIconDeletes.value = [];
+
+      for (const src of toDeleteIcons) {
+        try {
+          await fetch('/api/cms/delete-image', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ src }),
+          });
+        } catch (error: any) {
+          saveError.value = error?.message || 'Не удалось удалить файл иконки.';
+        }
+      }
+    }
 
     if (pendingImageDeletes.value.length) {
       const toDelete = [...pendingImageDeletes.value];
@@ -2440,26 +2511,16 @@ const saveIndex = async () => {
                 :data-open="!isCollapsed('footer')"
               >
                 <CardContent class="space-y-4">
-                  <div>
-                    <p class="text-sm font-medium text-foreground">
-                      Имя компании
-                    </p>
-                    <Input
-                      v-model="currentLocaleData.footer.brand"
-                      :class="inputClass"
-                      placeholder="Имя компании"
-                    />
-                  </div>
-                  <div>
-                    <p class="text-sm font-medium text-foreground">
-                      Годы и права
-                    </p>
-                    <Input
-                      v-model="currentLocaleData.footer.rights"
-                      :class="inputClass"
-                      placeholder="Права"
-                    />
-                  </div>
+                  <Input
+                    v-model="currentLocaleData.footer.brand"
+                    :class="inputClass"
+                    placeholder="Имя компании"
+                  />
+                  <Input
+                    v-model="currentLocaleData.footer.rights"
+                    :class="inputClass"
+                    placeholder="Годы и права"
+                  />
                   <div>
                     <p class="text-sm font-medium text-foreground">
                       Политика конфиденциальности
@@ -2537,8 +2598,8 @@ const saveIndex = async () => {
                     </div>
                   </div>
                   <div>
-                    <p class="text-sm font-medium text-foreground">
-                      Почта
+                    <p class="text-sm font-medium text-foreground text-white">
+                      - 
                     </p>
                     <Input
                       v-model="currentLocaleData.footer.email"

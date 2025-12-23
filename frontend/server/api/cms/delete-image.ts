@@ -12,11 +12,17 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'src is required' });
   }
 
-  if (!body.src.startsWith('/images/')) {
+  const dirEntry = [
+    ['images', '/images/'],
+    ['icons', '/icons/'],
+  ].find(([, prefix]) => body.src.startsWith(prefix));
+
+  if (!dirEntry) {
     return { ok: true, skipped: true };
   }
 
-  const publicDir = join(process.cwd(), 'public', 'images');
+  const [dirName] = dirEntry;
+  const publicDir = join(process.cwd(), 'public', dirName);
   const filePath = join(publicDir, basename(body.src));
 
   await unlink(filePath).catch(() => {});
