@@ -11,7 +11,7 @@
   const projectsData = (projectsContent.projects || {}) as ProjectsContent
 
   const { locale } = useI18n()
-  const currentLocale = computed(() => locale.value || 'expamle')
+  const currentLocale = computed(() => locale.value || 'example')
   const router = useRouter()
 
   const normalizeSrc = (src: string | undefined) => (src || '').replace(/^\.\/+/, '/')

@@ -27,7 +27,7 @@ const ensureIndexTranslations = async (localeCodes: string[]) => {
     });
   }
 
-  const template = translations.expamle || translations.example;
+  const template = translations.example;
 
   if (!template || typeof template !== 'object') {
     throw createError({
@@ -37,24 +37,38 @@ const ensureIndexTranslations = async (localeCodes: string[]) => {
   }
 
   const addedTranslations: string[] = [];
+  const removedTranslations: string[] = [];
+  const localeSet = new Set(
+    localeCodes
+      .map((code) => String(code || '').trim())
+      .filter(Boolean),
+  );
 
-  localeCodes.forEach((code) => {
-    if (!code || code === 'expamle') return;
+  localeSet.forEach((code) => {
+    if (code === 'example') return;
     if (Object.prototype.hasOwnProperty.call(translations, code)) return;
 
     translations[code] = clone(template);
     addedTranslations.push(code);
   });
 
-  if (!addedTranslations.length) {
-    return { addedTranslations, indexPath };
+  Object.keys(translations).forEach((code) => {
+    if (code === 'example') return;
+    if (localeSet.has(code)) return;
+
+    delete translations[code];
+    removedTranslations.push(code);
+  });
+
+  if (!addedTranslations.length && !removedTranslations.length) {
+    return { addedTranslations, removedTranslations, indexPath };
   }
 
   const updatedIndexContent = JSON.stringify(parsedIndex, null, 4);
 
   await writeFile(indexPath, updatedIndexContent, 'utf-8');
 
-  return { addedTranslations, indexPath };
+  return { addedTranslations, removedTranslations, indexPath };
 };
 
 export default defineEventHandler(async (event) => {
@@ -120,12 +134,14 @@ export default defineEventHandler(async (event) => {
   await writeFile(targetPath, content, 'utf-8');
 
   let addedTranslations: string[] = [];
+  let removedTranslations: string[] = [];
 
   try {
-    const { addedTranslations: added } = await ensureIndexTranslations(
+    const { addedTranslations: added, removedTranslations: removed } = await ensureIndexTranslations(
       unique.map((locale) => locale.code),
     );
     addedTranslations = added;
+    removedTranslations = removed;
   } catch (error) {
     if (previousLocalesContent) {
       await writeFile(targetPath, previousLocalesContent, 'utf-8').catch(() => {});
@@ -138,5 +154,6 @@ export default defineEventHandler(async (event) => {
     count: unique.length,
     path: targetPath,
     addedTranslations,
+    removedTranslations,
   };
 });

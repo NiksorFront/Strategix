@@ -4,8 +4,8 @@ import xWhite from "@/assets/images/x-white.svg";
 import index from '@/content/pages/index.json'
 
 const { locale } = useI18n()
-const currentLocale = locale.value || 'expamle'
-const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.expamle
+const currentLocale = locale.value || 'example'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.example
 
 const brand = translations.footer.brand
 const rights = translations.footer.rights

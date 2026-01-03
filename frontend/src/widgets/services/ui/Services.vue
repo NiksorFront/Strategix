@@ -8,10 +8,10 @@
   import index from '@/content/pages/index.json'
 
   const { locale } = useI18n()
-  const services = computed(() => getServices(locale.value || 'expamle'))
+  const services = computed(() => getServices(locale.value || 'example'))
   
-  const currentLocale = locale.value || 'expamle'
-  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.expamle
+  const currentLocale = locale.value || 'example'
+  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.example
   const sectionTitle = translations.services.title
 </script>
 

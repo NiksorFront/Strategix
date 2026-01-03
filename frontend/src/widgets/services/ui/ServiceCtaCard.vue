@@ -6,8 +6,8 @@ import index from '@/content/pages/index.json'
 const {service} = defineProps<{service: ServiceItem;}>();
 
 const { locale } = useI18n()
-const currentLocale = locale.value || 'expamle'
-const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.expamle
+const currentLocale = locale.value || 'example'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.example
 
 const email = translations.services.questions.email;
 </script>

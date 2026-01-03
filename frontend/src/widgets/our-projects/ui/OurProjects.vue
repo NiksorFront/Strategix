@@ -14,8 +14,8 @@
   const projectsData = (projectsContent.projects || {}) as ProjectsContent
 
   const { locale } = useI18n()
-  const currentLocale = computed(() => locale.value || 'expamle')
-  const translations = computed(() => index.translations[currentLocale.value as keyof typeof index.translations] || index.translations.expamle)
+  const currentLocale = computed(() => locale.value || 'example')
+  const translations = computed(() => index.translations[currentLocale.value as keyof typeof index.translations] || index.translations.example)
 
   const sectionTitle = computed(() => translations.value.our_projects.title)
 

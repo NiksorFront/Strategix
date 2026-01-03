@@ -82,34 +82,36 @@ const contactUrlsToItems = (urls: Record<string, any>): ContactItem[] => {
   return items.map(normalizeContactItem);
 };
 
-const contactItemsToUrls = (items: ContactItem[]) => {
-  const urls: Record<string, any> = { email: '', phone: '' };
-  let linkIndex = 1;
+const collectLegacyContactUrls = (contacts: Record<string, any>) => {
+  const sourceUrls = contacts?.urls;
+  const contactUrls: Record<string, any> = typeof sourceUrls === 'object' && sourceUrls ? { ...sourceUrls } : {};
 
-  items.forEach((item) => {
-    const normalized = normalizeContactItem(item);
-    if (normalized.type === 'email') {
-      if (!urls.email) urls.email = normalized.value || '';
-      return;
-    }
+  contactUrls.url1 = { ...(contactUrls.url1 || {}) };
+  contactUrls.url2 = { ...(contactUrls.url2 || {}) };
 
-    if (normalized.type === 'phone') {
-      if (!urls.phone) urls.phone = normalized.value || '';
-      return;
-    }
+  if (typeof contacts.email === 'string' && contacts.email && !contactUrls.email) {
+    contactUrls.email = contacts.email;
+  }
+  if (typeof contacts.phone === 'string' && contacts.phone && !contactUrls.phone) {
+    contactUrls.phone = contacts.phone;
+  }
+  if (contacts.telegram?.text && !contactUrls.url1.text) contactUrls.url1.text = contacts.telegram.text;
+  if (contacts.telegram?.href && !contactUrls.url1.href) contactUrls.url1.href = contacts.telegram.href;
+  if (contacts.whatsapp?.text && !contactUrls.url2.text) contactUrls.url2.text = contacts.whatsapp.text;
+  if (contacts.whatsapp?.href && !contactUrls.url2.href) contactUrls.url2.href = contacts.whatsapp.href;
 
-    urls[`url${linkIndex}`] = {
-      src: normalized.src || '',
-      text: normalized.text || '',
-      href: normalized.href || '',
-    };
-    linkIndex += 1;
-  });
+  contactUrls.url1.src ??= '';
+  contactUrls.url2.src ??= '';
 
-  if (!urls.url1) urls.url1 = { src: '', text: '', href: '' };
-  if (!urls.url2) urls.url2 = { src: '', text: '', href: '' };
+  return contactUrls;
+};
 
-  return urls;
+const dropLegacyContactFields = (contacts: Record<string, any>) => {
+  delete contacts.email;
+  delete contacts.phone;
+  delete contacts.telegram;
+  delete contacts.whatsapp;
+  delete contacts.urls;
 };
 
 const normalizeIconSrc = (src?: string) => {
@@ -245,37 +247,12 @@ const ensureDefaults = (localeData: LocaleTranslation) => {
   localeData.leave_request ??= { contacts: {}, form: {} };
   const contacts = localeData.leave_request.contacts ??= {};
   contacts.title ??= '';
-  if (!contacts.urls || typeof contacts.urls !== 'object') {
-    contacts.urls = {};
-  }
-  const contactUrls = contacts.urls;
-  contactUrls.email ??= contacts.email ?? '';
-  contactUrls.phone ??= contacts.phone ?? '';
-  if (!contactUrls.url1 || typeof contactUrls.url1 !== 'object') {
-    contactUrls.url1 = { src: '', text: '', href: '' };
-  }
-  if (!contactUrls.url2 || typeof contactUrls.url2 !== 'object') {
-    contactUrls.url2 = { src: '', text: '', href: '' };
-  }
-  if (contacts.telegram?.text && !contactUrls.url1.text) contactUrls.url1.text = contacts.telegram.text;
-  if (contacts.telegram?.href && !contactUrls.url1.href) contactUrls.url1.href = contacts.telegram.href;
-  if (contacts.whatsapp?.text && !contactUrls.url2.text) contactUrls.url2.text = contacts.whatsapp.text;
-  if (contacts.whatsapp?.href && !contactUrls.url2.href) contactUrls.url2.href = contacts.whatsapp.href;
-  contactUrls.url1.src ??= '';
-  contactUrls.url2.src ??= '';
-
-  if (!Array.isArray(contacts.items) || contacts.items.length === 0) {
-    contacts.items = contactUrlsToItems(contactUrls);
-  } else {
-    contacts.items = contacts.items.map(normalizeContactItem);
-  }
-
-  contacts.urls = contactItemsToUrls(contacts.items);
-
-  delete contacts.email;
-  delete contacts.phone;
-  delete contacts.telegram;
-  delete contacts.whatsapp;
+  const contactUrls = collectLegacyContactUrls(contacts);
+  const itemsSource = Array.isArray(contacts.items) && contacts.items.length
+    ? contacts.items
+    : contactUrlsToItems(contactUrls);
+  contacts.items = (itemsSource || []).map(normalizeContactItem);
+  dropLegacyContactFields(contacts);
   const form = localeData.leave_request.form ??= {};
   form.title ??= '';
   form.name ??= '';
@@ -942,13 +919,14 @@ const toggleSection = (key: string) => {
   collapsed[key] = !isCollapsed(key);
 };
 
-const syncContactsUrls = () => {
+const syncContactsItems = () => {
   Object.values(editedTranslations.value).forEach((locale) => {
     const contacts = locale?.leave_request?.contacts;
     if (!contacts) return;
 
-    if (!Array.isArray(contacts.items) || contacts.items.length === 0) {
-      contacts.items = contactUrlsToItems(contacts.urls || {});
+    const hasItems = Array.isArray(contacts.items) && contacts.items.length > 0;
+    if (!hasItems) {
+      contacts.items = contactUrlsToItems(collectLegacyContactUrls(contacts));
     } else {
       contacts.items = contacts.items.map((item: ContactItem) => {
         const normalized = normalizeContactItem(item);
@@ -964,7 +942,7 @@ const syncContactsUrls = () => {
       });
     }
 
-    contacts.urls = contactItemsToUrls(contacts.items);
+    dropLegacyContactFields(contacts);
   });
 };
 
@@ -1189,7 +1167,7 @@ const saveIndex = async () => {
       pendingPrivacyPdfUploads.delete(locale);
     }
 
-    syncContactsUrls();
+    syncContactsItems();
     syncFooterIcons();
 
     const translationsPayload = clone(editedTranslations.value);
