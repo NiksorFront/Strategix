@@ -1,5 +1,16 @@
 <script setup lang="ts">
   import { onMounted, onBeforeUnmount } from 'vue';
+  import { useHead } from '#imports';
+  import { useLocaleHead } from '#i18n';
+
+  // SEO/meta tags for current locale (lang, dir, hreflang)
+  const head = useLocaleHead({
+    lang: true,
+    dir: true,
+    seo: true,
+  });
+
+  useHead(head);
 
   onMounted(() => {
     const ua = navigator.userAgent;
