@@ -4,7 +4,7 @@
   import { Button } from '@/shared/ui/shadcn/ui/button';
   import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/shadcn/ui/card';
   import { Input } from '@/shared/ui/shadcn/ui/input';
-  import { AlertTriangle, LogOut, Send, User } from 'lucide-vue-next';
+  import { LogOut, Send, User } from '@/shared/ui/icons';
 
   type CmsUser = { name?: string; login?: string; avatarUrl?: string };
 
@@ -16,10 +16,7 @@
   const loading = ref(false);
   const message = ref('');
   const errorMessage = ref('');
-  const invalidPaths = ref<string[]>([]);
-  const showInvalidModal = ref(false);
   const pushing = ref(false);
-  const resetting = ref(false);
 
   const getStatusCode = (error: unknown) => (error as Partial<FetchError>)?.statusCode;
   const getErrorData = (error: unknown) => (error as any)?.data || (error as any)?.response?._data || {};
@@ -116,12 +113,11 @@
     pushing.value = true;
     errorMessage.value = '';
     message.value = '';
-    invalidPaths.value = [];
     try {
       const response = await $fetch<{ ok?: boolean; invalidPaths?: string[] }>('/api/cms/push', { method: 'POST' });
       if (response?.invalidPaths?.length) {
-        invalidPaths.value = response.invalidPaths;
-        showInvalidModal.value = true;
+        errorMessage.value = 'Найдены файлы вне разрешённых путей';
+        setTimeout(() => errorMessage.value = '', 5000);
         return;
       }
       if (response?.ok === false) {
@@ -136,10 +132,8 @@
       const data = getErrorData(error);
       const apiMessage = (data as any)?.statusMessage || (data as any)?.message || '';
       message.value = '';
-      if (error?.data?.invalidPaths) {
-        invalidPaths.value = error.data.invalidPaths;
-        showInvalidModal.value = true;
-        errorMessage.value = '';
+      if (error?.data?.invalidPaths?.length) {
+        errorMessage.value = 'Найдены файлы вне разрешённых путей';
       } else if (statusCode === 400 && (data?.reason === 'no_allowed_changes')) {
         errorMessage.value = 'Изменений для отправки нет. Разрешено отправлять только файлы: json/pdf/png/jpg/webp';
       } else if (statusCode === 401) {
@@ -157,29 +151,6 @@
     } finally {
       pushing.value = false;
     }
-  };
-
-  const handleReset = async () => {
-    resetting.value = true;
-    errorMessage.value = '';
-    message.value = '';
-    try {
-      await $fetch('/api/cms/reset', { method: 'POST' });
-      showInvalidModal.value = false;
-      invalidPaths.value = [];
-      message.value = 'Изменения обнулены';
-      setTimeout(() => message.value = '', 5000);
-      await fetchStatus();
-    } catch (error: unknown) {
-      errorMessage.value = error instanceof Error ? error.message : 'Не удалось обнулить изменения';
-      setTimeout(() => errorMessage.value = '', 5000);
-    } finally {
-      resetting.value = false;
-    }
-  };
-
-  const closeModal = () => {
-    showInvalidModal.value = false;
   };
 </script>
 
@@ -210,6 +181,7 @@
             />
             <Button
               :disabled="loading"
+              class="hover"
               @click="handleSaveToken"
             >
               <p v-if="!message && !errorMessage">
@@ -262,6 +234,7 @@
                 variant="ghost"
                 size="icon-sm"
                 :disabled="loading || pushing"
+                class="hover"
                 @click="handleLogout"
               >
                 <LogOut class="size-4" />
@@ -270,9 +243,10 @@
             <div class="flex items-center gap-2">
               <Button
                 :disabled="pushing || loading"
+                class="hover"
                 @click="handlePush"
               >
-                <Send class="size-4" />
+                <!-- <Send class="size-4" /> -->
                 <p v-if="!message && !errorMessage">
                   Отправить изменения
                 </p>
@@ -294,47 +268,6 @@
         </div>
       </CardContent>
     </Card>
-
-    <div
-      v-if="showInvalidModal"
-      class="modal-overlay"
-    >
-      <div class="modal-backdrop" />
-      <div class="modal-card">
-        <div class="flex items-center gap-2">
-          <AlertTriangle class="size-5 text-amber-500" />
-          <h3 class="text-lg font-semibold">
-            Недопустимые изменения
-          </h3>
-        </div>
-        <p class="text-sm text-muted-foreground">
-          Найдены файлы вне разрешённых путей (public/, src/content/):
-        </p>
-        <ul class="modal-list">
-          <li
-            v-for="path in invalidPaths"
-            :key="path"
-          >
-            {{ path }}
-          </li>
-        </ul>
-        <div class="modal-actions">
-          <Button
-            variant="destructive"
-            :disabled="resetting"
-            @click="handleReset"
-          >
-            Обнулить изменения
-          </Button>
-          <Button
-            variant="outline"
-            @click="closeModal"
-          >
-            Закрыть
-          </Button>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -348,7 +281,7 @@
 
   .cms-auth-card {
     width: 100%;
-    height: 98%;
+    height: 100%;
     box-sizing: border-box;
 
     background-color: hsl(var(--card));
@@ -386,46 +319,4 @@
     color: #6b7280;
   }
 
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-  }
-
-  .modal-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(2px);
-  }
-
-  .modal-card {
-    position: relative;
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    width: min(520px, 90vw);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  }
-
-  .modal-list {
-    list-style: disc;
-    padding-left: 20px;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .modal-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
 </style>

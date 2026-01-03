@@ -1,6 +1,6 @@
-import { createError, defineEventHandler, readBody } from 'h3';
 import { unlink } from 'node:fs/promises';
 import { basename, join } from 'node:path';
+import { createError, defineEventHandler, readBody } from 'h3';
 
 export default defineEventHandler(async (event) => {
   if (event.node.req.method?.toUpperCase() !== 'POST') {

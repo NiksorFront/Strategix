@@ -1,6 +1,6 @@
-import { createError, getMethod, readBody } from 'h3';
 import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { createError, getMethod, readBody } from 'h3';
 
 export default defineEventHandler(async (event) => {
   const method = getMethod(event).toUpperCase();

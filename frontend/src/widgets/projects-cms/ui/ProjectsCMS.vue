@@ -112,7 +112,7 @@
               <div class="project-meta">
                 <p
                   v-if="project.title"
-                  class="project-case-title"
+                  class="base-text project-case-title"
                 >
                   {{ project.title }}
                 </p>
@@ -230,7 +230,7 @@
   .projects-projects-title{
     margin: 0;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
     color: #1f2933;
     text-align: left;
   }
@@ -284,8 +284,8 @@
 
   .project-case-title{
     margin: 0;
-    font-weight: 700;
-    font-size: 16px;
+    text-align: left;
+    font-size: 14px;
     color: var(--strategix-dark);
     padding: 6px 16px;
   }

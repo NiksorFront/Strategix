@@ -347,7 +347,15 @@
                         "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
                         "href": "https://www.linkedin.com/company/strategix/"
                     }
-                ]
+                ],
+                "icon1": {
+                    "src": "/icons/1766455160554-d04f861e-1da0-4dbc-a85b-b7872bcbbc12.svg",
+                    "href": "https://t.me/strategix"
+                },
+                "icon2": {
+                    "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
+                    "href": "https://www.linkedin.com/company/strategix/"
+                }
             }
         },
         "en": {
@@ -697,7 +705,15 @@
                         "src": "",
                         "href": "https://www.linkedin.com/company/strategix/"
                     }
-                ]
+                ],
+                "icon1": {
+                    "src": "",
+                    "href": "https://t.me/strategix"
+                },
+                "icon2": {
+                    "src": "",
+                    "href": "https://www.linkedin.com/company/strategix/"
+                }
             }
         },
         "de": {
@@ -1047,7 +1063,15 @@
                         "src": "",
                         "href": "https://www.linkedin.com/company/strategix/"
                     }
-                ]
+                ],
+                "icon1": {
+                    "src": "",
+                    "href": "https://t.me/strategix"
+                },
+                "icon2": {
+                    "src": "",
+                    "href": "https://www.linkedin.com/company/strategix/"
+                }
             }
         },
         "es": {
@@ -1396,6 +1420,209 @@
                     {
                         "src": "",
                         "href": "https://www.linkedin.com/company/strategix/"
+                    }
+                ],
+                "icon1": {
+                    "src": "",
+                    "href": "https://t.me/strategix"
+                },
+                "icon2": {
+                    "src": "",
+                    "href": "https://www.linkedin.com/company/strategix/"
+                }
+            }
+        },
+        "et": {
+            "header": {
+                "navigation_desktop": [],
+                "button": {
+                    "text": "",
+                    "href": "#contacts"
+                },
+                "mobile_menu": {
+                    "navigation_mobile": [
+                        {
+                            "text": "",
+                            "href": "#header"
+                        }
+                    ],
+                    "button": {
+                        "text": "",
+                        "href": "#contacts"
+                    }
+                }
+            },
+            "welcome": {
+                "button": {
+                    "text": "",
+                    "href": "#contacts"
+                },
+                "urls": {}
+            },
+            "about_us": {
+                "title": "",
+                "items": [
+                    {
+                        "title": "",
+                        "subtitle": "",
+                        "content": ""
+                    }
+                ]
+            },
+            "services": {
+                "title": "",
+                "reputation": {
+                    "title": "",
+                    "description": "",
+                    "lead": "",
+                    "bullets": [
+                        ""
+                    ],
+                    "text": ""
+                },
+                "media": {
+                    "title": "",
+                    "description": "",
+                    "lead": "",
+                    "bullets": [
+                        ""
+                    ],
+                    "text": ""
+                },
+                "branding": {
+                    "title": "",
+                    "description": "",
+                    "lead": "",
+                    "bullets": [
+                        ""
+                    ],
+                    "text": ""
+                },
+                "production": {
+                    "title": "",
+                    "description": "",
+                    "lead": "",
+                    "bullets": [
+                        ""
+                    ],
+                    "text": ""
+                },
+                "events": {
+                    "title": "",
+                    "description": "",
+                    "lead": "",
+                    "bullets": [
+                        ""
+                    ],
+                    "text": ""
+                },
+                "aiMarketing": {
+                    "title": "",
+                    "description": "",
+                    "lead": "",
+                    "bullets": [
+                        ""
+                    ],
+                    "text": ""
+                },
+                "ads": {
+                    "title": "",
+                    "description": "",
+                    "lead": "",
+                    "bullets": [
+                        ""
+                    ],
+                    "text": ""
+                },
+                "questions": {
+                    "title": "",
+                    "description": "",
+                    "email": ""
+                }
+            },
+            "our_projects": {
+                "enable": false,
+                "title": "",
+                "filters": [
+                    ""
+                ]
+            },
+            "market_response": {
+                "title": "",
+                "description1": "",
+                "description2": ""
+            },
+            "our_team": {
+                "firstcard": {
+                    "title": "",
+                    "description": ""
+                },
+                "members": [],
+                "lastcard": {
+                    "title": "",
+                    "description": "",
+                    "email": ""
+                }
+            },
+            "leave_request": {
+                "contacts": {
+                    "title": "",
+                    "urls": {
+                        "email": "",
+                        "phone": "",
+                        "url1": {
+                            "src": "",
+                            "text": "",
+                            "href": ""
+                        },
+                        "url2": {
+                            "src": "",
+                            "text": "",
+                            "href": ""
+                        }
+                    },
+                    "items": []
+                },
+                "form": {
+                    "title": "",
+                    "name": "",
+                    "phone": "",
+                    "title2": "",
+                    "question": "",
+                    "question2": "",
+                    "button": "",
+                    "agree": {
+                        "text": "",
+                        "link": "",
+                        "href_pdf": ""
+                    }
+                }
+            },
+            "footer": {
+                "brand": "",
+                "rights": "",
+                "privacy_policy": {
+                    "text": "",
+                    "href": "",
+                    "href_pdf": ""
+                },
+                "email": "",
+                "icon1": {
+                    "src": "",
+                    "href": ""
+                },
+                "icon2": {
+                    "src": "",
+                    "href": ""
+                },
+                "icons": [
+                    {
+                        "src": "",
+                        "href": ""
+                    },
+                    {
+                        "src": "",
+                        "href": ""
                     }
                 ]
             }

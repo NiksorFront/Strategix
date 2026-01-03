@@ -1,7 +1,7 @@
-import { createError, defineEventHandler, readMultipartFormData } from 'h3';
 import { randomUUID } from 'node:crypto';
 import { mkdir, unlink, writeFile } from 'node:fs/promises';
 import { basename, extname, join } from 'node:path';
+import { createError, defineEventHandler, readMultipartFormData } from 'h3';
 
 export default defineEventHandler(async (event) => {
   if (event.node.req.method?.toUpperCase() !== 'POST') {
