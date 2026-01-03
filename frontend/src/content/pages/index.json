@@ -47,7 +47,7 @@
                     ]
                 },
                 "button": {
-                    "text": "ЗАПОЛНИТЕ АНКЕТУ",
+                    "text": "ЗАПОЛНИТЕ АНКЕТУ ",
                     "href": "#contacts"
                 },
                 "mobile_menu": {
