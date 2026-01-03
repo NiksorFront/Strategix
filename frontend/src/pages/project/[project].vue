@@ -7,7 +7,7 @@ const route = useRoute()
 const project = computed(() => route.params.project as string)
 
 const { locale } = useI18n()
-const currentLocale = computed(() => locale.value || 'ru')
+const currentLocale = computed(() => locale.value || 'expamle')
 const projectType = computed(() => projectsContent.projects.group1[currentLocale.value].title)
 //@ts-ignore
 const descriptionProject = computed(() => projectsContent.projects.group1[currentLocale.value].cases[project.value].description)

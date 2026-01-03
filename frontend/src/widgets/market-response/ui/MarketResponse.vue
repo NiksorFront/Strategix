@@ -2,8 +2,8 @@
 import index from '@/content/pages/index.json'
 
 const { locale } = useI18n()
-const currentLocale = locale.value || 'ru'
-const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+const currentLocale = locale.value || 'expamle'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.expamle
 
 const title = translations.market_response.title
 const description1 = translations.market_response.description1

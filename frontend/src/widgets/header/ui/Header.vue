@@ -7,8 +7,8 @@
   import index from '@/content/pages/index.json'
 
   const { locale } = useI18n()
-  const currentLocale = locale.value || 'ru'
-  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+  const currentLocale = locale.value || 'expamle'
+  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.expamle
 
   const navData = {
     links: translations.header.navigation_desktop.map(item => ({

@@ -4,6 +4,59 @@ import { createError, getMethod, readBody } from 'h3';
 
 type LocaleConfig = { code: string; name: string; iso?: string };
 
+const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value));
+
+const ensureIndexTranslations = async (localeCodes: string[]) => {
+  const indexPath = join(process.cwd(), 'src/content/pages/index.json');
+
+  const indexContent = await readFile(indexPath, 'utf-8').catch((error) => {
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Не удалось прочитать index.json',
+      data: error,
+    });
+  });
+
+  const parsedIndex = JSON.parse(indexContent) as Record<string, any>;
+  const translations = parsedIndex?.translations as Record<string, any> | undefined;
+
+  if (!translations || typeof translations !== 'object') {
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'index.json не содержит translations',
+    });
+  }
+
+  const template = translations.expamle || translations.example;
+
+  if (!template || typeof template !== 'object') {
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Не найден example для шаблона переводов в index.json',
+    });
+  }
+
+  const addedTranslations: string[] = [];
+
+  localeCodes.forEach((code) => {
+    if (!code || code === 'expamle') return;
+    if (Object.prototype.hasOwnProperty.call(translations, code)) return;
+
+    translations[code] = clone(template);
+    addedTranslations.push(code);
+  });
+
+  if (!addedTranslations.length) {
+    return { addedTranslations, indexPath };
+  }
+
+  const updatedIndexContent = JSON.stringify(parsedIndex, null, 4);
+
+  await writeFile(indexPath, updatedIndexContent, 'utf-8');
+
+  return { addedTranslations, indexPath };
+};
+
 export default defineEventHandler(async (event) => {
   const method = getMethod(event).toUpperCase();
   const targetPath = join(process.cwd(), 'src/content/locales.json');
@@ -62,7 +115,28 @@ export default defineEventHandler(async (event) => {
 
   const content = JSON.stringify({ default: defaultLocale, locales: unique }, null, 4);
 
+  const previousLocalesContent = await readFile(targetPath, 'utf-8').catch(() => '');
+
   await writeFile(targetPath, content, 'utf-8');
 
-  return { ok: true, count: unique.length, path: targetPath };
+  let addedTranslations: string[] = [];
+
+  try {
+    const { addedTranslations: added } = await ensureIndexTranslations(
+      unique.map((locale) => locale.code),
+    );
+    addedTranslations = added;
+  } catch (error) {
+    if (previousLocalesContent) {
+      await writeFile(targetPath, previousLocalesContent, 'utf-8').catch(() => {});
+    }
+    throw error;
+  }
+
+  return {
+    ok: true,
+    count: unique.length,
+    path: targetPath,
+    addedTranslations,
+  };
 });

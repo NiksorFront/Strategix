@@ -37,9 +37,9 @@ export interface ServiceItem {
   aboutService: AboutServiceForModal;
 }
 
-export const getServices = (locale: string = 'ru'): ServiceItem[] => {
-  const currentLocale = locale || 'ru'
-  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+export const getServices = (locale: string = 'expamle'): ServiceItem[] => {
+  const currentLocale = locale || 'expamle'
+  const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.expamle
   const servicesData = translations.services
 
   return [

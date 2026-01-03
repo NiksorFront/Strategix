@@ -131,7 +131,20 @@ const saveLocales = async () => {
       throw new Error(text || `Ошибка сохранения (${response.status})`);
     }
 
-    saveMessage.value = 'Изменения сохранены';
+    let addedTranslations: string[] = [];
+
+    try {
+      const data = await response.json();
+      addedTranslations = Array.isArray((data as any)?.addedTranslations)
+        ? (data as any).addedTranslations.filter((code: unknown): code is string => typeof code === 'string' && !!code)
+        : [];
+    } catch {
+      addedTranslations = [];
+    }
+
+    saveMessage.value = addedTranslations.length
+      ? `Изменения сохранены. В index.json добавлены: ${addedTranslations.join(', ')}`
+      : 'Изменения сохранены';
   } catch (error: any) {
     saveError.value = error?.message || 'Не удалось сохранить изменения';
   } finally {

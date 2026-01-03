@@ -15,7 +15,7 @@
   const router = useRouter();
   const { locale } = useI18n();
 
-  const currentLocale = computed(() => locale.value || 'ru');
+  const currentLocale = computed(() => locale.value || 'expamle');
 
   const groupSlug = computed(() => {
     const param = route.params?.projects;

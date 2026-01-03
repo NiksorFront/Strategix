@@ -20,6 +20,11 @@
             "code": "es",
             "name": "Esp",
             "iso": "es-ES"
+        },
+        {
+            "code": "be",
+            "name": "Bel",
+            "iso": "be-BY"
         }
     ]
 }

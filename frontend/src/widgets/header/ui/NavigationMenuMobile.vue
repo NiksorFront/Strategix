@@ -10,8 +10,8 @@ const { navData } = defineProps<{
 }>();
 
 const { locale } = useI18n()
-const currentLocale = locale.value || 'ru'
-const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.ru
+const currentLocale = locale.value || 'expamle'
+const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.expamle
 
 const buttonText = translations.header.mobile_menu.button.text
 const buttonHref = translations.header.mobile_menu.button.href
