@@ -3,7 +3,7 @@ import localesConfig from '@/content/locales.json'
 
 
 const { locale, setLocale } = useI18n()
-
+const isDropdown = localesConfig.locales.length >= 5
 const CurrentLanguage = localesConfig.locales.find(langConfig => langConfig.code === locale.value)
 
 const changeLanguage = (langCode: string) => {
@@ -20,14 +20,14 @@ const changeLanguage = (langCode: string) => {
     <div class="lang-switcher">
       <!-- активный язык со стрелкой -->
       <button
-        class="small-text lang-current "
+        :class="['small-text', 'lang-current', !isDropdown ? 'lang-current-inline' : '']"
         type="button"
       >
         {{ CurrentLanguage ? CurrentLanguage.name : localesConfig.default }}
       </button>
 
-      <!-- выпадающий список всех языков -->
-      <ul class="lang-list">
+      <!-- список всех языков -->
+      <ul :class="isDropdown ? 'lang-list-column' : 'lang-list'">
         <li
           v-for="language in localesConfig.locales"
           :key="language.name"
@@ -100,7 +100,8 @@ const changeLanguage = (langCode: string) => {
   }
 
   /* сам дропдаун */
-  .lang-list {
+  .lang-list,
+  .lang-list-column {
     position: absolute;
     top: 100%;
     right: -12px;
@@ -145,14 +146,21 @@ const changeLanguage = (langCode: string) => {
   }
 
   .lang-switcher:hover .lang-list,
+  .lang-switcher:hover .lang-list-column,
+  .lang-list-column:hover,
   .lang-list:hover {
     opacity: 1;
     pointer-events: auto;
   }
 
   .lang-switcher:hover .lang-current::after,
+  .lang-list-column:hover ~ .lang-current::after,
   .lang-list:hover ~ .lang-current::after {
     transform: translateY(3px) rotate(-135deg);
+  }
+
+  .lang-current-inline {
+    display: inline-flex;
   }
 
   @media (--laptop-width) {
@@ -160,8 +168,8 @@ const changeLanguage = (langCode: string) => {
       display: block;
     }
 
-    /* кнопку с активным языком прячем */
-    .lang-current {
+    /* кнопку прячем, оставляем только горизонтальный список */
+    .lang-current-inline {
       display: none;
     }
 
@@ -184,7 +192,7 @@ const changeLanguage = (langCode: string) => {
       transform: none;
     }
 
-    .lang-item + .lang-item {
+    .lang-list .lang-item + .lang-item {
       margin-top: 0;
       margin-left: clamp(20px, 2vw, 48px); /* расстояние между языками */
     }
