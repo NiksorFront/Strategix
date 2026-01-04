@@ -59,7 +59,7 @@ const members = translations.our_team.members
     }
 
     @media(--mobile-medium){
-      min-height: calc(var(--vh) * 100);
+      min-height: calc(var(--vh) * 110);
       margin-bottom: calc(-1.5 * var(--padding-section-x));
     }
 }
@@ -91,7 +91,7 @@ const members = translations.our_team.members
 
   @media(--mobile-medium){
     grid-template-columns: repeat(auto-fit, minmax(calc(25.175% - var(--gap-grid)), 1fr));
-    grid-auto-rows: calc(var(--vh) * 35);
+    grid-auto-rows: calc(var(--vh) * 40);
   }
   
 }
