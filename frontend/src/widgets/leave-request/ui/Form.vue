@@ -11,7 +11,10 @@
 </script>
 
 <template>
-  <form class="form">
+  <form
+    id="#data-collection-form"
+    class="form"
+  >
     <div class="lr-form">
       <h4 class="base-text title">
         {{ formData.title }}

@@ -121,6 +121,11 @@ const normalizeIconSrc = (src?: string) => {
   return src;
 };
 
+const normalizeFooterIconItem = (icon: any): FooterIcon => ({
+  src: icon?.src || '',
+  href: icon?.href || '',
+});
+
 const queueIconForDeletion = (src?: string) => {
   const normalized = normalizeIconSrc(src);
   if (!normalized || !normalized.startsWith('/icons/')) return;
@@ -184,7 +189,18 @@ const serviceCards: { key: ServiceKey; label: string }[] = [
   { key: 'ads', label: 'Ads' },
 ];
 
-const defaultSectionIds = ['#header', '#welcome', '#about-us', '#services', '#our-projects', '#market-response', '#contacts', '#our-team', '#leave-request'];
+const defaultSectionIds = ['#', '#about-us', '#services', '#our-projects', '#market-response', '#contacts', '#our-team', '#data-collection-form'];
+const sectionIdLabelMap: Record<string, string> = {
+  '#': 'Главная',
+  '#about-us': 'О нас',
+  '#services': 'Услуги',
+  '#our-projects': 'Наши проекты',
+  '#market-response': 'Ответы на вызовы',
+  '#contacts': 'Контакты',
+  '#our-team': 'Наша команда',
+  '#data-collection-form': 'Форма сбора',
+};
+const getSectionLabel = (id: string) => sectionIdLabelMap[id] || id;
 
 const ensureDefaults = (localeData: LocaleTranslation) => {
   localeData.header ??= {};
@@ -266,26 +282,16 @@ const ensureDefaults = (localeData: LocaleTranslation) => {
   agree.link ??= '';
   agree.href_pdf ??= '';
 
-  localeData.footer ??= { brand: '', rights: '', privacy_policy: { text: '', href: '', href_pdf: '' }, email: '', icon1: { src: '', href: '' }, icon2: { src: '', href: '' }, icons: [] };
-  localeData.footer.privacy_policy ??= { text: '', href: '', href_pdf: '' };
-  localeData.footer.icon1 ??= { src: '', href: '' };
-  localeData.footer.icon2 ??= { src: '', href: '' };
-  if (!Array.isArray(localeData.footer.icons)) localeData.footer.icons = [];
-  const footerIcons = localeData.footer.icons as FooterIcon[];
-  if (footerIcons.length === 0) {
-    if (localeData.footer.icon1?.src || localeData.footer.icon1?.href) {
-      footerIcons.push({ src: localeData.footer.icon1.src || '', href: localeData.footer.icon1.href || '' });
-    }
-    if (localeData.footer.icon2?.src || localeData.footer.icon2?.href) {
-      footerIcons.push({ src: localeData.footer.icon2.src || '', href: localeData.footer.icon2.href || '' });
-    }
-  }
-  footerIcons.forEach((icon, idx) => {
-    footerIcons[idx] = { src: icon?.src || '', href: icon?.href || '' };
-  });
+  localeData.footer ??= { brand: '', rights: '', privacy_policy: { text: '', href: '', href_pdf: '' }, email: '', icons: [] };
+  const footer = localeData.footer;
+  footer.privacy_policy ??= { text: '', href: '', href_pdf: '' };
+
+  if (!Array.isArray(footer.icons)) footer.icons = [];
+  const footerIcons = (footer.icons as any[]).map(normalizeFooterIconItem);
   while (footerIcons.length < 2) {
     footerIcons.push({ src: '', href: '' });
   }
+  footer.icons = footerIcons;
 };
 
 const initializeTranslations = () => {
@@ -327,7 +333,7 @@ const sectionIdOptions = computed(() => {
     (header.navigation_desktop || []).forEach((item: NavItem) => item?.href && ids.add(item.href));
     (header.mobile_menu?.navigation_mobile || []).forEach((item: NavItem) => item?.href && ids.add(item.href));
   });
-  return Array.from(ids);
+  return Array.from(ids).filter((id) => id !== '#welcome');
 });
 
 const desktopNavCharCount = computed(() =>
@@ -946,11 +952,6 @@ const syncContactsItems = () => {
   });
 };
 
-const normalizeFooterIconItem = (icon: any): FooterIcon => ({
-  src: icon?.src || '',
-  href: icon?.href || '',
-});
-
 const syncFooterIcons = () => {
   Object.values(editedTranslations.value).forEach((locale) => {
     const footer = locale?.footer;
@@ -962,8 +963,6 @@ const syncFooterIcons = () => {
     while (footer.icons.length < 2) {
       footer.icons.push({ src: '', href: '' });
     }
-    footer.icon1 = footer.icons[0] ? { src: footer.icons[0].src || '', href: footer.icons[0].href || '' } : { src: '', href: '' };
-    footer.icon2 = footer.icons[1] ? { src: footer.icons[1].src || '', href: footer.icons[1].href || '' } : { src: '', href: '' };
   });
 };
 
@@ -985,15 +984,6 @@ const collectUsedIconSources = (translations: TranslationsMap) => {
     if (Array.isArray(footerIcons)) {
       footerIcons.forEach((icon: FooterIcon) => {
         const normalized = normalizeIconSrc(icon?.src);
-        if (normalized && normalized.startsWith('/icons/')) {
-          sources.add(normalized);
-        }
-      });
-    }
-    const footer = locale?.footer;
-    if (footer) {
-      ['icon1', 'icon2'].forEach((key) => {
-        const normalized = normalizeIconSrc((footer as any)?.[key]?.src);
         if (normalized && normalized.startsWith('/icons/')) {
           sources.add(normalized);
         }
@@ -1348,7 +1338,7 @@ const saveIndex = async () => {
                                 :key="id"
                                 :value="id"
                               >
-                                {{ id }}
+                                {{ getSectionLabel(id) }}
                               </SelectItem>
                             </SelectContent>
                           </Select>
@@ -1437,7 +1427,7 @@ const saveIndex = async () => {
                                 :key="id"
                                 :value="id"
                               >
-                                {{ id }}
+                                {{ getSectionLabel(id) }}
                               </SelectItem>
                             </SelectContent>
                           </Select>

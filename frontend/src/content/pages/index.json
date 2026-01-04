@@ -9,7 +9,7 @@
                         "text": "О нас"
                     },
                     {
-                        "href": "#header",
+                        "href": "#",
                         "text": "Главная"
                     },
                     {
@@ -58,7 +58,7 @@
                 "title": "МЫ СТРОИМ РЕПУТАЦИЮ И ОТКРЫВАЕМ ДВЕРИ НА МЕЖДУНАРОДНЫЕ РЫНКИ",
                 "subtitle": "Международное позиционирование через медиа, ивенты и доверие профессионального сообщества.",
                 "button": {
-                    "text": "ЗАПОЛНИТЕ АНКЕТУ",
+                    "text": "ЗАПОЛНИТЕ АНКЕТУ ",
                     "href": "#contacts"
                 },
                 "urls": {
@@ -312,22 +312,14 @@
                         "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
                         "href": "https://www.linkedin.com/company/strategix/"
                     }
-                ],
-                "icon1": {
-                    "src": "/icons/1766455160554-d04f861e-1da0-4dbc-a85b-b7872bcbbc12.svg",
-                    "href": "https://t.me/strategix"
-                },
-                "icon2": {
-                    "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
-                    "href": "https://www.linkedin.com/company/strategix/"
-                }
+                ]
             }
         },
         "en": {
             "header": {
                 "navigation_desktop": [
                     {
-                        "href": "#header",
+                        "href": "#",
                         "text": "Home"
                     },
                     {
@@ -573,13 +565,6 @@
                     "title": "Leave a request to discuss the project",
                     "items": [
                         {
-                            "type": "email",
-                            "value": "hello@strategix.com",
-                            "src": "",
-                            "text": "",
-                            "href": ""
-                        },
-                        {
                             "type": "phone",
                             "value": "+595 955 084 893",
                             "src": "",
@@ -587,15 +572,22 @@
                             "href": ""
                         },
                         {
-                            "type": "link",
+                            "type": "email",
+                            "value": "hello@strategix.com",
                             "src": "",
+                            "text": "",
+                            "href": ""
+                        },
+                        {
+                            "type": "link",
+                            "src": "/icons/1766455160522-b6ec1027-52b3-4535-8d8c-215848f0dfbf.svg",
                             "text": "telegram",
                             "href": "https://t.me/strategix",
                             "value": ""
                         },
                         {
                             "type": "link",
-                            "src": "",
+                            "src": "/icons/1766455160535-78a4e325-647a-4ff8-8527-d0308c2ef933.svg",
                             "text": "whatsapp",
                             "href": "https://wa.me/595955084893",
                             "value": ""
@@ -628,29 +620,21 @@
                 "email": "hello@strategix.com",
                 "icons": [
                     {
-                        "src": "",
+                        "src": "/icons/1766455160554-d04f861e-1da0-4dbc-a85b-b7872bcbbc12.svg",
                         "href": "https://t.me/strategix"
                     },
                     {
-                        "src": "",
+                        "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
                         "href": "https://www.linkedin.com/company/strategix/"
                     }
-                ],
-                "icon1": {
-                    "src": "",
-                    "href": "https://t.me/strategix"
-                },
-                "icon2": {
-                    "src": "",
-                    "href": "https://www.linkedin.com/company/strategix/"
-                }
+                ]
             }
         },
         "de": {
             "header": {
                 "navigation_desktop": [
                     {
-                        "href": "#header",
+                        "href": "#",
                         "text": "Startseite"
                     },
                     {
@@ -896,13 +880,6 @@
                     "title": "Hinterlassen Sie eine Anfrage, um das Projekt zu besprechen",
                     "items": [
                         {
-                            "type": "email",
-                            "value": "hello@strategix.com",
-                            "src": "",
-                            "text": "",
-                            "href": ""
-                        },
-                        {
                             "type": "phone",
                             "value": "+595 955 084 893",
                             "src": "",
@@ -910,15 +887,22 @@
                             "href": ""
                         },
                         {
-                            "type": "link",
+                            "type": "email",
+                            "value": "hello@strategix.com",
                             "src": "",
-                            "text": "telegramm",
+                            "text": "",
+                            "href": ""
+                        },
+                        {
+                            "type": "link",
+                            "src": "/icons/1766455160522-b6ec1027-52b3-4535-8d8c-215848f0dfbf.svg",
+                            "text": "telegramme",
                             "href": "https://t.me/strategix",
                             "value": ""
                         },
                         {
                             "type": "link",
-                            "src": "",
+                            "src": "/icons/1766455160535-78a4e325-647a-4ff8-8527-d0308c2ef933.svg",
                             "text": "whatsapp",
                             "href": "https://wa.me/595955084893",
                             "value": ""
@@ -951,29 +935,21 @@
                 "email": "hello@strategix.com",
                 "icons": [
                     {
-                        "src": "",
+                        "src": "/icons/1766455160554-d04f861e-1da0-4dbc-a85b-b7872bcbbc12.svg",
                         "href": "https://t.me/strategix"
                     },
                     {
-                        "src": "",
+                        "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
                         "href": "https://www.linkedin.com/company/strategix/"
                     }
-                ],
-                "icon1": {
-                    "src": "",
-                    "href": "https://t.me/strategix"
-                },
-                "icon2": {
-                    "src": "",
-                    "href": "https://www.linkedin.com/company/strategix/"
-                }
+                ]
             }
         },
         "es": {
             "header": {
                 "navigation_desktop": [
                     {
-                        "href": "#header",
+                        "href": "#",
                         "text": "Inicio"
                     },
                     {
@@ -1219,13 +1195,6 @@
                     "title": "Deja una solicitud para discutir el proyecto",
                     "items": [
                         {
-                            "type": "email",
-                            "value": "hello@strategix.com",
-                            "src": "",
-                            "text": "",
-                            "href": ""
-                        },
-                        {
                             "type": "phone",
                             "value": "+595 955 084 893",
                             "src": "",
@@ -1233,15 +1202,22 @@
                             "href": ""
                         },
                         {
-                            "type": "link",
+                            "type": "email",
+                            "value": "hello@strategix.com",
                             "src": "",
-                            "text": "telegram",
+                            "text": "",
+                            "href": ""
+                        },
+                        {
+                            "type": "link",
+                            "src": "/icons/1766455160522-b6ec1027-52b3-4535-8d8c-215848f0dfbf.svg",
+                            "text": "telegramas",
                             "href": "https://t.me/strategix",
                             "value": ""
                         },
                         {
                             "type": "link",
-                            "src": "",
+                            "src": "/icons/1766455160535-78a4e325-647a-4ff8-8527-d0308c2ef933.svg",
                             "text": "whatsapp",
                             "href": "https://wa.me/595955084893",
                             "value": ""
@@ -1274,22 +1250,14 @@
                 "email": "hello@strategix.com",
                 "icons": [
                     {
-                        "src": "",
+                        "src": "/icons/1766455160554-d04f861e-1da0-4dbc-a85b-b7872bcbbc12.svg",
                         "href": "https://t.me/strategix"
                     },
                     {
-                        "src": "",
+                        "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
                         "href": "https://www.linkedin.com/company/strategix/"
                     }
-                ],
-                "icon1": {
-                    "src": "",
-                    "href": "https://t.me/strategix"
-                },
-                "icon2": {
-                    "src": "",
-                    "href": "https://www.linkedin.com/company/strategix/"
-                }
+                ]
             }
         },
         "example": {
@@ -1364,7 +1332,7 @@
                 }
             },
             "about_us": {
-                "title": "заголовок",
+                "title": "о нас",
                 "items": [
                     {
                         "title": "заголовок",
@@ -1384,7 +1352,7 @@
                 ]
             },
             "services": {
-                "title": "заголовок",
+                "title": "Услуги",
                 "reputation": {
                     "title": "репутация",
                     "description": "описание",
@@ -1477,7 +1445,7 @@
             },
             "our_projects": {
                 "enable": false,
-                "title": "заголовок",
+                "title": "Наши проекты",
                 "filters": [
                     "Кейсы"
                 ],
@@ -1539,7 +1507,7 @@
             },
             "leave_request": {
                 "contacts": {
-                    "title": "заголовок",
+                    "title": "Оставьте заявку, чтобы обсудить проект",
                     "items": [
                         {
                             "type": "email",
@@ -1572,13 +1540,13 @@
                     ]
                 },
                 "form": {
-                    "title": "заголовок",
-                    "name": "имя",
-                    "phone": "+0 (000) 000-00-00",
-                    "title2": "заголовок",
+                    "title": "Ваши контакты",
+                    "name": "Имя *",
+                    "phone": "Телефон *",
+                    "title2": "О проекте",
                     "question": "вопрос",
                     "question2": "вопрос",
-                    "button": "кнопка",
+                    "button": "ОТПРАВИТЬ",
                     "agree": {
                         "text": "текст",
                         "link": "ссылка",
@@ -1588,9 +1556,9 @@
             },
             "footer": {
                 "brand": "STRATEGIX",
-                "rights": "годы и права",
+                "rights": "© 2022–     ВСЕ ПРАВА ЗАЩИЩЕНЫ",
                 "privacy_policy": {
-                    "text": "текст",
+                    "text": "ПОЛИТИКА  КОНФИДЕНЦИАЛЬНОСТИ",
                     "href_pdf": ""
                 },
                 "email": "email@example.com",
@@ -1603,15 +1571,7 @@
                         "src": "",
                         "href": ""
                     }
-                ],
-                "icon1": {
-                    "src": "",
-                    "href": ""
-                },
-                "icon2": {
-                    "src": "",
-                    "href": ""
-                }
+                ]
             }
         }
     }

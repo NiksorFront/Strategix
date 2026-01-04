@@ -23,7 +23,6 @@ const translations = index.translations[currentLocale as keyof typeof index.tran
 
 const contacts = translations.leave_request.contacts || {}
 const title = contacts.title || ''
-const urls = contacts.urls || {}
 const rawItems = Array.isArray(contacts.items) ? (contacts.items as ContactItem[]) : []
 
 const normalizeContact = (item: ContactItem): ContactDisplayItem | null => {
@@ -43,33 +42,7 @@ const normalizeContact = (item: ContactItem): ContactDisplayItem | null => {
   return { type, value, href }
 }
 
-const legacyItems: ContactItem[] = []
-
-if (typeof urls.email === 'string' && urls.email) {
-  legacyItems.push({ type: 'email', value: urls.email })
-}
-
-if (typeof urls.phone === 'string' && urls.phone) {
-  legacyItems.push({ type: 'phone', value: urls.phone })
-}
-
-const legacyLinks = Object.entries(urls)
-  .filter(([key, value]) => key.startsWith('url') && value && typeof value === 'object')
-  .sort(([aKey], [bKey]) => {
-    const aNum = Number(aKey.replace(/\D/g, '')) || 0
-    const bNum = Number(bKey.replace(/\D/g, '')) || 0
-    return aNum - bNum
-  })
-  .map(([, value]) => ({
-    type: 'link',
-    src: (value as Record<string, string>)?.src || '',
-    text: (value as Record<string, string>)?.text || '',
-    href: (value as Record<string, string>)?.href || '',
-  })) as ContactItem[]
-
-legacyItems.push(...legacyLinks)
-
-const sourceItems = rawItems.length ? rawItems : legacyItems
+const sourceItems = rawItems || []
 
 const contactItems = sourceItems
   .map(normalizeContact)
