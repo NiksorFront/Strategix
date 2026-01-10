@@ -13,45 +13,93 @@
   useHead(head);
 
   onMounted(() => {
-    const ua = navigator.userAgent;
-    // ограничиваем логику браузерами на WebKit (Safari, iOS WebView/Chrome)
-    const isWebKit = /AppleWebKit/.test(ua) && !/Chrome|Chromium|OPR|Edg/.test(ua);
+    const coarsePointer = window.matchMedia?.('(pointer: coarse)')?.matches ?? false;
+    const isTouchDevice = coarsePointer || navigator.maxTouchPoints > 0;
 
-    if (!isWebKit) return;
+    if (!isTouchDevice) return;
 
-    let prevInnerHeight = window.innerHeight;
+    const getViewportHeight = () => window.visualViewport?.height ?? window.innerHeight;
 
-    const setVh = () => {
-      const vh = window.innerHeight * 0.01;
+    let prevViewportHeight = getViewportHeight();
+    let isTextInputFocused = false;
+    let keyboardBlurTimeout: ReturnType<typeof setTimeout> | null = null;
+
+    const isTextInput = (target: EventTarget | null) => {
+      if (!(target instanceof HTMLElement)) return false;
+      const tag = target.tagName;
+      return (
+        tag === 'INPUT' ||
+        tag === 'TEXTAREA' ||
+        tag === 'SELECT' ||
+        target.isContentEditable
+      );
+    };
+    const isTextInputActive = () => isTextInput(document.activeElement);
+
+    const setVh = (height = getViewportHeight()) => {
+      const vh = height * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     };
 
     const onResize = () => {
-      const current = window.innerHeight;
+      // Не обновляем --vh во время ввода: это предотвращает скачки прокрутки при клавиатуре.
+      if (isTextInputFocused || isTextInputActive()) return;
+      const current = getViewportHeight();
       // фильтруем мелкие изменения высоты (движение панелей)
-      if (Math.abs(current - prevInnerHeight) > 130) {
-        prevInnerHeight = current;
-        setVh();
+      if (Math.abs(current - prevViewportHeight) > 130) {
+        prevViewportHeight = current;
+        setVh(current);
       }
     };
 
     const onOrientationChange = () => {
       // даём WebView стабилизироваться
       setTimeout(() => {
-        prevInnerHeight = window.innerHeight;
-        setVh();
+        prevViewportHeight = getViewportHeight();
+        setVh(prevViewportHeight);
       }, 300);
     };
 
+    const onFocusIn = (event: FocusEvent) => {
+      if (!isTextInput(event.target)) return;
+      isTextInputFocused = true;
+      if (keyboardBlurTimeout) {
+        clearTimeout(keyboardBlurTimeout);
+        keyboardBlurTimeout = null;
+      }
+    };
+
+    const onFocusOut = (event: FocusEvent) => {
+      if (!isTextInput(event.target)) return;
+      if (keyboardBlurTimeout) {
+        clearTimeout(keyboardBlurTimeout);
+      }
+      // даем клавиатуре закрыться и пропускаем resize на этот момент
+      keyboardBlurTimeout = setTimeout(() => {
+        isTextInputFocused = false;
+        keyboardBlurTimeout = null;
+      }, 400);
+    };
+
     // первый замер — только на клиенте, уже внутри onMounted
-    setVh();
+    setVh(prevViewportHeight);
 
     window.addEventListener('resize', onResize);
     window.addEventListener('orientationchange', onOrientationChange);
+    document.addEventListener('focusin', onFocusIn);
+    document.addEventListener('focusout', onFocusOut);
+    window.visualViewport?.addEventListener('resize', onResize);
 
     onBeforeUnmount(() => {
       window.removeEventListener('resize', onResize);
       window.removeEventListener('orientationchange', onOrientationChange);
+      document.removeEventListener('focusin', onFocusIn);
+      document.removeEventListener('focusout', onFocusOut);
+      window.visualViewport?.removeEventListener('resize', onResize);
+      if (keyboardBlurTimeout) {
+        clearTimeout(keyboardBlurTimeout);
+        keyboardBlurTimeout = null;
+      }
     });
   });
 </script>

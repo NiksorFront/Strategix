@@ -142,23 +142,23 @@
         {{ formData.title }}
       </h4>
       <input
+        v-model="formValues.name"
         class="base-text field"
         type="text"
         :placeholder="`${formData.name} *`"
         :class="{ 'field--error': errors.name }"
         :aria-invalid="Boolean(errors.name)"
         name="name"
-        v-model="formValues.name"
         @input="clearValidationState"
       >
       <input
+        v-model="formValues.phone"
         class="base-text field"
         type="tel"
         :placeholder="`${formData.phone} *`"
         :class="{ 'field--error': errors.phone }"
         :aria-invalid="Boolean(errors.phone)"
         name="phone"
-        v-model="formValues.phone"
         @input="clearValidationState"
       >
 
@@ -166,18 +166,18 @@
         {{ formData.title2 }}
       </h4>
       <input
+        v-model="formValues.question"
         class="base-text field"
         type="text"
         :placeholder="formData.question"
         name="question"
-        v-model="formValues.question"
         @input="clearValidationState"
       >
       <textarea
+        v-model="formValues.question2"
         class="base-text field textarea"
         :placeholder="formData.question2"
         name="question2"
-        v-model="formValues.question2"
         @input="clearValidationState"
       />
 

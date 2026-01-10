@@ -123,6 +123,10 @@ const buttonHref = translations.header.mobile_menu.button.href
     @media(--mobile-medium) {
       display: none;
     }
+
+    @media(width <= 768px){
+      display: inline;
+    }
     
 }
 
@@ -252,7 +256,8 @@ const buttonHref = translations.header.mobile_menu.button.href
     height: fit-content;
     text-decoration: none;
 
-    font-size: min(60px, 15vw);
+    /* font-size: min(60px, 15vw); */
+    font-size: min(min(60px, 15vw), 10vh);
     font-weight: 800;
     line-height: 110%;
     letter-spacing: 0;

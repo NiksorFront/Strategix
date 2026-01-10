@@ -87,7 +87,8 @@
     }
 
     @media(--mobile-medium){
-      height: calc(var(--vh) * 105);
+      height: calc(var(--vh) * 115);
+      padding: calc(var(--vh) * 7.5) var(--padding-section-x) calc(var(--vh) * 10);
     }
 }
 </style>

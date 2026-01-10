@@ -60,9 +60,7 @@ function go() {
 
   @media(--mobile-medium){
     min-width: 32.5%;
-    /* height: fit-content; */
   }
-
 }
 
 .img-card{

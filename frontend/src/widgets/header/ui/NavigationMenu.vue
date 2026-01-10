@@ -37,6 +37,10 @@
     @media(--mobile-medium){
       display: inline;
     }
+    
+    @media(width <= 768px){
+      display: none;
+    }
   }
 
   .navigation ul{

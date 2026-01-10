@@ -34,6 +34,7 @@ import Form from './Form.vue';
     @media(--mobile-medium){
       min-height: calc(var(--vh) * 105);
       height: calc(var(--vh) * 105);
+      height: max(calc(var(--vh) * 105), calc(320px + var(--vh) * 10));
     }
 }
 </style>
