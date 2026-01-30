@@ -16,9 +16,11 @@ const props = withDefaults(
     styleButton?: 'base' | 'green' | 'white',
     href?: string,
     target?: string,
+    theme?: 'dark' | 'light',
   }>(),
   {
     styleButton: 'base',
+    theme: 'dark',
   },
 );
 
@@ -37,8 +39,12 @@ const iconSrc = computed(() => {
 
 <template>
   <a
-    class="button base-text"
-    :class="props.styleButton"
+    :class="[
+      'button',
+      'base-text',
+      props.styleButton,
+      props.theme
+    ]"
     :href="props.href"
     :target="props.target"
   >
@@ -80,7 +86,7 @@ const iconSrc = computed(() => {
     border-style: none;
     border-radius: 50px;
 
-    color: var(--strategix-light);
+    color: var(--button-text-color);
     cursor: pointer;
     position: relative;
 
@@ -106,6 +112,14 @@ const iconSrc = computed(() => {
 
       padding: calc(var(--vh) * 2) calc(var(--vh) * 6) calc(var(--vh) * 2) calc(var(--vh) * 2);
     }
+  }
+
+  .button.light{
+    --button-text-color: var(--strategix-dark);
+  }
+
+  .button.dark{
+    --button-text-color: var(--strategix-light);
   }
 
   /* Круг с иконкой */
@@ -138,7 +152,7 @@ const iconSrc = computed(() => {
   .base {
     background-color: transparent;
     border-style: none;
-    color: var(--strategix-light);
+    color: var(--button-text-color);
   }
 
   .base .icon {
@@ -167,7 +181,11 @@ const iconSrc = computed(() => {
     border-style: solid;
     border-color: var(--strategix-accent);
     background-color: var(--strategix-dark);
-    color: var(--strategix-light);
+    color: var(--button-text-color);
+  }
+
+  .green.light{
+    background-color: var(--strategix-light);
   }
 
   .green .icon {
@@ -200,7 +218,7 @@ const iconSrc = computed(() => {
   .white {
     border: none;
     background-color: var(--strategix-dark);
-    color: var(--strategix-light);
+    color: var(--button-text-color);
   }
 
   /* иконка крупнее, на белом фоне */

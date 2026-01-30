@@ -1,16 +1,24 @@
 <script setup lang="ts">
-    const {navData} = defineProps<{
-            navData: {
-                links: { href: string; label: string }[]
-            }
-        }>()
+  const props = withDefaults(
+    defineProps<{
+      navData: {
+        links: { href: string; label: string }[]
+      }
+      theme?: 'dark' | 'light'
+    }>(),
+    {
+      theme: 'dark',
+    },
+  )
 </script>
 
 <template>
-  <nav class="navigation">
+  <nav
+    :class="['navigation', props.theme]"
+  >
     <ul>
       <li
-        v-for="(link, index) in navData.links"
+        v-for="(link, index) in props.navData.links"
         :key="index"
       >
         <a
@@ -43,6 +51,14 @@
     }
   }
 
+  .navigation.light{
+    --nav-text-color: var(--strategix-dark);
+  }
+
+  .navigation.dark{
+    --nav-text-color: var(--strategix-light);
+  }
+
   .navigation ul{
     list-style: none;
     
@@ -57,7 +73,7 @@
 
   .navigation ul li a{
     text-decoration: none;
-    color: white;
+    color: var(--nav-text-color);
     text-wrap: nowrap;
   }
 </style>

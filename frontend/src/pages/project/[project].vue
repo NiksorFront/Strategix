@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import projectsContent from '@/content/pages/projects.json'
+import Header from '@/widgets/header';
+import Footer from '@/widgets/footer';
+import Expamle1 from './expamle1.vue'
 
 const route = useRoute()
 
@@ -15,13 +18,9 @@ const descriptionProject = computed(() => projectsContent.projects.group1[curren
 </script>
 
 <template>
-  <p class="base-text">
-    {{ projectType }}
-  </p>
-  <p class="small-text">
-    {{ project }}
-  </p>
-  <p class="small-text">
-    {{ descriptionProject }} 
-  </p>
+  <Header theme="light" /> 
+  <main>
+    <Expamle1 />
+  </main>
+  <!-- <Footer /> -->
 </template>

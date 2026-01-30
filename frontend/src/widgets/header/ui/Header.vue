@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import ButtonWithIcon from "@/shared/ui/button-with-icon"
-  import strategixLogo from "@/assets/images/strategix-white.svg";
+  import strategixLogoWhite from "@/assets/images/strategix-white.svg";
+  import strategixLogoBlack from "@/assets/images/strategix-black.svg";
   import LangSwitcher from './LangSwitcher.vue'
   import NavigationMenu from "./NavigationMenu.vue";
   import NavigationMenuMobile from "./NavigationMenuMobile.vue";
@@ -9,6 +10,13 @@
   const { locale } = useI18n()
   const currentLocale = locale.value || 'example'
   const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.example
+
+  const { theme } = defineProps({
+    theme: {
+      type: String as () => 'dark' | 'light',
+      default: 'dark'
+    } 
+  })
 
   const navData = {
     links: translations.header.navigation_desktop.map(item => ({
@@ -29,11 +37,11 @@
 <template>
   <header
     id="header"
-    class="header"
+    :class="['header', theme]"
   >
     <NuxtImg
       class="strategix-logo"
-      :src="strategixLogo"
+      :src="theme === 'light' ? strategixLogoBlack : strategixLogoWhite"
       alt="strategix logo"
       :width="172"
       :height="36"
@@ -42,14 +50,18 @@
     
     <span class="space" />
 
-    <NavigationMenu :nav-data="navData" /> <!-- планшет - пк -->
+    <NavigationMenu
+      :nav-data="navData"
+      :theme="theme"
+    /> <!-- планшет - пк -->
 
-    <LangSwitcher />
+    <LangSwitcher :theme="theme" />
 
     <ButtonWithIcon
       class="fill-form-button"
       style-button="green"
       :href="buttonHref"
+      :theme="theme"
     >
       {{ buttonText }}
     </ButtonWithIcon>
@@ -65,8 +77,6 @@
     padding: calc(var(--vh) * 6.75) var(--padding-section-x) 0;
     box-sizing: border-box;
 
-    background-color: var(--strategix-dark);
-
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -74,6 +84,14 @@
 
     position: relative;
     z-index: 5;
+  }
+
+  .header.light {
+    background-color: var(--strategix-light);
+  }
+  
+  .header.dark {
+    background-color: var(--strategix-dark);
   }
 
   .strategix-logo{

@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import localesConfig from '@/content/locales.json'
 
+const props = withDefaults(
+  defineProps<{
+    theme?: 'dark' | 'light'
+  }>(),
+  {
+    theme: 'dark',
+  },
+)
 
 const { locale, setLocale } = useI18n()
 const isDropdown = localesConfig.locales.length >= 5
@@ -16,7 +24,9 @@ const changeLanguage = (langCode: string) => {
 </script>
 
 <template>
-  <nav class="lang-nav">
+  <nav
+    :class="['lang-nav', props.theme]"
+  >
     <div class="lang-switcher">
       <!-- активный язык со стрелкой -->
       <button
@@ -50,6 +60,14 @@ const changeLanguage = (langCode: string) => {
     position: relative;
   }
 
+  .lang-nav.light{
+    --lang-text-color: var(--strategix-dark);
+  }
+
+  .lang-nav.dark{
+    --lang-text-color: var(--strategix-light);
+  }
+
   .lang-switcher {
     position: relative;
     display: inline-block;     
@@ -70,7 +88,7 @@ const changeLanguage = (langCode: string) => {
 
     border: none;
     background: transparent;
-    color: #ffffff;
+    color: var(--lang-text-color);
 
     cursor: pointer;
     white-space: nowrap;
@@ -92,8 +110,8 @@ const changeLanguage = (langCode: string) => {
     width: 6px;
     height: 6px;
 
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
+    border-right: 2px solid var(--lang-text-color);
+    border-bottom: 2px solid var(--lang-text-color);
     transform: translateY(-2px) rotate(45deg);      /* стрелка вниз */
     transform-origin: center;
     transition: transform 0.15s ease;
@@ -133,7 +151,7 @@ const changeLanguage = (langCode: string) => {
     outline: none;
 
     text-decoration: none;
-    color: white;
+    color: var(--lang-text-color);
     white-space: nowrap;
 
     @media(width < 768px){
