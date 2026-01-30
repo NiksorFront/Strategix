@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import localesConfig from '@/content/locales.json'
 
-const props = withDefaults(
-  defineProps<{
-    theme?: 'dark' | 'light'
-  }>(),
-  {
-    theme: 'dark',
-  },
-)
+const { theme } = defineProps({
+  theme: {
+    type: String as () => 'dark' | 'light',
+    default: 'dark'
+  } 
+})
 
 const { locale, setLocale } = useI18n()
 const isDropdown = localesConfig.locales.length >= 5
@@ -25,7 +23,7 @@ const changeLanguage = (langCode: string) => {
 
 <template>
   <nav
-    :class="['lang-nav', props.theme]"
+    :class="['lang-nav', theme]"
   >
     <div class="lang-switcher">
       <!-- активный язык со стрелкой -->

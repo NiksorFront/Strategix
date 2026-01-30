@@ -1,10 +1,7 @@
 <script setup lang="ts">
-
+    import ExampleWelcome from '@/widgets/example-welcome';
 </script>
 
 <template>
-  <p>проект</p>
+  <ExampleWelcome />
 </template>
-
-<style scoped>
-</style>

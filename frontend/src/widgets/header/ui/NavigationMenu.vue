@@ -1,24 +1,27 @@
 <script setup lang="ts">
-  const props = withDefaults(
-    defineProps<{
-      navData: {
-        links: { href: string; label: string }[]
-      }
-      theme?: 'dark' | 'light'
-    }>(),
-    {
-      theme: 'dark',
+  type Link = { href: string; label: string }
+  type NavData = { links: Link[] }
+
+  const { navData, theme }  = defineProps({
+    navData: {
+      type: Object as () => NavData,
+      default: () => ({ links: [] })
     },
-  )
+    theme: {
+      type: String as () => 'dark' | 'light',
+      default: 'dark'
+    } 
+  })
+
 </script>
 
 <template>
   <nav
-    :class="['navigation', props.theme]"
+    :class="['navigation', theme]"
   >
     <ul>
       <li
-        v-for="(link, index) in props.navData.links"
+        v-for="(link, index) in navData.links"
         :key="index"
       >
         <a
