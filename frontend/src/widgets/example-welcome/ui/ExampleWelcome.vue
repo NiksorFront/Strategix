@@ -82,12 +82,12 @@
     }
 
     @media(--mobile-medium){
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
         grid-template-areas:
-          "welcome"
-          "about"
-          "description";
-        gap: min(calc(var(--vh) * 5), 36px);
+          "welcome welcome"
+          "description about";
+        column-gap: clamp(24px, 5vw, 72px);
+        row-gap: clamp(36px, calc(var(--vh) * 10), 108px);
     }
 }
 

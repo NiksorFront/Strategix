@@ -1,4 +1,6 @@
-<script>
+<script setup lang="ts">
+  import IndexSectionTitle from '@/shared/ui/index-section-title/IndexSectionTitle.vue';
+
 </script>
 
 <template>
@@ -23,10 +25,14 @@
 <style scoped>
 .example-goals-company{
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 3), 48px);
+  padding-block: min(calc(var(--vh) * 8), 80px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
   background-color: var(--strategix-light);
+
+  @media(--tablet-width){
+    padding-block: min(calc(var(--vh) * 12), 120px);
+  }
 
   @media(--mobile-medium){
     padding-block: min(calc(var(--vh) * 6), 60px);
@@ -55,7 +61,7 @@
 
 .goals-list{
   list-style: none;
-  padding: min(calc(var(--vh) * 2), 20px) 0;
+  padding: min(calc(var(--vh) * 2), 20px) 0 0;
   margin: 0;
 
   display: flex;
@@ -63,11 +69,12 @@
   gap: min(calc(var(--vh) * 1), 10px);
 
   @media(--tablet-width){
-    padding: min(calc(var(--vh) * 6), 120px) 0;
+    padding: min(calc(var(--vh) * 6), 120px) 0 0;
     gap: min(calc(var(--vh) * 2), 40px);
   }
 
   @media(--mobile-medium){
+    padding: min(calc(var(--vh) * 1), 10px) 0 0;
     gap: min(calc(var(--vh) * 1), 10px);
   }
 }
