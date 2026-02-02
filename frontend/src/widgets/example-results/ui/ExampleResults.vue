@@ -1,6 +1,11 @@
 <script setup lang="ts">
     import ExampleSectionTitle from '@/shared/ui/example-section-title';
     import CellWithResult from './CellWithResult.vue';
+    import type { ExampleResultsData } from '../model/types';
+
+    defineProps<{
+      data: ExampleResultsData;
+    }>();
 </script>
 
 <template>
@@ -9,28 +14,15 @@
       Результат
     </ExampleSectionTitle>
     <p class="description base-text">
-      Цель достигнута — клиент получил устойчивый поток заявок и вовлечённую аудиторию на год вперёд.
+      {{ data.description }}
     </p>
     <ul class="cells-list">
       <CellWithResult
-        title="Получили"
-        result="282"
-        unit_measurement="Заявок"
-      />
-      <CellWithResult
-        title="Стоимость лида"
-        result="12,36 £"
-        unit_measurement="Стоимость"
-      />
-      <CellWithResult
-        title="Подписчики"
-        result="476"
-        unit_measurement="Новые"
-      />
-      <CellWithResult
-        title="Стоимость лида"
-        result="7,32 £"
-        unit_measurement="Стоимость"
+        v-for="(item, index) in data.items"
+        :key="`${item.title}-${index}`"
+        :title="item.title"
+        :result="item.result"
+        :unit_measurement="item.unit_measurement"
       />
     </ul>
   </section>

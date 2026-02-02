@@ -17,6 +17,34 @@
                     {"label": "Country", "value": "USA"},
                     {"label": "Audience", "value": "Russian-speaking"}
                 ]
+            },
+            "goals-company": {
+                "list": [
+                    "Lead generation via the website and Instagram (requests for consultations on talent visas and relocation to the USA)."
+                ]
+            },
+            "what-did": {
+                "description": "FROM AUGUST TO OCTOBER 2025, 15 AD CAMPAIGNS WITH DIFFERENT GOALS WERE LAUNCHED",
+                "list": [
+                    "Website leads for consultation requests. Direct-message sales to receive requests directly in Instagram.",
+                    "Instagram traffic to warm up the audience, increase engagement, and generate leads.",
+                    "Ads used short videos and banners focusing on the benefits of talent visas and the turnkey price."
+                ]
+            },
+            "results": {
+                "description": "Not all website conversions are shown in the ad account due to technical limitations, but we accounted for them in Yandex Metrica.",
+                "items": [
+                    {"title": "Leads received", "result": "498", "unit_measurement": "Instagram"},
+                    {"title": "Cost per lead", "result": "4.20 $", "unit_measurement": "Cost"},
+                    {"title": "Leads received", "result": "74", "unit_measurement": "Website"},
+                    {"title": "Cost per lead", "result": "31.60 $", "unit_measurement": "Cost"}
+                ]
+            },
+            "other-projects": {
+                "projects": [
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
+                ]
             }
         },
         "ru": {
@@ -33,6 +61,34 @@
                     {"label": "Клиент", "value": "M&M"},
                     {"label": "Страна", "value": "США"},
                     {"label": "Аудитория", "value": "Русскоязычная"}
+                ]
+            },
+            "goals-company": {
+                "list": [
+                    "Получение лидов через сайт и Instagram (заявки на консультации по визам талантов и релокации в США)."
+                ]
+            },
+            "what-did": {
+                "description": "С АВГУСТА ПО ОКТЯБРЬ 2025 ГОДА ЗАПУЩЕНО 15 РЕКЛАМНЫХ КАМПАНИЙ С РАЗНЫМИ ЦЕЛЯМИ",
+                "list": [
+                    "Лиды на сайт — для заявок на консультацию. Продажи в сообщениях в Direct — для получения заявок напрямую в Instagram.",
+                    "Трафик в Instagram — для прогрева аудитории, увеличения вовлеченности и получения заявок.",
+                    "В рекламе использовались короткие видео и баннеры с акцентом на выгоды визы талантов и цену \"под ключ\"."
+                ]
+            },
+            "results": {
+                "description": "Не все конверсии с сайта отображаются в кабинете в виду технических особенностей, но мы их учли по Яндекс Метрике.",
+                "items": [
+                    {"title": "Получено заявок", "result": "498", "unit_measurement": "Instagram"},
+                    {"title": "Стоимость лида", "result": "4,20 $", "unit_measurement": "Стоимость"},
+                    {"title": "Получено заявок", "result": "74", "unit_measurement": "Сайт"},
+                    {"title": "Стоимость лида", "result": "31,60 $", "unit_measurement": "Стоимость"}
+                ]
+            },
+            "other-projects": {
+                "projects": [
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
                 ]
             }
         },
@@ -51,6 +107,34 @@
                     {"label": "Land", "value": "USA"},
                     {"label": "Publikum", "value": "Russischsprachig"}
                 ]
+            },
+            "goals-company": {
+                "list": [
+                    "Lead-Generierung über die Website und Instagram (Anfragen für Beratungen zu Talentvisa und Relocation in die USA)."
+                ]
+            },
+            "what-did": {
+                "description": "VON AUGUST BIS OKTOBER 2025 WURDEN 15 WERBEKAMPAGNEN MIT UNTERSCHIEDLICHEN ZIELEN GESTARTET",
+                "list": [
+                    "Website-Leads für Beratungsanfragen. Verkäufe in Direct-Nachrichten, um Anfragen direkt in Instagram zu erhalten.",
+                    "Instagram-Traffic zum Aufwärmen der Zielgruppe, zur Steigerung des Engagements und zur Lead-Generierung.",
+                    "In der Werbung wurden kurze Videos und Banner eingesetzt, mit Fokus auf die Vorteile von Talentvisa und den Komplettpreis."
+                ]
+            },
+            "results": {
+                "description": "Nicht alle Website-Conversions werden im Werbekonto aus technischen Gründen angezeigt, aber wir haben sie über Yandex Metrica berücksichtigt.",
+                "items": [
+                    {"title": "Erhaltene Leads", "result": "498", "unit_measurement": "Instagram"},
+                    {"title": "Kosten pro Lead", "result": "4,20 $", "unit_measurement": "Kosten"},
+                    {"title": "Erhaltene Leads", "result": "74", "unit_measurement": "Website"},
+                    {"title": "Kosten pro Lead", "result": "31,60 $", "unit_measurement": "Kosten"}
+                ]
+            },
+            "other-projects": {
+                "projects": [
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
+                ]
             }
         },
         "es": {
@@ -67,6 +151,34 @@
                     {"label": "Cliente", "value": "M&M"},
                     {"label": "País", "value": "EE. UU."},
                     {"label": "Audiencia", "value": "De habla rusa"}
+                ]
+            },
+            "goals-company": {
+                "list": [
+                    "Captación de leads a través del sitio web e Instagram (solicitudes de consultas sobre visas de talento y reubicación en EE. UU.)."
+                ]
+            },
+            "what-did": {
+                "description": "DE AGOSTO A OCTUBRE DE 2025 SE LANZARON 15 CAMPAÑAS PUBLICITARIAS CON DISTINTOS OBJETIVOS",
+                "list": [
+                    "Leads al sitio web para solicitudes de consulta. Ventas en mensajes Direct para recibir solicitudes directamente en Instagram.",
+                    "Tráfico a Instagram para calentar a la audiencia, aumentar el engagement y generar leads.",
+                    "En la publicidad se usaron videos cortos y banners con énfasis en los beneficios de las visas de talento y el precio \"llave en mano\"."
+                ]
+            },
+            "results": {
+                "description": "No todas las conversiones del sitio web se muestran en la cuenta debido a limitaciones técnicas, pero las contabilizamos en Yandex Metrica.",
+                "items": [
+                    {"title": "Leads recibidos", "result": "498", "unit_measurement": "Instagram"},
+                    {"title": "Costo por lead", "result": "4,20 $", "unit_measurement": "Costo"},
+                    {"title": "Leads recibidos", "result": "74", "unit_measurement": "Sitio web"},
+                    {"title": "Costo por lead", "result": "31,60 $", "unit_measurement": "Costo"}
+                ]
+            },
+            "other-projects": {
+                "projects": [
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
                 ]
             }
         }

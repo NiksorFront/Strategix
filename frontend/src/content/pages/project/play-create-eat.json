@@ -16,6 +16,35 @@
                     {"label": "Country", "value": "UAE"},
                     {"label": "Audience", "value": "Dubai"}
                 ]
+            },
+            "goals-company": {
+                "list": [
+                    "Attract followers and receive inquiries in Instagram and WhatsApp before the club opening and after launch",
+                    "Increase brand awareness among parents."
+                ]
+            },
+            "what-did": {
+                "description": "THE COOPERATION STARTED AT THE PRE-LAUNCH PREPARATION STAGE. FROM MARCH 20, 2025 TO JULY 31, 2025, 8 CAMPAIGNS WITH DIFFERENT GOALS WERE LAUNCHED",
+                "list": [
+                    "Traffic to Instagram and WhatsApp for inquiries about the opening and various services (birthdays, breakfasts, kids camp, etc.).",
+                    "Reach campaigns to warm up the audience, increase awareness, and grow followers.",
+                    "Tested a series of banners, Reels, and video teasers with branding elements, photos of the club zones, and launch offers."
+                ]
+            },
+            "results": {
+                "description": "Goal achieved — the client received a steady flow of inquiries and an engaged audience for the year ahead.",
+                "items": [
+                    {"title": "New followers", "result": "5324", "unit_measurement": "Instagram"},
+                    {"title": "Cost per lead", "result": "7.9 DH", "unit_measurement": "Cost"},
+                    {"title": "Inquiries", "result": "1126", "unit_measurement": "Instagram & WhatsApp"},
+                    {"title": "Cost per lead", "result": "37.4 DH", "unit_measurement": "Cost"}
+                ]
+            },
+            "other-projects": {
+                "projects": [
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
+                ]
             }
         },
         "ru": {
@@ -31,6 +60,35 @@
                     {"label": "Клиент", "value": "PlayCreateEat"},
                     {"label": "Страна", "value": "ОАЭ"},
                     {"label": "Аудитория", "value": "Дубай"}
+                ]
+            },
+            "goals-company": {
+                "list": [
+                    "Привлечение подписчиков и получение заявок в Instagram и WhatsApp к открытию клуба и после открытия",
+                    "Повышение узнаваемости бренда среди родителей."
+                ]
+            },
+            "what-did": {
+                "description": "СОТРУДНИЧЕСТВО НАЧАЛОСЬ ЕЩЕ НА ЭТАПЕ ПОДГОТОВКИ К ОТКРЫТИЮ. С 20 МАРТА 2025 ПО 31 ИЮЛЯ 2025 БЫЛО ЗАПУЩЕНО 8 КАМПАНИЙ С РАЗНЫМИ ЦЕЛЯМИ",
+                "list": [
+                    "Трафик в Instagram и WhatsApp для заявок на открытие и разные услуги (дни рождения, завтраки, детский лагерь и др.)",
+                    "Охват для прогрева аудитории, повышения узнаваемости, роста подписчиков.",
+                    "Протестировали серию баннеров, Reels и видеоанонсов с элементами брендинга, фото зон клуба и выгодными предложениями на открытие."
+                ]
+            },
+            "results": {
+                "description": "Цель достигнута — клиент получил устойчивый поток заявок и вовлечённую аудиторию на год вперёд.",
+                "items": [
+                    {"title": "Новые подписчики", "result": "5324", "unit_measurement": "Instagram"},
+                    {"title": "Стоимость лида", "result": "7,9 DH", "unit_measurement": "Стоимость"},
+                    {"title": "Заявки", "result": "1126", "unit_measurement": "Instagram & WhatsApp"},
+                    {"title": "Стоимость лида", "result": "37,4 DH", "unit_measurement": "Стоимость"}
+                ]
+            },
+            "other-projects": {
+                "projects": [
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
                 ]
             }
         },
@@ -48,6 +106,35 @@
                     {"label": "Land", "value": "VAE"},
                     {"label": "Publikum", "value": "Dubai"}
                 ]
+            },
+            "goals-company": {
+                "list": [
+                    "Abonnenten gewinnen und Anfragen über Instagram und WhatsApp vor der Cluberöffnung und nach dem Launch erhalten",
+                    "Steigerung der Markenbekanntheit bei Eltern."
+                ]
+            },
+            "what-did": {
+                "description": "DIE ZUSAMMENARBEIT BEGANN BEREITS IN DER VORBEREITUNGSPHASE DER ERÖFFNUNG. VOM 20. MÄRZ 2025 BIS ZUM 31. JULI 2025 WURDEN 8 KAMPAGNEN MIT UNTERSCHIEDLICHEN ZIELEN GESTARTET",
+                "list": [
+                    "Traffic zu Instagram und WhatsApp für Anfragen zur Eröffnung und zu verschiedenen Leistungen (Geburtstage, Frühstücke, Kinderlager usw.).",
+                    "Reichweite-Kampagnen zum Aufwärmen der Zielgruppe, zur Steigerung der Bekanntheit und zum Wachstum der Abonnenten.",
+                    "Eine Reihe von Bannern, Reels und Video-Teasern wurde getestet, mit Branding-Elementen, Fotos der Clubbereiche und attraktiven Eröffnungsangeboten."
+                ]
+            },
+            "results": {
+                "description": "Ziel erreicht — der Kunde erhielt einen stabilen Strom an Anfragen und eine engagierte Zielgruppe für das kommende Jahr.",
+                "items": [
+                    {"title": "Neue Abonnenten", "result": "5324", "unit_measurement": "Instagram"},
+                    {"title": "Kosten pro Lead", "result": "7,9 DH", "unit_measurement": "Kosten"},
+                    {"title": "Anfragen", "result": "1126", "unit_measurement": "Instagram & WhatsApp"},
+                    {"title": "Kosten pro Lead", "result": "37,4 DH", "unit_measurement": "Kosten"}
+                ]
+            },
+            "other-projects": {
+                "projects": [
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
+                ]
             }
         },
         "es": {
@@ -63,6 +150,35 @@
                     {"label": "Cliente", "value": "PlayCreateEat"},
                     {"label": "País", "value": "EAU"},
                     {"label": "Audiencia", "value": "Dubái"}
+                ]
+            },
+            "goals-company": {
+                "list": [
+                    "Atraer seguidores y recibir solicitudes en Instagram y WhatsApp antes de la apertura del club y después de abrir",
+                    "Aumentar el reconocimiento de la marca entre los padres."
+                ]
+            },
+            "what-did": {
+                "description": "LA COLABORACIÓN COMENZÓ EN LA ETAPA DE PREPARACIÓN PARA LA APERTURA. DEL 20 DE MARZO DE 2025 AL 31 DE JULIO DE 2025 SE LANZARON 8 CAMPAÑAS CON DISTINTOS OBJETIVOS",
+                "list": [
+                    "Tráfico a Instagram y WhatsApp para solicitudes sobre la apertura y diferentes servicios (cumpleaños, desayunos, campamento infantil, etc.).",
+                    "Campañas de alcance para calentar a la audiencia, aumentar el reconocimiento y crecer en seguidores.",
+                    "Se probaron una serie de banners, Reels y videos de anuncio con elementos de branding, fotos de las zonas del club y ofertas de apertura."
+                ]
+            },
+            "results": {
+                "description": "Objetivo logrado: el cliente obtuvo un flujo estable de solicitudes y una audiencia comprometida para el año siguiente.",
+                "items": [
+                    {"title": "Nuevos seguidores", "result": "5324", "unit_measurement": "Instagram"},
+                    {"title": "Costo por lead", "result": "7,9 DH", "unit_measurement": "Costo"},
+                    {"title": "Solicitudes", "result": "1126", "unit_measurement": "Instagram & WhatsApp"},
+                    {"title": "Costo por lead", "result": "37,4 DH", "unit_measurement": "Costo"}
+                ]
+            },
+            "other-projects": {
+                "projects": [
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
                 ]
             }
         }

@@ -1,12 +1,11 @@
 <script setup lang="ts">
     import ExampleSectionTitle from '@/shared/ui/example-section-title';
     import ExampleList from '@/shared/ui/example-list';
+    import type { ExampleGoalsCompanyData } from '../model/types';
 
-    const goalsList = [
-      'Получение подписок в Instagram',
-      'Продвижение услуг компании преимущественно среди владельцев модных брендов и дизайнеров',
-      'Привлечение новых клиентов через Instagram и WhatsApp',
-    ]
+    defineProps<{
+      data: ExampleGoalsCompanyData;
+    }>();
 </script>
 
 <template>
@@ -14,7 +13,7 @@
     <ExampleSectionTitle>
       Цели компании
     </ExampleSectionTitle>
-    <ExampleList :list="goalsList" />
+    <ExampleList :list="data.list" />
   </section>
 </template>
 

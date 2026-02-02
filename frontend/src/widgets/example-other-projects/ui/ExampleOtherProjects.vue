@@ -1,23 +1,16 @@
  <script setup lang="ts">
-  const projects = [
-    {
-      title: 'Toba can wine',
-      src: '/images/toba.jpg',
-      direction: 'left',
-    },
-    {
-      title: 'Touch digital summit',
-      src: '/images/touch.jpg',
-      direction: 'right',
-    },
-  ]
+  import type { ExampleOtherProjectsData } from '../model/types';
+
+  defineProps<{
+    data: ExampleOtherProjectsData;
+  }>();
 </script>
 
 <template>
   <section class="example-other-projects">
     <ul class="projects-list">
       <li
-        v-for="project in projects"
+        v-for="project in data.projects"
         :key="project.title"
         class="project-card"
         :class="`project-card--${project.direction}`"

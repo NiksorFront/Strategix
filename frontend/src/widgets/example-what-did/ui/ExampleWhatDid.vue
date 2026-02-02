@@ -1,13 +1,11 @@
 <script setup lang="ts">
   import ExampleSectionTitle from '@/shared/ui/example-section-title';
   import ExampleList from '@/shared/ui/example-list';
+  import type { ExampleWhatDidData } from '../model/types';
 
-  const goalsList = [
-      'Вовлеченность в Instagram — на получение заявок.',
-      'Трафик в Instagram — для прогрева аудитории и привлечения новых подписчиков, а также получения заявок.',
-      'Трафик WhatsApp — для получения прямых запросов от потенциальных клиентов.',
-      'В рекламе использовались баннеры и короткие видео в фирменном стиле, адаптированные под визуальный язык fashion-индустрии.'
-  ]
+  defineProps<{
+    data: ExampleWhatDidData;
+  }>();
 </script>
 
 <template>
@@ -16,11 +14,11 @@
       Что сделали
     </ExampleSectionTitle>
     <p class="base-text description">
-      В период с 30 марта по 30 июня 2025 года были запущены 3 рекламные кампании с разными целями
+      {{ data.description }}
     </p>
 
     <ExampleList
-      :list="goalsList"
+      :list="data.list"
       :is-white="true"
     />
   </section>
