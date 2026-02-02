@@ -6,7 +6,7 @@
             "welcome":{
                 "sphere": "ADVERTISING",
                 "name": "M&M",
-                "img": "/images/m&m.jpg",
+                "img": "/images/m-and-m.jpg",
                 "description": [
                     "M&M is a company that helps specialists and entrepreneurs obtain talent visas, business visas, and arrange relocation to the USA.",
                     "We support clients at every stage, from assessing their chances and preparing documents to moving and adapting in the country."
@@ -51,7 +51,7 @@
             "welcome":{
                 "sphere": "РЕКЛАМА",
                 "name": "M&M",
-                "img": "/images/m&m.jpg",
+                "img": "/images/m-and-m.jpg",
                 "description": [
                     "M&M — компания, помогающая специалистам и предпринимателям получить визы талантов, бизнес-визы и оформить релокацию в США.",
                     "Сопровождаем клиентов на всех этапах от оценки шансов и подготовки документов до переезда и адаптации в стране."
@@ -96,7 +96,7 @@
             "welcome":{
                 "sphere": "ADVERTISING",
                 "name": "M&M",
-                "img": "/images/m&m.jpg",
+                "img": "/images/m-and-m.jpg",
                 "description": [
                     "M&M ist ein Unternehmen, das Fachleuten und Unternehmern hilft, Talentvisa und Geschäftsvisa zu erhalten und die Umsiedlung in die USA zu organisieren.",
                     "Wir begleiten Kunden in allen Phasen, von der Bewertung der Chancen und der Vorbereitung der Dokumente bis zum Umzug und der Anpassung im Land."
@@ -141,7 +141,7 @@
             "welcome":{
                 "sphere": "ADVERTISING",
                 "name": "M&M",
-                "img": "/images/m&m.jpg",
+                "img": "/images/m-and-m.jpg",
                 "description": [
                     "M&M es una empresa que ayuda a profesionales y emprendedores a obtener visas de talento, visas de negocios y gestionar la reubicación en Estados Unidos.",
                     "Acompañamos a los clientes en todas las etapas, desde la evaluación de las posibilidades y la preparación de documentos hasta la mudanza y la adaptación en el país."

@@ -7,9 +7,10 @@
 </script>
 
 <template>
-  <ExampleWelcome />
+  <!-- <ExampleWelcome />
   <ExampleGoalsCompany />
   <ExampleWhatDid />
   <ExampleResults />
-  <ExampleOtherProjects />
+  <ExampleOtherProjects /> -->
+  <p>Example 1 project page</p>
 </template>

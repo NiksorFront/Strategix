@@ -1,42 +1,33 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useRouter } from 'vue-router'
-
 const {route, src, title, description} = defineProps<{route: string, src: string, title: string, description: string}>()
 
 const { locale } = useI18n()
-const router = useRouter()
-
-function go() {
-  router.push(`/${locale.value}/project/${route}`)
-}
 </script>
 
 <template>
-  <li
-    class="project-card"
-    role="link"
-    tabindex="0"
-    @click="go"
-    @keydown.enter="go"
-  >
-    <NuxtImg
-      :src="src"
-      class="img-card"
-      sizes="(max-width: 767px) 74.36vw, (max-width: 1023px) 32.5vw, 33vw"
-      format="webp"
-      :quality="80"
-      :alt="title"
-      loading="lazy"
-      :width="1000"
-      :height="1000"
-    />
-    <h4 class="base-text title-card">
-      {{ title }}
-    </h4>
-    <p class="small-text description-card">
-      {{ description }}
-    </p>
+  <li class="project-card">
+    <NuxtLink
+      class="project-card-link"
+      :to="`/${locale}/project/${route}`"
+    >
+      <NuxtImg
+        :src="src"
+        class="img-card"
+        sizes="(max-width: 767px) 74.36vw, (max-width: 1023px) 32.5vw, 33vw"
+        format="webp"
+        :quality="80"
+        :alt="title"
+        loading="lazy"
+        :width="1000"
+        :height="1000"
+      />
+      <h4 class="base-text title-card">
+        {{ title }}
+      </h4>
+      <p class="small-text description-card">
+        {{ description }}
+      </p>
+    </NuxtLink>
   </li>
 </template>
 
@@ -61,6 +52,14 @@ function go() {
   @media(--mobile-medium){
     min-width: 32.5%;
   }
+}
+
+.project-card-link{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
 }
 
 .img-card{

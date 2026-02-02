@@ -1,3 +1,3 @@
-import ExampleOtherProjects from "./ui/ExampleOtherPRojects.vue";
+import ExampleOtherProjects from "./ui/ExampleOtherProjects.vue";
 
 export default ExampleOtherProjects

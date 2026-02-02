@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ExampleWelcomeData } from '../model/types';
 
-defineProps<{
+const {data} = defineProps<{
   data: ExampleWelcomeData;
 }>();
 </script>
@@ -16,6 +16,7 @@ defineProps<{
         class="welcome-img"
         :src="data.img"
         :alt="data.name"
+        format="webp"
         width="1200"
         height="572"
         loading="lazy"
@@ -25,7 +26,11 @@ defineProps<{
       {{ data.description.join(' ') }}
     </p>
     <div class="about-case">
-      <div v-for="(item, index) in data.about" :key="`${item.label}-${index}`" class="about-row">
+      <div
+        v-for="(item, index) in data.about"
+        :key="`${item.label}-${index}`"
+        class="about-row"
+      >
         <p class="about-label base-text">
           {{ item.label }}
         </p>

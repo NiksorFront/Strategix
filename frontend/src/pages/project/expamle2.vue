@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <ExampleWelcome />
+  <!-- <ExampleWelcome /> -->
   <section class="vremenno">
     Чуть позже здесь будет вёрста для подставления данных из JSON
   </section>
