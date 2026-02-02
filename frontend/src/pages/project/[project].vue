@@ -22,5 +22,5 @@ const descriptionProject = computed(() => projectsContent.projects.group1[curren
   <main>
     <Expamle1 />
   </main>
-  <!-- <Footer /> -->
+  <Footer />
 </template>

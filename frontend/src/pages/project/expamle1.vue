@@ -3,6 +3,7 @@
     import ExampleGoalsCompany from '@/widgets/example-goals-company';
     import ExampleWhatDid from '@/widgets/example-what-did';
     import ExampleResults from '@/widgets/example-results';
+    import ExampleOtherProjects from '@/widgets/example-other-projects';
 </script>
 
 <template>
@@ -10,4 +11,5 @@
   <ExampleGoalsCompany />
   <ExampleWhatDid />
   <ExampleResults />
+  <ExampleOtherProjects />
 </template>
