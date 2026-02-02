@@ -1,0 +1,74 @@
+{
+    "id": "m&m",
+    "example": "1",
+    "translations": {
+        "en": {
+            "welcome":{
+                "sphere": "ADVERTISING",
+                "name": "M&M",
+                "img": "/images/m&m.jpg",
+                "description": [
+                    "M&M is a company that helps specialists and entrepreneurs obtain talent visas, business visas, and arrange relocation to the USA.",
+                    "We support clients at every stage, from assessing their chances and preparing documents to moving and adapting in the country."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Advertising"},
+                    {"label": "Client", "value": "M&M"},
+                    {"label": "Country", "value": "USA"},
+                    {"label": "Audience", "value": "Russian-speaking"}
+                ]
+            }
+        },
+        "ru": {
+            "welcome":{
+                "sphere": "РЕКЛАМА",
+                "name": "M&M",
+                "img": "/images/m&m.jpg",
+                "description": [
+                    "M&M — компания, помогающая специалистам и предпринимателям получить визы талантов, бизнес-визы и оформить релокацию в США.",
+                    "Сопровождаем клиентов на всех этапах от оценки шансов и подготовки документов до переезда и адаптации в стране."
+                ],
+                "about": [
+                    {"label": "Сектор", "value": "Реклама"},
+                    {"label": "Клиент", "value": "M&M"},
+                    {"label": "Страна", "value": "США"},
+                    {"label": "Аудитория", "value": "Русскоязычная"}
+                ]
+            }
+        },
+        "de": {
+            "welcome":{
+                "sphere": "ADVERTISING",
+                "name": "M&M",
+                "img": "/images/m&m.jpg",
+                "description": [
+                    "M&M ist ein Unternehmen, das Fachleuten und Unternehmern hilft, Talentvisa und Geschäftsvisa zu erhalten und die Umsiedlung in die USA zu organisieren.",
+                    "Wir begleiten Kunden in allen Phasen, von der Bewertung der Chancen und der Vorbereitung der Dokumente bis zum Umzug und der Anpassung im Land."
+                ],
+                "about": [
+                    {"label": "Sektor", "value": "Werbung"},
+                    {"label": "Kunde", "value": "M&M"},
+                    {"label": "Land", "value": "USA"},
+                    {"label": "Publikum", "value": "Russischsprachig"}
+                ]
+            }
+        },
+        "es": {
+            "welcome":{
+                "sphere": "ADVERTISING",
+                "name": "M&M",
+                "img": "/images/m&m.jpg",
+                "description": [
+                    "M&M es una empresa que ayuda a profesionales y emprendedores a obtener visas de talento, visas de negocios y gestionar la reubicación en Estados Unidos.",
+                    "Acompañamos a los clientes en todas las etapas, desde la evaluación de las posibilidades y la preparación de documentos hasta la mudanza y la adaptación en el país."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Publicidad"},
+                    {"label": "Cliente", "value": "M&M"},
+                    {"label": "País", "value": "EE. UU."},
+                    {"label": "Audiencia", "value": "De habla rusa"}
+                ]
+            }
+        }
+    }
+}

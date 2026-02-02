@@ -1,0 +1,70 @@
+{
+    "id": "play-create-eat",
+    "example": "1",
+    "translations": {
+        "en": {
+            "welcome":{
+                "sphere": "ADVERTISING",
+                "name": "PlayCreateEat",
+                "img": "/images/PlayCreateEat.jpg",
+                "description": [
+                    "Play Create Eat is a family space in Dubai, created so that children can develop through play, creativity, and healthy habits, and parents."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Advertising"},
+                    {"label": "Client", "value": "PlayCreateEat"},
+                    {"label": "Country", "value": "UAE"},
+                    {"label": "Audience", "value": "Dubai"}
+                ]
+            }
+        },
+        "ru": {
+            "welcome":{
+                "sphere": "РЕКЛАМА",
+                "name": "PlayCreateEat",
+                "img": "/images/PlayCreateEat.jpg",
+                "description": [
+                    "Play Create Eat — это семейное пространство в Дубае, созданное так, чтобы дети могли развиваться через игру, творчество и здоровые привычки, а родители."
+                ],
+                "about": [
+                    {"label": "Сектор", "value": "Реклама"},
+                    {"label": "Клиент", "value": "PlayCreateEat"},
+                    {"label": "Страна", "value": "ОАЭ"},
+                    {"label": "Аудитория", "value": "Дубай"}
+                ]
+            }
+        },
+        "de": {
+            "welcome":{
+                "sphere": "ADVERTISING",
+                "name": "PlayCreateEat",
+                "img": "/images/PlayCreateEat.jpg",
+                "description": [
+                    "Play Create Eat ist ein Familienraum in Dubai, der so geschaffen wurde, dass Kinder sich durch Spiel, Kreativität und gesunde Gewohnheiten entwickeln können, und Eltern."
+                ],
+                "about": [
+                    {"label": "Sektor", "value": "Werbung"},
+                    {"label": "Kunde", "value": "PlayCreateEat"},
+                    {"label": "Land", "value": "VAE"},
+                    {"label": "Publikum", "value": "Dubai"}
+                ]
+            }
+        },
+        "es": {
+            "welcome":{
+                "sphere": "ADVERTISING",
+                "name": "PlayCreateEat",
+                "img": "/images/PlayCreateEat.jpg",
+                "description": [
+                    "Play Create Eat es un espacio familiar en Dubái, creado para que los niños puedan desarrollarse a través del juego, la creatividad y hábitos saludables, y los padres."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Publicidad"},
+                    {"label": "Cliente", "value": "PlayCreateEat"},
+                    {"label": "País", "value": "EAU"},
+                    {"label": "Audiencia", "value": "Dubái"}
+                ]
+            }
+        }
+    }
+}

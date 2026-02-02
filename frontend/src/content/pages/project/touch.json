@@ -1,0 +1,74 @@
+{
+    "id": "touch",
+    "example": "1",
+    "translations": {
+        "en": {
+            "welcome":{
+                "sphere": "DIGITAL SUMMIT",
+                "name": "TOUCH",
+                "img": "/images/touch.jpg",
+                "description": [
+                    "Touch is the largest technology conference in Georgia, bringing together representatives of the entire digital industry: from designers and IT specialists to marketers and entrepreneurs.",
+                    "The task was to create a visual identity that highlights the international level while preserving the creative energy and openness of Georgia's digital community."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Branding"},
+                    {"label": "Client", "value": "Touch"},
+                    {"label": "Country", "value": "Georgia"},
+                    {"label": "Expertise", "value": "Event Branding"}
+                ]
+            }
+        },
+        "ru": {
+            "welcome":{
+                "sphere": "ЦИФРОВОЙ САММИТ",
+                "name": "TOUCH",
+                "img": "/images/touch.jpg",
+                "description": [
+                    "Touch — это крупнейшая технологическая конференция в Грузии, объединяющая представителей всей цифровой индустрии: от дизайнеров и IT-специалистов до маркетологов и предпринимателей.",
+                    "Задача создать визуальную идентику, которая подчеркнёт международный уровень, при этом сохранит творческую энергию и открытость цифрового сообщества Грузии."
+                ],
+                "about": [
+                    {"label": "Сектор", "value": "Брендинг"},
+                    {"label": "Клиент", "value": "Touch"},
+                    {"label": "Страна", "value": "Грузия"},
+                    {"label": "Экспертиза", "value": "Брендинг ивента"}
+                ]
+            }
+        },
+        "de": {
+            "welcome":{
+                "sphere": "DIGITAL SUMMIT",
+                "name": "TOUCH",
+                "img": "/images/touch.jpg",
+                "description": [
+                    "Touch ist die größte Technologiekonferenz in Georgien und vereint Vertreter der gesamten digitalen Branche: von Designern und IT-Spezialisten bis hin zu Marketern und Unternehmern.",
+                    "Die Aufgabe bestand darin, eine visuelle Identität zu schaffen, die das internationale Niveau betont und dabei die kreative Energie und Offenheit der digitalen Gemeinschaft Georgiens bewahrt."
+                ],
+                "about": [
+                    {"label": "Sektor", "value": "Branding"},
+                    {"label": "Kunde", "value": "Touch"},
+                    {"label": "Land", "value": "Georgien"},
+                    {"label": "Expertise", "value": "Event Branding"}
+                ]
+            }
+        },
+        "es": {
+            "welcome":{
+                "sphere": "DIGITAL SUMMIT",
+                "name": "TOUCH",
+                "img": "/images/touch.jpg",
+                "description": [
+                    "Touch es la mayor conferencia tecnológica en Georgia, que reúne a representantes de toda la industria digital: desde diseñadores y especialistas en TI hasta mercadólogos y emprendedores.",
+                    "El objetivo era crear una identidad visual que destaque el nivel internacional y, al mismo tiempo, conserve la energía creativa y la apertura de la comunidad digital de Georgia."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Branding"},
+                    {"label": "Cliente", "value": "Touch"},
+                    {"label": "País", "value": "Georgia"},
+                    {"label": "Especialización", "value": "Branding de evento"}
+                ]
+            }
+        }
+    }
+}

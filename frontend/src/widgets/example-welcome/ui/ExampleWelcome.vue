@@ -1,56 +1,36 @@
 <script setup lang="ts">
+import type { ExampleWelcomeData } from '../model/types';
 
+defineProps<{
+  data: ExampleWelcomeData;
+}>();
 </script>
 
 <template>
   <section class="example-grid">
     <div class="example-welcome">
       <h1 class="title">
-        CSS
+        {{ data.name }}
       </h1>
       <NuxtImg
         class="welcome-img"
-        src="/images/css.jpg"
-        alt="css"
+        :src="data.img"
+        :alt="data.name"
         width="1200"
         height="572"
         loading="lazy"
       />
     </div>
     <p class="description base-text">
-      CSS — лондонская компания, специализирующаяся на комплексных услугах для модных брендов. Дизайн, разработка образцов, производство, маркетинг, наставничество и индивидуальный пошив.
+      {{ data.description.join(' ') }}
     </p>
-    <div class="about-project">
-      <div class="about-row">
+    <div class="about-case">
+      <div v-for="(item, index) in data.about" :key="`${item.label}-${index}`" class="about-row">
         <p class="about-label base-text">
-          Сектор
+          {{ item.label }}
         </p>
         <p class="about-value base-text">
-          Реклама
-        </p>
-      </div>
-      <div class="about-row">
-        <p class="about-label base-text">
-          Клиент
-        </p>
-        <p class="about-value base-text">
-          CSS
-        </p>
-      </div>
-      <div class="about-row">
-        <p class="about-label base-text">
-          Страна
-        </p>
-        <p class="about-value base-text">
-          Лондон
-        </p>
-      </div>
-      <div class="about-row">
-        <p class="about-label base-text">
-          Аудитория
-        </p>
-        <p class="about-value base-text">
-          Великобритания, США — запуск на англоязычную аудиторию
+          {{ item.value }}
         </p>
       </div>
     </div>
@@ -201,7 +181,7 @@
   }
 }
 
-.about-project{
+.about-case{
   grid-area: about;
   padding: 0 var(--padding-section-x) 0 var(--padding-section-x);
   display: grid;

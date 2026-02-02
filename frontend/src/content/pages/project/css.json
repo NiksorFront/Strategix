@@ -1,0 +1,74 @@
+{
+    "id": "css",
+    "example": "1",
+    "translations": {
+        "en": {
+            "welcome":{
+                "sphere": "ADVERTISING",
+                "name": "CSS",
+                "img": "/images/css.jpg",
+                "description": [
+                    "CSS is a London company specializing in comprehensive services for fashion brands.",
+                    "Design, sample development, production, marketing, mentorship, and custom tailoring."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Advertising"},
+                    {"label": "Client", "value": "CSS"},
+                    {"label": "Country", "value": "London"},
+                    {"label": "Audience", "value": "United Kingdom, USA — launch for an English-speaking audience"}
+                ]
+            }
+        },
+        "ru": {
+            "welcome":{
+                "sphere": "РЕКЛАМА",
+                "name": "CSS",
+                "img": "/images/css.jpg",
+                "description": [
+                    "CSS — лондонская компания, специализирующаяся на комплексных услугах для модных брендов.",
+                    "Дизайн, разработка образцов, производство, маркетинг, наставничество и индивидуальный пошив."
+                ],
+                "about": [
+                    {"label": "Сектор", "value": "Реклама"},
+                    {"label": "Клиент", "value": "CSS"},
+                    {"label": "Страна", "value": "Лондон"},
+                    {"label": "Аудитория", "value": "Великобритания, США — запуск на англоязычную аудиторию"}
+                ]
+            }
+        },
+        "de": {
+            "welcome":{
+                "sphere": "ADVERTISING",
+                "name": "CSS",
+                "img": "/images/css.jpg",
+                "description": [
+                    "CSS ist ein in London ansässiges Unternehmen, das sich auf umfassende Dienstleistungen für Modemarken spezialisiert.",
+                    "Design, Musterentwicklung, Produktion, Marketing, Mentoring und Maßschneiderei."
+                ],
+                "about": [
+                    {"label": "Sektor", "value": "Werbung"},
+                    {"label": "Kunde", "value": "CSS"},
+                    {"label": "Land", "value": "London"},
+                    {"label": "Publikum", "value": "Vereinigtes Königreich, USA — Start für ein englischsprachiges Publikum"}
+                ]
+            }
+        },
+        "es": {
+            "welcome":{
+                "sphere": "ADVERTISING",
+                "name": "CSS",
+                "img": "/images/css.jpg",
+                "description": [
+                    "CSS es una empresa londinense especializada en servicios integrales para marcas de moda.",
+                    "Diseño, desarrollo de muestras, producción, marketing, mentoría y confección a medida."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Publicidad"},
+                    {"label": "Cliente", "value": "CSS"},
+                    {"label": "País", "value": "Londres"},
+                    {"label": "Audiencia", "value": "Reino Unido, EE. UU. — lanzamiento para una audiencia angloparlante"}
+                ]
+            }
+        }
+    }
+}

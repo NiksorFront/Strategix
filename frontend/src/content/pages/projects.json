@@ -10,6 +10,11 @@
                         "title": "тоба",
                         "description": "для тоба мы ньюсмейкером российского разработчика ПО для резервного копирования"
                     },
+                    "bebu": {
+                        "src": "/images/bebu.jpg",
+                        "title": "бебу",
+                        "description": "BEBU — это грузинская культура"
+                    },
                     "touch": {
                         "src": "/images/touch.jpg",
                         "title": "тач",
@@ -29,6 +34,11 @@
                         "src": "/images/toba.jpg",
                         "title": "toba",
                         "description": "How we made a Russian backup software developer a newsmaker"
+                    },
+                    "bebu": {
+                        "src": "/images/bebu.jpg",
+                        "title": "bebu",
+                        "description": "BEBU is Georgian culture"
                     },
                     "touch": {
                         "src": "/images/touch.jpg",
@@ -50,6 +60,11 @@
                         "title": "toba",
                         "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
                     },
+                    "bebu": {
+                        "src": "/images/bebu.jpg",
+                        "title": "bebu",
+                        "description": "BEBU ist georgische Kultur"
+                    },
                     "touch": {
                         "src": "/images/touch.jpg",
                         "title": "touch",
@@ -69,6 +84,11 @@
                         "src": "/images/toba.jpg",
                         "title": "toba",
                         "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
+                    },
+                    "bebu": {
+                        "src": "/images/bebu.jpg",
+                        "title": "bebu",
+                        "description": "BEBU es cultura georgiana"
                     },
                     "touch": {
                         "src": "/images/touch.jpg",
@@ -99,30 +119,126 @@
         },
         "group3": {
             "ru": {
-                "title": "Реклама"
+                "title": "Реклама",
+                "cases": {
+                    "css": {
+                        "src": "/images/css.jpg",
+                        "title": "CSS",
+                        "description": "Лондонская компания,специализирующаяся на комплексных услугах для модных брендов"
+                    },
+                    "play-create-eat": {
+                        "src": "/images/PlayCreateEat.jpg",
+                        "title": "Play Create Eat",
+                        "description": "Cемейное пространство в Дубае, созданное так, чтобы дети могли развиваться через игру, творчество и здоровые привычки, а родители"
+                    },
+                    "m&m": {
+                        "src": "/images/m&m.jpg",
+                        "title": "M&M",
+                        "description": "Компания, помогающая специалистам и предпринимателям получить визы талантов, бизнес-визы и оформить релокацию в США"
+                    }
+                }
             },
             "en": {
-                "title": "Advertising"
+                "title": "Advertising",
+                "cases": {
+                    "css": {
+                        "src": "/images/css.jpg",
+                        "title": "CSS",
+                        "description": "A London company specializing in comprehensive services for fashion brands"
+                    },
+                    "play-create-eat": {
+                        "src": "/images/PlayCreateEat.jpg",
+                        "title": "Play Create Eat",
+                        "description": "A family space in Dubai designed so children can develop through play, creativity, and healthy habits, and parents"
+                    },
+                    "m&m": {
+                        "src": "/images/m&m.jpg",
+                        "title": "M&M",
+                        "description": "A company helping professionals and entrepreneurs obtain talent visas, business visas, and arrange relocation to the USA"
+                    }
+                }
             },
             "de": {
-                "title": "Werbung"
+                "title": "Werbung",
+                "cases": {
+                    "css": {
+                        "src": "/images/css.jpg",
+                        "title": "CSS",
+                        "description": "Ein Londoner Unternehmen, spezialisiert auf umfassende Dienstleistungen für Modemarken"
+                    },
+                    "play-create-eat": {
+                        "src": "/images/PlayCreateEat.jpg",
+                        "title": "Play Create Eat",
+                        "description": "Ein Familienort in Dubai, der so gestaltet ist, dass Kinder sich durch Spiel, Kreativität und gesunde Gewohnheiten entwickeln können, und Eltern"
+                    },
+                    "m&m": {
+                        "src": "/images/m&m.jpg",
+                        "title": "M&M",
+                        "description": "Ein Unternehmen, das Fachleuten und Unternehmern hilft, Talentvisa, Geschäftsvisa zu erhalten und die Umsiedlung in die USA zu organisieren"
+                    }
+                }
             },
             "es": {
-                "title": "Publicidad"
+                "title": "Publicidad",
+                "cases": {
+                    "css": {
+                        "src": "/images/css.jpg",
+                        "title": "CSS",
+                        "description": "Una empresa londinense especializada en servicios integrales para marcas de moda"
+                    },
+                    "play-create-eat": {
+                        "src": "/images/PlayCreateEat.jpg",
+                        "title": "Play Create Eat",
+                        "description": "Un espacio familiar en Dubái, creado para que los niños puedan desarrollarse a través del juego, la creatividad y hábitos saludables, y los padres"
+                    },
+                    "m&m": {
+                        "src": "/images/m&m.jpg",
+                        "title": "M&M",
+                        "description": "Una empresa que ayuda a profesionales y emprendedores a obtener visas de talento, visas de negocios y gestionar la reubicación en Estados Unidos"
+                    }
+                }
             }
         },
         "group4": {
             "ru": {
-                "title": "Построение репутации"
+                "title": "Построение репутации",
+                "cases": {
+                    "vyatcheslav-boreiko": {
+                        "src": "/images/vyatcheslav-boreiko.jpg",
+                        "title": "Вячеслав Борейко",
+                        "description": "Ресторатор, который вышел на рынок США и получил предложение открыть ресторан в Калифорнии"
+                    }
+                }
             },
             "en": {
-                "title": "Reputation Building"
+                "title": "Reputation Building",
+                "cases": {
+                    "vyatcheslav-boreiko": {
+                        "src": "/images/vyatcheslav-boreiko.jpg",
+                        "title": "Vyatcheslav Boreiko",
+                        "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California"
+                    }
+                }
             },
             "de": {
-                "title": "Reputationsaufbau"
+                "title": "Reputationsaufbau",
+                "cases": {
+                    "vyatcheslav-boreiko": {
+                        "src": "/images/vyatcheslav-boreiko.jpg",
+                        "title": "Vyatcheslav Boreiko",
+                        "description": "Ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhielt, ein Restaurant in Kalifornien zu eröffnen"
+                    }
+                }
             },
             "es": {
-                "title": "Construcción de Reputación"
+                "title": "Construcción de Reputación",
+                "cases": {
+                    "vyatcheslav-boreiko": {
+                        "src": "/images/vyatcheslav-boreiko.jpg",
+                        "title": "Vyatcheslav Boreiko",
+                        "description": "Un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California"
+                    }
+                }
             }
         }
     }

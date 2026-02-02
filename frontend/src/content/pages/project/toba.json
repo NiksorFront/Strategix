@@ -1,0 +1,78 @@
+{
+    "id": "toba",
+    "example": "1",
+    "translations": {
+        "en": {
+            "welcome":{
+                "sphere": "CAN WINE",
+                "name": "TOBA",
+                "img": "/images/toba.jpg",
+                "description": [
+                    "The TOBA project is a Georgian wine in an aluminum can, developed for the European market.",
+                    "The main idea is to introduce consumers to Georgia's rich cultural heritage in a modern format.",
+                    "Each can has a QR code that leads to a page describing one of the country’s cultural landmarks. To learn everything about Georgian heritage, you need to collect all TOBA cans."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Branding"},
+                    {"label": "Client", "value": "TOBA"},
+                    {"label": "Country", "value": "Georgia"},
+                    {"label": "Expertise", "value": "Strategy, Branding"}
+                ]
+            }
+        },
+        "ru": {
+            "welcome":{
+                "sphere": "БАНКА ВИНА",
+                "name": "TOBA",
+                "img": "/images/toba.jpg",
+                "description": [
+                    "Проект TOBA — это грузинское вино в алюминиевой банке, разработанное для европейского рынка.",
+                    "Главная идея — познакомить потребителя с богатым культурным наследием Грузии в современном формате.",
+                    "Каждая банка снабжена QR-кодом, который ведёт на страницу с описанием одного из культурных памятников страны.Чтобы узнать всё о грузинском наследии, необходимо собрать все банки TOBA."
+                ],
+                "about": [
+                    {"label": "Сектор", "value": "Берендинг"},
+                    {"label": "Клиент", "value": "TOBA"},
+                    {"label": "Страна", "value": "Грузия"},
+                    {"label": "Экспертиза", "value": "Стратегия, Брендинг"}
+                ]
+            }
+        },
+        "de": {
+            "welcome":{
+                "sphere": "CAN WINE",
+                "name": "TOBA",
+                "img": "/images/toba.jpg",
+                "description": [
+                    "Das Projekt TOBA ist ein georgischer Wein in einer Aluminiumdose, entwickelt für den europäischen Markt.",
+                    "Die Hauptidee ist, Verbraucher mit dem reichen kulturellen Erbe Georgiens in einem modernen Format vertraut zu machen.",
+                    "Jede Dose ist mit einem QR-Code versehen, der zu einer Seite mit der Beschreibung eines der kulturellen Denkmäler des Landes führt. Um alles über das georgische Erbe zu erfahren, muss man alle TOBA-Dosen sammeln."
+                ],
+                "about": [
+                    {"label": "Sektor", "value": "Branding"},
+                    {"label": "Kunde", "value": "TOBA"},
+                    {"label": "Land", "value": "Georgien"},
+                    {"label": "Expertise", "value": "Strategie, Branding"}
+                ]
+            }
+        },
+        "es": {
+            "welcome":{
+                "sphere": "CAN WINE",
+                "name": "TOBA",
+                "img": "/images/toba.jpg",
+                "description": [
+                    "El proyecto TOBA es un vino georgiano en una lata de aluminio, desarrollado para el mercado europeo.",
+                    "La idea principal es acercar al consumidor al rico patrimonio cultural de Georgia en un formato moderno.",
+                    "Cada lata lleva un código QR que dirige a una página con la descripción de uno de los monumentos culturales del país. Para conocer todo el patrimonio georgiano, hay que reunir todas las latas TOBA."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Branding"},
+                    {"label": "Cliente", "value": "TOBA"},
+                    {"label": "País", "value": "Georgia"},
+                    {"label": "Especialización", "value": "Estrategia, Branding"}
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+{
+    "id": "vyatcheslav-boreiko",
+    "example": "1",
+    "translations": {
+        "en": {
+            "welcome":{
+                "sphere": "RESTAURATEUR",
+                "name": "Vyatcheslav Boreiko",
+                "img": "/images/vyatcheslav-boreiko.jpg",
+                "description": [
+                    "Vyatcheslav Boreiko is a restaurateur who entered the US market and received an offer to open a restaurant in California."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Personal Promotion"},
+                    {"label": "Client", "value": "Vyatcheslav Boreiko"},
+                    {"label": "Country", "value": "Russia"},
+                    {"label": "Market", "value": "USA"}
+                ]
+            }
+        },
+        "ru": {
+            "welcome":{
+                "sphere": "РЕСТОРАТОР",
+                "name": "Вячеслав Борейко",
+                "img": "/images/vyatcheslav-boreiko.jpg",
+                "description": [
+                    "Вячеслав Борейко — ресторатор, который вышел на рынок США и получил предложение открыть ресторан в Калифорнии"
+                ],
+                "about": [
+                    {"label": "Сектор", "value": "Личное продвижение"},
+                    {"label": "Клиент", "value": "Вячеслав Борейко"},
+                    {"label": "Страна", "value": "Россия"},
+                    {"label": "Рынок", "value": "США"}
+                ]
+            }
+        },
+        "de": {
+            "welcome":{
+                "sphere": "RESTAURATEUR",
+                "name": "Vyatcheslav Boreiko",
+                "img": "/images/vyatcheslav-boreiko.jpg",
+                "description": [
+                    "Vyatcheslav Boreiko ist ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhalten hat, ein Restaurant in Kalifornien zu eröffnen."
+                ],
+                "about": [
+                    {"label": "Sektor", "value": "Persönliche Promotion"},
+                    {"label": "Kunde", "value": "Vyatcheslav Boreiko"},
+                    {"label": "Land", "value": "Russland"},
+                    {"label": "Markt", "value": "USA"}
+                ]
+            }
+        },
+        "es": {
+            "welcome":{
+                "sphere": "RESTAURATEUR",
+                "name": "Vyatcheslav Boreiko",
+                "img": "/images/vyatcheslav-boreiko.jpg",
+                "description": [
+                    "Vyatcheslav Boreiko es un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California."
+                ],
+                "about": [
+                    {"label": "Sector", "value": "Promoción personal"},
+                    {"label": "Cliente", "value": "Vyatcheslav Boreiko"},
+                    {"label": "País", "value": "Rusia"},
+                    {"label": "Mercado", "value": "EE. UU."}
+                ]
+            }
+        }
+    }
+}
