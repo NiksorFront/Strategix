@@ -46,7 +46,7 @@
           :quality="80"
           loading="lazy"
         />
-      </li>
+      </li> 
     </ul>
   </section>
 </template>
@@ -54,8 +54,7 @@
 <style scoped>
 .example-other-projects{
   width: var(--section-width);
-  height: 55vh;
-  padding-block: min(calc(var(--vh) * 6), 64px);
+  padding-block: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
@@ -63,51 +62,45 @@
   flex-direction: column;
 
   @media(--tablet-width){
-    height: 91vh;
-    padding-block: min(calc(var(--vh) * 9), 90px);
+    padding-block: min(calc(var(--vh) * 7), 80px);
   }
 
   @media(--mobile-medium){
-    height: 91vh;
-    padding-block: min(calc(var(--vh) * 7), 48px);
+    padding-block: min(calc(var(--vh) * 6), 56px);
   }
 }
 
 .projects-list{
-  height: 100%;
-  height: inherit;
   list-style: none;
   padding: 0;
   margin: 0;
 
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: clamp(12px, 4vw, 56px);
-  row-gap: clamp(16px, 5vw, 64px);
+  column-gap: clamp(16px, 4vw, 56px);
+  row-gap: clamp(20px, 5vw, 64px);
 
   @media(--tablet-width){
-    column-gap: clamp(24px, 5vw, 96px);
+    column-gap: clamp(10px, 1vw, 72px);
   }
 
   @media(--mobile-medium){
-    column-gap: min(4vw, 16px);
+    column-gap: min(4vw, 18px);
   }
 }
 
 .project-card{
-  height: inherit;
   margin: 0;
   display: flex;
   flex-direction: column;
-  margin: auto 0;
-  gap: min(calc(var(--vh) * 2), 18px);
+  gap: min(calc(var(--vh) * 2), 16px);
 
   @media(--tablet-width){
-    gap: clamp(16px, calc(var(--vh) * 2.2), 28px);
+    gap: clamp(14px, calc(var(--vh) * 2), 24px);
   }
 
   @media(--mobile-medium){
-    gap: min(calc(var(--vh) * 1.5), 14px);
+    gap: min(calc(var(--vh) * 1.5), 12px);
   }
 }
 
@@ -138,7 +131,7 @@
   white-space: nowrap;
 
   @media(--tablet-width){
-    font-size: clamp(16px, 1.6vw, 40px);
+    font-size: clamp(16px, 1vw, 32px);
   }
 
   @media(--mobile-medium){
@@ -157,22 +150,20 @@
 
 .project-image{
   width: 100%;
-  max-height: 70%;
+  height: auto;
   margin: 0;
-  /* height: fit-content; */
-  /* aspect-ratio: 1 / 1; */
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
   border-radius: var(--card-radius);
 
 
   @media(--tablet-width){
-    /* height: max-content; */
-    max-height: 75%;
+    aspect-ratio: 4 / 3;
   }
 
   @media(--mobile-medium){
-    max-height: 70%;
+    aspect-ratio: 4 / 3;
   }
 }
 </style>

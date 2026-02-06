@@ -27,23 +27,23 @@
 <style scoped>
 .example-goals-company{
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 4.5), 48px);
+  padding-block: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
   background-color: var(--strategix-accent);
 
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 3.5), 48px);
+  gap: min(calc(var(--vh) * 3), 36px);
 
   @media(--tablet-width){
-    padding-block: min(calc(var(--vh) * 10), 80px);
-    gap: min(calc(var(--vh) * 7), 70px);
+    padding-block: min(calc(var(--vh) * 7), 80px);
+    gap: min(calc(var(--vh) * 3.5), 40px);
   }
 
   @media(--mobile-medium){
-    padding-block: min(calc(var(--vh) * 10.5), 42px);
-    gap: min(calc(var(--vh) * 8), 30px);
+    padding-block: min(calc(var(--vh) * 8), 56px);
+    gap: min(calc(var(--vh) * 3), 24px);
   }
 }
 
@@ -51,21 +51,21 @@
   margin: 0;
   color: var(--strategix-light);
 
-  font-size: min(18px, 4.615vw);
+  font-size: min(16px, 4.2vw);
   font-weight: 600;
-  line-height: 137.5%;
+  line-height: 135%;
   letter-spacing: 0;
   text-transform: uppercase;
   text-align: left;
 
   @media(--tablet-width){
-    font-size: clamp(18px, 3vw, 72px);
-    line-height: 110%;
+    font-size: clamp(16px, 1.6vw, 24px);
+    line-height: 130%;
   }
 
   @media(--mobile-medium){
-    font-size: min(24px, calc(var(--vh) * 5.25));
-    line-height: 120%;
+    font-size: min(16px, calc(var(--vh) * 3.6));
+    line-height: 130%;
   }
 }
 

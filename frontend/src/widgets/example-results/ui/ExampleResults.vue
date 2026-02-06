@@ -31,47 +31,41 @@
 <style scoped>
 .example-rusults{
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 4.5), 48px);
+  padding-block: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 3.5), 48px);
+  gap: min(calc(var(--vh) * 3), 36px);
 
   @media(--tablet-width){
-    padding-block: min(calc(var(--vh) * 10), 80px);
-    gap: min(calc(var(--vh) * 7), 70px);
+    padding-block: min(calc(var(--vh) * 7), 80px);
+    gap: min(calc(var(--vh) * 3.5), 40px);
   }
 
   @media(--mobile-medium){
-    padding-block: min(calc(var(--vh) * 10.5), 42px);
-    gap: min(calc(var(--vh) * 8), 30px);
+    padding-block: min(calc(var(--vh) * 8), 56px);
+    gap: min(calc(var(--vh) * 3), 24px);
   }
 }
 
 .description{
   margin: 0;
-  display: flex;
-  align-items: center;
-  align-items: baseline;
-  gap: min(4vw, 18px);
 
-  font-size: min(18px, 4.615vw);
+  font-size: min(16px, 4.2vw);
   font-weight: 400;
   line-height: 140%;
   letter-spacing: 0;
   text-align: left;
 
   @media(--tablet-width){
-    font-size: clamp(18px, 2.5vw, 60px);
-    gap: clamp(18px, 3.5vw, 84px);
-    line-height: 150%;
+    font-size: clamp(16px, 1vw, 32px);
+    line-height: 145%;
   }
 
   @media(--mobile-medium){
-    font-size: min(18px, calc(var(--vh) * 7));
-    gap: min(4vw, 18px);
+    font-size: min(16px, calc(var(--vh) * 3.8));
   }
 }
 
@@ -82,18 +76,23 @@
 
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: clamp(24px, 8vw, 180px);
-  row-gap: min(calc(var(--vh) * 6), 64px);
+  column-gap: clamp(16px, 6vw, 64px);
+  row-gap: clamp(24px, calc(var(--vh) * 4), 48px);
   align-items: start;
 
   @media(--tablet-width){
-    column-gap: clamp(40px, 9vw, 220px);
-    row-gap: clamp(40px, calc(var(--vh) * 6), 120px);
+    row-gap: clamp(28px, calc(var(--vh) * 4), 56px);
+  }
+
+  @media(--laptop-width){
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: clamp(20px, 7vw, 160px);
+    row-gap: clamp(28px, calc(var(--vh) * 4), 56px);
   }
 
   @media(--mobile-medium){
-    column-gap: min(10vw, 36px);
-    row-gap: min(calc(var(--vh) * 5), 40px);
+    column-gap: min(6vw, 24px);
+    row-gap: min(calc(var(--vh) * 4), 32px);
   }
 }
 

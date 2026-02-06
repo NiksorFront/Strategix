@@ -16,18 +16,18 @@
     margin: 0;
     color: var(--strategix-accent);
 
-    font-size: min(32px, 8.2vw);
+    font-size: min(28px, 7.2vw);
     font-weight: 600;
     line-height: 110%;
     letter-spacing: 0;
     text-align: left;
 
     @media(--tablet-width){
-      font-size: clamp(24px, 4.1675vw, 100px);
+      font-size: clamp(28px, 2vw, 48px);
     }
 
     @media(--mobile-medium){
-      font-size: min(36px, calc(var(--vh) * 7.25));
+      font-size: min(28px, calc(var(--vh) * 6.25));
     }
   }
 

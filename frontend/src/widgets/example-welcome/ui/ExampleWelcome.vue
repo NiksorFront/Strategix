@@ -9,7 +9,7 @@ const {data} = defineProps<{
 <template>
   <section class="example-grid">
     <div class="example-welcome">
-      <h1 class="title">
+      <h1 class="upperscase-text title">
         {{ data.name }}
       </h1>
       <NuxtImg
@@ -22,7 +22,7 @@ const {data} = defineProps<{
         loading="lazy"
       />
     </div>
-    <p class="description base-text">
+    <p class="base-text description">
       {{ data.description.join(' ') }}
     </p>
     <div class="about-case">
@@ -31,10 +31,10 @@ const {data} = defineProps<{
         :key="`${item.label}-${index}`"
         class="about-row"
       >
-        <p class="about-label base-text">
+        <p class=" base-text about-label">
           {{ item.label }}
         </p>
-        <p class="about-value base-text">
+        <p class="base-text about-value">
           {{ item.value }}
         </p>
       </div>
@@ -111,23 +111,29 @@ const {data} = defineProps<{
 
 .title {
     width: 100%;
-    padding: calc(var(--vh) * 8.5) var(--padding-section-x);
+    padding: 0 var(--padding-section-x);
     box-sizing: border-box;
     margin: auto 0;
+    text-align: left;
 
-    font-family: "Liberty-MT", "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: min(70px, 13vw);
-    /* font-size: clamp(70px, calc((var(--vh) * 7) + 5.25vw), 264px); */
-    font-weight: 400;
+    font-size: min(min(10vw, calc(var(--vh) * 5.25)), 42px);
     color: var(--strategix-accent);
 
+    @media(--mobile-width){
+      font-size: clamp(min(min(4vw, var(--vh) * 3), 42px), 1.95vw + var(--vh) * 2.85, 100px);
+    }
+
+    @media (--mobile-width) and (max-aspect-ratio: 4/5){
+      font-size: clamp(min(4vw, var(--vh) * 3), min(10vw, calc(var(--vh) * 5.25)), 100px);
+   }
+
     @media(--tablet-width) {
-      font-size: clamp(70px, calc((var(--vh) * 7) + 5.25vw), 264px);
+      font-size: clamp(70px, calc((var(--vh) * 4) + 3.25vw), 140px);
       padding: calc(var(--vh) * 3) var(--padding-section-x);
     }
 
     @media(--mobile-medium) {
-      font-size: min(70px, calc((var(--vh) * 7) + 5.25vw));
+       font-size: min(min(10vw, calc(var(--vh) * 5.5)), 42px);
     }
 }
 
@@ -137,7 +143,8 @@ const {data} = defineProps<{
     height: auto;
     max-height: 100%;
 
-    aspect-ratio: 1200 / 572;
+    aspect-ratio: 1200 / 400;
+
     object-fit: cover;
     object-position: top;
     display: block;
@@ -146,10 +153,19 @@ const {data} = defineProps<{
       min-height: 65%;
     }
 
+    @media(min-aspect-ratio: 3/5){
+      aspect-ratio: 1200 / 400;
+    }
+
+    @media(max-aspect-ratio: 5/3){
+      aspect-ratio: 1200 / 572;
+    }
+
     @media(--pc-width) {
       padding-inline: var(--padding-section-x);
       box-sizing: border-box;
       max-height: 75%;
+      aspect-ratio: 1200 / 572;
     }
 
     @media(--mobile-medium) {
@@ -164,12 +180,13 @@ const {data} = defineProps<{
 
   text-align: left;
   font-size: min(18px, 4.6vw);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 125%;
+  color: var(--strategix-dark);
 
   @media(--tablet-width){
     padding: 0 0 0 var(--padding-section-x);
-    font-size: clamp(30px, 2.5vw, 60px);
+    font-size: clamp(18px, calc(1vw + var(--vh) * 1.25), 36px);
   }
 
   @media(--pc-width){
@@ -181,8 +198,7 @@ const {data} = defineProps<{
 
   @media(--mobile-medium) {
     padding: 0 0 0 var(--padding-section-x);
-    font-size: min(24px, calc(var(--vh) * 4.5));
-    line-height: 110%;
+    font-size: min(25px, calc(var(--vh) * 6));
   }
 }
 
@@ -215,7 +231,7 @@ const {data} = defineProps<{
   font-size: min(18px, 4.6vw);
 
   @media(--tablet-width){
-    font-size: clamp(18px, 2vw, 50px);
+    font-size: clamp(18px, 1vw, 32px);
     min-height: calc(var(--vh) * 3);
   }
 
