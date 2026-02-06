@@ -5,6 +5,7 @@ import type { ExampleGoalsCompanyData } from '@/widgets/example-goals-company/mo
 import type { ExampleWhatDidData } from '@/widgets/example-what-did/model/types';
 import type { ExampleResultsData } from '@/widgets/example-results/model/types';
 import type { ExampleOtherProjectsData } from '@/widgets/example-other-projects/model/types';
+import projectsContent from '@/content/pages/projects.json';
 
 import Header from '@/widgets/header';
 import ExampleWelcome from '@/widgets/example-welcome';
@@ -24,6 +25,13 @@ const { locale } = useI18n()
 const currentLocale = computed(() => locale.value || 'example')
 
 const projectContent = computed(() => getProjectContent(project.value));
+
+type ProjectCase = { src: string; title: string; description?: string };
+type ProjectLocaleData = { title?: string; cases?: Record<string, ProjectCase> };
+type ProjectsContent = Record<string, Record<string, ProjectLocaleData>>;
+type OtherProject = { slug: string; title: string; src: string };
+
+const projectsData = (projectsContent.projects || {}) as ProjectsContent;
 
 const emptyWelcomeData: ExampleWelcomeData = {
   sphere: '',
@@ -67,12 +75,59 @@ const resultsData = computed<ExampleResultsData>(() => {
   return projectContent.value?.translations?.[currentLocale.value]?.results ?? emptyResultsData;
 });
 
-const otherProjectsData = computed<ExampleOtherProjectsData>(() => {
-  return projectContent.value?.translations?.[currentLocale.value]?.['other-projects'] ?? emptyOtherProjectsData;
+const otherProjectsData = ref<ExampleOtherProjectsData>(emptyOtherProjectsData);
+
+const buildOtherProjectsData = () => {
+  if (!import.meta.client) {
+    return;
+  }
+
+  const localeCode = currentLocale.value;
+
+  const allProjects = Object.values(projectsData).flatMap((group) => {
+    const localized = group[localeCode] || group.ru;
+    if (!localized?.cases) return [];
+
+    return Object.entries(localized.cases)
+      .map(([slug, data]) => {
+        if (!data?.title || !data?.src) return null;
+
+        return {
+          slug,
+          title: data.title,
+          src: data.src,
+        };
+      })
+      .filter((item): item is OtherProject => Boolean(item));
+  });
+
+  const availableProjects = allProjects.filter((item) => item.slug !== project.value);
+
+  for (let i = availableProjects.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const first = availableProjects[i];
+    const second = availableProjects[j];
+    if (!first || !second) continue;
+
+    availableProjects[i] = second;
+    availableProjects[j] = first;
+  }
+
+  otherProjectsData.value = {
+    projects: availableProjects.slice(0, 2).map((item, index) => ({
+      ...item,
+      direction: index % 2 === 0 ? 'left' : 'right',
+    })),
+  };
+};
+
+onMounted(() => {
+  buildOtherProjectsData();
 });
-// const projectType = computed(() => projectsContent.projects.group1[currentLocale.value].title)
-//@ts-ignore
-// const descriptionProject = computed(() => projectsContent.projects.group1[currentLocale.value].cases[project.value].description)
+
+watch([project, currentLocale], () => {
+  buildOtherProjectsData();
+});
 
 </script>
 

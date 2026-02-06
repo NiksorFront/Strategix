@@ -11,41 +11,44 @@
     <ul class="projects-list">
       <li
         v-for="project in data.projects"
-        :key="project.title"
+        :key="project.slug"
         class="project-card"
         :class="`project-card--${project.direction}`"
       >
-        <div
-          class="project-head"
-          :class="`project-head--${project.direction}`"
+        <NuxtLink
+          class="project-link"
+          :to="`/project/${project.slug}`"
         >
-          <span
-            v-if="project.direction === 'left'"
-            class="project-arrow"
-            aria-hidden="true"
+          <div
+            class="project-head"
+            :class="`project-head--${project.direction}`"
           >
-            &larr;
-          </span>
-          <span class="project-title base-text">{{ project.title }}</span>
-          <span
-            v-if="project.direction === 'right'"
-            class="project-arrow"
-            aria-hidden="true"
-          >
-            &rarr;
-          </span>
-        </div>
-        <NuxtImg
-          class="project-image"
-          :src="project.src"
-          :alt="project.title"
-          sizes="(max-width: 767px) 44vw, (max-width: 1023px) 45vw, 46vw"
-          format="webp"
-          :width="600"
-          :height="600"
-          :quality="80"
-          loading="lazy"
-        />
+            <span
+              v-if="project.direction === 'left'"
+              class="project-arrow"
+              aria-hidden="true"
+            >
+              &larr;
+            </span>
+            <span class="project-title base-text">{{ project.title }}</span>
+            <span
+              v-if="project.direction === 'right'"
+              class="project-arrow"
+              aria-hidden="true"
+            >
+              &rarr;
+            </span>
+          </div>
+          <NuxtImg
+            class="project-image"
+            :src="project.src"
+            :alt="project.title"
+            format="webp"
+            width="600"
+            height="600"
+            loading="lazy"
+          />
+        </NuxtLink>
       </li> 
     </ul>
   </section>
@@ -91,9 +94,15 @@
 
 .project-card{
   margin: 0;
+}
+
+.project-link{
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: min(calc(var(--vh) * 2), 16px);
+  text-decoration: none;
+  color: inherit;
 
   @media(--tablet-width){
     gap: clamp(14px, calc(var(--vh) * 2), 24px);
@@ -102,6 +111,12 @@
   @media(--mobile-medium){
     gap: min(calc(var(--vh) * 1.5), 12px);
   }
+}
+
+.project-link:focus-visible{
+  outline: 2px solid var(--strategix-dark);
+  outline-offset: 4px;
+  border-radius: var(--card-radius);
 }
 
 .project-head{

@@ -86,8 +86,7 @@
 
   @media(--laptop-width){
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: clamp(20px, 7vw, 160px);
-    row-gap: clamp(28px, calc(var(--vh) * 4), 56px);
+    column-gap: clamp(20px, 5.5vw, 160px);
   }
 
   @media(--mobile-medium){

@@ -42,8 +42,8 @@
             },
             "other-projects": {
                 "projects": [
-                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
-                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left", "slug": "pti-vehicle-inspection"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right", "slug": "bebu"}
                 ]
             }
         },
@@ -87,8 +87,8 @@
             },
             "other-projects": {
                 "projects": [
-                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
-                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left", "slug": "pti-vehicle-inspection"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right", "slug": "bebu"}
                 ]
             }
         },
@@ -132,8 +132,8 @@
             },
             "other-projects": {
                 "projects": [
-                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
-                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left", "slug": "pti-vehicle-inspection"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right", "slug": "bebu"}
                 ]
             }
         },
@@ -177,8 +177,8 @@
             },
             "other-projects": {
                 "projects": [
-                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left"},
-                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right"}
+                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left", "slug": "pti-vehicle-inspection"},
+                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right", "slug": "bebu"}
                 ]
             }
         }

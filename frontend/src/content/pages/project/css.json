@@ -45,8 +45,8 @@
             },
             "other-projects": {
                 "projects": [
-                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left"},
-                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right"}
+                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left", "slug": "toba"},
+                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right", "slug": "touch"}
                 ]
             }
         },
@@ -93,8 +93,8 @@
             },
             "other-projects": {
                 "projects": [
-                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left"},
-                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right"}
+                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left", "slug": "toba"},
+                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right", "slug": "touch"}
                 ]
             }
         },
@@ -141,8 +141,8 @@
             },
             "other-projects": {
                 "projects": [
-                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left"},
-                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right"}
+                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left", "slug": "toba"},
+                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right", "slug": "touch"}
                 ]
             }
         },
@@ -189,8 +189,8 @@
             },
             "other-projects": {
                 "projects": [
-                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left"},
-                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right"}
+                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left", "slug": "toba"},
+                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right", "slug": "touch"}
                 ]
             }
         }
