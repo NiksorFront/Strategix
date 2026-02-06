@@ -59,10 +59,6 @@ const emptyResultsData: ExampleResultsData = {
   items: [],
 };
 
-const emptyOtherProjectsData: ExampleOtherProjectsData = {
-  projects: [],
-};
-
 const goalsCompanyData = computed<ExampleGoalsCompanyData>(() => {
   return projectContent.value?.translations?.[currentLocale.value]?.['goals-company'] ?? emptyGoalsCompanyData;
 });
@@ -75,13 +71,28 @@ const resultsData = computed<ExampleResultsData>(() => {
   return projectContent.value?.translations?.[currentLocale.value]?.results ?? emptyResultsData;
 });
 
-const otherProjectsData = ref<ExampleOtherProjectsData>(emptyOtherProjectsData);
-
-const buildOtherProjectsData = () => {
-  if (!import.meta.client) {
-    return;
+const hashString = (value: string) => {
+  let hash = 0;
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash * 31 + value.charCodeAt(i)) >>> 0;
   }
 
+  return hash;
+};
+
+const createSeededRandom = (seed: string) => {
+  let state = hashString(seed) || 1;
+
+  return () => {
+    state |= 0;
+    state = (state + 0x6D2B79F5) | 0;
+    let t = Math.imul(state ^ (state >>> 15), 1 | state);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+};
+
+const otherProjectsData = computed<ExampleOtherProjectsData>(() => {
   const localeCode = currentLocale.value;
 
   const allProjects = Object.values(projectsData).flatMap((group) => {
@@ -102,31 +113,25 @@ const buildOtherProjectsData = () => {
   });
 
   const availableProjects = allProjects.filter((item) => item.slug !== project.value);
+  const shuffled = [...availableProjects];
+  const random = createSeededRandom(`${project.value}:${localeCode}`);
 
-  for (let i = availableProjects.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const first = availableProjects[i];
-    const second = availableProjects[j];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(random() * (i + 1));
+    const first = shuffled[i];
+    const second = shuffled[j];
     if (!first || !second) continue;
 
-    availableProjects[i] = second;
-    availableProjects[j] = first;
+    shuffled[i] = second;
+    shuffled[j] = first;
   }
 
-  otherProjectsData.value = {
-    projects: availableProjects.slice(0, 2).map((item, index) => ({
+  return {
+    projects: shuffled.slice(0, 2).map((item, index) => ({
       ...item,
       direction: index % 2 === 0 ? 'left' : 'right',
     })),
   };
-};
-
-onMounted(() => {
-  buildOtherProjectsData();
-});
-
-watch([project, currentLocale], () => {
-  buildOtherProjectsData();
 });
 
 </script>
