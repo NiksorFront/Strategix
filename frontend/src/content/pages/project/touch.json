@@ -44,11 +44,23 @@
                 "title": "Типография",
                 "fonts":[
                     {
-                        "title": "Montserrat",
+                        "font":{
+                            "src": "/fonts/Avenir Next World Bold.ttf",
+                            "weight": 700,
+                            "scale": 1
+                        },
+                        "assignment": "Основной",
+                        "name": "Avenir Bold",
                         "description":"Было выбрано название и заголовки"
                     },
                     {
-                        "title": "Poppins",
+                        "font":{
+                            "src": "/fonts/Avenir Next World Medium.ttf",
+                            "weight": 400,
+                            "scale": 1
+                        },
+                        "assignment": "Вспомогательный",
+                        "name": "Avenir Medium",
                         "description": "С их широкими и незамкнутыми буквами и большой высотой x, которые были использованы для основного текста небольшого размера"
                     }
                 ]

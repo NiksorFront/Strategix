@@ -46,11 +46,23 @@
                 "title": "Типография",
                 "fonts":[
                     {
-                        "title": "Montserrat",
+                        "font":{
+                            "src": "/fonts/BebasNeue-Regular.ttf",
+                            "weight": 700,
+                            "scale": 1
+                        },
+                        "assignment": "Основной",
+                        "name": "Bebas",
                         "description":"Было выбрано название и заголовки"
                     },
                     {
-                        "title": "Poppins",
+                        "font":{
+                            "src": "/fonts/Futurafuturisc.otf",
+                            "weight": 700,
+                            "scale": 1
+                        },
+                        "assignment": "Вспомогательный",
+                        "name": "Futurafuturis",
                         "description": "С их широкими и незамкнутыми буквами и большой высотой x, которые были использованы для основного текста небольшого размера"
                     }
                 ]

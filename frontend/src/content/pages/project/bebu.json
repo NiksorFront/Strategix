@@ -46,11 +46,23 @@
                 "title": "Типография",
                 "fonts":[
                     {
-                        "title": "Montserrat",
+                        "font":{
+                            "src": "/fonts/Morganite-Light.ttf",
+                            "weight": 300,
+                            "scale": 1.825
+                        },
+                        "assignment": "Основной",
+                        "name": "Morganite",
                         "description":"Было выбрано название и заголовки"
                     },
                     {
-                        "title": "Poppins",
+                        "font":{
+                            "src": "/fonts/Poppins-SemiBold.ttf",
+                            "weight": 700,
+                            "scale": 1
+                        },
+                        "assignment": "Основной",
+                        "name": "Poppins",
                         "description": "С их широкими и незамкнутыми буквами и большой высотой x, которые были использованы для основного текста небольшого размера"
                     }
                 ]
