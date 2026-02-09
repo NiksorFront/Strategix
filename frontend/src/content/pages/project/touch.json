@@ -6,7 +6,7 @@
             "welcome":{
                 "sphere": "DIGITAL SUMMIT",
                 "name": "TOUCH",
-                "img": "/images/touch.jpg",
+                "img": "/images/touch-image.jpg",
                 "description": [
                     "Touch is the largest technology conference in Georgia, bringing together representatives of the entire digital industry: from designers and IT specialists to marketers and entrepreneurs.",
                     "The task was to create a visual identity that highlights the international level while preserving the creative energy and openness of Georgia's digital community."
@@ -23,7 +23,7 @@
             "welcome":{
                 "sphere": "ЦИФРОВОЙ САММИТ",
                 "name": "TOUCH",
-                "img": "/images/touch.jpg",
+                "img": "/images/touch-image.jpg",
                 "description": [
                     "Touch — это крупнейшая технологическая конференция в Грузии, объединяющая представителей всей цифровой индустрии: от дизайнеров и IT-специалистов до маркетологов и предпринимателей.",
                     "Задача создать визуальную идентику, которая подчеркнёт международный уровень, при этом сохранит творческую энергию и открытость цифрового сообщества Грузии."
@@ -71,11 +71,11 @@
                 ]
             },
             "big-image-1": {
-                "src": "/images/touch-image.jpg",
+                "src": "/images/touch-image-2.jpg",
                 "alt": "большая картинка Touch"
             },
             "big-image-2": {
-                "src": "/images/touch-image-2.jpg",
+                "src": "/images/touch-image-3.jpg",
                 "alt": "большая картинка Touch"
             },
             "info": {

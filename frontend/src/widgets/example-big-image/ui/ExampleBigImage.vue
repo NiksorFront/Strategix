@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const {data} = defineProps<{
   data: {
     src: string;
@@ -15,6 +14,9 @@ const {data} = defineProps<{
     <NuxtImg
       :src="data.src"
       :alt="data.alt"
+      quality="100"
+      loading="lazy"
+      decoding="async"
     />
   </section>
 </template>

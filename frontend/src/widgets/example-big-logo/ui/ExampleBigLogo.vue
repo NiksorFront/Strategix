@@ -20,6 +20,9 @@ const {data} = defineProps<{
       <NuxtImg 
         :src="data.src"
         :alt="data.alt"
+        quality="100"
+        loading="lazy"
+        decoding="async"
       />
     </div>
   </section>
