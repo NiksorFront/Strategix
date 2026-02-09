@@ -12,10 +12,10 @@ const {data} = defineProps<{
   <section
     class="example-big-image"
   >
-    <img
+    <NuxtImg
       :src="data.src"
       :alt="data.alt"
-    >
+    />
   </section>
 </template>
 

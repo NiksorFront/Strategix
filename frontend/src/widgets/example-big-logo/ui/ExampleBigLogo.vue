@@ -17,10 +17,10 @@ const {data} = defineProps<{
       class="wrapper-logo"
       :style="data.backgroundColor ? { backgroundColor: data.backgroundColor } : {}"
     >
-      <img
+      <NuxtImg 
         :src="data.src"
         :alt="data.alt"
-      >
+      />
     </div>
   </section>
 </template>
