@@ -1,5 +1,16 @@
 <script setup lang="ts">
-import type { ExampleWelcomeData } from '../model/types';
+type ExampleWelcomeAboutItem = {
+  label: string;
+  value: string;
+};
+
+type ExampleWelcomeData = {
+  sphere: string;
+  name: string;
+  img: string;
+  description: string[];
+  about: ExampleWelcomeAboutItem[];
+};
 
 const {data} = defineProps<{
   data: ExampleWelcomeData;
@@ -31,7 +42,7 @@ const {data} = defineProps<{
         :key="`${item.label}-${index}`"
         class="about-row"
       >
-        <p class=" base-text about-label">
+        <p class="base-text about-label">
           {{ item.label }}
         </p>
         <p class="base-text about-value">
@@ -45,6 +56,9 @@ const {data} = defineProps<{
 <style scoped>
 .example-grid{
     width: var(--section-width);
+
+    padding-bottom: min(calc(var(--vh) * 6), 72px);
+    
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
@@ -58,6 +72,8 @@ const {data} = defineProps<{
     background-color: var(--strategix-light);
 
     @media(--tablet-width){
+        padding-bottom: min(calc(var(--vh) * 7), 80px);
+
         grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
         grid-template-areas:
           "welcome welcome"
@@ -67,6 +83,8 @@ const {data} = defineProps<{
     }
 
     @media(--mobile-medium){
+        padding-bottom: min(calc(var(--vh) * 5), 56px);
+
         grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
         grid-template-areas:
           "welcome welcome"
@@ -198,7 +216,7 @@ const {data} = defineProps<{
 
   @media(--mobile-medium) {
     padding: 0 0 0 var(--padding-section-x);
-    font-size: min(25px, calc(var(--vh) * 6));
+    font-size: min(25px, calc(var(--vh) * 3.75));
   }
 }
 

@@ -1,7 +1,17 @@
 <script setup lang="ts">
     import ExampleSectionTitle from '@/shared/ui/example-section-title';
     import CellWithResult from './CellWithResult.vue';
-    import type { ExampleResultsData } from '../model/types';
+
+    type ExampleResultsItem = {
+      title: string;
+      result: string;
+      unit_measurement?: string;
+    };
+
+    type ExampleResultsData = {
+      description: string;
+      items: ExampleResultsItem[];
+    };
 
     defineProps<{
       data: ExampleResultsData;
@@ -38,6 +48,8 @@
   display: flex;
   flex-direction: column;
   gap: min(calc(var(--vh) * 3), 36px);
+
+  background-color: var(--strategix-light);
 
   @media(--tablet-width){
     padding-block: min(calc(var(--vh) * 7), 80px);

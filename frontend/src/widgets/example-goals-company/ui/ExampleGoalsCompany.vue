@@ -1,7 +1,10 @@
 <script setup lang="ts">
     import ExampleSectionTitle from '@/shared/ui/example-section-title';
     import ExampleList from '@/shared/ui/example-list';
-    import type { ExampleGoalsCompanyData } from '../model/types';
+
+    type ExampleGoalsCompanyData = {
+      list: string[];
+    };
 
     defineProps<{
       data: ExampleGoalsCompanyData;

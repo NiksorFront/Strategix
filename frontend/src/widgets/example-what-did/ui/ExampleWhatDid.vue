@@ -1,7 +1,11 @@
 <script setup lang="ts">
   import ExampleSectionTitle from '@/shared/ui/example-section-title';
   import ExampleList from '@/shared/ui/example-list';
-  import type { ExampleWhatDidData } from '../model/types';
+
+  type ExampleWhatDidData = {
+    description: string;
+    list: string[];
+  };
 
   defineProps<{
     data: ExampleWhatDidData;

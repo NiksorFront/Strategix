@@ -36,6 +36,66 @@
                     {"label": "Страна", "value": "Грузия"},
                     {"label": "Экспертиза", "value": "Стратегия Брендинг"}
                 ]
+            },
+            "big-logo": {
+                "src": "/images/beby-logo.jpg",
+                "alt": "логотип BEBU",
+                "backgroundColor": "#FFFFFF"
+            },
+            "typograhy": {
+                "title": "Типография",
+                "fonts":[
+                    {
+                        "title": "Montserrat",
+                        "description":"Было выбрано название и заголовки"
+                    },
+                    {
+                        "title": "Poppins",
+                        "description": "С их широкими и незамкнутыми буквами и большой высотой x, которые были использованы для основного текста небольшого размера"
+                    }
+                ]
+            },
+            "color-palette": {
+                "title": "Цветовая палитра",
+                "colors": [
+                    {
+                        "title": "Синий",
+                        "value": "#003366"
+                    },
+                    {
+                        "title": "Зеленый",
+                        "value": "#008000"
+                    },
+                    {
+                        "title": "Красный",
+                        "value": "#FF0000"
+                    }
+                ]
+            },
+            "big-image-1": {
+                "src": "/images/bebu-image.jpg",
+                "alt": "большая картинка BEBU"
+            },
+            "big-image-2": {
+                "src": "/images/bebu-image-2.jpg",
+                "alt": "большая картинка BEBU"
+            },
+            "info": {
+                "title": "объединение культурного повествование, технологичность и современный формат продукта",
+                "description": [
+                    "Мы создали визуальную концепцию, в которой каждая банка представляет отдельный элемент культурного наследия Грузии: архитектуру, искусство, историю и ремёсла. Иллюстрации и цвета варьируются от выпуска к выпуску, формируя коллекционную серию.",
+                    "Графика сочетает минимализм современного европейского дизайна и узнаваемые грузинские мотивы."
+                ]
+            },
+            "big-image-3": {
+                "src": "/images/bebu-image-3.jpg",
+                "alt": "логотип BEBU 2"
+            },
+            "other-projects": {
+                "projects": [
+                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left", "slug": "toba"},
+                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right", "slug": "touch"}
+                ]
             }
         },
         "de": {

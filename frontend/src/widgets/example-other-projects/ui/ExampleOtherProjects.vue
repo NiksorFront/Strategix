@@ -1,5 +1,14 @@
  <script setup lang="ts">
-  import type { ExampleOtherProjectsData } from '../model/types';
+  type ExampleOtherProject = {
+    title: string;
+    src: string;
+    direction: 'left' | 'right';
+    slug: string;
+  };
+
+  type ExampleOtherProjectsData = {
+    projects: ExampleOtherProject[];
+  };
 
   defineProps<{
     data: ExampleOtherProjectsData;
@@ -63,6 +72,7 @@
 
   display: flex;
   flex-direction: column;
+  background-color: var(--strategix-light);
 
   @media(--tablet-width){
     padding-block: min(calc(var(--vh) * 7), 80px);
