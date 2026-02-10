@@ -1,25 +1,107 @@
- <script setup lang="ts">
-  type ExampleOtherProject = {
-    title: string;
-    src: string;
-    direction: 'left' | 'right';
-    slug: string;
-  };
+<script setup lang="ts">
+import { computed } from 'vue';
+import projectsData from '@/content/pages/projects.json';
 
-  type ExampleOtherProjectsData = {
-    projects: ExampleOtherProject[];
-  };
+type ExampleOtherProject = {
+  title: string;
+  src: string;
+  direction: 'left' | 'right';
+  slug: string;
+};
 
-  defineProps<{
-    data: ExampleOtherProjectsData;
-  }>();
+type ProjectCase = {
+  title: string;
+  src: string;
+};
+
+type ProjectGroupLocale = {
+  cases?: Record<string, ProjectCase>;
+};
+
+type ProjectsJson = {
+  projects?: Record<string, Record<string, ProjectGroupLocale>>;
+};
+
+defineProps<{
+  data?: unknown;
+}>();
+
+const route = useRoute();
+const { locale } = useI18n();
+
+const currentSlug = computed(() => {
+  const param = route.params.project;
+  return Array.isArray(param) ? param[0] : param;
+});
+
+const pickGroupLocale = (group: Record<string, ProjectGroupLocale>, localeKey: string) => {
+  return (
+    group[localeKey] ??
+    group.ru ??
+    group.en ??
+    Object.values(group)[0]
+  );
+};
+
+const getProjectsInOrder = (localeKey: string) => {
+  const data = projectsData as ProjectsJson;
+  const groups = data.projects ?? {};
+  const result: Array<{ slug: string; title: string; src: string }> = [];
+
+  for (const group of Object.values(groups)) {
+    const groupLocale = pickGroupLocale(group, localeKey);
+    const cases = groupLocale?.cases;
+    if (!cases) continue;
+
+    for (const [slug, value] of Object.entries(cases)) {
+      result.push({
+        slug,
+        title: value.title,
+        src: value.src,
+      });
+    }
+  }
+
+  return result;
+};
+
+const otherProjects = computed<ExampleOtherProject[]>(() => {
+  const localeKey = locale.value || 'ru';
+  const projects = getProjectsInOrder(localeKey);
+  if (!projects.length) return [];
+
+  const slug = currentSlug.value;
+  const currentIndex = slug ? projects.findIndex((item) => item.slug === slug) : -1;
+
+  let selected: Array<{ slug: string; title: string; src: string }> = [];
+
+  if (currentIndex === -1) {
+    selected = projects.slice(0, 2);
+  } else if (projects.length === 1) {
+    selected = [];
+  } else if (projects.length === 2) {
+    selected = projects.filter((item) => item.slug !== slug);
+  } else {
+    const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+    const nextIndex = (currentIndex + 1) % projects.length;
+    selected = [projects[prevIndex]!, projects[nextIndex]!];
+  }
+
+  return selected.map((project, index) => ({
+    ...project,
+    direction: index === 0 ? 'left' : 'right',
+  }));
+});
 </script>
 
 <template>
-  <section class="example-other-projects">
+  <section
+    v-if="otherProjects.length"
+    class="example-other-projects"
+  >
     <ul class="projects-list">
       <li
-        v-for="project in data.projects"
+        v-for="project in otherProjects"
         :key="project.slug"
         class="project-card"
         :class="`project-card--${project.direction}`"
@@ -176,12 +258,15 @@
 .project-image{
   width: 100%;
   height: auto;
+  box-sizing: border-box;
+
   margin: 0;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
   border-radius: var(--card-radius);
 
+  transition: all 0.3s;
 
   @media(--tablet-width){
     aspect-ratio: 4 / 3;
@@ -190,5 +275,12 @@
   @media(--mobile-medium){
     aspect-ratio: 4 / 3;
   }
+}
+
+.project-image:hover{
+  transform: translateY(calc(var(--vh) * 1));
+  /* height: calc(100% - var(--vh) * 1.5); */
+  border: clamp(2px, 0.175vw, 6px) solid var(--strategix-accent);
+  cursor: pointer;
 }
 </style>

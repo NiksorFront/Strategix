@@ -40,12 +40,7 @@
                     {"title": "Cost per lead", "result": "31.60 $", "unit_measurement": "Cost"}
                 ]
             },
-            "other-projects": {
-                "projects": [
-                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left", "slug": "pti-vehicle-inspection"},
-                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right", "slug": "bebu"}
-                ]
-            }
+            "other-projects": true
         },
         "ru": {
             "welcome":{
@@ -85,12 +80,7 @@
                     {"title": "Стоимость лида", "result": "31,60 $", "unit_measurement": "Стоимость"}
                 ]
             },
-            "other-projects": {
-                "projects": [
-                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left", "slug": "pti-vehicle-inspection"},
-                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right", "slug": "bebu"}
-                ]
-            }
+            "other-projects": true
         },
         "de": {
             "welcome":{
@@ -130,12 +120,7 @@
                     {"title": "Kosten pro Lead", "result": "31,60 $", "unit_measurement": "Kosten"}
                 ]
             },
-            "other-projects": {
-                "projects": [
-                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left", "slug": "pti-vehicle-inspection"},
-                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right", "slug": "bebu"}
-                ]
-            }
+            "other-projects": true
         },
         "es": {
             "welcome":{
@@ -175,12 +160,7 @@
                     {"title": "Costo por lead", "result": "31,60 $", "unit_measurement": "Costo"}
                 ]
             },
-            "other-projects": {
-                "projects": [
-                    {"title": "PTI vehicle inspection", "src": "/images/PTI.jpg", "direction": "left", "slug": "pti-vehicle-inspection"},
-                    {"title": "BEBU wine & spirits", "src": "/images/bebu.jpg", "direction": "right", "slug": "bebu"}
-                ]
-            }
+            "other-projects": true
         }
     }
 }

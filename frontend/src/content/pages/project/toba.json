@@ -96,12 +96,7 @@
                 "alt": "логотип Тоба 2",
                 "backgroundColor": "#212D61"
             },
-            "other-projects": {
-                "projects": [
-                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left", "slug": "toba"},
-                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right", "slug": "touch"}
-                ]
-            }
+            "other-projects": true
         },
         "de": {
             "welcome":{

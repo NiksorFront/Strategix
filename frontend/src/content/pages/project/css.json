@@ -43,12 +43,7 @@
                     {"title": "Cost per lead", "result": "7.32 £", "unit_measurement": "Cost"}
                 ]
             },
-            "other-projects": {
-                "projects": [
-                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left", "slug": "toba"},
-                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right", "slug": "touch"}
-                ]
-            }
+            "other-projects": true
         },
         "ru": {
             "welcome":{
@@ -91,12 +86,7 @@
                     {"title": "Стоимость лида", "result": "7,32 £", "unit_measurement": "Стоимость"}
                 ]
             },
-            "other-projects": {
-                "projects": [
-                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left", "slug": "toba"},
-                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right", "slug": "touch"}
-                ]
-            }
+            "other-projects": true
         },
         "de": {
             "welcome":{
@@ -139,12 +129,7 @@
                     {"title": "Kosten pro Lead", "result": "7,32 £", "unit_measurement": "Kosten"}
                 ]
             },
-            "other-projects": {
-                "projects": [
-                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left", "slug": "toba"},
-                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right", "slug": "touch"}
-                ]
-            }
+            "other-projects": true
         },
         "es": {
             "welcome":{
@@ -187,12 +172,7 @@
                     {"title": "Costo por lead", "result": "7,32 £", "unit_measurement": "Costo"}
                 ]
             },
-            "other-projects": {
-                "projects": [
-                    {"title": "Toba can wine", "src": "/images/toba.jpg", "direction": "left", "slug": "toba"},
-                    {"title": "Touch digital summit", "src": "/images/touch.jpg", "direction": "right", "slug": "touch"}
-                ]
-            }
+            "other-projects": true
         }
     }
 }
