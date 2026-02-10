@@ -15,6 +15,7 @@ import ExampleResults from '@/widgets/example-results';
 import ExampleInfo from '@/widgets/example-info';
 import ExampleOtherProjects from '@/widgets/example-other-projects';
 import Footer from '@/widgets/footer';
+import NotFound from '@/widgets/not-found';
 
 const route = useRoute();
 
@@ -60,27 +61,29 @@ const sections = computed(() => {
     .map(([key, data]) => {
       const baseKey = key.replace(/-\d+$/, '');
       const componentKey = `example-${baseKey}`;
-      const component = sectionComponents[componentKey];
-      if (!component) return null;
+      const component = sectionComponents[componentKey] ?? NotFound;
 
       return {
         key: `${componentKey}-${key}`,
         component,
         data,
       };
-    })
-    .filter((section): section is { key: string; component: Component; data: unknown } => Boolean(section));
+    });
 });
+
+const isNotFound = computed(() => !localeContent.value || sections.value.length === 0);
 </script>
 
 <template>
   <Header theme="light" /> 
   <main>
+    <NotFound v-if="isNotFound" />
     <component
       :is="section.component"
       v-for="section in sections"
       :key="section.key"
       :data="section.data"
+      v-else
     />
   </main>
   <Footer />
