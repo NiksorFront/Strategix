@@ -106,7 +106,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
 }
 
 .service-card__title {
-  padding-top: 5px;
+  padding-top: 15px;
   margin: auto 0 auto;
   text-align: left;
 
@@ -137,6 +137,7 @@ const {service} = defineProps<{service: ServiceItem;}>();
   margin: 0;
 
   transition: all 0.3s ease-in-out;
+  /* overflow: hidden; */
 }
 
 .service-card__description {
