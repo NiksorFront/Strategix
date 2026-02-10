@@ -260,6 +260,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
 }
 
 .font-name-row{
+  height: fit-content;
   display: flex;
   gap: clamp(10px, 2vw, 24px);
   margin: 0;
@@ -275,7 +276,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   background-color: var(--strategix-gray);
   opacity: 0.7;
 
-  margin: var(--vh) 0;
+  margin: auto 0;
 }
 
 .assignment{

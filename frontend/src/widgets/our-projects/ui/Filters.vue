@@ -65,7 +65,8 @@
     font-family: "Liberty-MT", "Onest", Arial, sans-serif;
     font-size: clamp(15px, 1.334vw, 36px);
     line-height: 110%;
-    font-weight: 700;
+    font-weight: 400;
+    font-synthesis: none;
     letter-spacing: 0;
 
 

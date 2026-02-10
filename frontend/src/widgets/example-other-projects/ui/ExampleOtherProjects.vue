@@ -34,15 +34,15 @@
           >
             <span
               v-if="project.direction === 'left'"
-              class="project-arrow"
+              class="project-arrow hover"
               aria-hidden="true"
             >
               &larr;
             </span>
-            <span class="project-title base-text">{{ project.title }}</span>
+            <span class="base-text project-title hover">{{ project.title }}</span>
             <span
               v-if="project.direction === 'right'"
-              class="project-arrow"
+              class="project-arrow hover"
               aria-hidden="true"
             >
               &rarr;
