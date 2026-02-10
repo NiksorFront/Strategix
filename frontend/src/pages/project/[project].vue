@@ -8,6 +8,7 @@ import ExampleGoalsCompany from '@/widgets/example-goals-company';
 import ExampleBigLogo from '@/widgets/example-big-logo';
 import ExampleTypograhy from '@/widgets/example-typograhy';
 import ExampleColorPalette from '@/widgets/example-color-palette';
+// import ExampleColorPaletteTwo from '@/widgets/example-color-palette-two';
 import ExampleBigImage from '@/widgets/example-big-image';
 import ExampleWhatDid from '@/widgets/example-what-did';
 import ExampleResults from '@/widgets/example-results';

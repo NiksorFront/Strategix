@@ -1,52 +1,72 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import IndexSectionTitle from '@/shared/ui/index-section-title';
 
-type ColorItem = {
-  title: string;
-  value: string;
+type ColorBlock = {
+  assignment?: string;
+  colors: string[];
 };
 
 type ColorPaletteData = {
   title: string;
-  colors: ColorItem[];
+  'colors-blocks'?: ColorBlock[];
 };
 
-defineProps<{
+const { data } = defineProps<{
   data: ColorPaletteData;
 }>();
+
+const colorBlocks = computed(() => data['colors-blocks'] ?? []);
+
+const normalizeColorValue = (value: string) => {
+  const trimmed = value?.trim?.() ?? '';
+  if (!trimmed) return 'transparent';
+  return trimmed.startsWith('#') ? trimmed : `#${trimmed}`;
+};
+
+const formatColorValue = (value: string) => {
+  const trimmed = value?.trim?.() ?? '';
+  if (!trimmed) return '';
+  return trimmed.replace(/^#/, '').toUpperCase();
+};
 </script>
 
 <template>
   <section class="example-color-palette">
-    <IndexSectionTitle>
+    <IndexSectionTitle class="title">
       {{ data.title }}
     </IndexSectionTitle>
 
-    <ul class="colors-list">
-      <li
-        v-for="(color, index) in data.colors"
-        :key="`${color.title}-${index}`"
-        class="color-card"
+    <div class="palette-blocks">
+      <article
+        v-for="(block, blockIndex) in colorBlocks"
+        :key="`palette-block-${blockIndex}`"
+        class="palette-block"
       >
-        <div
-          class="color-swatch"
-          :style="{ backgroundColor: color.value }"
-          aria-hidden="true"
-        />
         <p
-          class="upperscase-text color-title"
-          :style="{ color: color.value }"
+          v-if="block.assignment?.trim()"
+          class="base-text palette-assignment"
         >
-          {{ color.title }}
+          {{ block.assignment }}
         </p>
-        <p
-          class="upperscase-text color-value"
-          :style="{ color: color.value }"
-        >
-          {{ color.value }}
-        </p>
-      </li>
-    </ul>
+        <ul class="palette-colors">
+          <li
+            v-for="(color, colorIndex) in block.colors"
+            :key="`${color}-${colorIndex}`"
+            class="palette-color"
+          >
+            <span
+              class="color-swatch"
+              :style="{ backgroundColor: normalizeColorValue(color) }"
+              aria-hidden="true"
+            />
+            <span class="base-text color-code">
+              / {{ formatColorValue(color) }}
+            </span>
+          </li>
+        </ul>
+      </article>
+    </div>
   </section>
 </template>
 
@@ -59,69 +79,117 @@ defineProps<{
 
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 4.5), 56px);
+  gap: min(calc(var(--vh) * 11), 180px);
 
   background-color: var(--strategix-light);
 
   @media(--tablet-width){
     padding-block: min(calc(var(--vh) * 7), 80px);
-    gap: min(calc(var(--vh) * 5), 64px);
   }
 
   @media(--mobile-medium){
     padding-block: min(calc(var(--vh) * 8), 56px);
-    gap: min(calc(var(--vh) * 4), 40px);
   }
 }
 
-.colors-list{
+.title{
+  margin: 0;
+}
+
+.palette-blocks{
+  display: flex;
+  flex-direction: column;
+  gap: min(calc(var(--vh) * 11), 180px);
+}
+
+.palette-block{
+  display: flex;
+  flex-direction: column;
+  gap: min(calc(var(--vh) * 6), 80px);
+}
+
+.palette-assignment{
+  margin: 0;
+  color: var(--strategix-gray);
+  text-align: left;
+  font-size: min(16px, 4.1vw);
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0;
+  text-transform: none;
+
+  @media(--tablet-width){
+    font-size: clamp(16px, 1.335vw, 32px);
+  }
+
+  @media(--mobile-medium){
+    font-size: min(14px, calc(var(--vh) * 3.2));
+  }
+}
+
+.palette-colors{
   width: 100%;
   list-style: none;
   padding: 0;
   margin: 0;
 
-  display: grid;
-  grid-template-columns: repeat(3, 25%);
-  column-gap: 12.5%;
-  /* column-gap: clamp(20px, 8vw, 96px); */
-  row-gap: clamp(24px, calc(var(--vh) * 4), 56px);
-  align-items: start;
+  column-gap: auto-fit;
+  gap: min(12vw, 60px);
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
 
   @media(--tablet-width){
-    grid-template-columns: repeat(auto-fill, clamp(72px, 10vw, 140px));
-    column-gap: clamp(20px, 8vw, 96px);
-  }
-
-  @media(--mobile-medium){
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: clamp(24px, 6vw, 120px);
+    row-gap: clamp(16px, 3vw, 32px);
   }
 }
 
-.color-card{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+.palette-color{
+  display: inline-flex;
   align-items: center;
-  gap: clamp(12px, 2.5vw, 20px);
-  /* text-align: left; */
+  flex-direction: column;
+  gap: clamp(10px, 2.5vw, 14px);
+
+  @media(--tablet-width){
+    flex-direction: row;
+    gap: clamp(12px, 2.5vw, 20px);
+  }
 }
 
 .color-swatch{
-  width: 100%;
+  width: min(85px, 21.795vw);
   height: auto;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-}
-
-.color-title{
-  margin: 0;
-  font-size: min(14px, 3.8vw);
-  line-height: 120%;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  flex: 0 0 auto;
 
   @media(--tablet-width){
-    font-size: clamp(12px, 0.9vw, 18px);
+    width: clamp(100px, 8.325vw, 200px);
+    /* height: clamp(100px, 8.325vw, 200px); */
+  }
+}
+
+.color-code{
+  margin: calc(var(--vh) * 2) 0 0;
+  color: var(--strategix-dark);
+  
+  font-size: min(16px, 4.1vw);
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0.1vw;
+  text-transform: uppercase;
+  text-align: center;
+
+  @media(--tablet-width){
+    font-size: clamp(16px, 1.335vw, 32px);
+    text-align: left;
+    white-space: nowrap;
   }
 
   @media(--mobile-medium){
@@ -129,21 +197,4 @@ defineProps<{
   }
 }
 
-.color-value{
-  margin: 0;
-  margin-top: calc(var(--vh)*2);
-  font-size: min(14px, 3.6vw);
-  font-weight: 600;
-  line-height: 120%;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-
-  @media(--tablet-width){
-    font-size: clamp(12px, 0.9vw, 18px);
-  }
-
-  @media(--mobile-medium){
-    font-size: min(14px, calc(var(--vh) * 3.2));
-  }
-}
 </style>

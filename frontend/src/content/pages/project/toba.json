@@ -69,18 +69,10 @@
             },
             "color-palette": {
                 "title": "Цветовая палитра",
-                "colors": [
+                "colors-blocks": [
                     {
-                        "title": "Синий",
-                        "value": "#003366"
-                    },
-                    {
-                        "title": "Зеленый",
-                        "value": "#008000"
-                    },
-                    {
-                        "title": "Красный",
-                        "value": "#FF0000"
+                        "assignment": "",
+                        "colors": ["232F5F", "EF5F5E", "FCBB48"]
                     }
                 ]
             },
