@@ -2,6 +2,7 @@
 const {data} = defineProps<{
   data: {
     src: string;
+    srcMobile?: string;
     alt: string;
   };
 }>();
@@ -11,6 +12,13 @@ const {data} = defineProps<{
   <section
     class="example-big-image"
   >
+    <NuxtImg
+      :src="data.srcMobile || data.src"
+      :alt="data.alt"
+      quality="100"
+      loading="lazy"
+      decoding="async"
+    />
     <NuxtImg
       :src="data.src"
       :alt="data.alt"
@@ -39,6 +47,24 @@ const {data} = defineProps<{
     height: auto;
     max-height: inherit;
     object-fit: cover;
+
+    &:first-child{ /* мобилка */
+       display: block;
+    }
+    
+    &:last-child{ /* пк */
+       display: none;
+    }
+
+    @media(--tablet-width){
+      &:first-child{ /* мобилка */
+        display: none;
+      }
+      
+      &:last-child{ /* пк */
+        display: block;
+      }
+    }
   }
 
   @media(--tablet-width){
