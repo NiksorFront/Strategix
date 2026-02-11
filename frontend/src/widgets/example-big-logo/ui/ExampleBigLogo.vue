@@ -20,7 +20,9 @@ const {data} = defineProps<{
       <NuxtImg 
         :src="data.src"
         :alt="data.alt"
-        quality="100"
+        format="webp"
+        :quality="80"
+        sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw"
         loading="lazy"
         decoding="async"
       />

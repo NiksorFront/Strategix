@@ -7,11 +7,12 @@ const {src, name, lastname, position} = defineProps<{src: string, name: string, 
     <NuxtImg
       class="image-card"
       :src="src"
-      sizes="(max-width: 767px) 170px, (max-width: 1023px) 25vw, 25vw"
+      sizes="xs:170px sm:170px md:25vw lg:25vw xl:25vw xxl:25vw"
       format="webp"
       :quality="70"
       :alt="`${name} ${lastname}`"
       loading="lazy"
+      decoding="async"
       :width="600"
       :height="600"
     />

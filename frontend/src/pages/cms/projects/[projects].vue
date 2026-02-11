@@ -141,8 +141,13 @@
                 :src="project.image"
                 :alt="project.title"
                 class="project-image"
+                format="webp"
+                :quality="80"
                 :width="600"
                 :height="400"
+                sizes="xs:50vw sm:33vw md:20vw lg:20vw xl:20vw xxl:20vw"
+                loading="lazy"
+                decoding="async"
               />
               <div
                 v-else

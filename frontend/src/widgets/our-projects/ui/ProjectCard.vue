@@ -13,11 +13,12 @@ const { locale } = useI18n()
       <NuxtImg
         :src="src"
         class="img-card"
-        sizes="(max-width: 767px) 74.36vw, (max-width: 1023px) 32.5vw, 33vw"
+        sizes="xs:74.36vw sm:74.36vw md:32.5vw lg:33vw xl:33vw xxl:33vw"
         format="webp"
         :quality="80"
         :alt="title"
         loading="lazy"
+        decoding="async"
         :width="1000"
         :height="1000"
       />

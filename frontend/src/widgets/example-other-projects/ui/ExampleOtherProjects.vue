@@ -135,9 +135,12 @@ const otherProjects = computed<ExampleOtherProject[]>(() => {
             :src="project.src"
             :alt="project.title"
             format="webp"
+            :quality="80"
             width="600"
             height="600"
+            sizes="xs:50vw sm:50vw md:50vw lg:50vw xl:50vw xxl:50vw"
             loading="lazy"
+            decoding="async"
           />
         </NuxtLink>
       </li> 

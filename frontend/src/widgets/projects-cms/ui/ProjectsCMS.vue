@@ -68,6 +68,8 @@
         :src="MainPage"
         alt="main"
         class="main-image"
+        loading="lazy"
+        decoding="async"
       >
     </div>
     <div class="projects">
@@ -101,8 +103,13 @@
                   :src="project.image"
                   :alt="project.title"
                   class="project-image"
+                  format="webp"
+                  :quality="80"
                   :width="600"
                   :height="400"
+                  sizes="xs:50vw sm:33vw md:25vw lg:25vw xl:25vw xxl:25vw"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div
                   v-else
