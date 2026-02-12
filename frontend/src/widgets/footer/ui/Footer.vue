@@ -240,8 +240,8 @@ const formattedPrivacyPolicyText = computed(() => {
   border-radius: 50%;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
 
   transition: all 0.3s;
 
@@ -260,5 +260,8 @@ const formattedPrivacyPolicyText = computed(() => {
   width: auto;
   height: 55%;
   aspect-ratio: 1 / 1;
+  object-fit: contain;
+  
+  margin: auto;
 }
 </style>

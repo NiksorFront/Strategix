@@ -42,6 +42,7 @@ const { locale } = useI18n()
 
   aspect-ratio: 3 / 5;
 
+  border-color: var(--strategix-accent);
   border-radius: var(--card-radius);
 
   display: flex;
@@ -50,6 +51,7 @@ const { locale } = useI18n()
   padding: 0;
 
   transition: all 0.3s;
+  overflow: hidden;
   
   /* min-width: min(32.5%, 74.36vw); */
 }
@@ -69,7 +71,7 @@ const { locale } = useI18n()
   max-height: calc(var(--vh) * 45.5);
 
   object-fit: cover;
-  border-radius: var(--card-radius);
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
 
   @media(--tablet-width){
     max-height: calc(var(--vh) * 48.6);
@@ -103,7 +105,7 @@ const { locale } = useI18n()
 
   color: white;
   text-align: left;
-  line-height: 125%;
+  line-height: 110%;
 
   transition: all 0.3s;
 

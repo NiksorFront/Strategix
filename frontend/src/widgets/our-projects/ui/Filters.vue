@@ -39,6 +39,10 @@
 
     margin: 0 0 min(20px, calc(var(--vh) * 1.5));
 
+    @media(--tablet-width){
+      margin: 0 0 min(60px, calc(var(--vh) * 3.5));
+    }
+
     @media(--mobile-width){
       gap: clamp(10px, 1.5%, 40px);
     }

@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .slider {
 	width: calc(100% + 2 * var(--padding-section-x));
-  height: 84%;
+  height: 78%;
 	position: relative;
   margin: 0;
   overflow: hidden;
