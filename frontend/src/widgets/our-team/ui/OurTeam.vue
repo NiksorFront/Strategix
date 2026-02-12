@@ -48,6 +48,7 @@ const members = translations.our_team.members
     box-sizing: border-box;
 
     background-color: var(--strategix-light);
+    font-synthesis: none;
 
     @media(--mobile-width){
       margin-bottom: calc(-2 * var(--padding-section-x));
