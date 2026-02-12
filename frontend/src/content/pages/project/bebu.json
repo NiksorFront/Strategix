@@ -24,7 +24,7 @@
             "welcome":{
                 "sphere": "ВИНО И КРЕПКИЕ НАПИТКИ",
                 "name": "BEBU",
-                "img": "/images/bebu.jpg",
+                "img": "/images/bebu-main.jpg",
                 "description": [
                     "Компания Badagoni обратилась с задачей создать дизайн этикетки для нового продукта, который выходит на немецкий рынок под брендом BEBU.",
                     "Основная цель проекта — разработать визуальное решение, которое подчеркнёт грузинское происхождение вина и в то же время будет органично восприниматься немецким потребителем.",
@@ -38,9 +38,9 @@
                 ]
             },
             "big-logo": {
-                "src": "/images/beby-logo.jpg",
+                "src": "/images/beby-logo.png",
                 "alt": "логотип BEBU",
-                "backgroundColor": "#FFFFFF"
+                "backgroundColor": "#F1F1F1"
             },
             "typograhy": {
                 "title": "Типография",
@@ -80,7 +80,7 @@
                     }
                 ]
             },
-            "big-image-1": {
+            "big-image": {
                 "src": "/images/bebu-image.jpg",
                 "alt": "большая картинка BEBU"
             },

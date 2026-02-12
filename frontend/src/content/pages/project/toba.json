@@ -24,7 +24,7 @@
             "welcome":{
                 "sphere": "БАНКА ВИНА",
                 "name": "TOBA",
-                "img": "/images/toba.jpg",
+                "img": "/images/toba-main.jpg",
                 "description": [
                     "Проект TOBA — это грузинское вино в алюминиевой банке, разработанное для европейского рынка.",
                     "Главная идея — познакомить потребителя с богатым культурным наследием Грузии в современном формате.",
@@ -38,9 +38,9 @@
                 ]
             },
             "big-logo": {
-                "src": "/images/toba-logo.jpg",
+                "src": "/images/toba-logo.png",
                 "alt": "логотип Тоба",
-                "backgroundColor": "#FFFFFF"
+                "backgroundColor": "#F1F1F1"
             },
             "typograhy": {
                 "title": "Типография",
@@ -62,7 +62,7 @@
                             "scale": 1
                         },
                         "assignment": "Вспомогательный",
-                        "name": "Futurafuturis",
+                        "name": "Futurafuturisc",
                         "description": "С их широкими и незамкнутыми буквами и большой высотой x, которые были использованы для основного текста небольшого размера"
                     }
                 ]
@@ -76,7 +76,7 @@
                     }
                 ]
             },
-            "big-image-1": {
+            "big-image": {
                 "src": "/images/toba-image.jpg",
                 "alt": "большая картинкаТоба"
             },

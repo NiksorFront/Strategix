@@ -3,6 +3,7 @@
     import ExampleList from '@/shared/ui/example-list';
 
     type ExampleGoalsCompanyData = {
+      title?: string;
       list: string[];
     };
 
@@ -14,7 +15,7 @@
 <template>
   <section class="example-goals-company">
     <ExampleSectionTitle>
-      Цели компании
+      {{ data.title ?? 'Цели компании' }}
     </ExampleSectionTitle>
     <ExampleList :list="data.list" />
   </section>

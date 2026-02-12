@@ -36,9 +36,15 @@ const {data} = defineProps<{
         decoding="async"
       />
     </div>
-    <p class="base-text description">
-      {{ data.description.join(' ') }}
-    </p>
+    <div class="description">
+      <p
+        v-for="(paragraph, index) in data.description"
+        :key="`paragraph-${index}`"
+        class="base-text info-paragraph"
+      >
+        {{ paragraph }}
+      </p>
+    </div>
     <div class="about-case">
       <div
         v-for="(item, index) in data.about"
@@ -199,15 +205,12 @@ const {data} = defineProps<{
   padding: 0 var(--padding-section-x) 0 var(--padding-section-x);
   margin: 0;
 
-  text-align: left;
-  font-size: min(18px, 4.6vw);
-  font-weight: 600;
-  line-height: 125%;
-  color: var(--strategix-dark);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--vh) * 2);
 
   @media(--tablet-width){
     padding: 0 0 0 var(--padding-section-x);
-    font-size: clamp(18px, calc(1vw + var(--vh) * 1.25), 36px);
   }
 
   @media(--pc-width){
@@ -219,6 +222,23 @@ const {data} = defineProps<{
 
   @media(--mobile-medium) {
     padding: 0 0 0 var(--padding-section-x);
+  }
+}
+
+.info-paragraph{
+  margin: 0;
+
+  text-align: left;
+  font-size: min(18px, 4.6vw);
+  font-weight: 600;
+  line-height: 125%;
+  color: var(--strategix-dark);
+
+  @media(--tablet-width){
+    font-size: clamp(18px, calc(1vw + var(--vh) * 1.25), 36px);
+  }
+
+  @media(--mobile-medium) {
     font-size: min(25px, calc(var(--vh) * 3.75));
   }
 }

@@ -36,9 +36,9 @@
                 ]
             },
             "big-logo": {
-                "src": "/images/touch-logo.jpg",
+                "src": "/images/touch-logo.png",
                 "alt": "логотип Touch",
-                "backgroundColor": "#FFFFFF"
+                "backgroundColor": "#F1F1F1"
             },
             "typograhy": {
                 "title": "Типография",
@@ -55,12 +55,12 @@
                     },
                     {
                         "font":{
-                            "src": "/fonts/Avenir Next World Medium.ttf",
-                            "weight": 400,
+                            "src": "/fonts/Futurafuturislightc.otf",
+                            "weight": 200,
                             "scale": 1
                         },
                         "assignment": "Вспомогательный",
-                        "name": "Avenir Medium",
+                        "name": "Futurafuturisc",
                         "description": "С их широкими и незамкнутыми буквами и большой высотой x, которые были использованы для основного текста небольшого размера"
                     }
                 ]

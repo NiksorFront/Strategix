@@ -5,8 +5,8 @@
         "en": {
             "welcome":{
                 "sphere": "ADVERTISING",
-                "name": "M&M",
-                "img": "/images/m-and-m.jpg",
+                "name": "M&M document",
+                "img": "/images/m-and-m-image.jpg",
                 "description": [
                     "M&M is a company that helps specialists and entrepreneurs obtain talent visas, business visas, and arrange relocation to the USA.",
                     "We support clients at every stage, from assessing their chances and preparing documents to moving and adapting in the country."
@@ -19,11 +19,13 @@
                 ]
             },
             "goals-company": {
+                "title": "Company goal",
                 "list": [
                     "Lead generation via the website and Instagram (requests for consultations on talent visas and relocation to the USA)."
                 ]
             },
             "what-did": {
+                "title": "What we did",
                 "description": "FROM AUGUST TO OCTOBER 2025, 15 AD CAMPAIGNS WITH DIFFERENT GOALS WERE LAUNCHED",
                 "list": [
                     "Website leads for consultation requests. Direct-message sales to receive requests directly in Instagram.",
@@ -32,6 +34,7 @@
                 ]
             },
             "results": {
+                "title": "Results",
                 "description": "Not all website conversions are shown in the ad account due to technical limitations, but we accounted for them in Yandex Metrica.",
                 "items": [
                     {"title": "Leads received", "result": "498", "unit_measurement": "Instagram"},
@@ -45,11 +48,10 @@
         "ru": {
             "welcome":{
                 "sphere": "РЕКЛАМА",
-                "name": "M&M",
-                "img": "/images/m-and-m.jpg",
+                "name": "M&M document",
+                "img": "/images/m-and-m-image.jpg",
                 "description": [
-                    "M&M — компания, помогающая специалистам и предпринимателям получить визы талантов, бизнес-визы и оформить релокацию в США.",
-                    "Сопровождаем клиентов на всех этапах от оценки шансов и подготовки документов до переезда и адаптации в стране."
+                    "M&M — компания, помогающая специалистам и предпринимателям получить визы талантов, бизнес-визы и оформить релокацию в США. Сопровождаем клиентов на всех этапах  от оценки шансов и подготовки документов до переезда и адаптации в стране."
                 ],
                 "about": [
                     {"label": "Сектор", "value": "Реклама"},
@@ -59,11 +61,13 @@
                 ]
             },
             "goals-company": {
+                "title": "Цель компании",
                 "list": [
                     "Получение лидов через сайт и Instagram (заявки на консультации по визам талантов и релокации в США)."
                 ]
             },
             "what-did": {
+                "title": "Что сделали",
                 "description": "С АВГУСТА ПО ОКТЯБРЬ 2025 ГОДА ЗАПУЩЕНО 15 РЕКЛАМНЫХ КАМПАНИЙ С РАЗНЫМИ ЦЕЛЯМИ",
                 "list": [
                     "Лиды на сайт — для заявок на консультацию. Продажи в сообщениях в Direct — для получения заявок напрямую в Instagram.",
@@ -72,12 +76,13 @@
                 ]
             },
             "results": {
+                "title": "Результаты",
                 "description": "Не все конверсии с сайта отображаются в кабинете в виду технических особенностей, но мы их учли по Яндекс Метрике.",
                 "items": [
                     {"title": "Получено заявок", "result": "498", "unit_measurement": "Instagram"},
-                    {"title": "Стоимость лида", "result": "4,20 $", "unit_measurement": "Стоимость"},
-                    {"title": "Получено заявок", "result": "74", "unit_measurement": "Сайт"},
-                    {"title": "Стоимость лида", "result": "31,60 $", "unit_measurement": "Стоимость"}
+                    {"title": "Получено заявок", "result": "1126", "unit_measurement": "Сайт"},
+                    {"title": "Стоимость лида", "result": "4,20 $", "unit_measurement": "Instagram"},
+                    {"title": "Стоимость лида", "result": "31,60 $", "unit_measurement": "Сайт"}
                 ]
             },
             "other-projects": true
@@ -85,8 +90,8 @@
         "de": {
             "welcome":{
                 "sphere": "ADVERTISING",
-                "name": "M&M",
-                "img": "/images/m-and-m.jpg",
+                "name": "M&M document",
+                "img": "/images/m-and-m-image.jpg",
                 "description": [
                     "M&M ist ein Unternehmen, das Fachleuten und Unternehmern hilft, Talentvisa und Geschäftsvisa zu erhalten und die Umsiedlung in die USA zu organisieren.",
                     "Wir begleiten Kunden in allen Phasen, von der Bewertung der Chancen und der Vorbereitung der Dokumente bis zum Umzug und der Anpassung im Land."
@@ -99,11 +104,13 @@
                 ]
             },
             "goals-company": {
+                "title": "Ziel des Unternehmens",
                 "list": [
                     "Lead-Generierung über die Website und Instagram (Anfragen für Beratungen zu Talentvisa und Relocation in die USA)."
                 ]
             },
             "what-did": {
+                "title": "Was wir gemacht haben",
                 "description": "VON AUGUST BIS OKTOBER 2025 WURDEN 15 WERBEKAMPAGNEN MIT UNTERSCHIEDLICHEN ZIELEN GESTARTET",
                 "list": [
                     "Website-Leads für Beratungsanfragen. Verkäufe in Direct-Nachrichten, um Anfragen direkt in Instagram zu erhalten.",
@@ -112,6 +119,7 @@
                 ]
             },
             "results": {
+                "title": "Ergebnisse",
                 "description": "Nicht alle Website-Conversions werden im Werbekonto aus technischen Gründen angezeigt, aber wir haben sie über Yandex Metrica berücksichtigt.",
                 "items": [
                     {"title": "Erhaltene Leads", "result": "498", "unit_measurement": "Instagram"},
@@ -125,8 +133,8 @@
         "es": {
             "welcome":{
                 "sphere": "ADVERTISING",
-                "name": "M&M",
-                "img": "/images/m-and-m.jpg",
+                "name": "M&M document",
+                "img": "/images/m-and-m-image.jpg",
                 "description": [
                     "M&M es una empresa que ayuda a profesionales y emprendedores a obtener visas de talento, visas de negocios y gestionar la reubicación en Estados Unidos.",
                     "Acompañamos a los clientes en todas las etapas, desde la evaluación de las posibilidades y la preparación de documentos hasta la mudanza y la adaptación en el país."
@@ -139,11 +147,13 @@
                 ]
             },
             "goals-company": {
+                "title": "Objetivo de la empresa",
                 "list": [
                     "Captación de leads a través del sitio web e Instagram (solicitudes de consultas sobre visas de talento y reubicación en EE. UU.)."
                 ]
             },
             "what-did": {
+                "title": "Qué hicimos",
                 "description": "DE AGOSTO A OCTUBRE DE 2025 SE LANZARON 15 CAMPAÑAS PUBLICITARIAS CON DISTINTOS OBJETIVOS",
                 "list": [
                     "Leads al sitio web para solicitudes de consulta. Ventas en mensajes Direct para recibir solicitudes directamente en Instagram.",
@@ -152,6 +162,7 @@
                 ]
             },
             "results": {
+                "title": "Resultados",
                 "description": "No todas las conversiones del sitio web se muestran en la cuenta debido a limitaciones técnicas, pero las contabilizamos en Yandex Metrica.",
                 "items": [
                     {"title": "Leads recibidos", "result": "498", "unit_measurement": "Instagram"},

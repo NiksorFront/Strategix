@@ -6,7 +6,7 @@
             "welcome":{
                 "sphere": "ADVERTISING",
                 "name": "CSS",
-                "img": "/images/css.jpg",
+                "img": "/images/css-image.jpg",
                 "description": [
                     "CSS is a London company specializing in comprehensive services for fashion brands.",
                     "Design, sample development, production, marketing, mentorship, and custom tailoring."
@@ -19,6 +19,7 @@
                 ]
             },
             "goals-company": {
+                "title": "Company goal",
                 "list": [
                     "Get Instagram followers",
                     "Promote company services primarily among fashion brand owners and designers",
@@ -26,6 +27,7 @@
                 ]
             },
             "what-did": {
+                "title": "What we did",
                 "description": "From March 30 to June 30, 2025, 3 ad campaigns with different goals were launched",
                 "list": [
                     "Instagram engagement campaigns focused on lead generation.",
@@ -35,6 +37,7 @@
                 ]
             },
             "results": {
+                "title": "Results",
                 "description": "Goal achieved — the client received a steady flow of leads and an engaged audience for the year ahead.",
                 "items": [
                     {"title": "Received", "result": "282", "unit_measurement": "Leads"},
@@ -49,10 +52,9 @@
             "welcome":{
                 "sphere": "РЕКЛАМА",
                 "name": "CSS",
-                "img": "/images/css.jpg",
+                "img": "/images/css-image.jpg",
                 "description": [
-                    "CSS — лондонская компания, специализирующаяся на комплексных услугах для модных брендов.",
-                    "Дизайн, разработка образцов, производство, маркетинг, наставничество и индивидуальный пошив."
+                    "CSS — лондонская компания,специализирующаяся на комплексных услугах для модных брендов. Дизайн, разработка образцов, производство, маркетинг, наставничество и индивидуальный пошив."
                 ],
                 "about": [
                     {"label": "Сектор", "value": "Реклама"},
@@ -62,6 +64,7 @@
                 ]
             },
             "goals-company": {
+                "title": "Цель компании",
                 "list": [
                     "Получение подписок в Instagram",
                     "Продвижение услуг компании преимущественно среди владельцев модных брендов и дизайнеров",
@@ -69,6 +72,7 @@
                 ]
             },
             "what-did": {
+                "title": "Что сделали",
                 "description": "В период с 30 марта по 30 июня 2025 года были запущены 3 рекламные кампании с разными целями",
                 "list": [
                     "Вовлеченность в Instagram — на получение заявок.",
@@ -78,11 +82,12 @@
                 ]
             },
             "results": {
+                "title": "Результаты",
                 "description": "Цель достигнута — клиент получил устойчивый поток заявок и вовлечённую аудиторию на год вперёд.",
                 "items": [
                     {"title": "Получили", "result": "282", "unit_measurement": "Заявок"},
+                    {"title": "Подписчики", "result": "470", "unit_measurement": "Новые"},
                     {"title": "Стоимость лида", "result": "12,36 £", "unit_measurement": "Стоимость"},
-                    {"title": "Подписчики", "result": "476", "unit_measurement": "Новые"},
                     {"title": "Стоимость лида", "result": "7,32 £", "unit_measurement": "Стоимость"}
                 ]
             },
@@ -92,7 +97,7 @@
             "welcome":{
                 "sphere": "ADVERTISING",
                 "name": "CSS",
-                "img": "/images/css.jpg",
+                "img": "/images/css-image.jpg",
                 "description": [
                     "CSS ist ein in London ansässiges Unternehmen, das sich auf umfassende Dienstleistungen für Modemarken spezialisiert.",
                     "Design, Musterentwicklung, Produktion, Marketing, Mentoring und Maßschneiderei."
@@ -105,6 +110,7 @@
                 ]
             },
             "goals-company": {
+                "title": "Ziel des Unternehmens",
                 "list": [
                     "Instagram-Abonnenten gewinnen",
                     "Leistungen des Unternehmens vor allem bei Inhabern von Modemarken und Designern bewerben",
@@ -112,6 +118,7 @@
                 ]
             },
             "what-did": {
+                "title": "Was wir gemacht haben",
                 "description": "Vom 30. Maerz bis 30. Juni 2025 wurden drei Werbekampagnen mit unterschiedlichen Zielen gestartet",
                 "list": [
                     "Instagram-Engagement-Kampagnen mit Fokus auf Lead-Generierung.",
@@ -121,6 +128,7 @@
                 ]
             },
             "results": {
+                "title": "Ergebnisse",
                 "description": "Ziel erreicht — der Kunde erhielt einen stabilen Strom an Leads und eine engagierte Zielgruppe fuer das kommende Jahr.",
                 "items": [
                     {"title": "Erhalten", "result": "282", "unit_measurement": "Leads"},
@@ -135,7 +143,7 @@
             "welcome":{
                 "sphere": "ADVERTISING",
                 "name": "CSS",
-                "img": "/images/css.jpg",
+                "img": "/images/css-image.jpg",
                 "description": [
                     "CSS es una empresa londinense especializada en servicios integrales para marcas de moda.",
                     "Diseño, desarrollo de muestras, producción, marketing, mentoría y confección a medida."
@@ -148,6 +156,7 @@
                 ]
             },
             "goals-company": {
+                "title": "Objetivo de la empresa",
                 "list": [
                     "Conseguir seguidores en Instagram",
                     "Promocionar los servicios de la empresa principalmente entre propietarios de marcas de moda y disenadores",
@@ -155,6 +164,7 @@
                 ]
             },
             "what-did": {
+                "title": "Qué hicimos",
                 "description": "Del 30 de marzo al 30 de junio de 2025 se lanzaron 3 campanas publicitarias con objetivos distintos",
                 "list": [
                     "Campanas de interaccion en Instagram enfocadas en la generacion de leads.",
@@ -164,6 +174,7 @@
                 ]
             },
             "results": {
+                "title": "Resultados",
                 "description": "Objetivo logrado: el cliente obtuvo un flujo estable de leads y una audiencia comprometida para el ano siguiente.",
                 "items": [
                     {"title": "Recibimos", "result": "282", "unit_measurement": "Leads"},

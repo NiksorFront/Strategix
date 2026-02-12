@@ -150,7 +150,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
               class="font-line"
               aria-hidden="true"
             />
-            <span class="upperscase-text font-name">
+            <span class="font-name">
               {{ font.name }}
             </span>
           </p>
@@ -272,7 +272,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
 .font-line{
   display: inline-block;
   width: min(6vw, 96px);
-  height: 1px;
+  height: 2px;
   background-color: var(--strategix-gray);
   opacity: 0.7;
 
@@ -286,6 +286,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
 .font-name{
   margin: 0;
   text-wrap: nowrap;
+  text-transform: uppercase;
 }
 
 .font-description{

@@ -3,6 +3,7 @@
   import ExampleList from '@/shared/ui/example-list';
 
   type ExampleWhatDidData = {
+    title?: string;
     description: string;
     list: string[];
   };
@@ -15,7 +16,7 @@
 <template>
   <section class="example-goals-company">
     <ExampleSectionTitle :is-white="true">
-      Что сделали
+      {{ data.title ?? 'Что сделали' }}
     </ExampleSectionTitle>
     <p class="base-text description">
       {{ data.description }}

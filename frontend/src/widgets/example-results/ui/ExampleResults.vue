@@ -9,6 +9,7 @@
     };
 
     type ExampleResultsData = {
+      title?: string;
       description: string;
       items: ExampleResultsItem[];
     };
@@ -21,7 +22,7 @@
 <template>
   <section class="example-rusults">
     <ExampleSectionTitle>
-      Результат
+      {{ data.title ?? 'Результат' }}
     </ExampleSectionTitle>
     <p class="description base-text">
       {{ data.description }}
