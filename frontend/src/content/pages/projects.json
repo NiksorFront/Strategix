@@ -7,23 +7,23 @@
                 "cases": {
                     "toba": {
                         "src": "/images/toba.jpg",
-                        "title": "тоба",
-                        "description": "мы то и сё и пять и шесть"
+                        "title": "TOBA",
+                        "description": "Грузинское вино, разработанное для европейского рынка"
                     },
                     "bebu": {
                         "src": "/images/bebu.jpg",
-                        "title": "бебу",
-                        "description": "Это грузинская культура"
+                        "title": "Bebu",
+                        "description": "Дизайн этикетки для нового продукта, который выходит на немецкий рынок"
                     },
                     "touch": {
                         "src": "/images/touch.jpg",
-                        "title": "тач",
-                        "description": "для тач мы сделали ньюсмейкером российского разработчика ПО для резервного копирования"
+                        "title": "Touch",
+                        "description": "Дизайн-концепция для крупнейшей технологическая конференция в Грузии"
                     },
-                    "pti-vehicle-inspection": {
+                    "PTI vehicle inspection": {
                         "src": "/images/PTI.jpg",
                         "title": "PTI vehicle inspection",
-                        "description": "мы тут и там сям для резервного копирования"
+                        "description": "По заказу Министерства инфраструктуры в Грузии была запущена новая компания PTI"
                     }
                 }
             },
@@ -45,7 +45,7 @@
                         "title": "touch",
                         "description": "How we made a Russian backup software developer a newsmaker"
                     },
-                    "pti-vehicle-inspection": {
+                    "PTI vehicle inspection": {
                         "src": "/images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "How we made a Russian backup software developer a newsmaker"
@@ -70,7 +70,7 @@
                         "title": "touch",
                         "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
                     },
-                    "pti-vehicle-inspection": {
+                    "PTI vehicle inspection": {
                         "src": "/images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
@@ -95,7 +95,7 @@
                         "title": "touch",
                         "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
                     },
-                    "pti-vehicle-inspection": {
+                    "PTI vehicle inspection": {
                         "src": "/images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
