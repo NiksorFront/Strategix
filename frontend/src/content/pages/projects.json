@@ -8,7 +8,7 @@
                     "toba": {
                         "src": "/images/toba.jpg",
                         "title": "тоба",
-                        "description": "для тоба мы ньюсмейкером российского разработчика ПО для резервного копирования"
+                        "description": "мы то и сё и пять и шесть"
                     },
                     "bebu": {
                         "src": "/images/bebu.jpg",
@@ -105,16 +105,20 @@
         },
         "group2": {
             "ru": {
-                "title": "Продакшн"
+                "title": "Продакшн",
+                "cases": {}
             },
             "en": {
-                "title": "Production"
+                "title": "Production",
+                "cases": {}
             },
             "de": {
-                "title": "Produktion"
+                "title": "Produktion",
+                "cases": {}
             },
             "es": {
-                "title": "Producción"
+                "title": "Producción",
+                "cases": {}
             }
         },
         "group3": {
@@ -129,7 +133,7 @@
                     "play-create-eat": {
                         "src": "/images/play-create-eat.jpg",
                         "title": "Play Create Eat",
-                        "description": "Cемейное пространство в Дубае, творчество и здоровые привычки, а родители"
+                        "description": "Cемейное пространство в Дубае, творчество и здоровые привычки"
                     },
                     "m&m": {
                         "src": "/images/m-and-m.jpg",

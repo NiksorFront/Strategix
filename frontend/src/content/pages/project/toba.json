@@ -3,7 +3,7 @@
     "example": "1",
     "translations": {
         "en": {
-            "welcome":{
+            "welcome": {
                 "sphere": "CAN WINE",
                 "name": "TOBA",
                 "img": "/images/toba.jpg",
@@ -13,15 +13,27 @@
                     "Each can has a QR code that leads to a page describing one of the country’s cultural landmarks. To learn everything about Georgian heritage, you need to collect all TOBA cans."
                 ],
                 "about": [
-                    {"label": "Sector", "value": "Branding"},
-                    {"label": "Client", "value": "TOBA"},
-                    {"label": "Country", "value": "Georgia"},
-                    {"label": "Expertise", "value": "Strategy, Branding"}
+                    {
+                        "label": "Sector",
+                        "value": "Branding"
+                    },
+                    {
+                        "label": "Client",
+                        "value": "TOBA"
+                    },
+                    {
+                        "label": "Country",
+                        "value": "Georgia"
+                    },
+                    {
+                        "label": "Expertise",
+                        "value": "Strategy, Branding"
+                    }
                 ]
             }
         },
         "ru": {
-            "welcome":{
+            "welcome": {
                 "sphere": "БАНКА ВИНА",
                 "name": "TOBA",
                 "img": "/images/toba-main.jpg",
@@ -31,10 +43,22 @@
                     "Каждая банка снабжена QR-кодом, который ведёт на страницу с описанием одного из культурных памятников страны.Чтобы узнать всё о грузинском наследии, необходимо собрать все банки TOBA."
                 ],
                 "about": [
-                    {"label": "Сектор", "value": "Берендинг"},
-                    {"label": "Клиент", "value": "TOBA"},
-                    {"label": "Страна", "value": "Грузия"},
-                    {"label": "Экспертиза", "value": "Стратегия, Брендинг"}
+                    {
+                        "label": "Сектор",
+                        "value": "Берендинг"
+                    },
+                    {
+                        "label": "Клиент",
+                        "value": "TOBA"
+                    },
+                    {
+                        "label": "Страна",
+                        "value": "Грузия"
+                    },
+                    {
+                        "label": "Экспертиза",
+                        "value": "Стратегия, Брендинг"
+                    }
                 ]
             },
             "big-logo": {
@@ -44,19 +68,19 @@
             },
             "typograhy": {
                 "title": "Типография",
-                "fonts":[
+                "fonts": [
                     {
-                        "font":{
+                        "font": {
                             "src": "/fonts/BebasNeue-Regular.ttf",
                             "weight": 700,
                             "scale": 1
                         },
                         "assignment": "Основной",
                         "name": "Bebas",
-                        "description":"Было выбрано название и заголовки"
+                        "description": "Было выбрано название и заголовки"
                     },
                     {
-                        "font":{
+                        "font": {
                             "src": "/fonts/Futurafuturisc.otf",
                             "weight": 700,
                             "scale": 1
@@ -72,7 +96,11 @@
                 "colors-blocks": [
                     {
                         "assignment": "",
-                        "colors": ["232F5F", "EF5F5E", "FCBB48"]
+                        "colors": [
+                            "232F5F",
+                            "EF5F5E",
+                            "FCBB48"
+                        ]
                     }
                 ]
             },
@@ -99,7 +127,7 @@
             "other-projects": true
         },
         "de": {
-            "welcome":{
+            "welcome": {
                 "sphere": "CAN WINE",
                 "name": "TOBA",
                 "img": "/images/toba.jpg",
@@ -109,15 +137,27 @@
                     "Jede Dose ist mit einem QR-Code versehen, der zu einer Seite mit der Beschreibung eines der kulturellen Denkmäler des Landes führt. Um alles über das georgische Erbe zu erfahren, muss man alle TOBA-Dosen sammeln."
                 ],
                 "about": [
-                    {"label": "Sektor", "value": "Branding"},
-                    {"label": "Kunde", "value": "TOBA"},
-                    {"label": "Land", "value": "Georgien"},
-                    {"label": "Expertise", "value": "Strategie, Branding"}
+                    {
+                        "label": "Sektor",
+                        "value": "Branding"
+                    },
+                    {
+                        "label": "Kunde",
+                        "value": "TOBA"
+                    },
+                    {
+                        "label": "Land",
+                        "value": "Georgien"
+                    },
+                    {
+                        "label": "Expertise",
+                        "value": "Strategie, Branding"
+                    }
                 ]
             }
         },
         "es": {
-            "welcome":{
+            "welcome": {
                 "sphere": "CAN WINE",
                 "name": "TOBA",
                 "img": "/images/toba.jpg",
@@ -127,10 +167,22 @@
                     "Cada lata lleva un código QR que dirige a una página con la descripción de uno de los monumentos culturales del país. Para conocer todo el patrimonio georgiano, hay que reunir todas las latas TOBA."
                 ],
                 "about": [
-                    {"label": "Sector", "value": "Branding"},
-                    {"label": "Cliente", "value": "TOBA"},
-                    {"label": "País", "value": "Georgia"},
-                    {"label": "Especialización", "value": "Estrategia, Branding"}
+                    {
+                        "label": "Sector",
+                        "value": "Branding"
+                    },
+                    {
+                        "label": "Cliente",
+                        "value": "TOBA"
+                    },
+                    {
+                        "label": "País",
+                        "value": "Georgia"
+                    },
+                    {
+                        "label": "Especialización",
+                        "value": "Estrategia, Branding"
+                    }
                 ]
             }
         }
