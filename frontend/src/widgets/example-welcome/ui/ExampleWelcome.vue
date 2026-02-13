@@ -20,7 +20,17 @@ const {data} = defineProps<{
 <template>
   <section class="example-grid">
     <div class="example-welcome">
-      <h1 class="upperscase-text title">
+      <h1
+        v-if="data.sphere"
+        class="upperscase-text title"
+      >
+        <span class="gray"> {{ data.sphere }} </span> <br>
+        {{ data.name }}
+      </h1>
+      <h1
+        v-else
+        class="upperscase-text title-big"
+      >
         {{ data.name }}
       </h1>
       <NuxtImg
@@ -30,7 +40,7 @@ const {data} = defineProps<{
         format="webp"
         :quality="80"
         width="1200"
-        height="572"
+        height="323"
         sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw"
         loading="lazy"
         decoding="async"
@@ -51,10 +61,10 @@ const {data} = defineProps<{
         :key="`${item.label}-${index}`"
         class="about-row"
       >
-        <p class="base-text about-label">
+        <p class="small-text about-label">
           {{ item.label }}
         </p>
-        <p class="base-text about-value">
+        <p class="small-text about-value">
           {{ item.value }}
         </p>
       </div>
@@ -66,7 +76,7 @@ const {data} = defineProps<{
 .example-grid{
     width: var(--section-width);
 
-    padding-bottom: min(calc(var(--vh) * 6), 72px);
+    padding-block: min(calc(var(--vh) * 6), 72px);
     
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -81,18 +91,18 @@ const {data} = defineProps<{
     background-color: var(--strategix-light);
 
     @media(--tablet-width){
-        padding-bottom: min(calc(var(--vh) * 7), 80px);
+        padding-block: min(calc(var(--vh) * 3.7), 80px);
 
-        grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
+        grid-template-columns: minmax(0, 5fr) minmax(0, 3fr);
         grid-template-areas:
           "welcome welcome"
           "description about";
-        column-gap: clamp(24px, 5vw, 72px);
-        row-gap: clamp(36px, calc(var(--vh) * 10), 108px);
+        column-gap: clamp(25px, 8.334vw, 200px);
+        row-gap: clamp(36px, calc(var(--vh) * 7), 160px);
     }
 
     @media(--mobile-medium){
-        padding-bottom: min(calc(var(--vh) * 5), 56px);
+        padding-block: min(calc(var(--vh) * 5), 56px);
 
         grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
         grid-template-areas:
@@ -144,6 +154,39 @@ const {data} = defineProps<{
     text-align: left;
 
     font-size: min(min(10vw, calc(var(--vh) * 5.25)), 42px);
+    line-height: 110%;
+    color: var(--strategix-accent);
+
+    @media(--mobile-width){
+      font-size: clamp(min(min(4vw, var(--vh) * 3), 42px), 1.95vw + var(--vh) * 2.85, 100px);
+    }
+
+    @media (--mobile-width) and (max-aspect-ratio: 4/5){
+      font-size: clamp(min(4vw, var(--vh) * 3), min(10vw, calc(var(--vh) * 5.25)), 100px);
+    }
+
+    @media(--tablet-width) {
+      font-size: clamp(42px, calc((var(--vh) * 3) + 2vw), 140px);
+      padding: calc(var(--vh) * 3) var(--padding-section-x);
+    }
+
+    @media(--mobile-medium) {
+       font-size: min(min(10vw, calc(var(--vh) * 5.5)), 42px);
+    }
+}
+
+.gray{
+  color: var(--strategix-gray);
+}
+
+.title-big {
+    width: 100%;
+    padding: 0 var(--padding-section-x);
+    box-sizing: border-box;
+    margin: auto 0;
+    text-align: left;
+
+    font-size: min(min(10vw, calc(var(--vh) * 5.25)), 42px);
     color: var(--strategix-accent);
 
     @media(--mobile-width){
@@ -155,7 +198,7 @@ const {data} = defineProps<{
    }
 
     @media(--tablet-width) {
-      font-size: clamp(70px, calc((var(--vh) * 4) + 3.25vw), 140px);
+      font-size: clamp(42px, calc((var(--vh) * 4) + 3.25vw), 140px);
       padding: calc(var(--vh) * 3) var(--padding-section-x);
     }
 
@@ -181,11 +224,11 @@ const {data} = defineProps<{
     }
 
     @media(min-aspect-ratio: 3/5){
-      aspect-ratio: 1200 / 400;
+      aspect-ratio: 1200 / 323;
     }
 
     @media(max-aspect-ratio: 5/3){
-      aspect-ratio: 1200 / 572;
+      aspect-ratio: 1200 / 400;
     }
 
     @media(--pc-width) {
@@ -207,7 +250,7 @@ const {data} = defineProps<{
 
   display: flex;
   flex-direction: column;
-  gap: calc(var(--vh) * 2);
+  gap: calc(var(--vh) * 4);
 
   @media(--tablet-width){
     padding: 0 0 0 var(--padding-section-x);
@@ -231,11 +274,11 @@ const {data} = defineProps<{
   text-align: left;
   font-size: min(18px, 4.6vw);
   font-weight: 600;
-  line-height: 125%;
+  line-height: 120%;
   color: var(--strategix-dark);
 
   @media(--tablet-width){
-    font-size: clamp(18px, calc(1vw + var(--vh) * 1.25), 36px);
+    font-size: clamp(18px, calc(0.6667vw + var(--vh) * 2), 48px);
   }
 
   @media(--mobile-medium) {
@@ -251,7 +294,7 @@ const {data} = defineProps<{
 
   @media(--tablet-width){
     padding: 0 var(--padding-section-x) 0 0;
-    gap: min(calc(var(--vh) * 2), 40px);
+    gap: min(calc(var(--vh) * 3.75), 40px);
   }
 
   @media(--mobile-medium) {
@@ -264,16 +307,18 @@ const {data} = defineProps<{
   width: 100%;
   min-height: calc(var(--vh) * 5);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 7fr;
   /* grid-template-columns: max-content minmax(0, 1fr); */
-  column-gap: clamp(12px, 2.5vw, 28px);
+  column-gap: clamp(12px, 2vw, 28px);
   align-items: start;
 
   font-size: min(18px, 4.6vw);
 
   @media(--tablet-width){
-    font-size: clamp(18px, 1vw, 32px);
     min-height: calc(var(--vh) * 3);
+    /* column-gap: clamp(24px, 2.5vw, 48px); */
+
+    font-size: clamp(18px, 1vw, 32px);
   }
 
   @media(--pc-width){

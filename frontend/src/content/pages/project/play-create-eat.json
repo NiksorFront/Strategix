@@ -4,7 +4,7 @@
     "translations": {
         "en": {
             "welcome":{
-                "sphere": "ADVERTISING",
+                "sphere": "",
                 "name": "PlayCreateEat",
                 "img": "/images/play-create-eat-image.jpg",
                 "description": [
@@ -47,7 +47,7 @@
         },
         "ru": {
             "welcome":{
-                "sphere": "РЕКЛАМА",
+                "sphere": "",
                 "name": "Play Create Eat",
                 "img": "/images/play-create-eat-image.jpg",
                 "description": [
@@ -90,7 +90,7 @@
         },
         "de": {
             "welcome":{
-                "sphere": "ADVERTISING",
+                "sphere": "",
                 "name": "PlayCreateEat",
                 "img": "/images/play-create-eat-image.jpg",
                 "description": [
@@ -133,7 +133,7 @@
         },
         "es": {
             "welcome":{
-                "sphere": "ADVERTISING",
+                "sphere": "",
                 "name": "PlayCreateEat",
                 "img": "/images/play-create-eat-image.jpg",
                 "description": [

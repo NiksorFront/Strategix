@@ -4,7 +4,7 @@
     "translations": {
         "en": {
             "welcome":{
-                "sphere": "ADVERTISING",
+                "sphere": "",
                 "name": "M&M document",
                 "img": "/images/m-and-m-image.jpg",
                 "description": [
@@ -47,7 +47,7 @@
         },
         "ru": {
             "welcome":{
-                "sphere": "РЕКЛАМА",
+                "sphere": "",
                 "name": "M&M document",
                 "img": "/images/m-and-m-image.jpg",
                 "description": [
@@ -89,7 +89,7 @@
         },
         "de": {
             "welcome":{
-                "sphere": "ADVERTISING",
+                "sphere": "",
                 "name": "M&M document",
                 "img": "/images/m-and-m-image.jpg",
                 "description": [
@@ -132,7 +132,7 @@
         },
         "es": {
             "welcome":{
-                "sphere": "ADVERTISING",
+                "sphere": "",
                 "name": "M&M document",
                 "img": "/images/m-and-m-image.jpg",
                 "description": [

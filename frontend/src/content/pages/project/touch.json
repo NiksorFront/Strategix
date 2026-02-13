@@ -47,7 +47,7 @@
                         "font":{
                             "src": "/fonts/Avenir Next World Bold.ttf",
                             "weight": 700,
-                            "scale": 1
+                            "scale": 1.35
                         },
                         "assignment": "Основной",
                         "name": "Avenir Bold",

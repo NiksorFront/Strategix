@@ -180,8 +180,8 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   background-color: var(--strategix-light);
 
   @media(--tablet-width){
-    padding-block: min(calc(var(--vh) * 7), 80px);
-    gap: min(calc(var(--vh) * 5), 64px);
+    padding-block: min(calc(var(--vh) * 9), 160px);
+    gap: min(calc(var(--vh) * 9.5), 64px);
   }
 
   @media(--mobile-medium){
@@ -232,11 +232,11 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   letter-spacing: -0.02em;
 
   @media(--tablet-width){
-    font-size: clamp(32px, calc(7vw * var(--font-scale, 1)), 170px);
+    font-size: clamp(32px, calc(8vw * var(--font-scale, 1)), 170px);
   }
 
   @media(--mobile-medium){
-    font-size: clamp(32px, calc(7vw * var(--font-scale, 1)), 170px);
+    font-size: clamp(32px, calc(8vw * var(--font-scale, 1)), 170px);
   };
 }
 
@@ -251,7 +251,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   text-align: left;
 
   @media(--tablet-width){
-    font-size: clamp(16px, 1.5vw, 32px);
+    font-size: clamp(16px, 1.25vw, 32px);
   }
 
   @media(--mobile-medium){

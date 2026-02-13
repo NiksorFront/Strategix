@@ -4,7 +4,7 @@
     "translations": {
         "en": {
             "welcome":{
-                "sphere": "ADVERTISING",
+                "sphere": "",
                 "name": "CSS",
                 "img": "/images/css-image.jpg",
                 "description": [
@@ -50,7 +50,7 @@
         },
         "ru": {
             "welcome":{
-                "sphere": "РЕКЛАМА",
+                "sphere": "",
                 "name": "CSS",
                 "img": "/images/css-image.jpg",
                 "description": [
@@ -95,7 +95,7 @@
         },
         "de": {
             "welcome":{
-                "sphere": "ADVERTISING",
+                "sphere": "",
                 "name": "CSS",
                 "img": "/images/css-image.jpg",
                 "description": [
@@ -141,7 +141,7 @@
         },
         "es": {
             "welcome":{
-                "sphere": "ADVERTISING",
+                "sphere": "",
                 "name": "CSS",
                 "img": "/images/css-image.jpg",
                 "description": [
