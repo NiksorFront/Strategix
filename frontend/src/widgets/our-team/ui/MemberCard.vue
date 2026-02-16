@@ -87,6 +87,7 @@ const {src, name, lastname, position} = defineProps<{src: string, name: string, 
     font-size: min(12px, calc(1.2vw + var(--vh) * 0.8));
     line-height: 110%;
     font-weight: 600;
+    font-variation-settings: "wght" 500;
     text-align: left;
 
     color: var(--strategix-gray);
