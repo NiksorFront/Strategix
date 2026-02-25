@@ -35,8 +35,8 @@ const {data} = defineProps<{
   width: var(--section-width);
   max-width: var(--section-width);
   overflow: hidden;
-  height: calc(var(--vh) * 20);
-  max-height: max(calc(var(--vh) * 40), 800px);
+  height: calc(var(--vh) * 17.5);
+  max-height: max(calc(var(--vh) * 35), 700px);
 
   margin: 0;
   /* padding-block: min(calc(var(--vh) * 6), 72px); */
@@ -45,7 +45,7 @@ const {data} = defineProps<{
   background-color: var(--strategix-light);
 
   @media(--tablet-width){
-    height: calc(var(--vh) * 40);
+    height: calc(var(--vh) * 35);
     /* padding-block: min(calc(var(--vh) * 7), 80px); */
   }
 
@@ -64,7 +64,7 @@ const {data} = defineProps<{
 
   img{
     width: auto;
-    height: 80%;
+    height: 90%;
     margin: auto;
     display: block;
     object-fit: cover;

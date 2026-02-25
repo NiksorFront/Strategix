@@ -112,14 +112,14 @@ const formatColorValue = (value: string) => {
   margin: 0;
   color: var(--strategix-gray);
   text-align: left;
-  font-size: min(16px, 4.1vw);
-  font-weight: 500;
-  line-height: 120%;
-  letter-spacing: 0;
-  text-transform: none;
+  font-size: min(16px, 4.2vw);
+  font-weight: 400;
+  line-height: 140%;
+  text-align: left;
+
 
   @media(--tablet-width){
-    font-size: clamp(16px, 1.335vw, 32px);
+    font-size: clamp(16px, 1.25vw, 32px);
   }
 
   @media(--mobile-medium){

@@ -76,7 +76,7 @@ const {data} = defineProps<{
 .example-grid{
     width: var(--section-width);
 
-    padding-block: min(calc(var(--vh) * 6), 72px);
+    padding-block: min(calc(var(--vh) * 8), 80px);
     
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -91,7 +91,7 @@ const {data} = defineProps<{
     background-color: var(--strategix-light);
 
     @media(--tablet-width){
-        padding-block: min(calc(var(--vh) * 3.7), 80px);
+        padding-top: min(calc(var(--vh) * 3.7), 80px);
 
         grid-template-columns: minmax(0, 5fr) minmax(0, 3fr);
         grid-template-areas:

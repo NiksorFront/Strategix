@@ -60,10 +60,14 @@ const changeLanguage = (langCode: string) => {
 
   .lang-nav.light{
     --lang-text-color: var(--strategix-dark);
+    --lang-text-color-hover: var(--strategix-light);
+    --lang-dropdown-bg: #9A9A9A;
   }
 
   .lang-nav.dark{
     --lang-text-color: var(--strategix-light);
+    --lang-text-color-hover: var(--strategix-light);
+    --lang-dropdown-bg: #37393D;
   }
 
   .lang-switcher {
@@ -120,14 +124,14 @@ const changeLanguage = (langCode: string) => {
   .lang-list-column {
     position: absolute;
     top: 100%;
-    right: -12px;
+    right: -2px;
 
     margin: 0;
-    padding: 12px 18px;
+    padding: 12px 8px;
     list-style: none;
 
     border-radius: var(--card-radius);
-    background-color: #262626;
+    background-color: var(--lang-dropdown-bg);
 
     opacity: 0;
     pointer-events: none;
@@ -149,7 +153,7 @@ const changeLanguage = (langCode: string) => {
     outline: none;
 
     text-decoration: none;
-    color: var(--lang-text-color);
+    color: var(--lang-text-color-hover);
     white-space: nowrap;
 
     @media(width < 768px){
@@ -206,6 +210,10 @@ const changeLanguage = (langCode: string) => {
       opacity: 1;
       pointer-events: auto;
       transform: none;
+    }
+
+    .lang-link{
+      color: var(--lang-text-color);
     }
 
     .lang-list .lang-item + .lang-item {

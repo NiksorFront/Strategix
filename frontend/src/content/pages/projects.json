@@ -20,7 +20,7 @@
                         "title": "Touch",
                         "description": "Дизайн-концепция для крупнейшей технологическая конференция в Грузии"
                     },
-                    "PTI vehicle inspection": {
+                    "pti-vehicle-inspection": {
                         "src": "/images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "По заказу Министерства инфраструктуры в Грузии была запущена новая компания PTI"
@@ -45,7 +45,7 @@
                         "title": "touch",
                         "description": "How we made a Russian backup software developer a newsmaker"
                     },
-                    "PTI vehicle inspection": {
+                    "pti-vehicle-inspection": {
                         "src": "/images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "How we made a Russian backup software developer a newsmaker"
@@ -70,7 +70,7 @@
                         "title": "touch",
                         "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
                     },
-                    "PTI vehicle inspection": {
+                    "pti-vehicle-inspection": {
                         "src": "/images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
@@ -95,7 +95,7 @@
                         "title": "touch",
                         "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
                     },
-                    "PTI vehicle inspection": {
+                    "pti-vehicle-inspection": {
                         "src": "/images/PTI.jpg",
                         "title": "PTI vehicle inspection",
                         "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"

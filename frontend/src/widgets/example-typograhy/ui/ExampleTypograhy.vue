@@ -229,7 +229,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   color: var(--strategix-dark);
   font-size: calc(29vw * var(--font-scale, 1));
   line-height: 0.85;
-  letter-spacing: -0.02em;
+  letter-spacing: 10px;
 
   @media(--tablet-width){
     font-size: clamp(32px, calc(8vw * var(--font-scale, 1)), 170px);
@@ -246,7 +246,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   flex-direction: row;
 
   font-size: min(16px, 4.2vw);
-  font-weight: 200;
+  font-weight: 400;
   line-height: 140%;
   text-align: left;
 
@@ -265,7 +265,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   gap: clamp(10px, 2vw, 24px);
   margin: 0;
 
-  color: var(--strategix-dark);
+  color: var(--strategix-gray);
 
 }
 
@@ -273,7 +273,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   display: inline-block;
   width: min(6vw, 96px);
   height: 2px;
-  background-color: var(--strategix-gray);
+  background-color: var(--strategix-dark);
   opacity: 0.7;
 
   margin: auto 0;
@@ -294,8 +294,8 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   max-width: clamp(240px, 50vw, 560px);
 
   margin: 0 clamp(10px, 5vw, 200px) 0 auto;
-  color: var(--strategix-dark);
-  font-weight: 200;
+  color: var(--strategix-gray);
+  font-weight: 400;
   text-align: left;
   text-transform: none;
 
