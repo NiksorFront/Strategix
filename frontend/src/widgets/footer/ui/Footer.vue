@@ -4,6 +4,8 @@ import xWhite from "@/assets/images/x-white.svg";
 import index from '@/content/pages/index.json'
 
 const { locale } = useI18n()
+const localePath = useLocalePath()
+const route = useRoute()
 const currentLocale = locale.value || 'example'
 const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.example
 
@@ -32,6 +34,14 @@ const footerIcons = computed(() => {
   return normalizedIcons
 })
 
+const normalizePath = (path: string) => {
+  const normalized = path.replace(/\/+$/, '')
+  return normalized || '/'
+}
+
+const homePath = computed(() => localePath('/'))
+const isIndexPage = computed(() => normalizePath(route.path) === normalizePath(homePath.value))
+
 const formattedPrivacyPolicyText = computed(() => {
   const text = privacyPolicy.text || ''
   const [firstWord, ...restWords] = text.trim().split(/\s+/)
@@ -44,7 +54,22 @@ const formattedPrivacyPolicyText = computed(() => {
 <template>
   <footer class="footer">
     <div class="footer__left">
+      <a
+        v-if="!isIndexPage"
+        :href="homePath"
+        class="logo-link"
+        aria-label="На главную"
+      >
+        <NuxtImg
+          :src="xWhite"
+          class="logo"
+          :width="50"
+          :height="43"
+          loading="lazy"
+        />
+      </a>
       <NuxtImg
+        v-else
         :src="xWhite"
         class="logo"
         :width="50"
@@ -78,8 +103,8 @@ const formattedPrivacyPolicyText = computed(() => {
       </a>
 
       <a
-        v-for="(icon, index) in footerIcons"
-        :key="icon.href || icon.src || index"
+        v-for="(icon, iconIndex) in footerIcons"
+        :key="icon.href || icon.src || iconIndex"
         :href="icon.href || '#'"
         class="icon"
         target="_blank"
@@ -87,7 +112,7 @@ const formattedPrivacyPolicyText = computed(() => {
       >
         <NuxtImg
           :src="icon.src"
-          :alt="`footer icon ${index + 1}`"
+          :alt="`footer icon ${iconIndex + 1}`"
           :width="24"
           :height="24"
           loading="lazy"
@@ -137,6 +162,28 @@ const formattedPrivacyPolicyText = computed(() => {
   @media(--mobile-medium){
     width: auto;
     height: calc(var(--vh) * 5);
+  }
+}
+
+.logo-link {
+  width: 6.5%;
+  height: auto;
+  aspect-ratio: 7 / 6;
+  display: inline-flex;
+
+  @media(--mobile-medium){
+    width: auto;
+    height: calc(var(--vh) * 5);
+  }
+}
+
+.logo-link .logo {
+  width: 100%;
+  height: auto;
+
+  @media(--mobile-medium){
+    width: auto;
+    height: 100%;
   }
 }
 

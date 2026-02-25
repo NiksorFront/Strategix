@@ -8,6 +8,8 @@
   import index from '@/content/pages/index.json'
 
   const { locale } = useI18n()
+  const localePath = useLocalePath()
+  const route = useRoute()
   const currentLocale = locale.value || 'example'
   const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.example
 
@@ -18,20 +20,44 @@
     } 
   })
 
-  const navData = {
+  const normalizePath = (path: string) => {
+    const normalized = path.replace(/\/+$/, '')
+    return normalized || '/'
+  }
+
+  const homePath = computed(() => localePath('/'))
+  const isIndexPage = computed(() => normalizePath(route.path) === normalizePath(homePath.value))
+  const resolveHeaderHref = (href: string) => {
+    if (!href.startsWith('#')) {
+      return href
+    }
+
+    if (isIndexPage.value) {
+      return href
+    }
+
+    if (href === '#') {
+      return homePath.value
+    }
+
+    return `${homePath.value}${href}`
+  }
+
+  const navData = computed(() => ({
     links: translations.header.navigation_desktop.map(item => ({
-      href: item.href,
+      href: resolveHeaderHref(item.href),
       label: item.text
     }))
-  }
-  const navData2 = {
+  }))
+  const navData2 = computed(() => ({
     links: translations.header.mobile_menu.navigation_mobile.map(item => ({
-      href: item.href,
+      href: resolveHeaderHref(item.href),
       label: item.text
     }))
-  }
+  }))
   const buttonText = translations.header.button.text
-  const buttonHref = translations.header.button.href
+  const buttonHref = computed(() => resolveHeaderHref(translations.header.button.href))
+  const buttonHrefMobile = computed(() => resolveHeaderHref(translations.header.mobile_menu.button.href))
 </script>
 
 <template>
@@ -39,7 +65,22 @@
     id="header"
     :class="['header', theme]"
   >
+    <a
+      v-if="!isIndexPage"
+      :href="homePath"
+      aria-label="На главную"
+    >
+      <NuxtImg
+        class="strategix-logo"
+        :src="theme === 'light' ? strategixLogoBlack : strategixLogoWhite"
+        alt="strategix logo"
+        :width="172"
+        :height="36"
+        fetchpriority="high"
+      />
+    </a>
     <NuxtImg
+      v-else
       class="strategix-logo"
       :src="theme === 'light' ? strategixLogoBlack : strategixLogoWhite"
       alt="strategix logo"
@@ -66,7 +107,10 @@
       {{ buttonText }}
     </ButtonWithIcon>
 
-    <NavigationMenuMobile :nav-data="navData2" /> <!-- мобилка -->
+    <NavigationMenuMobile
+      :nav-data="navData2"
+      :button-href="buttonHrefMobile"
+    /> <!-- мобилка -->
   </header>
 </template>
 

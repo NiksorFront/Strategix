@@ -3,18 +3,20 @@ import strategixLogo from "@/assets/images/strategix-white-2.svg";
 import ButtonWithIcon from "@/shared/ui/button-with-icon";
 import index from '@/content/pages/index.json'
 
-const { navData } = defineProps<{
+const { navData, buttonHref } = withDefaults(defineProps<{
   navData: {
     links: { href: string; label: string }[]
   }
-}>();
+  buttonHref?: string
+}>(), {
+  buttonHref: '#'
+});
 
 const { locale } = useI18n()
 const currentLocale = locale.value || 'example'
 const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.example
 
 const buttonText = translations.header.mobile_menu.button.text
-const buttonHref = translations.header.mobile_menu.button.href
 </script>
 
 <template>
@@ -58,8 +60,8 @@ const buttonHref = translations.header.mobile_menu.button.href
       <nav class="navigation">
         <ul>
           <li
-            v-for="(link, index) in navData.links"
-            :key="index"
+            v-for="(link, linkIndex) in navData.links"
+            :key="linkIndex"
           >
             <a
               :href="link.href"
