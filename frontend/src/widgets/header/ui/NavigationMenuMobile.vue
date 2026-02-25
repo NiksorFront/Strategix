@@ -3,14 +3,12 @@ import strategixLogo from "@/assets/images/strategix-white-2.svg";
 import ButtonWithIcon from "@/shared/ui/button-with-icon";
 import index from '@/content/pages/index.json'
 
-const { navData, buttonHref } = withDefaults(defineProps<{
+const { navData, buttonHref = '#' } = defineProps<{
   navData: {
     links: { href: string; label: string }[]
   }
   buttonHref?: string
-}>(), {
-  buttonHref: '#'
-});
+}>()
 
 const { locale } = useI18n()
 const currentLocale = locale.value || 'example'

@@ -11,21 +11,20 @@ import arrowForwardInCircle from '@/assets/images/arrow-forward-in-circle.svg';
  * white - без обводки, фон иконки белый, белый текст и тёмный фон.
  *         При hover фон белый, текст и фон иконки зелёные.
  */
-const props = withDefaults(
-  defineProps<{
-    styleButton?: 'base' | 'green' | 'white',
-    href?: string,
-    target?: string,
-    theme?: 'dark' | 'light',
-  }>(),
-  {
-    styleButton: 'base',
-    theme: 'dark',
-  },
-);
+const {
+  styleButton = 'base',
+  href,
+  target,
+  theme = 'dark',
+} = defineProps<{
+  styleButton?: 'base' | 'green' | 'white',
+  href?: string,
+  target?: string,
+  theme?: 'dark' | 'light',
+}>()
 
 const iconSrc = computed(() => {
-  switch (props.styleButton) {
+  switch (styleButton) {
     case 'green':
       return lineMdArrowUp;
     case 'white':
@@ -42,11 +41,11 @@ const iconSrc = computed(() => {
     :class="[
       'button',
       'base-text',
-      props.styleButton,
-      props.theme
+      styleButton,
+      theme
     ]"
-    :href="props.href"
-    :target="props.target"
+    :href="href"
+    :target="target"
   >
     <slot />&nbsp;&nbsp;
     <span class="icon">
