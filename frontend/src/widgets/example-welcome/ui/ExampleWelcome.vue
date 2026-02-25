@@ -101,6 +101,10 @@ const {data} = defineProps<{
         row-gap: clamp(36px, calc(var(--vh) * 7), 160px);
     }
 
+    @media(--pc-width){
+        grid-template-columns: minmax(0, 4fr) minmax(0, 3fr);
+    }
+
     @media(--mobile-medium){
         padding-block: min(calc(var(--vh) * 5), 56px);
 
@@ -127,18 +131,14 @@ const {data} = defineProps<{
     }
 
     @media(--tablet-width) {
-        min-height: calc(var(--vh) * 60);
+        min-height: calc(var(--vh) * 40);
         height: auto;
-        max-height: calc(var(--vh) * 120);
+        max-height: calc(var(--vh) * 90);
     }
 
     @media(min-aspect-ratio: 1/1){
-        min-height: calc(var(--vh) * 90);
-    }
-
-    @media(--pc-width){
-        min-height: 0;
-        max-height: calc(var(--vh) * 50);
+        /* min-height: calc((var(--vh) * 80) - min(calc(var(--vh) * 4), 40px)); */
+        min-height: calc(var(--vh) * 70);
     }
 
     /* @media(--mobile-medium) {
@@ -168,6 +168,10 @@ const {data} = defineProps<{
     @media(--tablet-width) {
       font-size: clamp(42px, calc((var(--vh) * 3) + 2vw), 140px);
       padding: calc(var(--vh) * 3) var(--padding-section-x);
+    }
+
+    @media(--pc-width){
+      font-size: clamp(42px, calc(var(--vh) * 7), 140px);
     }
 
     @media(--mobile-medium) {
@@ -200,6 +204,10 @@ const {data} = defineProps<{
     @media(--tablet-width) {
       font-size: clamp(42px, calc((var(--vh) * 4) + 3.25vw), 140px);
       padding: calc(var(--vh) * 3) var(--padding-section-x);
+    }
+
+    @media(--pc-width){
+      font-size: clamp(42px, calc(var(--vh) * 10), 140px);
     }
 
     @media(--mobile-medium) {
@@ -257,10 +265,7 @@ const {data} = defineProps<{
   }
 
   @media(--pc-width){
-    min-width: 1370px;
-    max-width: calc((var(--section-width) / 1.7));
-    box-sizing: border-box;
-    margin-left: auto;
+    padding: 0 0 0 calc((100vw - 2560px) / 2);
   }
 
   @media(--mobile-medium) {
@@ -278,7 +283,7 @@ const {data} = defineProps<{
   color: var(--strategix-dark);
 
   @media(--tablet-width){
-    font-size: clamp(18px, calc(0.6667vw + var(--vh) * 2), 48px);
+    font-size: clamp(18px, calc(0.6667vw + var(--vh) * 1.75), 48px);
   }
 
   @media(--mobile-medium) {
@@ -295,6 +300,10 @@ const {data} = defineProps<{
   @media(--tablet-width){
     padding: 0 var(--padding-section-x) 0 0;
     gap: min(calc(var(--vh) * 3.75), 40px);
+  }
+
+  @media(--pc-width){
+    padding: 0 calc((100vw - 2560px) / 2) 0 0;
   }
 
   @media(--mobile-medium) {

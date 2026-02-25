@@ -37,8 +37,8 @@ const {data} = defineProps<{
 .example-big-image{
   width: var(--section-width);
   height: auto;
-  /* calc(var(--vh) * 30) */
   max-height: min(calc(var(--vh) * 100), 1600px);
+  box-sizing: border-box;
 
   margin: 0;
   /* padding-block: min(calc(var(--vh) * 6), 72px); */
@@ -71,14 +71,12 @@ const {data} = defineProps<{
     }
   }
 
-  @media(--tablet-width){
-    /* height: calc(var(--vh) * 40); */
-    /* padding-block: min(calc(var(--vh) * 7), 80px); */
+  @media(--pc-width){
+    padding-inline: var(--padding-section-x);
   }
 
   @media(--mobile-medium){
-    /* height: calc(var(--vh) * 70); */
-    /* padding-block: min(calc(var(--vh) * 5), 56px); */
+    padding-inline: 0;
   }
 }
 

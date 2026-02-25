@@ -37,6 +37,7 @@ const {data} = defineProps<{
   overflow: hidden;
   height: calc(var(--vh) * 17.5);
   max-height: max(calc(var(--vh) * 35), 700px);
+  box-sizing: border-box;
 
   margin: 0;
   /* padding-block: min(calc(var(--vh) * 6), 72px); */
@@ -49,9 +50,13 @@ const {data} = defineProps<{
     /* padding-block: min(calc(var(--vh) * 7), 80px); */
   }
 
+  @media(--pc-width){
+    padding-inline: var(--padding-section-x);
+  }
+
   @media(--mobile-medium){
     height: calc(var(--vh) * 70);
-    /* padding-block: min(calc(var(--vh) * 5), 56px); */
+    padding-inline: 0;
   }
 }
 
