@@ -108,16 +108,11 @@ onBeforeUnmount(() => {
   padding: 0;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1.25%;
 	list-style: none;
 	scrollbar-width: none;
 	scroll-snap-type: x mandatory; /* центрируем элементы */
-
-  /* mask-image: url("@/assets/images/gradient.svg");
-  mask-repeat: no-repeat;
-  mask-position: right;
-  mask-size: cover; */
 }
 
 .slider__list::-webkit-scrollbar {

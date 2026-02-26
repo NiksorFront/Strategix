@@ -1,6 +1,23 @@
 <script setup lang="ts">
-    const {categories} = defineProps<{categories: string[] }>()
-    // При разработке CMS добавить active и setChages
+  const {
+    categories,
+    activeCategory = null,
+    isEnabled = true,
+  } = defineProps<{
+    categories: string[]
+    activeCategory?: string | null
+    isEnabled?: boolean
+  }>()
+
+  const emit = defineEmits<{
+    (e: 'select', category: string): void
+  }>()
+
+  const onCategoryClick = (category: string) => {
+    if (!isEnabled) return
+
+    emit('select', category)
+  }
 </script>
 
 <template>
@@ -9,13 +26,17 @@
     aria-label="Фильтр проектов"
   >
     <li
-      v-for="category in categories"
+      v-for="(category, index) in categories"
       :key="category"
       class="filter-item"
     >
       <button 
         type="button" 
         class="item"
+        :class="{'disabled': !isEnabled, 'enabled': isEnabled, 'active': category === activeCategory || activeCategory === categories[0]}"
+        :disabled="!isEnabled"
+        :aria-pressed="category === activeCategory"
+        @click="onCategoryClick(category)"
       >
         {{ category }}
       </button>
@@ -72,7 +93,7 @@
     font-weight: 400;
     font-synthesis: none;
     letter-spacing: 0;
-
+    opacity: 0.5;
 
     display: inline-flex;
     text-wrap: none;
@@ -80,10 +101,36 @@
     align-items: center;       /* вертикальное выравнивание по центру */
     justify-content: center;   /* горизонтальное выравнивание внутри кнопки/тэга */
 
+    transition: all 0.2s ease-in;
 
     @media(--mobile-medium){
         font-size: min(15px, calc(var(--vh) * 3.35));
         padding: calc(var(--vh) * 2) 1vw;
     }
 }
+
+.disabled{
+    opacity: 1 !important;
+}
+
+.enabled{
+    opacity: 0.5;
+}
+
+.enabled:hover{
+    cursor: pointer;
+    background-color: var(--strategix-accent);
+    color: var(--strategix-light);
+    opacity: 1;
+}
+
+.active{
+    opacity: 1 !important;
+}
+
+/* 
+.item:disabled{
+    opacity: 0.6;
+    cursor: default;
+} */
 </style>
