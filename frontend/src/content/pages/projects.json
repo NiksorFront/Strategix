@@ -1,249 +1,249 @@
 {
-    "id": "projects",
-    "projects": {
-        "group1": {
-            "ru": {
-                "title": "Брендинг",
-                "cases": {
-                    "toba": {
-                        "src": "/images/toba.jpg",
-                        "title": "TOBA",
-                        "description": "Грузинское вино, разработанное для европейского рынка"
-                    },
-                    "bebu": {
-                        "src": "/images/bebu.jpg",
-                        "title": "Bebu",
-                        "description": "Дизайн этикетки для нового продукта, который выходит на немецкий рынок"
-                    },
-                    "touch": {
-                        "src": "/images/touch.jpg",
-                        "title": "Touch",
-                        "description": "Дизайн-концепция для крупнейшей технологическая конференция в Грузии"
-                    },
-                    "pti-vehicle-inspection": {
-                        "src": "/images/PTI.jpg",
-                        "title": "PTI vehicle inspection",
-                        "description": "По заказу Министерства инфраструктуры в Грузии была запущена новая компания PTI"
-                    }
-                }
-            },
-            "en": {
-                "title": "Branding",
-                "cases": {
-                    "toba": {
-                        "src": "/images/toba.jpg",
-                        "title": "toba",
-                        "description": "How we made a Russian backup software developer a newsmaker"
-                    },
-                    "bebu": {
-                        "src": "/images/bebu.jpg",
-                        "title": "bebu",
-                        "description": "BEBU is Georgian culture"
-                    },
-                    "touch": {
-                        "src": "/images/touch.jpg",
-                        "title": "touch",
-                        "description": "How we made a Russian backup software developer a newsmaker"
-                    },
-                    "pti-vehicle-inspection": {
-                        "src": "/images/PTI.jpg",
-                        "title": "PTI vehicle inspection",
-                        "description": "How we made a Russian backup software developer a newsmaker"
-                    }
-                }
-            },
-            "de": {
-                "title": "Branding",
-                "cases": {
-                    "toba": {
-                        "src": "/images/toba.jpg",
-                        "title": "toba",
-                        "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
-                    },
-                    "bebu": {
-                        "src": "/images/bebu.jpg",
-                        "title": "bebu",
-                        "description": "BEBU ist georgische Kultur"
-                    },
-                    "touch": {
-                        "src": "/images/touch.jpg",
-                        "title": "touch",
-                        "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
-                    },
-                    "pti-vehicle-inspection": {
-                        "src": "/images/PTI.jpg",
-                        "title": "PTI vehicle inspection",
-                        "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben"
-                    }
-                }
-            },
-            "es": {
-                "title": "Branding",
-                "cases": {
-                    "toba": {
-                        "src": "/images/toba.jpg",
-                        "title": "toba",
-                        "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
-                    },
-                    "bebu": {
-                        "src": "/images/bebu.jpg",
-                        "title": "bebu",
-                        "description": "BEBU es cultura georgiana"
-                    },
-                    "touch": {
-                        "src": "/images/touch.jpg",
-                        "title": "touch",
-                        "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
-                    },
-                    "pti-vehicle-inspection": {
-                        "src": "/images/PTI.jpg",
-                        "title": "PTI vehicle inspection",
-                        "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia"
-                    }
-                }
-            }
+  "id": "projects",
+  "projects": {
+    "group1": {
+      "de": {
+        "cases": {
+          "bebu": {
+            "description": "BEBU ist georgische Kultur",
+            "src": "/images/bebu.jpg",
+            "title": "bebu"
+          },
+          "pti-vehicle-inspection": {
+            "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben",
+            "src": "/images/PTI.jpg",
+            "title": "PTI vehicle inspection"
+          },
+          "toba": {
+            "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben",
+            "src": "/images/toba.jpg",
+            "title": "toba"
+          },
+          "touch": {
+            "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben",
+            "src": "/images/touch.jpg",
+            "title": "touch"
+          }
         },
-        "group2": {
-            "ru": {
-                "title": "Продакшн",
-                "cases": {}
-            },
-            "en": {
-                "title": "Production",
-                "cases": {}
-            },
-            "de": {
-                "title": "Produktion",
-                "cases": {}
-            },
-            "es": {
-                "title": "Producción",
-                "cases": {}
-            }
+        "title": "Branding"
+      },
+      "en": {
+        "cases": {
+          "bebu": {
+            "description": "BEBU is Georgian culture",
+            "src": "/images/bebu.jpg",
+            "title": "bebu"
+          },
+          "pti-vehicle-inspection": {
+            "description": "How we made a Russian backup software developer a newsmaker",
+            "src": "/images/PTI.jpg",
+            "title": "PTI vehicle inspection"
+          },
+          "toba": {
+            "description": "How we made a Russian backup software developer a newsmaker",
+            "src": "/images/toba.jpg",
+            "title": "toba"
+          },
+          "touch": {
+            "description": "How we made a Russian backup software developer a newsmaker",
+            "src": "/images/touch.jpg",
+            "title": "touch"
+          }
         },
-        "group3": {
-            "ru": {
-                "title": "Реклама",
-                "cases": {
-                    "css": {
-                        "src": "/images/css.jpg",
-                        "title": "CSS",
-                        "description": "Лондонская компания,специализирующаяся на комплексных услугах для модных брендов"
-                    },
-                    "play-create-eat": {
-                        "src": "/images/play-create-eat.jpg",
-                        "title": "Play Create Eat",
-                        "description": "Cемейное пространство в Дубае, творчество и здоровые привычки"
-                    },
-                    "m&m": {
-                        "src": "/images/m-and-m.jpg",
-                        "title": "M&M Document",
-                        "description": "компания, оказывающая услуги по получению виз талантов, бизнес-виз и релокации в США."
-                    }
-                }
-            },
-            "en": {
-                "title": "Advertising",
-                "cases": {
-                    "css": {
-                        "src": "/images/css.jpg",
-                        "title": "CSS",
-                        "description": "A London company specializing in comprehensive services for fashion brands"
-                    },
-                    "play-create-eat": {
-                        "src": "/images/play-create-eat.jpg",
-                        "title": "Play Create Eat",
-                        "description": "A family space in Dubai designed so children can develop through play, creativity, and healthy habits, and parents"
-                    },
-                    "m&m": {
-                        "src": "/images/m-and-m.jpg",
-                        "title": "M&M",
-                        "description": "A company helping professionals and entrepreneurs obtain talent visas, business visas, and arrange relocation to the USA"
-                    }
-                }
-            },
-            "de": {
-                "title": "Werbung",
-                "cases": {
-                    "css": {
-                        "src": "/images/css.jpg",
-                        "title": "CSS",
-                        "description": "Ein Londoner Unternehmen, spezialisiert auf umfassende Dienstleistungen für Modemarken"
-                    },
-                    "play-create-eat": {
-                        "src": "/images/play-create-eat.jpg",
-                        "title": "Play Create Eat",
-                        "description": "Ein Familienort in Dubai, der so gestaltet ist, dass Kinder sich durch Spiel, Kreativität und gesunde Gewohnheiten entwickeln können, und Eltern"
-                    },
-                    "m&m": {
-                        "src": "/images/m-and-m.jpg",
-                        "title": "M&M",
-                        "description": "Ein Unternehmen, das Fachleuten und Unternehmern hilft, Talentvisa, Geschäftsvisa zu erhalten und die Umsiedlung in die USA zu organisieren"
-                    }
-                }
-            },
-            "es": {
-                "title": "Publicidad",
-                "cases": {
-                    "css": {
-                        "src": "/images/css.jpg",
-                        "title": "CSS",
-                        "description": "Una empresa londinense especializada en servicios integrales para marcas de moda"
-                    },
-                    "play-create-eat": {
-                        "src": "/images/play-create-eat.jpg",
-                        "title": "Play Create Eat",
-                        "description": "Un espacio familiar en Dubái, creado para que los niños puedan desarrollarse a través del juego, la creatividad y hábitos saludables, y los padres"
-                    },
-                    "m&m": {
-                        "src": "/images/m-and-m.jpg",
-                        "title": "M&M",
-                        "description": "Una empresa que ayuda a profesionales y emprendedores a obtener visas de talento, visas de negocios y gestionar la reubicación en Estados Unidos"
-                    }
-                }
-            }
+        "title": "Branding"
+      },
+      "es": {
+        "cases": {
+          "bebu": {
+            "description": "BEBU es cultura georgiana",
+            "src": "/images/bebu.jpg",
+            "title": "bebu"
+          },
+          "pti-vehicle-inspection": {
+            "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia",
+            "src": "/images/PTI.jpg",
+            "title": "PTI vehicle inspection"
+          },
+          "toba": {
+            "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia",
+            "src": "/images/toba.jpg",
+            "title": "toba"
+          },
+          "touch": {
+            "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia",
+            "src": "/images/touch.jpg",
+            "title": "touch"
+          }
         },
-        "group4": {
-            "ru": {
-                "title": "Построение репутации",
-                "cases": {
-                    "vyatcheslav-boreiko": {
-                        "src": "/images/vyatcheslav-boreiko.jpg",
-                        "title": "Вячеслав Борейко",
-                        "description": "Помогли с тем и тем и там и сям и тут и там"
-                    }
-                }
-            },
-            "en": {
-                "title": "Reputation Building",
-                "cases": {
-                    "vyatcheslav-boreiko": {
-                        "src": "/images/vyatcheslav-boreiko.jpg",
-                        "title": "Vyatcheslav Boreiko",
-                        "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California"
-                    }
-                }
-            },
-            "de": {
-                "title": "Reputationsaufbau",
-                "cases": {
-                    "vyatcheslav-boreiko": {
-                        "src": "/images/vyatcheslav-boreiko.jpg",
-                        "title": "Vyatcheslav Boreiko",
-                        "description": "Ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhielt, ein Restaurant in Kalifornien zu eröffnen"
-                    }
-                }
-            },
-            "es": {
-                "title": "Construcción de Reputación",
-                "cases": {
-                    "vyatcheslav-boreiko": {
-                        "src": "/images/vyatcheslav-boreiko.jpg",
-                        "title": "Vyatcheslav Boreiko",
-                        "description": "Un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California"
-                    }
-                }
-            }
-        }
+        "title": "Branding"
+      },
+      "ru": {
+        "cases": {
+          "bebu": {
+            "description": "Дизайн этикетки для нового продукта, который выходит на немецкий рыночек",
+            "src": "/images/bebu.jpg",
+            "title": "Bebu"
+          },
+          "pti-vehicle-inspection": {
+            "description": "По заказу Министерства инфраструктуры в Грузии была запущена новая компания PTI",
+            "src": "/images/PTI.jpg",
+            "title": "PTI vehicle inspection"
+          },
+          "toba": {
+            "description": "Грузинское вино, разработанное для европейского рынка",
+            "src": "/images/toba.jpg",
+            "title": "TOBA"
+          },
+          "touch": {
+            "description": "Дизайн-концепция для крупнейшей технологическая конференция в Грузии",
+            "src": "/images/touch.jpg",
+            "title": "Touch"
+          }
+        },
+        "title": "Брендинг"
+      }
+    },
+    "group2": {
+      "de": {
+        "cases": {},
+        "title": "Produktion"
+      },
+      "en": {
+        "cases": {},
+        "title": "Production"
+      },
+      "es": {
+        "cases": {},
+        "title": "Producción"
+      },
+      "ru": {
+        "cases": {},
+        "title": "Продакшн"
+      }
+    },
+    "group3": {
+      "de": {
+        "cases": {
+          "css": {
+            "description": "Ein Londoner Unternehmen, spezialisiert auf umfassende Dienstleistungen für Modemarken",
+            "src": "/images/css.jpg",
+            "title": "CSS"
+          },
+          "m&m": {
+            "description": "Ein Unternehmen, das Fachleuten und Unternehmern hilft, Talentvisa, Geschäftsvisa zu erhalten und die Umsiedlung in die USA zu organisieren",
+            "src": "/images/m-and-m.jpg",
+            "title": "M&M"
+          },
+          "play-create-eat": {
+            "description": "Ein Familienort in Dubai, der so gestaltet ist, dass Kinder sich durch Spiel, Kreativität und gesunde Gewohnheiten entwickeln können, und Eltern",
+            "src": "/images/play-create-eat.jpg",
+            "title": "Play Create Eat"
+          }
+        },
+        "title": "Werbung"
+      },
+      "en": {
+        "cases": {
+          "css": {
+            "description": "A London company specializing in comprehensive services for fashion brands",
+            "src": "/images/css.jpg",
+            "title": "CSS"
+          },
+          "m&m": {
+            "description": "A company helping professionals and entrepreneurs obtain talent visas, business visas, and arrange relocation to the USA",
+            "src": "/images/m-and-m.jpg",
+            "title": "M&M"
+          },
+          "play-create-eat": {
+            "description": "A family space in Dubai designed so children can develop through play, creativity, and healthy habits, and parents",
+            "src": "/images/play-create-eat.jpg",
+            "title": "Play Create Eat"
+          }
+        },
+        "title": "Advertising"
+      },
+      "es": {
+        "cases": {
+          "css": {
+            "description": "Una empresa londinense especializada en servicios integrales para marcas de moda",
+            "src": "/images/css.jpg",
+            "title": "CSS"
+          },
+          "m&m": {
+            "description": "Una empresa que ayuda a profesionales y emprendedores a obtener visas de talento, visas de negocios y gestionar la reubicación en Estados Unidos",
+            "src": "/images/m-and-m.jpg",
+            "title": "M&M"
+          },
+          "play-create-eat": {
+            "description": "Un espacio familiar en Dubái, creado para que los niños puedan desarrollarse a través del juego, la creatividad y hábitos saludables, y los padres",
+            "src": "/images/play-create-eat.jpg",
+            "title": "Play Create Eat"
+          }
+        },
+        "title": "Publicidad"
+      },
+      "ru": {
+        "cases": {
+          "css": {
+            "description": "Лондонская компания,специализирующаяся на комплексных услугах для модных брендов",
+            "src": "/images/css.jpg",
+            "title": "CSS"
+          },
+          "m&m": {
+            "description": "компания, оказывающая услуги по получению виз талантов, бизнес-виз и релокации в США.",
+            "src": "/images/m-and-m.jpg",
+            "title": "M&M Document"
+          },
+          "play-create-eat": {
+            "description": "Cемейное пространство в Дубае, творчество и здоровые привычки",
+            "src": "/images/play-create-eat.jpg",
+            "title": "Play Create Eat"
+          }
+        },
+        "title": "Реклама"
+      }
+    },
+    "group4": {
+      "de": {
+        "cases": {
+          "vyatcheslav-boreiko": {
+            "description": "Ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhielt, ein Restaurant in Kalifornien zu eröffnen",
+            "src": "/images/vyatcheslav-boreiko.jpg",
+            "title": "Vyatcheslav Boreiko"
+          }
+        },
+        "title": "Reputationsaufbau"
+      },
+      "en": {
+        "cases": {
+          "vyatcheslav-boreiko": {
+            "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California",
+            "src": "/images/vyatcheslav-boreiko.jpg",
+            "title": "Vyatcheslav Boreiko"
+          }
+        },
+        "title": "Reputation Building"
+      },
+      "es": {
+        "cases": {
+          "vyatcheslav-boreiko": {
+            "description": "Un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California",
+            "src": "/images/vyatcheslav-boreiko.jpg",
+            "title": "Vyatcheslav Boreiko"
+          }
+        },
+        "title": "Construcción de Reputación"
+      },
+      "ru": {
+        "cases": {
+          "vyatcheslav-boreiko": {
+            "description": "Помогли с тем и тем и там и сям и тут и там. Ещё очки у меня стильные ",
+            "src": "/images/vyatcheslav-boreiko.jpg",
+            "title": "Вячеслав Борейко"
+          }
+        },
+        "title": "Построение репутации"
+      }
     }
+  }
 }

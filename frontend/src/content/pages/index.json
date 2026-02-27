@@ -1303,12 +1303,12 @@
       "header": {
         "button": {
           "href": "#contacts",
-          "text": "ЗАПОЛНИТЕ АНКЕТУ "
+          "text": "ЗАПОЛНИТЕ АНКЕТУ"
         },
         "mobile_menu": {
           "button": {
             "href": "#contacts",
-            "text": "ЗАПОЛНИТЕ АНКЕТУ "
+            "text": "ЗАПОЛНИТЕ АНКЕТУ"
           },
           "navigation_mobile": [
             {
