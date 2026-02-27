@@ -486,7 +486,7 @@
             "lastname": "Krasnoslobodtseva",
             "name": "Lyubov",
             "position": "CEO, Head of PR",
-            "src": "/images/1772198722858-c71588bd-b417-4510-b454-4ede10532d2a.jpg"
+            "src": "/images/1772198892827-8634c26f-f9ef-414f-9e2f-e6b051886177.png"
           },
           {
             "lastname": "Buchnikova",
@@ -495,15 +495,15 @@
             "src": ""
           },
           {
-            "lastname": "Zhukov",
-            "name": "Evgeny",
-            "position": "Chief Operating Officer",
-            "src": ""
-          },
-          {
             "lastname": "Anisimova",
             "name": "Ekaterina",
             "position": "Digital Marketing",
+            "src": ""
+          },
+          {
+            "lastname": "Zhukov",
+            "name": "Evgeny",
+            "position": "Chief Operating Officer",
             "src": ""
           },
           {
@@ -615,7 +615,7 @@
       "welcome": {
         "button": {
           "href": "#contacts",
-          "text": "FILL OUT THE FOOOORM"
+          "text": "FILL OUT THE FORM"
         },
         "subtitle": "International positioning through media, events and trust of the professional community.",
         "title": "WE BUILD REPUTATION AND OPEN DOORS TO INTERNATIONAL markets",
