@@ -1,12 +1,11 @@
 {
     "id": "toba",
-    "example": "1",
     "translations": {
         "en": {
             "welcome": {
                 "sphere": "CAN WINE",
                 "name": "TOBA",
-                "img": "/images/toba.jpg",
+                "src": "/images/toba.jpg",
                 "description": [
                     "The TOBA project is a Georgian wine in an aluminum can, developed for the European market.",
                     "The main idea is to introduce consumers to Georgia's rich cultural heritage in a modern format.",
@@ -36,7 +35,7 @@
             "welcome": {
                 "sphere": "БАНКА ВИНА",
                 "name": "TOBA",
-                "img": "/images/toba-main.jpg",
+                "src": "/images/toba-main.jpg",
                 "description": [
                     "Проект TOBA — это грузинское вино в алюминиевой банке, разработанное для европейского рынка.",
                     "Главная идея — познакомить потребителя с богатым культурным наследием Грузии в современном формате.",
@@ -130,7 +129,7 @@
             "welcome": {
                 "sphere": "CAN WINE",
                 "name": "TOBA",
-                "img": "/images/toba.jpg",
+                "src": "/images/toba.jpg",
                 "description": [
                     "Das Projekt TOBA ist ein georgischer Wein in einer Aluminiumdose, entwickelt für den europäischen Markt.",
                     "Die Hauptidee ist, Verbraucher mit dem reichen kulturellen Erbe Georgiens in einem modernen Format vertraut zu machen.",
@@ -160,7 +159,7 @@
             "welcome": {
                 "sphere": "CAN WINE",
                 "name": "TOBA",
-                "img": "/images/toba.jpg",
+                "src": "/images/toba.jpg",
                 "description": [
                     "El proyecto TOBA es un vino georgiano en una lata de aluminio, desarrollado para el mercado europeo.",
                     "La idea principal es acercar al consumidor al rico patrimonio cultural de Georgia en un formato moderno.",

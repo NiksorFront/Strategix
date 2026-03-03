@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import VideoPlayer from '@/shared/ui/video-player';
+
 type ExampleWelcomeAboutItem = {
   label: string;
   value: string;
@@ -7,36 +9,48 @@ type ExampleWelcomeAboutItem = {
 type ExampleWelcomeData = {
   sphere: string;
   name: string;
-  img: string;
+  src: string;
+  autoplay?: boolean;
   description: string[];
   about: ExampleWelcomeAboutItem[];
 };
 
-const {data} = defineProps<{
+const props = defineProps<{
   data: ExampleWelcomeData;
 }>();
+
+const VIDEO_SRC_PATTERN = /\.(mp4|webm|ogg|mov|m4v)(?:[?#].*)?$/i;
+
+const isVideo = computed(() => VIDEO_SRC_PATTERN.test(props.data.src ?? ''));
+const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
 </script>
 
 <template>
   <section class="example-grid">
     <div class="example-welcome">
       <h1
-        v-if="data.sphere"
+        v-if="props.data.sphere"
         class="upperscase-text title"
       >
-        <span class="gray"> {{ data.sphere }} </span> <br>
-        {{ data.name }}
+        <span class="gray"> {{ props.data.sphere }} </span> <br>
+        {{ props.data.name }}
       </h1>
       <h1
         v-else
         class="upperscase-text title-big"
       >
-        {{ data.name }}
+        {{ props.data.name }}
       </h1>
+      <VideoPlayer
+        v-if="isVideo"
+        :src="props.data.src"
+        :autoplay="shouldAutoplay"
+      />
       <NuxtImg
+        v-else
         class="welcome-img"
-        :src="data.img"
-        :alt="data.name"
+        :src="props.data.src"
+        :alt="props.data.name"
         format="webp"
         :quality="80"
         width="1200"
@@ -48,7 +62,7 @@ const {data} = defineProps<{
     </div>
     <div class="description">
       <p
-        v-for="(paragraph, index) in data.description"
+        v-for="(paragraph, index) in props.data.description"
         :key="`paragraph-${index}`"
         class="base-text info-paragraph"
       >
@@ -57,7 +71,7 @@ const {data} = defineProps<{
     </div>
     <div class="about-case">
       <div
-        v-for="(item, index) in data.about"
+        v-for="(item, index) in props.data.about"
         :key="`${item.label}-${index}`"
         class="about-row"
       >

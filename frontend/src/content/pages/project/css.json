@@ -1,12 +1,11 @@
 {
     "id": "css",
-    "example": "1",
     "translations": {
         "en": {
             "welcome":{
                 "sphere": "",
                 "name": "CSS",
-                "img": "/images/css-image.jpg",
+                "src": "/images/css-image.jpg",
                 "description": [
                     "CSS is a London company specializing in comprehensive services for fashion brands.",
                     "Design, sample development, production, marketing, mentorship, and custom tailoring."
@@ -52,7 +51,7 @@
             "welcome":{
                 "sphere": "",
                 "name": "CSS",
-                "img": "/images/css-image.jpg",
+                "src": "/images/css-image.jpg",
                 "description": [
                     "CSS — лондонская компания,специализирующаяся на комплексных услугах для модных брендов. Дизайн, разработка образцов, производство, маркетинг, наставничество и индивидуальный пошив."
                 ],
@@ -97,7 +96,7 @@
             "welcome":{
                 "sphere": "",
                 "name": "CSS",
-                "img": "/images/css-image.jpg",
+                "src": "/images/css-image.jpg",
                 "description": [
                     "CSS ist ein in London ansässiges Unternehmen, das sich auf umfassende Dienstleistungen für Modemarken spezialisiert.",
                     "Design, Musterentwicklung, Produktion, Marketing, Mentoring und Maßschneiderei."
@@ -143,7 +142,7 @@
             "welcome":{
                 "sphere": "",
                 "name": "CSS",
-                "img": "/images/css-image.jpg",
+                "src": "/images/css-image.jpg",
                 "description": [
                     "CSS es una empresa londinense especializada en servicios integrales para marcas de moda.",
                     "Diseño, desarrollo de muestras, producción, marketing, mentoría y confección a medida."

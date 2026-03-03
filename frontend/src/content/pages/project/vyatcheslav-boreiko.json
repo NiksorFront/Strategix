@@ -1,12 +1,11 @@
 {
     "id": "vyatcheslav-boreiko",
-    "example": "1",
     "translations": {
         "en": {
             "welcome":{
                 "sphere": "RESTAURATEUR",
                 "name": "Vyatcheslav Boreiko",
-                "img": "/images/vyatcheslav-boreiko.jpg",
+                "src": "/images/vyatcheslav-boreiko.jpg",
                 "description": [
                     "Vyatcheslav Boreiko is a restaurateur who entered the US market and received an offer to open a restaurant in California."
                 ],
@@ -22,7 +21,7 @@
             "welcome":{
                 "sphere": "РЕСТОРАТОР",
                 "name": "Вячеслав Борейко",
-                "img": "/images/vyatcheslav-boreiko.jpg",
+                "src": "/images/vyatcheslav-boreiko.jpg",
                 "description": [
                     "Вячеслав Борейко — ресторатор, который вышел на рынок США и получил предложение открыть ресторан в Калифорнии"
                 ],
@@ -110,7 +109,7 @@
             "results-blocks": {
                 "title": "Результат",
                 "subtitle": "Работа заняла несколько месяцев и привела к изменениям в профессиональной траектории клиента:",
-                "lists": [
+                "blocks": [
                     {
                         "title": "Международное признание",
                         "description": "Победа в конкурсе и публикации в медиа сформировали устойчивый экспертный образ Вячеслава на англоязычном рынке.",
@@ -143,7 +142,7 @@
             "welcome":{
                 "sphere": "RESTAURATEUR",
                 "name": "Vyatcheslav Boreiko",
-                "img": "/images/vyatcheslav-boreiko.jpg",
+                "src": "/images/vyatcheslav-boreiko.jpg",
                 "description": [
                     "Vyatcheslav Boreiko ist ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhalten hat, ein Restaurant in Kalifornien zu eröffnen."
                 ],
@@ -159,7 +158,7 @@
             "welcome":{
                 "sphere": "RESTAURATEUR",
                 "name": "Vyatcheslav Boreiko",
-                "img": "/images/vyatcheslav-boreiko.jpg",
+                "src": "/images/vyatcheslav-boreiko.jpg",
                 "description": [
                     "Vyatcheslav Boreiko es un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California."
                 ],

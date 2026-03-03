@@ -1,12 +1,11 @@
 {
     "id": "pti-vehicle-inspection",
-    "example": "1",
     "translations": {
         "en": {
             "welcome":{
                 "sphere": "VEHICLE INSPECTION",
                 "name": "PTI",
-                "img": "/images/PTI.jpg",
+                "src": "/images/PTI.jpg",
                 "description": [
                     "Commissioned by the Ministry of Infrastructure in Georgia, a new company, PTI, was launched to introduce modern standards for vehicle quality control across the country.",
                     "The main goal of the project is to raise road safety and public trust in the technical inspection system, making the process transparent, technology-driven, and clear to every vehicle owner."
@@ -23,7 +22,7 @@
             "welcome":{
                 "sphere": "ТЕХОСМОТР",
                 "name": "PTI",
-                "img": "/images/PTI-image.jpg",
+                "src": "/images/PTI-image.jpg",
                 "description": [
                     "По заказу Министерства инфраструктуры в Грузии была запущена новая компания PTI, призванная внедрить современные стандарты контроля качества транспортных средств по всей стране.",
                     "Главная цель проекта — повысить уровень безопасности на дорогах и доверие граждан к системе технического осмотра, сделать процесс прозрачным, технологичным и понятным каждому владельцу автомобиля."
@@ -71,7 +70,7 @@
             "welcome":{
                 "sphere": "VEHICLE INSPECTION",
                 "name": "PTI",
-                "img": "/images/PTI.jpg",
+                "src": "/images/PTI.jpg",
                 "description": [
                     "Im Auftrag des Ministeriums für Infrastruktur in Georgien wurde ein neues Unternehmen, PTI, gegründet, das moderne Standards der Fahrzeugqualitätskontrolle im ganzen Land einführen soll.",
                     "Das Hauptziel des Projekts ist es, die Verkehrssicherheit und das Vertrauen der Bürger in das System der technischen Inspektion zu erhöhen und den Prozess transparent, technologisch und für jeden Fahrzeughalter verständlich zu machen."
@@ -88,7 +87,7 @@
             "welcome":{
                 "sphere": "VEHICLE INSPECTION",
                 "name": "PTI",
-                "img": "/images/PTI.jpg",
+                "src": "/images/PTI.jpg",
                 "description": [
                     "Por encargo del Ministerio de Infraestructura de Georgia se lanzó una nueva empresa, PTI, destinada a implementar estándares modernos de control de calidad de los vehículos en todo el país.",
                     "El objetivo principal del proyecto es aumentar la seguridad vial y la confianza de los ciudadanos en el sistema de inspección técnica, haciendo el proceso transparente, tecnológico y comprensible para cada propietario de un vehículo."

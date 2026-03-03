@@ -1,12 +1,11 @@
 {
     "id": "bebu",
-    "example": "1",
     "translations": {
         "en": {
             "welcome":{
                 "sphere": "WINE & SPIRITS",
                 "name": "BEBU",
-                "img": "/images/bebu.jpg",
+                "src": "/images/bebu.jpg",
                 "description": [
                     "Badagoni approached us with the task of creating a label design for a new product entering the German market under the BEBU brand.",
                     "The main goal of the project was to develop a visual solution that highlights the Georgian origin of the wine while feeling natural for German consumers.",
@@ -24,7 +23,7 @@
             "welcome":{
                 "sphere": "ВИНО И КРЕПКИЕ НАПИТКИ",
                 "name": "BEBU",
-                "img": "/images/bebu-main.jpg",
+                "src": "/images/bebu-main.jpg",
                 "description": [
                     "Компания Badagoni обратилась с задачей создать дизайн этикетки для нового продукта, который выходит на немецкий рынок под брендом BEBU.",
                     "Основная цель проекта — разработать визуальное решение, которое подчеркнёт грузинское происхождение вина и в то же время будет органично восприниматься немецким потребителем.",
@@ -105,7 +104,7 @@
             "welcome":{
                 "sphere": "WEIN & SPIRITUOSEN",
                 "name": "BEBU",
-                "img": "/images/bebu.jpg",
+                "src": "/images/bebu.jpg",
                 "description": [
                     "Das Unternehmen Badagoni wandte sich mit der Aufgabe an uns, das Etikettendesign für ein neues Produkt zu entwickeln, das unter der Marke BEBU auf den deutschen Markt kommt.",
                     "Ziel des Projekts war es, eine visuelle Lösung zu entwickeln, die die georgische Herkunft des Weins betont und zugleich für deutsche Konsumenten stimmig wirkt.",
@@ -123,7 +122,7 @@
             "welcome":{
                 "sphere": "VINOS Y LICORES",
                 "name": "BEBU",
-                "img": "/images/bebu.jpg",
+                "src": "/images/bebu.jpg",
                 "description": [
                     "La empresa Badagoni acudió con la tarea de crear el diseño de la etiqueta para un nuevo producto que entra en el mercado alemán bajo la marca BEBU.",
                     "El objetivo principal del proyecto fue desarrollar una solución visual que destaque el origen georgiano del vino y, al mismo tiempo, sea percibida de forma natural por el consumidor alemán.",

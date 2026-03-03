@@ -1,0 +1,305 @@
+<script setup lang="ts">
+const props = withDefaults(
+  defineProps<{
+    src: string;
+    autoplay?: boolean;
+  }>(),
+  {
+    autoplay: false,
+  },
+);
+
+const videoElement = ref<HTMLVideoElement | null>(null);
+const isPlaying = ref(false);
+const isMuted = ref(Boolean(props.autoplay));
+const isMediaHovered = ref(false);
+
+const shouldAutoplay = computed(() => Boolean(props.autoplay));
+const videoButtonLabel = computed(() => (isPlaying.value ? 'Pause video' : 'Play video'));
+const soundButtonLabel = computed(() => (isMuted.value ? 'Enable sound' : 'Disable sound'));
+const showPlayButton = computed(() => !isPlaying.value || isMediaHovered.value);
+
+const syncPlayingState = () => {
+  const video = videoElement.value;
+  isPlaying.value = Boolean(video && !video.paused && !video.ended);
+};
+
+const syncMutedState = () => {
+  const video = videoElement.value;
+  if (!video) return;
+  isMuted.value = video.muted;
+};
+
+const playVideo = async () => {
+  const video = videoElement.value;
+  if (!video) return;
+
+  video.muted = isMuted.value;
+
+  try {
+    await video.play();
+    syncPlayingState();
+  } catch {
+    isPlaying.value = false;
+  }
+};
+
+const toggleVideoPlayback = async () => {
+  const video = videoElement.value;
+  if (!video) return;
+
+  if (video.paused || video.ended) {
+    await playVideo();
+    return;
+  }
+
+  video.pause();
+  syncPlayingState();
+};
+
+const toggleVideoSound = () => {
+  const video = videoElement.value;
+  if (!video) return;
+
+  video.muted = !video.muted;
+  syncMutedState();
+};
+
+watch(
+  () => [props.src, shouldAutoplay.value],
+  async () => {
+    isPlaying.value = false;
+    isMuted.value = shouldAutoplay.value;
+    await nextTick();
+
+    if (videoElement.value) {
+      videoElement.value.muted = isMuted.value;
+    }
+
+    if (shouldAutoplay.value) {
+      await playVideo();
+    }
+  },
+  { immediate: true },
+);
+</script>
+
+<template>
+  <div
+    class="video-player"
+    @mouseenter="isMediaHovered = true"
+    @mouseleave="isMediaHovered = false"
+  >
+    <video
+      ref="videoElement"
+      class="video-player__video"
+      :src="props.src"
+      :autoplay="shouldAutoplay"
+      :muted="isMuted"
+      playsinline
+      preload="metadata"
+      loop
+      @play="syncPlayingState"
+      @pause="syncPlayingState"
+      @volumechange="syncMutedState"
+      @ended="syncPlayingState"
+    />
+    <button
+      v-if="showPlayButton"
+      type="button"
+      class="media-control play-button"
+      :aria-label="videoButtonLabel"
+      @click="toggleVideoPlayback"
+    >
+      <svg
+        v-if="isPlaying"
+        class="media-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <rect
+          x="6.5"
+          y="5"
+          width="3.5"
+          height="14"
+          rx="1.2"
+          fill="currentColor"
+        />
+        <rect
+          x="14"
+          y="5"
+          width="3.5"
+          height="14"
+          rx="1.2"
+          fill="currentColor"
+        />
+      </svg>
+      <svg
+        v-else
+        class="media-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          d="M8 5v14l11-7z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
+    <button
+      type="button"
+      class="media-control sound-button"
+      :aria-label="soundButtonLabel"
+      :aria-pressed="!isMuted"
+      @click="toggleVideoSound"
+    >
+      <svg
+        v-if="isMuted"
+        class="media-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M11 5L6 9H3v6h3l5 4V5z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M16 9l5 6M21 9l-5 6"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+      <svg
+        v-else
+        class="media-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M11 5L6 9H3v6h3l5 4V5z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M15.5 8.5a5 5 0 0 1 0 7"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M18.5 6a9 9 0 0 1 0 12"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+    </button>
+  </div>
+</template>
+
+<style scoped>
+.video-player{
+  width: 100%;
+  position: relative;
+}
+
+.video-player__video{
+  width: 100%;
+  min-height: 50%;
+  height: auto;
+  max-height: 100%;
+
+  aspect-ratio: 1200 / 400;
+
+  object-fit: cover;
+  object-position: center;
+  display: block;
+
+  @media(--tablet-width) {
+    min-height: 65%;
+  }
+
+  @media(min-aspect-ratio: 3/5){
+    aspect-ratio: 1200 / 323;
+  }
+
+  @media(max-aspect-ratio: 5/3){
+    aspect-ratio: 1200 / 400;
+  }
+
+  @media(--pc-width) {
+    padding-inline: var(--padding-section-x);
+    box-sizing: border-box;
+    max-height: 75%;
+    aspect-ratio: 1200 / 572;
+  }
+
+  @media(--mobile-medium) {
+    max-height: 75%;
+  }
+}
+
+.media-control{
+  border: 0;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(46px, 4.5vw, 66px);
+  height: clamp(46px, 4.5vw, 66px);
+  border-radius: 999px;
+  mix-blend-mode: difference;
+  z-index: 1;
+  line-height: 1;
+  transform: var(--control-transform);
+  transition: color 0.2s ease, transform 0.2s ease, mix-blend-mode 0.2s ease;
+}
+
+.media-control:hover{
+  transform: var(--control-transform) scale(1.06);
+  color: var(--strategix-accent);
+  mix-blend-mode: normal;
+}
+
+.media-control:focus-visible{
+  outline: none;
+  transform: var(--control-transform) scale(1.06);
+  color: var(--strategix-accent);
+  mix-blend-mode: normal;
+}
+
+.media-icon{
+  width: clamp(60px, 5.7vw, 84px);
+  height: clamp(60px, 5.7vw, 84px);
+}
+
+.play-button{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(58px, 5.5vw, 84px);
+  height: clamp(58px, 5.5vw, 84px);
+  --control-transform: translate(-50%, -50%);
+}
+
+.sound-button{
+  position: absolute;
+  left: 50%;
+  --control-transform: translateX(-50%);
+  bottom: clamp(2px, 0.4vw, 8px);
+}
+
+@media(--pc-width) {
+  .sound-button{
+    bottom: clamp(4px, 0.5vw, 10px);
+  }
+}
+</style>
