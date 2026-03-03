@@ -4,14 +4,17 @@ import {getProjectContent} from '@/shared/lib/content/registry';
 
 import Header from '@/widgets/header';
 import ExampleWelcome from '@/widgets/example-welcome';
+// import ExampleTasks from '@/widgets/example-tasks';
 import ExampleGoalsCompany from '@/widgets/example-goals-company';
 import ExampleBigLogo from '@/widgets/example-big-logo';
 import ExampleTypograhy from '@/widgets/example-typograhy';
 import ExampleColorPalette from '@/widgets/example-color-palette';
-// import ExampleColorPaletteTwo from '@/widgets/example-color-palette-two';
+// import ExampleStrategies from '@/widgets/example-strategies';
 import ExampleBigImage from '@/widgets/example-big-image';
 import ExampleWhatDid from '@/widgets/example-what-did';
-import ExampleResults from '@/widgets/example-results';
+import ExampleResultsMetrics from '@/widgets/example-results-metrics';
+// import ExampleResultsBlocks from '@/widgets/example-results-blocks';
+// import ExampleResultsList from '@/widgets/example-results-list';
 import ExampleInfo from '@/widgets/example-info';
 import ExampleOtherProjects from '@/widgets/example-other-projects';
 import Footer from '@/widgets/footer';
@@ -35,7 +38,7 @@ const sectionComponents: Record<string, Component> = {
   'example-typograhy': ExampleTypograhy,
   'example-color-palette': ExampleColorPalette,
   'example-big-image': ExampleBigImage,
-  'example-results': ExampleResults,
+  'example-results-metrics': ExampleResultsMetrics,
   'example-info': ExampleInfo,
   'example-other-projects': ExampleOtherProjects,
 };
@@ -81,9 +84,9 @@ const isNotFound = computed(() => !localeContent.value || sections.value.length 
     <component
       :is="section.component"
       v-for="section in sections"
+      v-else
       :key="section.key"
       :data="section.data"
-      v-else
     />
   </main>
   <Footer />

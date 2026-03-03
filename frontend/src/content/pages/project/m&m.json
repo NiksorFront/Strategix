@@ -33,7 +33,7 @@
                     "Ads used short videos and banners focusing on the benefits of talent visas and the turnkey price."
                 ]
             },
-            "results": {
+            "results-metrics": {
                 "title": "Results",
                 "description": "Not all website conversions are shown in the ad account due to technical limitations, but we accounted for them in Yandex Metrica.",
                 "items": [
@@ -75,7 +75,7 @@
                     "В рекламе использовались короткие видео и баннеры с акцентом на выгоды визы талантов и цену \"под ключ\"."
                 ]
             },
-            "results": {
+            "results-metrics": {
                 "title": "Результаты",
                 "description": "Не все конверсии с сайта отображаются в кабинете в виду технических особенностей, но мы их учли по Яндекс Метрике.",
                 "items": [
@@ -118,7 +118,7 @@
                     "In der Werbung wurden kurze Videos und Banner eingesetzt, mit Fokus auf die Vorteile von Talentvisa und den Komplettpreis."
                 ]
             },
-            "results": {
+            "results-metrics": {
                 "title": "Ergebnisse",
                 "description": "Nicht alle Website-Conversions werden im Werbekonto aus technischen Gründen angezeigt, aber wir haben sie über Yandex Metrica berücksichtigt.",
                 "items": [
@@ -161,7 +161,7 @@
                     "En la publicidad se usaron videos cortos y banners con énfasis en los beneficios de las visas de talento y el precio \"llave en mano\"."
                 ]
             },
-            "results": {
+            "results-metrics": {
                 "title": "Resultados",
                 "description": "No todas las conversiones del sitio web se muestran en la cuenta debido a limitaciones técnicas, pero las contabilizamos en Yandex Metrica.",
                 "items": [
