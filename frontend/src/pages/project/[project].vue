@@ -10,7 +10,7 @@ import ExampleGoalsCompany from '@/widgets/example-goals-company';
 import ExampleBigLogo from '@/widgets/example-big-logo';
 import ExampleTypograhy from '@/widgets/example-typograhy';
 import ExampleColorPalette from '@/widgets/example-color-palette';
-// import ExampleStrategies from '@/widgets/example-strategies';
+import ExampleStrategies from '@/widgets/example-strategies';
 import ExampleBigImage from '@/widgets/example-big-image';
 import ExampleBigVideo from '@/widgets/example-big-video';
 // import ExampleSlider from '@/widgets/example-slider';
@@ -41,6 +41,7 @@ const sectionComponents: Record<string, Component> = {
   'example-what-did': ExampleWhatDid,
   'example-typograhy': ExampleTypograhy,
   'example-color-palette': ExampleColorPalette,
+  'example-strategies': ExampleStrategies,
   'example-big-image': ExampleBigImage,
   'example-big-video': ExampleBigVideo,
   'example-results-metrics': ExampleResultsMetrics,
