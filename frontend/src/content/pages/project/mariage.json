@@ -68,7 +68,7 @@
             },
 
             "big-video": {
-                "src": "/videos/mariage.mp4",
+                "src": "/videos/mariage-2.mp4",
                 "alt": "Видео с показа Mariage",
                 "autoplay": false
             },
@@ -110,7 +110,7 @@
             },
 
             "big-video-2": {
-                "src": "/videos/mariage-2.mp4",
+                "src": "/videos/mariage-3.mp4",
                 "alt": "Видео с показа Mariage"
 
             },
