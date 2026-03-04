@@ -84,9 +84,9 @@ const getRowClass = (item: ExampleStrategiesItem) => {
             border: item.border ? '1px solid var(--strategix-dark)' : 'none',
           }"
         >
-          <h3 class="strategy-title">
+          <ExampleSectionTitle class="strategy-title">
             {{ item.title }}
-          </h3>
+          </ExampleSectionTitle>
 
           <ul class="strategy-bullets">
             <li
@@ -98,7 +98,7 @@ const getRowClass = (item: ExampleStrategiesItem) => {
                 class="strategy-bullet-dot"
                 aria-hidden="true"
               />
-              <p class="strategy-bullet-text">
+              <p class="small-text strategy-bullet-text">
                 {{ bullet }}
               </p>
             </li>
@@ -129,7 +129,7 @@ const getRowClass = (item: ExampleStrategiesItem) => {
 
 <style scoped>
 .example-strategies{
-  --strategies-gap: min(2.8vw, 14px);
+  --strategies-gap: min(calc(var(--vh) * 6), 72px)
 
   width: var(--section-width);
   padding-block: min(calc(var(--vh) * 6), 72px);
@@ -138,20 +138,22 @@ const getRowClass = (item: ExampleStrategiesItem) => {
 
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 4), 48px);
+  gap: min(calc(var(--vh) * 5), 56px);
 
   background-color: var(--strategix-light);
 
   @media(--tablet-width){
-    --strategies-gap: min(1vw, 20px);
+    --strategies-gap: min(calc(var(--vh) * 7), 80px);
 
     padding-block: min(calc(var(--vh) * 7), 80px);
-    gap: min(calc(var(--vh) * 5), 64px);
+    gap: min(calc(var(--vh) * 8), 80px);
   }
 
   @media(--mobile-medium){
+    --strategies-gap: min(calc(var(--vh) * 8), 56px);
+
     padding-block: min(calc(var(--vh) * 8), 56px);
-    gap: min(calc(var(--vh) * 3), 24px);
+    gap: min(calc(var(--vh) * 4), 28px);
   }
 }
 
@@ -201,7 +203,7 @@ const getRowClass = (item: ExampleStrategiesItem) => {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--strategies-gap);
+  gap: calc(var(--strategies-gap) / 4);
 
   @media(--tablet-width){
     display: grid;
@@ -217,13 +219,13 @@ const getRowClass = (item: ExampleStrategiesItem) => {
 
 .strategy-row--image-right{
   @media(--tablet-width){
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   }
 }
 
 .strategy-row--image-left{
   @media(--tablet-width){
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   }
 }
 
@@ -268,37 +270,23 @@ const getRowClass = (item: ExampleStrategiesItem) => {
 }
 
 .strategy-text-card{
-  padding: clamp(18px, 4.4vw, 30px);
+  padding: calc(var(--vh) * 3.75) min(4vw, 27px);
 
   display: flex;
   flex-direction: column;
   gap: clamp(18px, 4.6vw, 30px);
 
   @media(--tablet-width){
-    padding: clamp(20px, 1.6vw, 34px);
+    padding: clamp(27px, 2.25vw, 54px);
     gap: clamp(16px, 1.8vw, 28px);
   }
 }
 
 .strategy-title{
-  margin: 0;
+  margin-bottom: calc(var(--vh) * 3);
   color: var(--strategix-dark);
-  font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: min(48px, 9.4vw);
-  font-weight: 700;
-  line-height: 102%;
-  letter-spacing: -0.01em;
-  text-align: left;
-  text-transform: uppercase;
-
-  @media(--tablet-width){
-    font-size: clamp(36px, 2vw, 40px);
-    line-height: 108%;
-  }
-
-  @media(--mobile-medium){
-    font-size: min(48px, calc(var(--vh) * 10));
-  }
+  font-family: 'Onest', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 600;
 }
 
 .strategy-bullets{
@@ -308,10 +296,10 @@ const getRowClass = (item: ExampleStrategiesItem) => {
 
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 4vw, 24px);
+  gap: min(calc(var(--vh) * 2.2), 24px);
 
   @media(--tablet-width){
-    gap: clamp(16px, 1.5vw, 24px);
+    gap: clamp(16px, calc(var(--vh) * 2.2), 48px);
   }
 }
 
@@ -320,25 +308,22 @@ const getRowClass = (item: ExampleStrategiesItem) => {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: start;
-  column-gap: clamp(10px, 2.8vw, 16px);
+  column-gap: clamp(5px, 2.8vw, 64px);
 }
 
 .strategy-bullet-dot{
   width: clamp(7px, 2vw, 10px);
   height: clamp(7px, 2vw, 10px);
   border-radius: 50%;
-  margin-top: clamp(5px, 1.5vw, 8px);
+  /* margin-top: clamp(5px, 1.5vw, 8px); */
+  margin: auto 0;
   background-color: var(--strategix-accent);
 }
 
 .strategy-bullet-text{
   margin: 0;
   color: var(--strategix-dark);
-  font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: min(14px, 4.4vw);
-  font-weight: 500;
-  line-height: 125%;
-  letter-spacing: 0;
+  font-weight: 300;
   text-align: left;
   text-transform: none;
 

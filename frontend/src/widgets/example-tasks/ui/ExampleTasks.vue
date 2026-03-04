@@ -102,7 +102,8 @@ const isAccentBackground = (background?: string) => {
   --tasks-grid-gap: min(2.8vw, 14px);
 
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 6), 72px);
+  /* padding-block: min(calc(var(--vh) * 6), 72px); */
+  padding-bottom: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
@@ -115,12 +116,14 @@ const isAccentBackground = (background?: string) => {
   @media(--tablet-width){
     --tasks-grid-gap: min(1vw, 20px);
 
-    padding-block: min(calc(var(--vh) * 7), 80px);
+    /* padding-block: min(calc(var(--vh) * 7), 80px); */
+    padding-bottom: min(calc(var(--vh) * 7), 80px);
     gap: min(calc(var(--vh) * 8), 80px);
   }
 
   @media(--mobile-medium){
-    padding-block: min(calc(var(--vh) * 8), 56px);
+    /* padding-block: min(calc(var(--vh) * 8), 56px); */
+    padding-bottom: min(calc(var(--vh) * 8), 56px);
     gap: min(calc(var(--vh) * 4), 28px);
   }
 }
