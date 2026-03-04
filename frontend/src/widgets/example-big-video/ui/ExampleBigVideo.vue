@@ -16,10 +16,12 @@ const {data} = defineProps<{
     class="example-big-video"
   >
     <VideoPlayer
+      class="example-big-video__player example-big-video__player--mobile"
       :src="data.srcMobile || data.src"
       :autoplay="data.autoplay"
     />
     <VideoPlayer
+      class="example-big-video__player example-big-video__player--desktop"
       :src="data.src"
       :autoplay="data.autoplay"
     />
@@ -38,45 +40,45 @@ const {data} = defineProps<{
   padding-inline: 0;
 
   background-color: var(--strategix-light);
+}
 
-  :deep(.video-player){
-    width: 100%;
-    height: auto;
-    max-height: inherit;
+.example-big-video__player{
+  width: 100%;
+  height: auto;
+  max-height: inherit;
+}
 
-    &:first-child{ /* мобилка */
-      display: block;
-    }
-    
-    &:last-child{ /* пк */
-      display: none;
-    }
+.example-big-video__player--desktop{
+  display: none;
+}
 
-    @media(--tablet-width){
-      &:first-child{ /* мобилка */
-        display: none;
-      }
-      
-      &:last-child{ /* пк */
-        display: block;
-      }
-    }
+@media(--tablet-width){
+  .example-big-video__player--mobile{
+    display: none;
   }
 
-  :deep(.video-player__video){
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    max-height: inherit;
-    aspect-ratio: auto;
-    object-fit: cover;
+  .example-big-video__player--desktop{
+    display: block;
   }
+}
 
-  @media(--pc-width){
+.example-big-video :deep(.video-player__video){
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: inherit;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+@media(--pc-width){
+  .example-big-video{
     padding-inline: var(--padding-section-x);
   }
+}
 
-  @media(--mobile-medium){
+@media(--mobile-medium){
+  .example-big-video{
     padding-inline: 0;
   }
 }

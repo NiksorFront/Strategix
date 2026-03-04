@@ -9,6 +9,35 @@ const props = withDefaults(
   },
 );
 
+const { app } = useRuntimeConfig();
+const baseURL = app?.baseURL ?? '/';
+
+const normalizeBase = (base: string) => {
+  if (!base || base === '/') return '';
+  return base.endsWith('/') ? base.slice(0, -1) : base;
+};
+
+const resolvedSrc = computed(() => {
+  const raw = props.src?.trim() ?? '';
+  if (!raw) return '';
+
+  // Keep full URLs and browser-generated sources untouched.
+  if (/^(https?:)?\/\//i.test(raw) || raw.startsWith('data:') || raw.startsWith('blob:')) {
+    return raw;
+  }
+
+  const base = normalizeBase(baseURL);
+  if (!base) {
+    return raw.startsWith('/') ? raw : `/${raw}`;
+  }
+
+  if (raw === base || raw.startsWith(`${base}/`)) {
+    return raw;
+  }
+
+  return raw.startsWith('/') ? `${base}${raw}` : `${base}/${raw}`;
+});
+
 const videoElement = ref<HTMLVideoElement | null>(null);
 const isPlaying = ref(false);
 const isMuted = ref(Boolean(props.autoplay));
@@ -66,7 +95,7 @@ const toggleVideoSound = () => {
 };
 
 watch(
-  () => [props.src, shouldAutoplay.value],
+  () => [resolvedSrc.value, shouldAutoplay.value],
   async () => {
     isPlaying.value = false;
     isMuted.value = shouldAutoplay.value;
@@ -93,7 +122,7 @@ watch(
     <video
       ref="videoElement"
       class="video-player__video"
-      :src="props.src"
+      :src="resolvedSrc"
       :autoplay="shouldAutoplay"
       :muted="isMuted"
       playsinline
