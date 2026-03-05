@@ -34,14 +34,18 @@
                     ]},
                     "Формат — fashion-show с продуманной режиссурой и мультимедийным сопровождением."
                 ],
-                "images": [
+                "content": [
                     {
-                        "src": "/images/mariage-context-1.jpg",
-                        "alt": "Контекст 1"
+                        "src": "/videos/wedding-dress-1.mp4",
+                        "alt": "Видео с платьем 1"
                     },
                     {
-                        "src": "/images/mariage-context-2.jpg",
-                        "alt": "Контекст 2"
+                        "src": "/videos/wedding-dress-2.mp4",
+                        "alt": "Видео с платьем 2"
+                    },
+                    {
+                        "src": "/images/wedding-dress-3.jpg",
+                        "alt": "фото с платьем 3"
                     }
                 ]
             },

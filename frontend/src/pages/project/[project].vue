@@ -5,7 +5,7 @@ import {getProjectContent} from '@/shared/lib/content/registry';
 import Header from '@/widgets/header';
 import ExampleWelcome from '@/widgets/example-welcome';
 import ExampleTasks from '@/widgets/example-tasks';
-// import ExampleContext from '@/widgets/example-context';
+import ExampleContext from '@/widgets/example-context';
 import ExampleGoalsCompany from '@/widgets/example-goals-company';
 import ExampleBigLogo from '@/widgets/example-big-logo';
 import ExampleTypograhy from '@/widgets/example-typograhy';
@@ -36,6 +36,7 @@ const projectContent = computed(() => getProjectContent(project.value));
 const sectionComponents: Record<string, Component> = {
   'example-welcome': ExampleWelcome,
   'example-tasks': ExampleTasks,
+  'example-context': ExampleContext,
   'example-goals-company': ExampleGoalsCompany,
   'example-big-logo': ExampleBigLogo,
   'example-what-did': ExampleWhatDid,
