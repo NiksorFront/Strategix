@@ -26,13 +26,10 @@ const resolveLocation = (location?: string) => {
   return location?.trim().toLowerCase() === 'left' ? 'left' : 'right';
 };
 
-const getBackgroundColor = (background?: string) => {
-  const normalized = background?.trim();
-  return normalized || 'var(--strategix-light)';
-};
+const normalizeBackground = (background?: string) => background?.trim().toLowerCase() ?? '';
 
 const isAccentBackground = (background?: string) => {
-  const normalized = background?.trim().toLowerCase() ?? '';
+  const normalized = normalizeBackground(background);
 
   return (
     normalized === '#2ab464' ||
@@ -42,12 +39,39 @@ const isAccentBackground = (background?: string) => {
   );
 };
 
+const isWhiteBackground = (background?: string) => {
+  const normalized = normalizeBackground(background);
+
+  return (
+    normalized === '#ffffff' ||
+    normalized === 'white' ||
+    normalized === 'rgb(255, 255, 255)' ||
+    normalized === 'rgb(255,255,255)'
+  );
+};
+
 const getRowClass = (item: ExampleStrategiesItem) => {
   if (!hasImage(item.src)) {
     return 'strategy-row--no-image';
   }
 
   return `strategy-row--image-${resolveLocation(item.location)}`;
+};
+
+const getTextCardClass = (item: ExampleStrategiesItem) => {
+  if (isAccentBackground(item.background)) {
+    return {
+      'strategy-text-card--accent': true,
+      'strategy-text-card--bg-accent': true,
+      'strategy-text-card--bordered': Boolean(item.border),
+    };
+  }
+
+  return {
+    'strategy-text-card--bg-white': isWhiteBackground(item.background),
+    'strategy-text-card--bg-light': !isWhiteBackground(item.background),
+    'strategy-text-card--bordered': Boolean(item.border),
+  };
 };
 </script>
 
@@ -78,11 +102,7 @@ const getRowClass = (item: ExampleStrategiesItem) => {
       >
         <article
           class="strategy-card strategy-text-card"
-          :class="{ 'strategy-text-card--accent': isAccentBackground(item.background) }"
-          :style="{
-            backgroundColor: getBackgroundColor(item.background),
-            border: item.border ? '1px solid var(--strategix-dark)' : 'none',
-          }"
+          :class="getTextCardClass(item)"
         >
           <ExampleSectionTitle class="strategy-title">
             {{ item.title }}
@@ -129,7 +149,7 @@ const getRowClass = (item: ExampleStrategiesItem) => {
 
 <style scoped>
 .example-strategies{
-  --strategies-gap: min(calc(var(--vh) * 6), 72px)
+  --strategies-gap: min(calc(var(--vh) * 4), 64px);
 
   width: var(--section-width);
   padding-block: min(calc(var(--vh) * 6), 72px);
@@ -138,7 +158,7 @@ const getRowClass = (item: ExampleStrategiesItem) => {
 
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 5), 56px);
+  gap: min(calc(var(--vh) * 4), 56px);
 
   background-color: var(--strategix-light);
 
@@ -167,23 +187,23 @@ const getRowClass = (item: ExampleStrategiesItem) => {
   margin: 0;
   color: var(--strategix-dark);
   font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: min(16px, 4.6vw);
-  font-weight: 500;
-  line-height: 122%;
+  font-size: min(18px, 4.6vw);
+  font-weight: 400;
+  line-height: 120%;
   letter-spacing: 0;
   text-align: left;
 
   @media(--tablet-width){
     margin-left: calc(((100% - var(--strategies-gap)) / 2) - (((100% - var(--strategies-gap)) / 2) / 2));
     max-width: clamp(420px, 62vw, 980px);
-    font-size: clamp(18px, 1.95vw, 34px);
+    font-size: clamp(28px, 2vw, 48px);
     font-weight: 600;
-    line-height: 115%;
+    line-height: 110%;
     text-transform: uppercase;
   }
 
   @media(--mobile-medium){
-    font-size: min(16px, calc(var(--vh) * 3.6));
+    font-size: min(28px, calc(var(--vh) * 6.25));
     line-height: 125%;
     text-transform: none;
   }
@@ -203,7 +223,7 @@ const getRowClass = (item: ExampleStrategiesItem) => {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: calc(var(--strategies-gap) / 4);
+  gap: min(1vw, 20px);
 
   @media(--tablet-width){
     display: grid;
@@ -282,11 +302,33 @@ const getRowClass = (item: ExampleStrategiesItem) => {
   }
 }
 
+.strategy-text-card--bg-light{
+  background-color: var(--strategix-light);
+}
+
+.strategy-text-card--bg-white{
+  background-color: #ffffff;
+}
+
+.strategy-text-card--bg-accent{
+  background-color: var(--strategix-accent);
+}
+
+.strategy-text-card--bordered{
+  border: 1px solid var(--strategix-dark);
+}
+
 .strategy-title{
   margin-bottom: calc(var(--vh) * 3);
   color: var(--strategix-dark);
   font-family: 'Onest', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 600;
+  transform: scale(0.9) translateX(-4vw) translateY(calc(var(--vh) * -0.5)); /* Костыль, т.к. текущий размер текста не влезает */
+
+  @media(--tablet-width){
+    transform: none;
+  }
+  
 }
 
 .strategy-bullets{
@@ -316,8 +358,12 @@ const getRowClass = (item: ExampleStrategiesItem) => {
   height: clamp(7px, 2vw, 10px);
   border-radius: 50%;
   /* margin-top: clamp(5px, 1.5vw, 8px); */
-  margin: auto 0;
+  margin: calc(var(--vh)/4) 0 auto;
   background-color: var(--strategix-accent);
+
+  @media(--tablet-width){
+    margin-top: calc(var(--vh)/1.25);
+  }
 }
 
 .strategy-bullet-text{

@@ -18,13 +18,10 @@ const { data } = defineProps<{
   data: ExampleTasksData;
 }>();
 
-const getBackgroundColor = (background?: string) => {
-  const normalized = background?.trim();
-  return normalized || 'var(--strategix-light)';
-};
+const normalizeBackground = (background?: string) => background?.trim().toLowerCase() ?? '';
 
 const isAccentBackground = (background?: string) => {
-  const normalized = background?.trim().toLowerCase() ?? '';
+  const normalized = normalizeBackground(background);
 
   return (
     normalized === '#2ab464' ||
@@ -32,6 +29,33 @@ const isAccentBackground = (background?: string) => {
     normalized === 'rgb(42, 180, 100)' ||
     normalized === 'rgb(42,180,100)'
   );
+};
+
+const isWhiteBackground = (background?: string) => {
+  const normalized = normalizeBackground(background);
+
+  return (
+    normalized === '#ffffff' ||
+    normalized === 'white' ||
+    normalized === 'rgb(255, 255, 255)' ||
+    normalized === 'rgb(255,255,255)'
+  );
+};
+
+const getTextCardClass = (item: ExampleTasksItem) => {
+  if (isAccentBackground(item.background)) {
+    return {
+      'task-text-card--accent': true,
+      'task-text-card--bg-accent': true,
+      'task-text-card--bordered': Boolean(item.border),
+    };
+  }
+
+  return {
+    'task-text-card--bg-white': isWhiteBackground(item.background),
+    'task-text-card--bg-light': !isWhiteBackground(item.background),
+    'task-text-card--bordered': Boolean(item.border),
+  };
 };
 </script>
 
@@ -76,11 +100,7 @@ const isAccentBackground = (background?: string) => {
 
         <article
           class="task-card task-text-card"
-          :class="{ 'task-text-card--accent': isAccentBackground(item.background) }"
-          :style="{
-            backgroundColor: getBackgroundColor(item.background),
-            border: item.border ? '1px solid var(--strategix-dark)' : 'none',
-          }"
+          :class="getTextCardClass(item)"
         >
           <span
             class="task-number"
@@ -99,7 +119,7 @@ const isAccentBackground = (background?: string) => {
 
 <style scoped>
 .example-tasks{
-  --tasks-grid-gap: min(2.8vw, 14px);
+  --tasks-grid-gap: min(2vw, 14px);
 
   width: var(--section-width);
   /* padding-block: min(calc(var(--vh) * 6), 72px); */
@@ -160,11 +180,20 @@ const isAccentBackground = (background?: string) => {
   margin: 0;
   color: var(--strategix-dark);
   font-weight: 400;
+  font-size: min(18px, 4.6vw);
 
   line-height: 132%;
   letter-spacing: 0;
   text-align: left;
   text-transform: none;
+
+  @media(--tablet-width){
+      font-size: clamp(12px, 1.1675vw, 28px);
+  }
+
+  @media(--mobile-medium) {
+      font-size: min(14px, calc(var(--vh) * 2.917));
+  }
 }
 
 .tasks-list{
@@ -212,6 +241,22 @@ const isAccentBackground = (background?: string) => {
   gap: clamp(12px, 2.4vw, 24px);
 }
 
+.task-text-card--bg-light{
+  background-color: var(--strategix-light);
+}
+
+.task-text-card--bg-white{
+  background-color: #ffffff;
+}
+
+.task-text-card--bg-accent{
+  background-color: var(--strategix-accent);
+}
+
+.task-text-card--bordered{
+  border: 1px solid var(--strategix-dark);
+}
+
 .task-text-card--accent .task-text{
   color: var(--strategix-light);
 }
@@ -254,17 +299,23 @@ const isAccentBackground = (background?: string) => {
 }
 
 .task-text{
-  width: 85%;
+  width: 100%;
   margin: 0;
   margin-top: auto;
 
   color: var(--strategix-dark);
   font-family: "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-weight: 600;
-  line-height: 120%;
-  letter-spacing: 0;
+  font-weight: 400;
+  letter-spacing: -0.1px;
+  line-height: 110%;
   text-align: left;
-  text-transform: none;
+
+  @media(--tablet-width){
+    width: 85%;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: normal;
+  }
 }
 
 .task-row:nth-child(even) .task-image-card{

@@ -54,7 +54,7 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
         format="webp"
         :quality="80"
         width="1200"
-        height="323"
+        height="400"
         sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw"
         loading="lazy"
         decoding="async"
@@ -134,7 +134,7 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
 .example-welcome {
     grid-area: welcome;
     width: 100%;
-    min-height: calc(var(--vh) * 40);
+    min-height: calc(var(--vh) * 50);
     height: auto;
 
     display: flex;
@@ -231,11 +231,9 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
 
 .welcome-img{
     width: 100%;
-    min-height: 50%;
+    min-height: calc(var(--vh) * 23);
     height: auto;
     max-height: 100%;
-
-    aspect-ratio: 1200 / 400;
 
     object-fit: cover;
     object-position: top;

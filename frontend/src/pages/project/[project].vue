@@ -16,7 +16,7 @@ import ExampleBigVideo from '@/widgets/example-big-video';
 // import ExampleSlider from '@/widgets/example-slider';
 import ExampleWhatDid from '@/widgets/example-what-did';
 import ExampleResultsMetrics from '@/widgets/example-results-metrics';
-// import ExampleResultsBlocks from '@/widgets/example-results-blocks';
+import ExampleResultsBlocks from '@/widgets/example-results-blocks';
 // import ExampleResultsList from '@/widgets/example-results-list';
 import ExampleInfo from '@/widgets/example-info';
 import ExampleOtherProjects from '@/widgets/example-other-projects';
@@ -45,6 +45,7 @@ const sectionComponents: Record<string, Component> = {
   'example-big-image': ExampleBigImage,
   'example-big-video': ExampleBigVideo,
   'example-results-metrics': ExampleResultsMetrics,
+  'example-results-blocks': ExampleResultsBlocks,
   'example-info': ExampleInfo,
   'example-other-projects': ExampleOtherProjects,
 };
