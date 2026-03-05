@@ -144,4 +144,5 @@
       padding: calc(var(--vh) * 7.5) var(--padding-section-x) calc(var(--vh) * 10);
     }
 }
+
 </style>

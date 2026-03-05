@@ -13,7 +13,7 @@ import ExampleColorPalette from '@/widgets/example-color-palette';
 import ExampleStrategies from '@/widgets/example-strategies';
 import ExampleBigImage from '@/widgets/example-big-image';
 import ExampleBigVideo from '@/widgets/example-big-video';
-// import ExampleSlider from '@/widgets/example-slider';
+import ExampleSlider from '@/widgets/example-slider';
 import ExampleWhatDid from '@/widgets/example-what-did';
 import ExampleResultsMetrics from '@/widgets/example-results-metrics';
 import ExampleResultsBlocks from '@/widgets/example-results-blocks';
@@ -45,6 +45,7 @@ const sectionComponents: Record<string, Component> = {
   'example-strategies': ExampleStrategies,
   'example-big-image': ExampleBigImage,
   'example-big-video': ExampleBigVideo,
+  'example-slider': ExampleSlider,
   'example-results-metrics': ExampleResultsMetrics,
   'example-results-blocks': ExampleResultsBlocks,
   'example-results-list': ExampleResultsList,

@@ -330,6 +330,7 @@ const resolveMediaSrc = (src: string) => {
   margin: 0;
   width: 100%;
   aspect-ratio: 2 / 3;
+  max-height: calc(var(--vh) * 90);
   border-radius: var(--card-radius);
   overflow: hidden;
   position: relative;
@@ -338,6 +339,7 @@ const resolveMediaSrc = (src: string) => {
 .context-gallery-media{
   width: 100%;
   height: 100%;
+  max-height: calc(var(--vh) * 90);
   object-fit: cover;
   display: block;
 }
