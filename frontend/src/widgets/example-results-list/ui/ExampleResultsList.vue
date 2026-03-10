@@ -43,18 +43,9 @@ const validBullets = computed(() => (data.bullets ?? []).filter((bullet) => Bool
 <style scoped>
 .example-results-list{
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
   background-color: var(--strategix-light);
-
-  @media(--tablet-width){
-    padding-block: min(calc(var(--vh) * 7), 80px);
-  }
-
-  @media(--mobile-medium){
-    padding-block: min(calc(var(--vh) * 8), 56px);
-  }
 }
 
 .results-layout{

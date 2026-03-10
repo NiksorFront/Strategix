@@ -41,7 +41,6 @@ const {data} = defineProps<{
   box-sizing: border-box;
 
   margin: 0;
-  /* padding-block: min(calc(var(--vh) * 6), 72px); */
   padding-inline: 0;
 
   background-color: var(--strategix-light);
@@ -78,6 +77,7 @@ const {data} = defineProps<{
   @media(--mobile-medium){
     padding-inline: 0;
   }
+
 }
 
 </style>

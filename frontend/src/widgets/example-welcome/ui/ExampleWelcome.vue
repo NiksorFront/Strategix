@@ -29,16 +29,9 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
   <section class="example-grid">
     <div class="example-welcome">
       <h1
-        v-if="props.data.sphere"
-        class="upperscase-text title"
+        class="title"
       >
         <span class="gray"> {{ props.data.sphere }} </span> <br>
-        {{ props.data.name }}
-      </h1>
-      <h1
-        v-else
-        class="upperscase-text title-big"
-      >
         {{ props.data.name }}
       </h1>
       <VideoPlayer
@@ -73,12 +66,12 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
       <div
         v-for="(item, index) in props.data.about"
         :key="`${item.label}-${index}`"
-        class="about-row"
+        class="small-text about-row"
       >
-        <p class="small-text about-label">
+        <p class="about-label">
           {{ item.label }}
         </p>
-        <p class="small-text about-value">
+        <p class="about-value">
           {{ item.value }}
         </p>
       </div>
@@ -89,8 +82,6 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
 <style scoped>
 .example-grid{
     width: var(--section-width);
-
-    padding-block: min(calc(var(--vh) * 8), 80px);
     
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -99,20 +90,18 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
       "about"
       "description";
     grid-auto-rows: auto;
-    gap: min(calc(var(--vh) * 8.5), 54px);
+    gap: min(calc(var(--vh) * 7), 55px);
     align-items: start;
 
     background-color: var(--strategix-light);
 
     @media(--tablet-width){
-        padding-top: min(calc(var(--vh) * 3.7), 80px);
-
         grid-template-columns: minmax(0, 5fr) minmax(0, 3fr);
         grid-template-areas:
           "welcome welcome"
           "description about";
         column-gap: clamp(25px, 8.334vw, 200px);
-        row-gap: clamp(36px, calc(var(--vh) * 7), 160px);
+        row-gap: clamp(36px, calc(var(--vh) * 10), 160px);
     }
 
     @media(--pc-width){
@@ -120,13 +109,10 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
     }
 
     @media(--mobile-medium){
-        padding-block: min(calc(var(--vh) * 5), 56px);
-
         grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
         grid-template-areas:
           "welcome welcome"
           "description about";
-        /* column-gap: min(calc(var(--vh) * 5), 24px); */
         row-gap: min(calc(var(--vh) * 14), 64px);
     }
 }
@@ -136,28 +122,22 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
     width: 100%;
     min-height: calc(var(--vh) * 50);
     height: auto;
+    max-height: calc(var(--vh) * 110);
 
     display: flex;
     flex-direction: column;
-
-    @media(--mobile-width){
-        min-height: calc(var(--vh) * 60);
+    
+    @media(min-aspect-ratio: 5/4) and (width >= 480px){
+      min-height: calc(var(--vh) * 60.5);
     }
 
-    @media(--tablet-width) {
-        min-height: calc(var(--vh) * 40);
-        height: auto;
-        max-height: calc(var(--vh) * 90);
+    @media(min-aspect-ratio: 5/3) and (width >= 480px){
+      min-height: calc(var(--vh) * 75);
     }
 
-    @media(min-aspect-ratio: 1/1){
-        /* min-height: calc((var(--vh) * 80) - min(calc(var(--vh) * 4), 40px)); */
-        min-height: calc(var(--vh) * 70);
+    @media(--mobile-medium){
+        min-height: calc(var(--vh) * 80);
     }
-
-    /* @media(--mobile-medium) {
-      min-height: calc(var(--vh) * 90);
-    } */
   }
 
 .title {
@@ -167,6 +147,9 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
     margin: auto 0;
     text-align: left;
 
+    font-family: "Liberty-MT", "Onest", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 400;        
+    letter-spacing: 0;
     font-size: min(min(10vw, calc(var(--vh) * 5.25)), 42px);
     line-height: 110%;
     color: var(--strategix-accent);
@@ -175,13 +158,9 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
       font-size: clamp(min(min(4vw, var(--vh) * 3), 42px), 1.95vw + var(--vh) * 2.85, 100px);
     }
 
-    @media (--mobile-width) and (max-aspect-ratio: 4/5){
-      font-size: clamp(min(4vw, var(--vh) * 3), min(10vw, calc(var(--vh) * 5.25)), 100px);
-    }
-
     @media(--tablet-width) {
-      font-size: clamp(42px, calc((var(--vh) * 3) + 2vw), 140px);
-      padding: calc(var(--vh) * 3) var(--padding-section-x);
+      font-size: clamp(42px, calc((var(--vh) * 3) + 1vw), 140px);
+      padding: calc(var(--vh) * 2) var(--padding-section-x) 0;
     }
 
     @media(--pc-width){
@@ -197,70 +176,38 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
   color: var(--strategix-gray);
 }
 
-.title-big {
-    width: 100%;
-    padding: 0 var(--padding-section-x);
-    box-sizing: border-box;
-    margin: auto 0;
-    text-align: left;
-
-    font-size: min(min(10vw, calc(var(--vh) * 5.25)), 42px);
-    color: var(--strategix-accent);
-
-    @media(--mobile-width){
-      font-size: clamp(min(min(4vw, var(--vh) * 3), 42px), 1.95vw + var(--vh) * 2.85, 100px);
-    }
-
-    @media (--mobile-width) and (max-aspect-ratio: 4/5){
-      font-size: clamp(min(4vw, var(--vh) * 3), min(10vw, calc(var(--vh) * 5.25)), 100px);
-   }
-
-    @media(--tablet-width) {
-      font-size: clamp(42px, calc((var(--vh) * 4) + 3.25vw), 140px);
-      padding: calc(var(--vh) * 3) var(--padding-section-x);
-    }
-
-    @media(--pc-width){
-      font-size: clamp(42px, calc(var(--vh) * 10), 140px);
-    }
-
-    @media(--mobile-medium) {
-       font-size: min(min(10vw, calc(var(--vh) * 5.5)), 42px);
-    }
-}
-
 .welcome-img{
-    width: 100%;
-    min-height: calc(var(--vh) * 23);
-    height: auto;
-    max-height: 100%;
+  width: 100%;
+  min-height: 40%;
+  height: auto;
+  max-height: 100%;
 
-    object-fit: cover;
-    object-position: top;
-    display: block;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 
-    @media(--tablet-width) {
+  @media(--tablet-width) {
       min-height: 65%;
-    }
+  }
 
-    @media(min-aspect-ratio: 3/5){
+  @media(max-aspect-ratio: 3/5){
+      aspect-ratio: 390 / 185;
+  }
+
+  @media(min-aspect-ratio: 4/5){
       aspect-ratio: 1200 / 323;
-    }
-
-    @media(max-aspect-ratio: 5/3){
-      aspect-ratio: 1200 / 400;
-    }
-
-    @media(--pc-width) {
+  }
+    
+  @media(--pc-width) {
       padding-inline: var(--padding-section-x);
       box-sizing: border-box;
       max-height: 75%;
       aspect-ratio: 1200 / 572;
-    }
+  }
 
-    @media(--mobile-medium) {
+  @media(--mobile-medium) {
       max-height: 75%;
-    }
+  }
 }
 
 .description{
@@ -270,10 +217,11 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
 
   display: flex;
   flex-direction: column;
-  gap: calc(var(--vh) * 4);
+  gap: calc(var(--vh) * 2);
 
   @media(--tablet-width){
     padding: 0 0 0 var(--padding-section-x);
+    gap: calc(var(--vh) * 2.75);
   }
 
   @media(--pc-width){
@@ -290,12 +238,13 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
 
   text-align: left;
   font-size: min(18px, 4.6vw);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 120%;
   color: var(--strategix-dark);
 
   @media(--tablet-width){
-    font-size: clamp(18px, calc(0.6667vw + var(--vh) * 1.75), 48px);
+    /* font-weight: 600; */
+    font-size: clamp(18px, calc(0.6175vw + var(--vh) * 2), 48px);
   }
 
   @media(--mobile-medium) {
@@ -307,11 +256,11 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
   grid-area: about;
   padding: 0 var(--padding-section-x) 0 var(--padding-section-x);
   display: grid;
-  gap: min(calc(var(--vh) * 1.9), 20px);
+  gap: min(calc(var(--vh) * 3), 30px);
 
   @media(--tablet-width){
     padding: 0 var(--padding-section-x) 0 0;
-    gap: min(calc(var(--vh) * 3.75), 40px);
+    gap: min(calc(var(--vh) * 1.85), 40px);
   }
 
   @media(--pc-width){
@@ -326,20 +275,17 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
 
 .about-row{
   width: 100%;
-  min-height: calc(var(--vh) * 5);
+  min-height: calc(var(--vh) * 3);
   display: grid;
-  grid-template-columns: 3fr 7fr;
-  /* grid-template-columns: max-content minmax(0, 1fr); */
+  grid-template-columns: 1fr 1fr;
   column-gap: clamp(12px, 2vw, 28px);
   align-items: start;
 
   font-size: min(18px, 4.6vw);
 
   @media(--tablet-width){
-    min-height: calc(var(--vh) * 3);
-    /* column-gap: clamp(24px, 2.5vw, 48px); */
-
-    font-size: clamp(18px, 1vw, 32px);
+    grid-template-columns: 3fr 7fr;
+    font-size: clamp(16px, 1vw, 32px);
   }
 
   @media(--pc-width){
@@ -350,7 +296,6 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
   @media(--mobile-medium) {
     width: 100%;
     font-size: min(18px, calc(var(--vh) * 3.75));
-    min-height: calc(var(--vh) * 5);
   }
 }
 

@@ -10,7 +10,7 @@ const {data} = defineProps<{
 
 <template>
   <section class="example-info">
-    <h2 class="upperscase-text info-title">
+    <h2 class="base-text info-title">
       {{ data.title }}
     </h2>
     <div class="info-text">
@@ -28,26 +28,23 @@ const {data} = defineProps<{
 <style scoped>
 .example-info{
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  row-gap: min(calc(var(--vh) * 3.5), 32px);
+  row-gap: min(calc(var(--vh) * 4), 40px);
   align-items: start;
 
   background-color: var(--strategix-light);
 
   @media(--tablet-width){
-    padding-block: min(calc(var(--vh) * 7), 80px);
-    grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
-    column-gap: clamp(24px, 3vw, 120px);
+    grid-template-columns: minmax(0, 19fr) minmax(0, 20fr);
+    column-gap: clamp(20px, 3.333vw, 80px);
     row-gap: 0;
   }
 
   @media(--mobile-medium){
-    padding-block: min(calc(var(--vh) * 8), 56px);
     row-gap: min(calc(var(--vh) * 3), 24px);
   }
 }
@@ -56,13 +53,16 @@ const {data} = defineProps<{
   margin: 0;
   color: var(--strategix-dark);
   text-align: left;
-  font-size: min(28px, 7.2vw);
-  line-height: 110%;
+  font-size: min(28px, 6vw);
+  line-height: 129%;
+  font-family: 'Onest', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: uppercase;
   letter-spacing: 0;
 
   @media(--tablet-width){
-    font-size: clamp(28px, 2.6vw, 56px);
-    max-width: 90%;
+    font-size: clamp(26px, calc(var(--vh) * 2 + 0.75vw), 52px);
+    line-height: 120%;
+    /* max-width: 100%; */
   }
 
   @media(--mobile-medium){
@@ -78,21 +78,24 @@ const {data} = defineProps<{
 
   @media(--tablet-width){
     max-width: clamp(280px, 40vw, 560px);
+    gap: clamp(20px, calc(var(--vh) * 3.5), 60px);
   }
 }
 
 .info-paragraph{
   margin: 0;
   color: var(--strategix-dark);
-  font-weight: 500;
+  font-weight: 400;
   text-align: left;
   text-transform: none;
   letter-spacing: 0;
-  line-height: 150%;
-  font-size: min(16px, 4.2vw);
+  line-height: 110%;
+  font-size: min(18px, 4.6vw);
 
   @media(--tablet-width){
-    font-size: clamp(16px, 1.1vw, 22px);
+    font-size: clamp(16px, 1.1vw, 32px);
+    line-height: 120%;
+    width: 105%;
   }
 
   @media(--mobile-medium){

@@ -66,13 +66,13 @@
                 "backgroundColor": "#F1F1F1"
             },
             "typograhy": {
-                "title": "Типография",
+                "title": "Типографика",
                 "fonts": [
                     {
                         "font": {
                             "src": "/fonts/BebasNeue-Regular.ttf",
                             "weight": 700,
-                            "scale": 1
+                            "scale": 1.6
                         },
                         "assignment": "Основной",
                         "name": "Bebas",

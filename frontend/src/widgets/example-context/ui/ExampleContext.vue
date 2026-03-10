@@ -192,7 +192,6 @@ const resolveMediaSrc = (src: string) => {
   --context-gallery-gap: min(2vw, 14px);
 
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
@@ -205,14 +204,10 @@ const resolveMediaSrc = (src: string) => {
   @media(--tablet-width){
     --context-section-gap: min(calc(var(--vh) * 8), 80px);
     --context-gallery-gap: min(1vw, 20px);
-
-    padding-block: min(calc(var(--vh) * 7), 80px);
   }
 
   @media(--mobile-medium){
     --context-section-gap: min(calc(var(--vh) * 4), 28px);
-
-    padding-block: min(calc(var(--vh) * 8), 56px);
   }
 }
 

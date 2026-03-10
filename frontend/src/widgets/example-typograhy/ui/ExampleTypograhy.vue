@@ -169,23 +169,20 @@ const getFontStyle = (font: TypographyFont, index: number) => {
 <style scoped>
 .example-typography{
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 4.5), 56px);
+  gap: min(var(--vh), 40px);
 
   background-color: var(--strategix-light);
 
   @media(--tablet-width){
-    padding-block: min(calc(var(--vh) * 9), 160px);
-    gap: min(calc(var(--vh) * 9.5), 64px);
+    gap: min(calc(var(--vh) * 7), 140px);
   }
 
   @media(--mobile-medium){
-    padding-block: min(calc(var(--vh) * 8), 46px);
     gap: min(calc(var(--vh) * 4), 40px);
   }
 }
@@ -196,7 +193,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   gap: calc(var(--vh) * 4);
 
   @media(--tablet-width){
-    gap: calc(var(--vh) * 10);
+    gap: min(calc(var(--vh) * 10), 160px);
   }
 }
 
@@ -204,12 +201,12 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   display: grid;
   grid-template-rows: 1fr auto;
   column-gap: clamp(20px, 6vw, 96px);
-  gap: var(--vh);
+  gap: calc(var(--vh) * 2.5);
   align-items: start;
  
   @media(--tablet-width){
     column-gap: clamp(24px, 6vw, 120px);
-    gap: calc(var(--vh) * 2.5);
+    /* gap: calc(var(--vh) * 2.5); */
   }
 
   @media(--mobile-medium){
@@ -228,7 +225,9 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   margin: 0;
   color: var(--strategix-dark);
   font-size: calc(29vw * var(--font-scale, 1));
-  line-height: 0.85;
+  /* line-height: 0.85; */
+  margin-bottom: calc(-10px * var(--font-scale, 0.5));
+  line-height: 90%;
   letter-spacing: 10px;
 
   @media(--tablet-width){
@@ -271,8 +270,8 @@ const getFontStyle = (font: TypographyFont, index: number) => {
 
 .font-line{
   display: inline-block;
-  width: min(6vw, 96px);
-  height: 2px;
+  width: min(7vw, 96px);
+  height: 1px;
   background-color: var(--strategix-dark);
   opacity: 0.7;
 

@@ -151,7 +151,6 @@ const otherProjects = computed<ExampleOtherProject[]>(() => {
 <style scoped>
 .example-other-projects{
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
@@ -159,19 +158,15 @@ const otherProjects = computed<ExampleOtherProject[]>(() => {
   flex-direction: column;
   background-color: var(--strategix-light);
 
-  @media(--tablet-width){
-    padding-block: min(calc(var(--vh) * 7), 80px);
-  }
-
-  @media(--mobile-medium){
-    padding-block: min(calc(var(--vh) * 6), 56px);
+  @media(min-aspect-ratio: 5/3){
+    height: calc(var(--vh) * 70);
   }
 }
 
 .projects-list{
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: auto 0;
 
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -261,6 +256,7 @@ const otherProjects = computed<ExampleOtherProject[]>(() => {
 .project-image{
   width: 100%;
   height: auto;
+  max-height: calc(var(--vh) * 60);
   box-sizing: border-box;
 
   margin: 0;

@@ -32,7 +32,6 @@
 <style scoped>
 .example-goals-company{
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
   background-color: var(--strategix-accent);
@@ -42,12 +41,10 @@
   gap: min(calc(var(--vh) * 3), 36px);
 
   @media(--tablet-width){
-    padding-block: min(calc(var(--vh) * 7), 80px);
     gap: min(calc(var(--vh) * 3.5), 40px);
   }
 
   @media(--mobile-medium){
-    padding-block: min(calc(var(--vh) * 8), 56px);
     gap: min(calc(var(--vh) * 3), 24px);
   }
 }

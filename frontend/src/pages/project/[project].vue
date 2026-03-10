@@ -33,6 +33,19 @@ const currentLocale = computed(() => locale.value || 'example');
 
 const projectContent = computed(() => getProjectContent(project.value));
 
+type ProjectSection = {
+  key: string;
+  component: Component;
+  componentKey: string;
+  data: unknown;
+};
+
+type ProjectSectionGroup = {
+  key: string;
+  sections: ProjectSection[];
+  isZeroGapGroup: boolean;
+};
+
 const sectionComponents: Record<string, Component> = {
   'example-welcome': ExampleWelcome,
   'example-tasks': ExampleTasks,
@@ -53,6 +66,12 @@ const sectionComponents: Record<string, Component> = {
   'example-other-projects': ExampleOtherProjects,
 };
 
+const zeroGapSectionKeys = new Set([
+  'example-big-image',
+  'example-big-logo',
+  'example-big-video',
+]);
+
 const localeContent = computed(() => {
   const translations = projectContent.value?.translations;
   if (!translations) return null;
@@ -66,7 +85,7 @@ const localeContent = computed(() => {
   );
 });
 
-const sections = computed(() => {
+const sections = computed<ProjectSection[]>(() => {
   const content = localeContent.value;
   if (!content) return [];
 
@@ -79,9 +98,32 @@ const sections = computed(() => {
       return {
         key: `${componentKey}-${key}`,
         component,
+        componentKey,
         data,
       };
     });
+});
+
+const sectionGroups = computed<ProjectSectionGroup[]>(() => {
+  const groups: ProjectSectionGroup[] = [];
+
+  for (const section of sections.value){
+    const isZeroGapSection = zeroGapSectionKeys.has(section.componentKey);
+    const lastGroup = groups.at(-1);
+
+    if (isZeroGapSection && lastGroup?.isZeroGapGroup){
+      lastGroup.sections.push(section);
+      continue;
+    }
+
+    groups.push({
+      key: `group-${section.key}`,
+      sections: [section],
+      isZeroGapGroup: isZeroGapSection,
+    });
+  }
+
+  return groups;
 });
 
 const isNotFound = computed(() => !localeContent.value || sections.value.length === 0);
@@ -89,15 +131,55 @@ const isNotFound = computed(() => !localeContent.value || sections.value.length 
 
 <template>
   <Header theme="light" /> 
-  <main>
+  <main class="project-page-main">
     <NotFound v-if="isNotFound" />
-    <component
-      :is="section.component"
-      v-for="section in sections"
-      v-else
-      :key="section.key"
-      :data="section.data"
-    />
+    <template v-else>
+      <div
+        v-for="group in sectionGroups"
+        :key="group.key"
+        class="project-page-main__group"
+        :class="{
+          'project-page-main__group--zero-gap': group.isZeroGapGroup,
+        }"
+      >
+        <component
+          :is="section.component"
+          v-for="section in group.sections"
+          :key="section.key"
+          :data="section.data"
+        />
+      </div>
+    </template>
   </main>
   <Footer />
 </template>
+
+<style scoped>
+.project-page-main{
+  display: flex;
+  flex-direction: column;
+  gap: min(calc(var(--vh) * 6), 60px);
+  padding-bottom: min(calc(var(--vh) * 6), 60px);
+  background-color: var(--strategix-light);
+
+  @media(--tablet-width){
+    gap: min(calc(var(--vh) * 10), 180px);
+    padding-bottom: min(calc(var(--vh) * 10), 180px);
+  }
+
+  @media(--mobile-medium){
+    gap: min(calc(var(--vh) * 8), 56px);
+    padding-bottom: min(calc(var(--vh) * 8), 56px);
+  }
+}
+
+.project-page-main__group{
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
+}
+
+.project-page-main__group--zero-gap{
+  gap: 0;
+}
+</style>

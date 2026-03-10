@@ -33,7 +33,7 @@ const formatColorValue = (value: string) => {
 
 <template>
   <section class="example-color-palette">
-    <IndexSectionTitle class="title">
+    <IndexSectionTitle>
       {{ data.title }}
     </IndexSectionTitle>
 
@@ -73,39 +73,46 @@ const formatColorValue = (value: string) => {
 <style scoped>
 .example-color-palette{
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 11), 180px);
+  gap: 0;
 
   background-color: var(--strategix-light);
 
   @media(--tablet-width){
-    padding-block: min(calc(var(--vh) * 7), 80px);
+    gap: min(calc(var(--vh) * 7), 140px);
   }
 
   @media(--mobile-medium){
-    padding-block: min(calc(var(--vh) * 8), 56px);
+    gap: min(calc(var(--vh) * 4), 40px);
   }
-}
-
-.title{
-  margin: 0;
 }
 
 .palette-blocks{
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 11), 180px);
+  gap: min(calc(var(--vh) * 4), 40px);
+  
+  @media(--tablet-width){
+    gap: min(calc(var(--vh) * 7), 140px);
+  }
+
+  @media(--mobile-medium){
+    gap: min(calc(var(--vh) * 4), 40px);
+  }
 }
 
 .palette-block{
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 6), 80px);
+  gap: min(calc(var(--vh) * 3.5), 35px);
+
+  @media(--tablet-width){
+    gap: min(calc(var(--vh) * 6), 80px);
+  }
 }
 
 .palette-assignment{
@@ -116,7 +123,6 @@ const formatColorValue = (value: string) => {
   font-weight: 400;
   line-height: 140%;
   text-align: left;
-
 
   @media(--tablet-width){
     font-size: clamp(16px, 1.25vw, 32px);
@@ -154,7 +160,7 @@ const formatColorValue = (value: string) => {
   display: inline-flex;
   align-items: center;
   flex-direction: column;
-  gap: clamp(10px, 2.5vw, 14px);
+  gap: min(var(--vh), 4px);
 
   @media(--tablet-width){
     flex-direction: row;

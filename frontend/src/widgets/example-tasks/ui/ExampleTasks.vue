@@ -122,8 +122,6 @@ const getTextCardClass = (item: ExampleTasksItem) => {
   --tasks-grid-gap: min(2vw, 14px);
 
   width: var(--section-width);
-  /* padding-block: min(calc(var(--vh) * 6), 72px); */
-  padding-bottom: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
@@ -135,15 +133,10 @@ const getTextCardClass = (item: ExampleTasksItem) => {
 
   @media(--tablet-width){
     --tasks-grid-gap: min(1vw, 20px);
-
-    /* padding-block: min(calc(var(--vh) * 7), 80px); */
-    padding-bottom: min(calc(var(--vh) * 7), 80px);
     gap: min(calc(var(--vh) * 8), 80px);
   }
 
   @media(--mobile-medium){
-    /* padding-block: min(calc(var(--vh) * 8), 56px); */
-    padding-bottom: min(calc(var(--vh) * 8), 56px);
     gap: min(calc(var(--vh) * 4), 28px);
   }
 }

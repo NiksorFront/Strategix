@@ -40,18 +40,16 @@ const {data} = defineProps<{
   box-sizing: border-box;
 
   margin: 0;
-  /* padding-block: min(calc(var(--vh) * 6), 72px); */
   padding-inline: 0;
 
   background-color: var(--strategix-light);
 
-  @media(--tablet-width){
-    height: calc(var(--vh) * 35);
-    /* padding-block: min(calc(var(--vh) * 7), 80px); */
-  }
-
   @media(--pc-width){
     padding-inline: var(--padding-section-x);
+  }
+
+  @media(--tablet-width){
+    height: calc(var(--vh) * 35);
   }
 
   @media(--mobile-medium){

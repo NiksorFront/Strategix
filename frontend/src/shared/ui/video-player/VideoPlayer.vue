@@ -244,22 +244,15 @@ watch(
   height: auto;
   max-height: 100%;
 
-  aspect-ratio: 1200 / 400;
+  aspect-ratio: 390 / 185;
 
   object-fit: cover;
   object-position: center;
   display: block;
 
-  @media(--tablet-width) {
-    min-height: 65%;
-  }
-
-  @media(min-aspect-ratio: 3/5){
+  @media(--laptop-width) {
     aspect-ratio: 1200 / 323;
-  }
-
-  @media(max-aspect-ratio: 5/3){
-    aspect-ratio: 1200 / 400;
+    min-height: 65%;
   }
 
   @media(--pc-width) {

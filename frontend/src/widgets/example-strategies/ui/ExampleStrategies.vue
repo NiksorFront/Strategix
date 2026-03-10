@@ -152,7 +152,6 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
   --strategies-gap: min(calc(var(--vh) * 4), 64px);
 
   width: var(--section-width);
-  padding-block: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
@@ -165,14 +164,12 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
   @media(--tablet-width){
     --strategies-gap: min(calc(var(--vh) * 7), 80px);
 
-    padding-block: min(calc(var(--vh) * 7), 80px);
     gap: min(calc(var(--vh) * 8), 80px);
   }
 
   @media(--mobile-medium){
     --strategies-gap: min(calc(var(--vh) * 8), 56px);
 
-    padding-block: min(calc(var(--vh) * 8), 56px);
     gap: min(calc(var(--vh) * 4), 28px);
   }
 }

@@ -108,7 +108,6 @@ const shouldAutoplay = (slide: ExampleSliderSlide) => slide.autoplay ?? true;
   --slider-gap: min(2vw, 14px);
 
   width: var(--section-width);
-  padding-top: min(calc(var(--vh) * 6), 72px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
@@ -120,12 +119,6 @@ const shouldAutoplay = (slide: ExampleSliderSlide) => slide.autoplay ?? true;
 
   @media(--tablet-width){
     --slider-gap: min(1vw, 20px);
-
-    padding-top: min(calc(var(--vh) * 7), 80px);
-  }
-
-  @media(--mobile-medium){
-    padding-top: min(calc(var(--vh) * 8), 56px);
   }
 }
 
