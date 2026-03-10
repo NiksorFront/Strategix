@@ -31,13 +31,15 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
       <h1
         class="title"
       >
-        <span class="gray"> {{ props.data.sphere }} </span> <br>
+        <span class="gray"> {{ props.data.sphere }} </span> 
+        <br v-if="props.data.sphere">
         {{ props.data.name }}
       </h1>
       <VideoPlayer
         v-if="isVideo"
         :src="props.data.src"
         :autoplay="shouldAutoplay"
+        :hide-controls="true"
       />
       <NuxtImg
         v-else
@@ -94,6 +96,7 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
     align-items: start;
 
     background-color: var(--strategix-light);
+    font-synthesis: none;
 
     @media(--tablet-width){
         grid-template-columns: minmax(0, 5fr) minmax(0, 3fr);

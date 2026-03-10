@@ -32,9 +32,11 @@
 <style scoped>
 .example-goals-company{
   width: var(--section-width);
+  padding-block: min(calc(var(--vh) * 4), 40px);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
   background-color: var(--strategix-accent);
+  font-synthesis: none;
 
   display: flex;
   flex-direction: column;
@@ -42,10 +44,12 @@
 
   @media(--tablet-width){
     gap: min(calc(var(--vh) * 3.5), 40px);
+    padding-block: min(calc(var(--vh) * 7.5), 140px);
   }
 
   @media(--mobile-medium){
     gap: min(calc(var(--vh) * 3), 24px);
+    padding-block: min(calc(var(--vh) * 8), 56px);
   }
 }
 

@@ -3,9 +3,11 @@ const props = withDefaults(
   defineProps<{
     src: string;
     autoplay?: boolean;
+    hideControls?: boolean;
   }>(),
   {
     autoplay: false,
+    hideControls: false,
   },
 );
 
@@ -44,6 +46,7 @@ const isMuted = ref(Boolean(props.autoplay));
 const isMediaHovered = ref(false);
 
 const shouldAutoplay = computed(() => Boolean(props.autoplay));
+const shouldHideControls = computed(() => Boolean(props.hideControls));
 const videoButtonLabel = computed(() => (isPlaying.value ? 'Pause video' : 'Play video'));
 const soundButtonLabel = computed(() => (isMuted.value ? 'Enable sound' : 'Disable sound'));
 const showPlayButton = computed(() => !isPlaying.value || isMediaHovered.value);
@@ -134,7 +137,7 @@ watch(
       @ended="syncPlayingState"
     />
     <button
-      v-if="showPlayButton"
+      v-if="!shouldHideControls && showPlayButton"
       type="button"
       class="media-control play-button"
       :aria-label="videoButtonLabel"
@@ -176,6 +179,7 @@ watch(
       </svg>
     </button>
     <button
+      v-if="!shouldHideControls"
       type="button"
       class="media-control sound-button"
       :aria-label="soundButtonLabel"
@@ -240,19 +244,24 @@ watch(
 
 .video-player__video{
   width: 100%;
-  min-height: 50%;
+  min-height: 40%;
   height: auto;
   max-height: 100%;
-
-  aspect-ratio: 390 / 185;
 
   object-fit: cover;
   object-position: center;
   display: block;
 
-  @media(--laptop-width) {
-    aspect-ratio: 1200 / 323;
+  @media(--tablet-width) {
     min-height: 65%;
+  }
+
+  @media(max-aspect-ratio: 3/5){
+    aspect-ratio: 390 / 185;
+  }
+
+  @media(min-aspect-ratio: 4/5){
+    aspect-ratio: 1200 / 323;
   }
 
   @media(--pc-width) {

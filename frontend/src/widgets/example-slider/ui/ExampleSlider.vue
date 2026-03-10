@@ -116,6 +116,7 @@ const shouldAutoplay = (slide: ExampleSliderSlide) => slide.autoplay ?? true;
   gap: min(calc(var(--vh) * 3), 24px);
 
   background-color: var(--strategix-light);
+  font-synthesis: none;
 
   @media(--tablet-width){
     --slider-gap: min(1vw, 20px);

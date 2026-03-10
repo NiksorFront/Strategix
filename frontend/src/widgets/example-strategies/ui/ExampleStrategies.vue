@@ -160,6 +160,7 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
   gap: min(calc(var(--vh) * 4), 56px);
 
   background-color: var(--strategix-light);
+  font-synthesis: none;
 
   @media(--tablet-width){
     --strategies-gap: min(calc(var(--vh) * 7), 80px);

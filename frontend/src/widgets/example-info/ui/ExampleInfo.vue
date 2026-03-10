@@ -37,6 +37,7 @@ const {data} = defineProps<{
   align-items: start;
 
   background-color: var(--strategix-light);
+  font-synthesis: none;
 
   @media(--tablet-width){
     grid-template-columns: minmax(0, 19fr) minmax(0, 20fr);

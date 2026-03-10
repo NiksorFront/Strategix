@@ -177,6 +177,7 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   gap: min(var(--vh), 40px);
 
   background-color: var(--strategix-light);
+  font-synthesis: none;
 
   @media(--tablet-width){
     gap: min(calc(var(--vh) * 7), 140px);

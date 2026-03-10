@@ -43,6 +43,7 @@ const {data} = defineProps<{
   padding-inline: 0;
 
   background-color: var(--strategix-light);
+  font-synthesis: none;
 
   @media(--pc-width){
     padding-inline: var(--padding-section-x);

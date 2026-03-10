@@ -17,7 +17,8 @@
     color: var(--strategix-accent);
 
     font-size: min(28px, 7.2vw);
-    font-weight: 600;
+    font-weight: 400;
+    font-synthesis: none;
     line-height: 110%;
     letter-spacing: 0;
     text-align: left;

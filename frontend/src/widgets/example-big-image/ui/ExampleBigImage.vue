@@ -44,6 +44,7 @@ const {data} = defineProps<{
   padding-inline: 0;
 
   background-color: var(--strategix-light);
+  font-synthesis: none;
 
   img{
     width: 100%;

@@ -9,7 +9,7 @@
                 "sphere": "",
                 "name": "MARIAGE",
                 "src": "/videos/mariage-1.mp4",
-                "autoplay": false,
+                "autoplay": true,
                 "description": [
                     "Ателье Galogrea — бренд свадебных платьев, создающий утончённые и элегантные образы для невест. Каждое платье отражает индивидуальность, сочетая современную эстетику, традиционные мотивы и внимание к деталям."
                 ],
@@ -74,7 +74,7 @@
             "big-video": {
                 "src": "/videos/mariage-2.mp4",
                 "alt": "Видео с показа Mariage",
-                "autoplay": false
+                "autoplay": true
             },
 
             "slider":{
@@ -116,7 +116,6 @@
             "big-video-2": {
                 "src": "/videos/mariage-3.mp4",
                 "alt": "Видео с показа Mariage"
-
             },
 
             "other-projects": true

@@ -19,11 +19,13 @@ const {data} = defineProps<{
       class="example-big-video__player example-big-video__player--mobile"
       :src="data.srcMobile || data.src"
       :autoplay="data.autoplay"
+      :hide-controls="true"
     />
     <VideoPlayer
       class="example-big-video__player example-big-video__player--desktop"
       :src="data.src"
       :autoplay="data.autoplay"
+      :hide-controls="true"
     />
   </section>
 </template>
@@ -39,6 +41,7 @@ const {data} = defineProps<{
   padding-inline: 0;
 
   background-color: var(--strategix-light);
+  font-synthesis: none;
 }
 
 .example-big-video__player{

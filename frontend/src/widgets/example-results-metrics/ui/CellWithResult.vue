@@ -115,7 +115,7 @@
   margin-top: min(calc(var(--vh) * 2), 20px);
 
   font-size: min(14px, 3.6vw);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 120%;
   letter-spacing: 0;
 

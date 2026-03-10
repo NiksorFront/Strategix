@@ -81,6 +81,7 @@ const formatColorValue = (value: string) => {
   gap: 0;
 
   background-color: var(--strategix-light);
+  font-synthesis: none;
 
   @media(--tablet-width){
     gap: min(calc(var(--vh) * 7), 140px);

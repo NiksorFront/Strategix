@@ -85,9 +85,9 @@
                 "description": "Цель достигнута — клиент получил устойчивый поток заявок и вовлечённую аудиторию на год вперёд.",
                 "items": [
                     {"title": "Получили", "result": "282", "unit_measurement": "Заявок"},
-                    {"title": "Подписчики", "result": "470", "unit_measurement": "Новые"},
-                    {"title": "Стоимость лида", "result": "12,36 £", "unit_measurement": "Стоимость"},
-                    {"title": "Стоимость лида", "result": "7,32 £", "unit_measurement": "Стоимость"}
+                    {"title": "Подписчики", "result": "476", "unit_measurement": "Новые"},
+                    {"title": "Стоимость лида", "result": "12,36 £", "unit_measurement": "Заявок"},
+                    {"title": "Стоимость лида", "result": "7,32 £", "unit_measurement": "Новые"}
                 ]
             },
             "other-projects": true

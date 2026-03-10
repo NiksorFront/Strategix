@@ -200,6 +200,7 @@ const resolveMediaSrc = (src: string) => {
   gap: var(--context-section-gap);
 
   background-color: var(--strategix-light);
+  font-synthesis: none;
 
   @media(--tablet-width){
     --context-section-gap: min(calc(var(--vh) * 8), 80px);

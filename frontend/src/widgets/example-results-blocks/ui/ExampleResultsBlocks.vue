@@ -109,6 +109,7 @@ const getCardClass = (item: ExampleResultBlock) => {
   gap: min(calc(var(--vh) * 5), 56px);
 
   background-color: var(--strategix-light);
+  font-synthesis: none;
 
   @media(--tablet-width){
     --results-gap: min(1vw, 20px);

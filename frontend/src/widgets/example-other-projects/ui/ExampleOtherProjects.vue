@@ -157,6 +157,7 @@ const otherProjects = computed<ExampleOtherProject[]>(() => {
   display: flex;
   flex-direction: column;
   background-color: var(--strategix-light);
+  font-synthesis: none;
 
   @media(min-aspect-ratio: 5/3){
     height: calc(var(--vh) * 70);
