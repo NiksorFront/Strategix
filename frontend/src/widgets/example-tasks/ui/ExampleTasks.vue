@@ -159,18 +159,24 @@ const getTextCardClass = (item: ExampleTasksItem) => {
 
 .intro-description{
   width: 100%;
-  max-width: clamp(280px, 68vw, 960px);
 
   display: flex;
   flex-direction: column;
   gap: clamp(16px, 2vw, 24px);
 
   @media(--tablet-width){
+    max-width: clamp(280px, 68vw, 960px);
+    margin-left: calc(((100% - (3 * var(--tasks-grid-gap))) / 4) + var(--tasks-grid-gap));
+  }
+
+  @media(--mobile-medium) {
+    max-width: clamp(280px, 68vw, 960px);
     margin-left: calc(((100% - (3 * var(--tasks-grid-gap))) / 4) + var(--tasks-grid-gap));
   }
 }
 
 .intro-paragraph{
+  width: 100%;
   margin: 0;
   color: var(--strategix-dark);
   font-weight: 400;
@@ -182,11 +188,11 @@ const getTextCardClass = (item: ExampleTasksItem) => {
   text-transform: none;
 
   @media(--tablet-width){
-      font-size: clamp(12px, 1.1675vw, 28px);
+    font-size: clamp(12px, 1.1675vw, 28px);
   }
 
   @media(--mobile-medium) {
-      font-size: min(14px, calc(var(--vh) * 2.917));
+    font-size: min(14px, calc(var(--vh) * 2.917));
   }
 }
 
@@ -200,6 +206,10 @@ const getTextCardClass = (item: ExampleTasksItem) => {
   gap: var(--tasks-grid-gap);
 
   @media(--tablet-width){
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media(--mobile-medium){
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -276,14 +286,14 @@ const getTextCardClass = (item: ExampleTasksItem) => {
   line-height: 1;
 
   @media(--tablet-width){
-    width: clamp(52px, 4.5vw, 104px);
-    font-size: clamp(30px, 2.5vw, 60px);
+    width: clamp(30px, 4.5vw, 104px);
+    font-size: clamp(20px, 2.5vw, 60px);
   }
 
   @media(--mobile-medium){
-    width: min(10vw, 44px);
-    height: min(10vw, 44px);
-    font-size: min(30px, calc(var(--vh) * 6.25));
+    width: min(4vw, 25px);
+    height: min(4vw, 25px);
+    font-size: min(20px, calc(var(--vh) * 4));
   }
 }
 
@@ -321,6 +331,13 @@ const getTextCardClass = (item: ExampleTasksItem) => {
 }
 
 @media(--tablet-width){
+  .task-row:nth-child(even) .task-image-card,
+  .task-row:nth-child(even) .task-text-card{
+    order: 0;
+  }
+}
+
+@media(--mobile-medium){
   .task-row:nth-child(even) .task-image-card,
   .task-row:nth-child(even) .task-text-card{
     order: 0;
