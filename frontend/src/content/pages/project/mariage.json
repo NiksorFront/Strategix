@@ -114,8 +114,9 @@
             },
 
             "big-video-2": {
-                "src": "/videos/mariage-3.mp4",
-                "alt": "Видео с показа Mariage"
+                "src": "/videos/mariage-3-h264.mp4",
+                "alt": "2 видео с показа Mariage",
+                "autoplay": true
             },
 
             "other-projects": true
