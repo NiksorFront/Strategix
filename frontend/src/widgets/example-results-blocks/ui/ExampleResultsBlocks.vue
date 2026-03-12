@@ -98,7 +98,7 @@ const getCardClass = (item: ExampleResultBlock) => {
 
 <style scoped>
 .example-results-blocks{
-  --results-gap: min(2vw, 14px);
+  --results-section-gap: min(calc(var(--vh) * 5), 56px);
 
   width: var(--section-width);
   padding-inline: var(--padding-section-x);
@@ -106,19 +106,21 @@ const getCardClass = (item: ExampleResultBlock) => {
 
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 5), 56px);
+  gap: var(--results-section-gap);
 
   background-color: var(--strategix-light);
   font-synthesis: none;
 
   @media(--tablet-width){
-    --results-gap: min(1vw, 20px);
+    --results-section-gap: min(calc(var(--vh) * 10), 160px);
 
-    gap: min(calc(var(--vh) * 6), 72px);
+    gap: var(--results-section-gap);
   }
 
   @media(--mobile-medium){
-    gap: min(calc(var(--vh) * 4), 28px);
+    --results-section-gap: min(calc(var(--vh) * 4), 28px);
+
+    gap: var(--results-section-gap);
   }
 }
 
@@ -139,12 +141,11 @@ const getCardClass = (item: ExampleResultBlock) => {
   text-align: left;
 
   @media(--tablet-width){
-    margin-left: calc(((100% - var(--results-gap)) / 2) - (((100% - var(--results-gap)) / 2) / 2));
+    margin-left: calc(((100% - var(--gap-grid)) / 2) - (((100% - var(--gap-grid)) / 2) / 2));
     max-width: clamp(420px, 62vw, 980px);
     font-size: clamp(28px, 2vw, 48px);
-    font-weight: 600;
-    line-height: 110%;
     text-transform: uppercase;
+    font-weight: 600;
   }
 
   @media(--mobile-medium){
@@ -161,19 +162,19 @@ const getCardClass = (item: ExampleResultBlock) => {
 
   display: flex;
   flex-direction: column;
-  gap: var(--results-gap);
+  gap: var(--gap-grid);
 
   @media(--tablet-width){
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--results-gap);
+    gap: var(--gap-grid);
   }
 }
 
 .result-card{
   width: 100%;
   min-height: clamp(220px, 25vw, 360px);
-  padding: clamp(14px, 1.35vw, 30px);
+  padding: clamp(14px, 2vw, 60px);
   box-sizing: border-box;
   border-radius: var(--card-radius);
   overflow: hidden;
@@ -182,6 +183,10 @@ const getCardClass = (item: ExampleResultBlock) => {
   flex-direction: column;
   justify-content: space-between;
   gap: clamp(16px, 2.4vw, 28px);
+
+  @media(--tablet-width){
+    min-height: clamp(140px, calc(var(--vh) * 35), 560px);
+  }
 }
 
 .result-card--bg-light{
@@ -219,6 +224,7 @@ const getCardClass = (item: ExampleResultBlock) => {
   color: var(--strategix-dark);
   font-family: 'Onest', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 600;
+  line-height: 120%;
   transform: scale(0.9) translateX(-4vw) translateY(calc(var(--vh) * -0.5)); /* Костыль, т.к. текущий размер текста не влезает */
 
   @media(--tablet-width){
@@ -239,7 +245,6 @@ const getCardClass = (item: ExampleResultBlock) => {
 
   @media(--tablet-width){
     font-size: clamp(16px, 1.05vw, 22px);
-    line-height: 122%;
   }
 
   @media(--mobile-medium){

@@ -138,6 +138,10 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
       min-height: calc(var(--vh) * 75);
     }
 
+    @media(min-aspect-ratio: 2/1) and (width >= 480px){
+      min-height: calc(var(--vh) * 90);
+    }
+
     @media(--mobile-medium){
         min-height: calc(var(--vh) * 80);
     }

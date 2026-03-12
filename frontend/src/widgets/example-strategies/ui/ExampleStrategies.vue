@@ -149,7 +149,7 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
 
 <style scoped>
 .example-strategies{
-  --strategies-gap: min(calc(var(--vh) * 4), 64px);
+  --strategies-gap: min(calc(var(--vh) * 4.5), 64px);
 
   width: var(--section-width);
   padding-inline: var(--padding-section-x);
@@ -157,21 +157,21 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
 
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 4), 56px);
+  gap: var(--strategies-gap);
 
   background-color: var(--strategix-light);
   font-synthesis: none;
 
   @media(--tablet-width){
-    --strategies-gap: min(calc(var(--vh) * 7), 80px);
+    --strategies-gap: min(calc(var(--vh) * 10), 160px);;
 
-    gap: min(calc(var(--vh) * 8), 80px);
+    gap: var(--strategies-gap);
   }
 
   @media(--mobile-medium){
     --strategies-gap: min(calc(var(--vh) * 8), 56px);
 
-    gap: min(calc(var(--vh) * 4), 28px);
+    gap: var(--strategies-gap);
   }
 }
 
@@ -179,6 +179,10 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
   display: flex;
   flex-direction: column;
   gap: min(calc(var(--vh) * 3), 24px);
+  
+  /* @media(--tablet-width){
+    gap: min(calc(var(--vh) * 3), 24px);
+  } */
 }
 
 .strategies-subtitle{
@@ -221,11 +225,16 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: min(1vw, 20px);
+  gap: var(--strategies-gap);
 
   @media(--tablet-width){
     display: grid;
     align-items: stretch;
+    gap: var(--gap-grid);
+  }
+
+  @media(--mobile-medium){
+    gap: var(--gap-grid);
   }
 }
 
@@ -292,11 +301,11 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
 
   display: flex;
   flex-direction: column;
-  gap: clamp(18px, 4.6vw, 30px);
+  /* gap: clamp(18px, 4.6vw, 30px); */
 
   @media(--tablet-width){
     padding: clamp(27px, 2.25vw, 54px);
-    gap: clamp(16px, 1.8vw, 28px);
+    gap: clamp(2px, calc(var(--vh) * 1.5), 40px);
   }
 }
 
@@ -339,7 +348,7 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
   gap: min(calc(var(--vh) * 2.2), 24px);
 
   @media(--tablet-width){
-    gap: clamp(16px, calc(var(--vh) * 2.2), 48px);
+    gap: clamp(10px, calc(var(--vh) * 3.7), 60px);
   }
 }
 
@@ -372,8 +381,8 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
   text-transform: none;
 
   @media(--tablet-width){
-    font-size: clamp(16px, 1.08vw, 20px);
-    line-height: 132%;
+    font-size: clamp(16px, 1.08vw, 32px);
+    line-height: 120%;
   }
 
   @media(--mobile-medium){

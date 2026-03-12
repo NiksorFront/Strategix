@@ -119,22 +119,19 @@ const getTextCardClass = (item: ExampleTasksItem) => {
 
 <style scoped>
 .example-tasks{
-  --tasks-grid-gap: min(2vw, 14px);
-
   width: var(--section-width);
   padding-inline: var(--padding-section-x);
   box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 5), 56px);
+  gap: min(calc(var(--vh) * 4.2), 56px);
 
   background-color: var(--strategix-light);
   font-synthesis: none;
 
   @media(--tablet-width){
-    --tasks-grid-gap: min(1vw, 20px);
-    gap: min(calc(var(--vh) * 8), 80px);
+    gap: min(calc(var(--vh) * 10), 160px);
   }
 
   @media(--mobile-medium){
@@ -162,16 +159,17 @@ const getTextCardClass = (item: ExampleTasksItem) => {
 
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 2vw, 24px);
+  gap: min(calc(var(--vh) * 2.25), 20px);
 
   @media(--tablet-width){
     max-width: clamp(280px, 68vw, 960px);
-    margin-left: calc(((100% - (3 * var(--tasks-grid-gap))) / 4) + var(--tasks-grid-gap));
+    margin-left: calc((100% - var(--gap-grid) * 3)/4 + var(--gap-grid));
+    gap: clamp(20px, calc(var(--vh) * 5), 80px);
   }
 
   @media(--mobile-medium) {
     max-width: clamp(280px, 68vw, 960px);
-    margin-left: calc(((100% - (3 * var(--tasks-grid-gap))) / 4) + var(--tasks-grid-gap));
+    margin-left: calc((100% - var(--gap-grid) * 3)/4 + var(--gap-grid));
   }
 }
 
@@ -182,13 +180,13 @@ const getTextCardClass = (item: ExampleTasksItem) => {
   font-weight: 400;
   font-size: min(18px, 4.6vw);
 
-  line-height: 132%;
+  line-height: 115%;
   letter-spacing: 0;
   text-align: left;
   text-transform: none;
 
   @media(--tablet-width){
-    font-size: clamp(12px, 1.1675vw, 28px);
+    font-size: clamp(16px, 1.1675vw, 32px);
   }
 
   @media(--mobile-medium) {
@@ -203,7 +201,7 @@ const getTextCardClass = (item: ExampleTasksItem) => {
 
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--tasks-grid-gap);
+  gap: var(--gap-grid);
 
   @media(--tablet-width){
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -218,7 +216,7 @@ const getTextCardClass = (item: ExampleTasksItem) => {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--tasks-grid-gap);
+  gap: var(--gap-grid);
 }
 
 .task-card{
