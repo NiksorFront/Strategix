@@ -132,10 +132,14 @@
     background-color: var(--strategix-dark);
 
     @media(--laptop-width){
-      height: calc(var(--vh) * 105);
+      height: calc(var(--vh) * 100);
     }
 
-    @media(--tablet-width) and (max-aspect-ratio: 4/3){
+    @media(--laptop-width) and (min-aspect-ratio: 2/1){
+      height: calc(var(--vh) * 120);
+    }
+
+    @media(--mobile-width) and (max-aspect-ratio: 1/1){
       height: calc(var(--vh) * 75);
     }
 

@@ -38,12 +38,7 @@ type ProjectSection = {
   component: Component;
   componentKey: string;
   data: unknown;
-};
-
-type ProjectSectionGroup = {
-  key: string;
-  sections: ProjectSection[];
-  isZeroGapGroup: boolean;
+  isZeroGapSection: boolean;
 };
 
 const sectionComponents: Record<string, Component> = {
@@ -100,30 +95,9 @@ const sections = computed<ProjectSection[]>(() => {
         component,
         componentKey,
         data,
+        isZeroGapSection: zeroGapSectionKeys.has(componentKey),
       };
     });
-});
-
-const sectionGroups = computed<ProjectSectionGroup[]>(() => {
-  const groups: ProjectSectionGroup[] = [];
-
-  for (const section of sections.value){
-    const isZeroGapSection = zeroGapSectionKeys.has(section.componentKey);
-    const lastGroup = groups.at(-1);
-
-    if (isZeroGapSection && lastGroup?.isZeroGapGroup){
-      lastGroup.sections.push(section);
-      continue;
-    }
-
-    groups.push({
-      key: `group-${section.key}`,
-      sections: [section],
-      isZeroGapGroup: isZeroGapSection,
-    });
-  }
-
-  return groups;
 });
 
 const isNotFound = computed(() => !localeContent.value || sections.value.length === 0);
@@ -134,21 +108,16 @@ const isNotFound = computed(() => !localeContent.value || sections.value.length 
   <main class="project-page-main">
     <NotFound v-if="isNotFound" />
     <template v-else>
-      <div
-        v-for="group in sectionGroups"
-        :key="group.key"
-        class="project-page-main__group"
+      <component
+        :is="section.component"
+        v-for="section in sections"
+        :key="section.key"
+        class="project-page-main__section"
         :class="{
-          'project-page-main__group--zero-gap': group.isZeroGapGroup,
+          'project-page-main__section--zero-gap': section.isZeroGapSection,
         }"
-      >
-        <component
-          :is="section.component"
-          v-for="section in group.sections"
-          :key="section.key"
-          :data="section.data"
-        />
-      </div>
+        :data="section.data"
+      />
     </template>
   </main>
   <Footer />
@@ -156,31 +125,28 @@ const isNotFound = computed(() => !localeContent.value || sections.value.length 
 
 <style scoped>
 .project-page-main{
+  --project-page-main-gap: min(calc(var(--vh) * 6), 60px);
+
   display: flex;
   flex-direction: column;
-  gap: min(calc(var(--vh) * 6), 60px);
-  padding-bottom: min(calc(var(--vh) * 6), 60px);
+  padding-bottom: var(--project-page-main-gap);
   background-color: var(--strategix-light);
   font-synthesis: none;
 
   @media(--tablet-width){
-    gap: min(calc(var(--vh) * 10), 180px);
-    padding-bottom: min(calc(var(--vh) * 10), 180px);
+    --project-page-main-gap: min(calc(var(--vh) * 10), 180px);
   }
 
   @media(--mobile-medium){
-    gap: min(calc(var(--vh) * 8), 56px);
-    padding-bottom: min(calc(var(--vh) * 8), 56px);
+    --project-page-main-gap: min(calc(var(--vh) * 8), 56px);
   }
 }
 
-.project-page-main__group{
-  display: flex;
-  flex-direction: column;
-  gap: inherit;
+.project-page-main__section + .project-page-main__section{
+  margin-top: var(--project-page-main-gap);
 }
 
-.project-page-main__group--zero-gap{
-  gap: 0;
+.project-page-main__section--zero-gap + .project-page-main__section--zero-gap{
+  margin-top: 0;
 }
 </style>

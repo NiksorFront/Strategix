@@ -232,11 +232,11 @@ const getFontStyle = (font: TypographyFont, index: number) => {
   letter-spacing: 10px;
 
   @media(--tablet-width){
-    font-size: clamp(32px, calc(8vw * var(--font-scale, 1)), 170px);
+    font-size: clamp(32px, calc(8vw * var(--font-scale, 1)), 500px);
   }
 
   @media(--mobile-medium){
-    font-size: clamp(32px, calc(8vw * var(--font-scale, 1)), 170px);
+    font-size: clamp(32px, calc(8vw * var(--font-scale, 1)), 500px);
   };
 }
 
