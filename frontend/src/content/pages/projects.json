@@ -109,7 +109,14 @@
           "mariage": {
             "description": "Das Atelier Galogrea kreiert raffinierte und elegante Looks fuer Braeute.",
             "src": "/images/mariage.jpg",
-            "title": "Mariage"
+            "title": "Mariage",
+            "hidden": false
+          },
+          "zorge": {
+            "src": "",
+            "title": "new-case-10",
+            "description": "",
+            "hidden": false
           }
         },
         "title": "Produktion"
@@ -119,7 +126,14 @@
           "mariage": {
             "description": "Galogrea atelier creates sophisticated and elegant looks for brides.",
             "src": "/images/mariage.jpg",
-            "title": "Mariage"
+            "title": "Mariage",
+            "hidden": false
+          },
+          "zorge": {
+            "src": "",
+            "title": "new-case-10",
+            "description": "",
+            "hidden": false
           }
         },
         "title": "Production"
@@ -129,7 +143,14 @@
           "mariage": {
             "description": "El atelier Galogrea crea looks refinados y elegantes para novias.",
             "src": "/images/mariage.jpg",
-            "title": "Mariage"
+            "title": "Mariage",
+            "hidden": false
+          },
+          "zorge": {
+            "src": "",
+            "title": "new-case-10",
+            "description": "",
+            "hidden": false
           }
         },
         "title": "Producción"
@@ -139,7 +160,14 @@
           "mariage": {
             "description": "Ателье Galogrea создаёт утончённые и элегантные образы для невест.",
             "src": "/images/mariage.jpg",
-            "title": "Mariage"
+            "title": "Mariage",
+            "hidden": false
+          },
+          "zorge": {
+            "src": "/images/1773821194179-4f98381e-8c8e-43cc-935b-b9b07b11c79e.jpg",
+            "title": "Зорге",
+            "description": "",
+            "hidden": false
           }
         },
         "title": "Продакшн"

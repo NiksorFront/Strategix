@@ -1,0 +1,89 @@
+{
+  "id": "zorge",
+  "translations": {
+    "ru": {
+      "welcome": {
+        "sphere": "Сфера проекта",
+        "name": "Название проекта",
+        "src": "/images/1773821223966-7f29e140-06ed-40d2-8295-05ecfe6f7880.jpg",
+        "autoplay": true,
+        "description": [
+          "Кратко опишите проект в 1-2 предложениях."
+        ],
+        "about": [
+          {
+            "label": "Клиент",
+            "value": "Название клиента"
+          }
+        ]
+      },
+      "color-palette": {
+        "title": "Цветовая палитра",
+        "colors-blocks": [
+          {
+            "assignment": "Основной цвет",
+            "colors": [
+              "FF40FF"
+            ]
+          }
+        ]
+      },
+      "big-image": {
+        "src": "/images/1773821248021-82a972ff-20f1-4dd9-aebc-0a53b1fcf5d5.jpg",
+        "srcMobile": "",
+        "alt": "zorge"
+      }
+    },
+    "en": {
+      "welcome": {
+        "sphere": "Сфера проекта",
+        "name": "Название проекта",
+        "src": "",
+        "autoplay": true,
+        "description": [
+          "Кратко опишите проект в 1-2 предложениях."
+        ],
+        "about": [
+          {
+            "label": "Клиент",
+            "value": "Название клиента"
+          }
+        ]
+      }
+    },
+    "de": {
+      "welcome": {
+        "sphere": "Сфера проекта",
+        "name": "Название проекта",
+        "src": "",
+        "autoplay": true,
+        "description": [
+          "Кратко опишите проект в 1-2 предложениях."
+        ],
+        "about": [
+          {
+            "label": "Клиент",
+            "value": "Название клиента"
+          }
+        ]
+      }
+    },
+    "es": {
+      "welcome": {
+        "sphere": "Сфера проекта",
+        "name": "Название проекта",
+        "src": "",
+        "autoplay": true,
+        "description": [
+          "Кратко опишите проект в 1-2 предложениях."
+        ],
+        "about": [
+          {
+            "label": "Клиент",
+            "value": "Название клиента"
+          }
+        ]
+      }
+    }
+  }
+}
