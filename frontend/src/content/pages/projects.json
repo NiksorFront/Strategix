@@ -111,12 +111,6 @@
             "src": "/images/mariage.jpg",
             "title": "Mariage",
             "hidden": false
-          },
-          "zorge": {
-            "src": "",
-            "title": "new-case-10",
-            "description": "",
-            "hidden": false
           }
         },
         "title": "Produktion"
@@ -127,12 +121,6 @@
             "description": "Galogrea atelier creates sophisticated and elegant looks for brides.",
             "src": "/images/mariage.jpg",
             "title": "Mariage",
-            "hidden": false
-          },
-          "zorge": {
-            "src": "",
-            "title": "new-case-10",
-            "description": "",
             "hidden": false
           }
         },
@@ -145,12 +133,6 @@
             "src": "/images/mariage.jpg",
             "title": "Mariage",
             "hidden": false
-          },
-          "zorge": {
-            "src": "",
-            "title": "new-case-10",
-            "description": "",
-            "hidden": false
           }
         },
         "title": "Producción"
@@ -161,12 +143,6 @@
             "description": "Ателье Galogrea создаёт утончённые и элегантные образы для невест.",
             "src": "/images/mariage.jpg",
             "title": "Mariage",
-            "hidden": false
-          },
-          "zorge": {
-            "src": "/images/1773821194179-4f98381e-8c8e-43cc-935b-b9b07b11c79e.jpg",
-            "title": "Зорге",
-            "description": "",
             "hidden": false
           }
         },
@@ -261,7 +237,8 @@
           "vyatcheslav-boreiko": {
             "description": "Ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhielt, ein Restaurant in Kalifornien zu eröffnen",
             "src": "/images/vyatcheslav-boreiko.jpg",
-            "title": "Vyatcheslav Boreiko"
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
           }
         },
         "title": "Reputationsaufbau"
@@ -271,7 +248,8 @@
           "vyatcheslav-boreiko": {
             "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California",
             "src": "/images/vyatcheslav-boreiko.jpg",
-            "title": "Vyatcheslav Boreiko"
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
           }
         },
         "title": "Reputation Building"
@@ -281,7 +259,8 @@
           "vyatcheslav-boreiko": {
             "description": "Un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California",
             "src": "/images/vyatcheslav-boreiko.jpg",
-            "title": "Vyatcheslav Boreiko"
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
           }
         },
         "title": "Construcción de Reputación"
@@ -291,7 +270,8 @@
           "vyatcheslav-boreiko": {
             "description": "Помогли с тем и тем и там и сям и тут и там. Ещё очки у меня стильные ",
             "src": "/images/vyatcheslav-boreiko.jpg",
-            "title": "Вячеслав Борейко"
+            "title": "Вячеслав Борейко",
+            "hidden": false
           }
         },
         "title": "Построение репутации"
