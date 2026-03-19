@@ -239,6 +239,12 @@
             "src": "/images/vyatcheslav-boreiko.jpg",
             "title": "Vyatcheslav Boreiko",
             "hidden": false
+          },
+          "vyatcheslav-boreiko-copy": {
+            "description": "Ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhielt, ein Restaurant in Kalifornien zu eröffnen",
+            "src": "/images/vyatcheslav-boreiko.jpg",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
           }
         },
         "title": "Reputationsaufbau"
@@ -246,6 +252,12 @@
       "en": {
         "cases": {
           "vyatcheslav-boreiko": {
+            "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California",
+            "src": "/images/vyatcheslav-boreiko.jpg",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
+          },
+          "vyatcheslav-boreiko-copy": {
             "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California",
             "src": "/images/vyatcheslav-boreiko.jpg",
             "title": "Vyatcheslav Boreiko",
@@ -261,6 +273,12 @@
             "src": "/images/vyatcheslav-boreiko.jpg",
             "title": "Vyatcheslav Boreiko",
             "hidden": false
+          },
+          "vyatcheslav-boreiko-copy": {
+            "description": "Un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California",
+            "src": "/images/vyatcheslav-boreiko.jpg",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
           }
         },
         "title": "Construcción de Reputación"
@@ -268,6 +286,12 @@
       "ru": {
         "cases": {
           "vyatcheslav-boreiko": {
+            "description": "Помогли с тем и тем и там и сям и тут и там. Ещё очки у меня стильные ",
+            "src": "/images/vyatcheslav-boreiko.jpg",
+            "title": "Вячеслав Борейко",
+            "hidden": false
+          },
+          "vyatcheslav-boreiko-copy": {
             "description": "Помогли с тем и тем и там и сям и тут и там. Ещё очки у меня стильные ",
             "src": "/images/vyatcheslav-boreiko.jpg",
             "title": "Вячеслав Борейко",
