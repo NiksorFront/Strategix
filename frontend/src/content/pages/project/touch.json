@@ -1,133 +1,102 @@
 {
-    "id": "touch",
-    "translations": {
-        "en": {
-            "welcome":{
-                "sphere": "DIGITAL SUMMIT",
-                "name": "TOUCH",
-                "src": "/images/touch-image.jpg",
-                "description": [
-                    "Touch is the largest technology conference in Georgia, bringing together representatives of the entire digital industry: from designers and IT specialists to marketers and entrepreneurs.",
-                    "The task was to create a visual identity that highlights the international level while preserving the creative energy and openness of Georgia's digital community."
-                ],
-                "about": [
-                    {"label": "Sector", "value": "Branding"},
-                    {"label": "Client", "value": "Touch"},
-                    {"label": "Country", "value": "Georgia"},
-                    {"label": "Expertise", "value": "Event Branding"}
-                ]
-            }
-        },
-        "ru": {
-            "welcome":{
-                "sphere": "ЦИФРОВОЙ САММИТ",
-                "name": "TOUCH",
-                "src": "/images/touch-image.jpg",
-                "description": [
-                    "Touch — это крупнейшая технологическая конференция в Грузии, объединяющая представителей всей цифровой индустрии: от дизайнеров и IT-специалистов до маркетологов и предпринимателей.",
-                    "Задача создать визуальную идентику, которая подчеркнёт международный уровень, при этом сохранит творческую энергию и открытость цифрового сообщества Грузии."
-                ],
-                "about": [
-                    {"label": "Сектор", "value": "Брендинг"},
-                    {"label": "Клиент", "value": "Touch"},
-                    {"label": "Страна", "value": "Грузия"},
-                    {"label": "Экспертиза", "value": "Стратегия, Брендинг"}
-                ]
+  "id": "touch",
+  "translations": {
+    "en": {},
+    "ru": {
+      "welcome": {
+        "sphere": "ЦИФРОВОЙ САММИТ",
+        "name": "TOUCH",
+        "src": "/images/touch-image.jpg",
+        "description": [
+          "Touch — это крупнейшая технологическая конференция в Грузии, объединяющая представителей всей цифровой индустрии: от дизайнеров и IT-специалистов до маркетологов и предпринимателей.",
+          "Задача создать визуальную идентику, которая подчеркнёт международный уровень, при этом сохранит творческую энергию и открытость цифрового сообщества Грузии."
+        ],
+        "about": [
+          {
+            "label": "Сектор",
+            "value": "Брендинг"
+          },
+          {
+            "label": "Клиент",
+            "value": "Touch"
+          },
+          {
+            "label": "Страна",
+            "value": "Грузия"
+          },
+          {
+            "label": "Экспертиза",
+            "value": "Стратегия, Брендинг"
+          }
+        ]
+      },
+      "big-logo": {
+        "src": "/images/touch-logo.png",
+        "alt": "логотип Touch",
+        "backgroundColor": "#F1F1F1"
+      },
+      "typograhy": {
+        "title": "Типографика",
+        "fonts": [
+          {
+            "font": {
+              "src": "/fonts/Avenir Next World Bold.ttf",
+              "weight": 700,
+              "scale": 1.35
             },
-            "big-logo": {
-                "src": "/images/touch-logo.png",
-                "alt": "логотип Touch",
-                "backgroundColor": "#F1F1F1"
+            "assignment": "Основной",
+            "name": "Avenir Bold",
+            "description": "Было выбрано название и заголовки"
+          },
+          {
+            "font": {
+              "src": "/fonts/Futurafuturislightc.otf",
+              "weight": 200,
+              "scale": 1
             },
-            "typograhy": {
-                "title": "Типографика",
-                "fonts":[
-                    {
-                        "font":{
-                            "src": "/fonts/Avenir Next World Bold.ttf",
-                            "weight": 700,
-                            "scale": 1.35
-                        },
-                        "assignment": "Основной",
-                        "name": "Avenir Bold",
-                        "description":"Было выбрано название и заголовки"
-                    },
-                    {
-                        "font":{
-                            "src": "/fonts/Futurafuturislightc.otf",
-                            "weight": 200,
-                            "scale": 1
-                        },
-                        "assignment": "Вспомогательный",
-                        "name": "Futurafuturisc",
-                        "description": "С их широкими и незамкнутыми буквами и большой высотой x, которые были использованы для основного текста небольшого размера"
-                    }
-                ]
-            },
-            "color-palette": {
-                "title": "Цветовая палитра",
-                "colors-blocks": [
-                    {
-                        "assignment": "",
-                        "colors": ["000000", "BE1E2D", "FAAF40", "277BAA"]
-                    }
-                ]
-            },
-            "big-image-1": {
-                "src": "/images/touch-image-2.jpg",
-                "alt": "большая картинка Touch"
-            },
-            "big-image-2": {
-                "src": "/images/touch-image-3.jpg",
-                "alt": "большая картинка Touch"
-            },
-            "info": {
-                "title": "соприкосновения с будущим через технологии, креатив и человеческие связи",
-                "description": [
-                    "Брендинг стал узнаваемым символом инноваций и профессионального обмена в регионе. Айдентика помогла позиционировать событие как международную площадку для общения и вдохновения, объединяющую креативные и технологические сообщества.",
-                    "TOUCH сегодня — это не просто конференция, а движение, формирующее культурный и технологический ландшафт Грузии."
-                ]
-            },
-            "big-logo-2": {
-                "src": "/images/touch-logo-2.jpg",
-                "alt": "логотип Touch 2",
-                "backgroundColor": "#007FB3"
-            },
-            "other-projects": true
-        },
-        "de": {
-            "welcome":{
-                "sphere": "DIGITAL SUMMIT",
-                "name": "TOUCH",
-                "src": "/images/touch.jpg",
-                "description": [
-                    "Touch ist die größte Technologiekonferenz in Georgien und vereint Vertreter der gesamten digitalen Branche: von Designern und IT-Spezialisten bis hin zu Marketern und Unternehmern.",
-                    "Die Aufgabe bestand darin, eine visuelle Identität zu schaffen, die das internationale Niveau betont und dabei die kreative Energie und Offenheit der digitalen Gemeinschaft Georgiens bewahrt."
-                ],
-                "about": [
-                    {"label": "Sektor", "value": "Branding"},
-                    {"label": "Kunde", "value": "Touch"},
-                    {"label": "Land", "value": "Georgien"},
-                    {"label": "Expertise", "value": "Event Branding"}
-                ]
-            }
-        },
-        "es": {
-            "welcome":{
-                "sphere": "DIGITAL SUMMIT",
-                "name": "TOUCH",
-                "src": "/images/touch.jpg",
-                "description": [
-                    "Touch es la mayor conferencia tecnológica en Georgia, que reúne a representantes de toda la industria digital: desde diseñadores y especialistas en TI hasta mercadólogos y emprendedores.",
-                    "El objetivo era crear una identidad visual que destaque el nivel internacional y, al mismo tiempo, conserve la energía creativa y la apertura de la comunidad digital de Georgia."
-                ],
-                "about": [
-                    {"label": "Sector", "value": "Branding"},
-                    {"label": "Cliente", "value": "Touch"},
-                    {"label": "País", "value": "Georgia"},
-                    {"label": "Especialización", "value": "Branding de evento"}
-                ]
-            }
-        }
-    }
+            "assignment": "Вспомогательный",
+            "name": "Futurafuturisc",
+            "description": "С их широкими и незамкнутыми буквами и большой высотой x, которые были использованы для основного текста небольшого размера"
+          }
+        ]
+      },
+      "color-palette": {
+        "title": "Цветовая палитра",
+        "colors-blocks": [
+          {
+            "assignment": "",
+            "colors": [
+              "000000",
+              "BE1E2D",
+              "FAAF40",
+              "277BAA"
+            ]
+          }
+        ]
+      },
+      "big-image-1": {
+        "src": "/images/touch-image-2.jpg",
+        "alt": "большая картинка Touch"
+      },
+      "big-image-2": {
+        "src": "/images/touch-image-3.jpg",
+        "alt": "большая картинка Touch"
+      },
+      "info": {
+        "title": "соприкосновения с будущим через технологии, креатив и человеческие связи",
+        "description": [
+          "Брендинг стал узнаваемым символом инноваций и профессионального обмена в регионе. Айдентика помогла позиционировать событие как международную площадку для общения и вдохновения, объединяющую креативные и технологические сообщества.",
+          "TOUCH сегодня — это не просто конференция, а движение, формирующее культурный и технологический ландшафт Грузии."
+        ]
+      },
+      "big-logo-2": {
+        "src": "/images/touch-logo-2.jpg",
+        "alt": "логотип Touch 2",
+        "backgroundColor": "#007FB3"
+      },
+      "other-projects": true
+    },
+    "de": {},
+    "es": {}
+  }
 }
