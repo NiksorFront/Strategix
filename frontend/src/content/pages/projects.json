@@ -185,6 +185,12 @@
             "src": "",
             "title": "Play Create Eat",
             "hidden": false
+          },
+          "new-case-10": {
+            "src": "",
+            "title": "new-case-10",
+            "description": "",
+            "hidden": false
           }
         },
         "title": "Werbung"
@@ -207,6 +213,12 @@
             "description": "A family space in Dubai designed so children can develop through play, creativity, and healthy habits, and parents",
             "src": "",
             "title": "Play Create Eat",
+            "hidden": false
+          },
+          "new-case-10": {
+            "src": "",
+            "title": "new-case-10",
+            "description": "",
             "hidden": false
           }
         },
@@ -231,6 +243,12 @@
             "src": "",
             "title": "Play Create Eat",
             "hidden": false
+          },
+          "new-case-10": {
+            "src": "",
+            "title": "new-case-10",
+            "description": "",
+            "hidden": false
           }
         },
         "title": "Publicidad"
@@ -253,6 +271,12 @@
             "description": "Cемейное пространство в Дубае, творчество и здоровые привычки",
             "src": "/images/play-create-eat.jpg",
             "title": "Play Create Eat",
+            "hidden": false
+          },
+          "new-case-10": {
+            "src": "/images/1773987657108-af47c405-ba1c-4d35-ae67-f33cbc8f4227.jpg",
+            "title": "Зорге",
+            "description": "",
             "hidden": false
           }
         },
