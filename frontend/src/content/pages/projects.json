@@ -6,23 +6,27 @@
         "cases": {
           "bebu": {
             "description": "BEBU ist georgische Kultur",
-            "src": "/images/bebu.jpg",
-            "title": "bebu"
+            "src": "",
+            "title": "bebu",
+            "hidden": false
           },
           "pti-vehicle-inspection": {
             "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben",
-            "src": "/images/PTI.jpg",
-            "title": "PTI vehicle inspection"
+            "src": "",
+            "title": "PTI vehicle inspection",
+            "hidden": false
           },
           "toba": {
             "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben",
-            "src": "/images/toba.jpg",
-            "title": "toba"
+            "src": "",
+            "title": "toba",
+            "hidden": false
           },
           "touch": {
             "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben",
-            "src": "/images/touch.jpg",
-            "title": "touch"
+            "src": "",
+            "title": "touch",
+            "hidden": false
           }
         },
         "title": "Branding"
@@ -31,23 +35,27 @@
         "cases": {
           "bebu": {
             "description": "BEBU is Georgian culture",
-            "src": "/images/bebu.jpg",
-            "title": "bebu"
+            "src": "",
+            "title": "bebu",
+            "hidden": false
           },
           "pti-vehicle-inspection": {
             "description": "How we made a Russian backup software developer a newsmaker",
-            "src": "/images/PTI.jpg",
-            "title": "PTI vehicle inspection"
+            "src": "",
+            "title": "PTI vehicle inspection",
+            "hidden": false
           },
           "toba": {
             "description": "How we made a Russian backup software developer a newsmaker",
-            "src": "/images/toba.jpg",
-            "title": "toba"
+            "src": "",
+            "title": "toba",
+            "hidden": false
           },
           "touch": {
             "description": "How we made a Russian backup software developer a newsmaker",
-            "src": "/images/touch.jpg",
-            "title": "touch"
+            "src": "",
+            "title": "touch",
+            "hidden": false
           }
         },
         "title": "Branding"
@@ -56,23 +64,27 @@
         "cases": {
           "bebu": {
             "description": "BEBU es cultura georgiana",
-            "src": "/images/bebu.jpg",
-            "title": "bebu"
+            "src": "",
+            "title": "bebu",
+            "hidden": false
           },
           "pti-vehicle-inspection": {
             "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia",
-            "src": "/images/PTI.jpg",
-            "title": "PTI vehicle inspection"
+            "src": "",
+            "title": "PTI vehicle inspection",
+            "hidden": false
           },
           "toba": {
             "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia",
-            "src": "/images/toba.jpg",
-            "title": "toba"
+            "src": "",
+            "title": "toba",
+            "hidden": false
           },
           "touch": {
             "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia",
-            "src": "/images/touch.jpg",
-            "title": "touch"
+            "src": "",
+            "title": "touch",
+            "hidden": false
           }
         },
         "title": "Branding"
@@ -82,22 +94,26 @@
           "bebu": {
             "description": "Дизайн этикетки для нового продукта, который выходит на немецкий рыночек",
             "src": "/images/bebu.jpg",
-            "title": "Bebu"
+            "title": "Bebu",
+            "hidden": false
           },
           "pti-vehicle-inspection": {
             "description": "По заказу Министерства инфраструктуры в Грузии была запущена новая компания PTI",
             "src": "/images/PTI.jpg",
-            "title": "PTI vehicle inspection"
+            "title": "PTI vehicle inspection",
+            "hidden": false
           },
           "toba": {
             "description": "Грузинское вино, разработанное для европейского рынка",
             "src": "/images/toba.jpg",
-            "title": "TOBA"
+            "title": "TOBA",
+            "hidden": false
           },
           "touch": {
             "description": "Дизайн-концепция для крупнейшей технологическая конференция в Грузии",
             "src": "/images/touch.jpg",
-            "title": "Touch"
+            "title": "Touch",
+            "hidden": false
           }
         },
         "title": "Брендинг"
@@ -108,7 +124,7 @@
         "cases": {
           "mariage": {
             "description": "Das Atelier Galogrea kreiert raffinierte und elegante Looks fuer Braeute.",
-            "src": "/images/mariage.jpg",
+            "src": "",
             "title": "Mariage",
             "hidden": false
           }
@@ -119,7 +135,7 @@
         "cases": {
           "mariage": {
             "description": "Galogrea atelier creates sophisticated and elegant looks for brides.",
-            "src": "/images/mariage.jpg",
+            "src": "",
             "title": "Mariage",
             "hidden": false
           }
@@ -130,7 +146,7 @@
         "cases": {
           "mariage": {
             "description": "El atelier Galogrea crea looks refinados y elegantes para novias.",
-            "src": "/images/mariage.jpg",
+            "src": "",
             "title": "Mariage",
             "hidden": false
           }
@@ -154,18 +170,21 @@
         "cases": {
           "css": {
             "description": "Ein Londoner Unternehmen, spezialisiert auf umfassende Dienstleistungen für Modemarken",
-            "src": "/images/css.jpg",
-            "title": "CSS"
+            "src": "",
+            "title": "CSS",
+            "hidden": false
           },
           "m&m": {
             "description": "Ein Unternehmen, das Fachleuten und Unternehmern hilft, Talentvisa, Geschäftsvisa zu erhalten und die Umsiedlung in die USA zu organisieren",
-            "src": "/images/m-and-m.jpg",
-            "title": "M&M"
+            "src": "",
+            "title": "M&M",
+            "hidden": false
           },
           "play-create-eat": {
             "description": "Ein Familienort in Dubai, der so gestaltet ist, dass Kinder sich durch Spiel, Kreativität und gesunde Gewohnheiten entwickeln können, und Eltern",
-            "src": "/images/play-create-eat.jpg",
-            "title": "Play Create Eat"
+            "src": "",
+            "title": "Play Create Eat",
+            "hidden": false
           }
         },
         "title": "Werbung"
@@ -174,18 +193,21 @@
         "cases": {
           "css": {
             "description": "A London company specializing in comprehensive services for fashion brands",
-            "src": "/images/css.jpg",
-            "title": "CSS"
+            "src": "",
+            "title": "CSS",
+            "hidden": false
           },
           "m&m": {
             "description": "A company helping professionals and entrepreneurs obtain talent visas, business visas, and arrange relocation to the USA",
-            "src": "/images/m-and-m.jpg",
-            "title": "M&M"
+            "src": "",
+            "title": "M&M",
+            "hidden": false
           },
           "play-create-eat": {
             "description": "A family space in Dubai designed so children can develop through play, creativity, and healthy habits, and parents",
-            "src": "/images/play-create-eat.jpg",
-            "title": "Play Create Eat"
+            "src": "",
+            "title": "Play Create Eat",
+            "hidden": false
           }
         },
         "title": "Advertising"
@@ -194,18 +216,21 @@
         "cases": {
           "css": {
             "description": "Una empresa londinense especializada en servicios integrales para marcas de moda",
-            "src": "/images/css.jpg",
-            "title": "CSS"
+            "src": "",
+            "title": "CSS",
+            "hidden": false
           },
           "m&m": {
             "description": "Una empresa que ayuda a profesionales y emprendedores a obtener visas de talento, visas de negocios y gestionar la reubicación en Estados Unidos",
-            "src": "/images/m-and-m.jpg",
-            "title": "M&M"
+            "src": "",
+            "title": "M&M",
+            "hidden": false
           },
           "play-create-eat": {
             "description": "Un espacio familiar en Dubái, creado para que los niños puedan desarrollarse a través del juego, la creatividad y hábitos saludables, y los padres",
-            "src": "/images/play-create-eat.jpg",
-            "title": "Play Create Eat"
+            "src": "",
+            "title": "Play Create Eat",
+            "hidden": false
           }
         },
         "title": "Publicidad"
@@ -215,17 +240,20 @@
           "css": {
             "description": "Лондонская компания, специализирующаяся на комплексных услугах для модных брендов",
             "src": "/images/css.jpg",
-            "title": "CSS"
+            "title": "CSS",
+            "hidden": false
           },
           "m&m": {
             "description": "компания, оказывающая услуги по получению виз талантов, бизнес-виз и релокации в США",
             "src": "/images/m-and-m.jpg",
-            "title": "M&M Document"
+            "title": "M&M Document",
+            "hidden": false
           },
           "play-create-eat": {
             "description": "Cемейное пространство в Дубае, творчество и здоровые привычки",
             "src": "/images/play-create-eat.jpg",
-            "title": "Play Create Eat"
+            "title": "Play Create Eat",
+            "hidden": false
           }
         },
         "title": "Реклама"
@@ -236,13 +264,7 @@
         "cases": {
           "vyatcheslav-boreiko": {
             "description": "Ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhielt, ein Restaurant in Kalifornien zu eröffnen",
-            "src": "/images/vyatcheslav-boreiko.jpg",
-            "title": "Vyatcheslav Boreiko",
-            "hidden": false
-          },
-          "vyatcheslav-boreiko-copy": {
-            "description": "Ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhielt, ein Restaurant in Kalifornien zu eröffnen",
-            "src": "/images/vyatcheslav-boreiko.jpg",
+            "src": "",
             "title": "Vyatcheslav Boreiko",
             "hidden": false
           }
@@ -253,13 +275,7 @@
         "cases": {
           "vyatcheslav-boreiko": {
             "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California",
-            "src": "/images/vyatcheslav-boreiko.jpg",
-            "title": "Vyatcheslav Boreiko",
-            "hidden": false
-          },
-          "vyatcheslav-boreiko-copy": {
-            "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California",
-            "src": "/images/vyatcheslav-boreiko.jpg",
+            "src": "",
             "title": "Vyatcheslav Boreiko",
             "hidden": false
           }
@@ -270,13 +286,7 @@
         "cases": {
           "vyatcheslav-boreiko": {
             "description": "Un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California",
-            "src": "/images/vyatcheslav-boreiko.jpg",
-            "title": "Vyatcheslav Boreiko",
-            "hidden": false
-          },
-          "vyatcheslav-boreiko-copy": {
-            "description": "Un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California",
-            "src": "/images/vyatcheslav-boreiko.jpg",
+            "src": "",
             "title": "Vyatcheslav Boreiko",
             "hidden": false
           }
@@ -288,12 +298,6 @@
           "vyatcheslav-boreiko": {
             "description": "Помогли с тем и тем и там и сям и тут и там. Ещё очки у меня стильные ",
             "src": "/images/1773977863038-0c5ff250-05b6-457b-8802-550bc707cd02.jpg",
-            "title": "Вячеслав Борейко",
-            "hidden": false
-          },
-          "vyatcheslav-boreiko-copy": {
-            "description": "Помогли с тем и тем и там и сям и тут и там. Ещё очки у меня стильные ",
-            "src": "/images/1773977876442-a35e51cc-0d33-4721-ad6c-1c4a4b4b3ae9.png",
             "title": "Вячеслав Борейко",
             "hidden": false
           }

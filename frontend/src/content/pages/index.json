@@ -341,11 +341,11 @@
         "email": "hello@strategix.com",
         "icons": [
           {
-            "src": "/icons/1766455160554-d04f861e-1da0-4dbc-a85b-b7872bcbbc12.svg",
+            "src": "",
             "href": "https://t.me/strategix"
           },
           {
-            "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
+            "src": "",
             "href": "https://www.linkedin.com/company/strategix/"
           }
         ],
@@ -426,14 +426,14 @@
             },
             {
               "type": "link",
-              "src": "/icons/1766455160522-b6ec1027-52b3-4535-8d8c-215848f0dfbf.svg",
+              "src": "",
               "text": "telegram",
               "href": "https://t.me/strategix",
               "value": ""
             },
             {
               "type": "link",
-              "src": "/icons/1766455160535-78a4e325-647a-4ff8-8527-d0308c2ef933.svg",
+              "src": "",
               "text": "whatsapp",
               "href": "https://wa.me/595955084893",
               "value": ""
@@ -485,7 +485,7 @@
             "lastname": "Krasnoslobodtseva",
             "name": "Lyubov",
             "position": "CEO, Head of PR",
-            "src": "/images/1772198892827-8634c26f-f9ef-414f-9e2f-e6b051886177.png"
+            "src": ""
           },
           {
             "lastname": "Buchnikova",
@@ -656,11 +656,11 @@
         "email": "hello@strategix.com",
         "icons": [
           {
-            "src": "/icons/1766455160554-d04f861e-1da0-4dbc-a85b-b7872bcbbc12.svg",
+            "src": "",
             "href": "https://t.me/strategix"
           },
           {
-            "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
+            "src": "",
             "href": "https://www.linkedin.com/company/strategix/"
           }
         ],
@@ -741,14 +741,14 @@
             },
             {
               "type": "link",
-              "src": "/icons/1766455160522-b6ec1027-52b3-4535-8d8c-215848f0dfbf.svg",
+              "src": "",
               "text": "telegramme",
               "href": "https://t.me/strategix",
               "value": ""
             },
             {
               "type": "link",
-              "src": "/icons/1766455160535-78a4e325-647a-4ff8-8527-d0308c2ef933.svg",
+              "src": "",
               "text": "whatsapp",
               "href": "https://wa.me/595955084893",
               "value": ""
@@ -971,11 +971,11 @@
         "email": "hello@strategix.com",
         "icons": [
           {
-            "src": "/icons/1766455160554-d04f861e-1da0-4dbc-a85b-b7872bcbbc12.svg",
+            "src": "",
             "href": "https://t.me/strategix"
           },
           {
-            "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
+            "src": "",
             "href": "https://www.linkedin.com/company/strategix/"
           }
         ],
@@ -1056,14 +1056,14 @@
             },
             {
               "type": "link",
-              "src": "/icons/1766455160522-b6ec1027-52b3-4535-8d8c-215848f0dfbf.svg",
+              "src": "",
               "text": "telegramas",
               "href": "https://t.me/strategix",
               "value": ""
             },
             {
               "type": "link",
-              "src": "/icons/1766455160535-78a4e325-647a-4ff8-8527-d0308c2ef933.svg",
+              "src": "",
               "text": "whatsapp",
               "href": "https://wa.me/595955084893",
               "value": ""
