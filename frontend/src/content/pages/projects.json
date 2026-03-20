@@ -273,6 +273,12 @@
             "src": "",
             "title": "Vyatcheslav Boreiko",
             "hidden": false
+          },
+          "evgeniya-kormina": {
+            "description": "Ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhielt, ein Restaurant in Kalifornien zu eröffnen",
+            "src": "",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
           }
         },
         "title": "Reputationsaufbau"
@@ -286,6 +292,12 @@
             "hidden": false
           },
           "roman-abakumov": {
+            "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California",
+            "src": "",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
+          },
+          "evgeniya-kormina": {
             "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California",
             "src": "",
             "title": "Vyatcheslav Boreiko",
@@ -307,6 +319,12 @@
             "src": "",
             "title": "Vyatcheslav Boreiko",
             "hidden": false
+          },
+          "evgeniya-kormina": {
+            "description": "Un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California",
+            "src": "",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
           }
         },
         "title": "Construcción de Reputación"
@@ -314,15 +332,21 @@
       "ru": {
         "cases": {
           "vyatcheslav-boreiko": {
-            "description": "Помогли с тем и тем и там и сям и тут и там. Ещё очки у меня стильные ",
+            "description": "Международное позиционирование и выход на рынок США",
             "src": "/images/1773977863038-0c5ff250-05b6-457b-8802-550bc707cd02.jpg",
             "title": "Вячеслав Борейко",
             "hidden": false
           },
           "roman-abakumov": {
-            "description": "Помогли с тем и тем и там и сям и тут и там. Ещё очки у меня стильные ",
+            "description": "Медиа в США и победа в международном конкурсе",
             "src": "/images/1773991973694-6f35b532-9c8a-4ca3-90c9-32b42e770712.jpg",
             "title": "Роман Абакумов",
+            "hidden": false
+          },
+          "evgeniya-kormina": {
+            "description": "Медиа в США и победа в международном конкурсе",
+            "src": "/images/1773999690109-4a0cada5-2771-4574-89ad-5f5685333421.png",
+            "title": "Евгения Кормина",
             "hidden": false
           }
         },
