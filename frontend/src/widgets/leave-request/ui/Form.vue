@@ -138,9 +138,12 @@
     @submit.prevent="handleSubmit"
   >
     <div class="lr-form">
-      <h4 class="base-text title">
+      <label
+        class="base-text title"
+        for="leave-request-phone"
+      >
         {{ formData.title }}
-      </h4>
+      </label>
       <input
         v-model="formValues.name"
         class="base-text field"
@@ -152,6 +155,7 @@
         @input="clearValidationState"
       >
       <input
+        id="leave-request-phone"
         v-model="formValues.phone"
         class="base-text field"
         type="tel"
@@ -162,9 +166,12 @@
         @input="clearValidationState"
       >
 
-      <h4 class="base-text title">
+      <label
+        class="base-text title"
+        for="leave-request-question2"
+      >
         {{ formData.title2 }}
-      </h4>
+      </label>
       <input
         v-model="formValues.question"
         class="base-text field"
@@ -174,6 +181,7 @@
         @input="clearValidationState"
       >
       <textarea
+        id="leave-request-question2"
         v-model="formValues.question2"
         class="base-text field textarea"
         :placeholder="formData.question2"
