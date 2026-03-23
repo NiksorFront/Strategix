@@ -1,10 +1,15 @@
 <script setup lang="ts">
-
+const { theme } = defineProps({
+  theme: {
+    type: String as () => 'dark' | 'light',
+    default: 'dark'
+  }
+})
 </script>
 
 <template>
   <section
-    class="not-found"
+    :class="['not-found', theme]"
   >
     <h1 class="upperscase-text">
       404
@@ -22,9 +27,16 @@
   display: flex;
   flex-direction: column;
   place-content: center;
-  background-color: var(--strategix-light);
 
   color: rgb(230, 42, 42);
+}
+
+.not-found.dark{
+  background-color: var(--strategix-dark);
+}
+
+.not-found.light{
+  background-color: var(--strategix-light);
 }
 
 </style>

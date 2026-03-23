@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Component } from 'vue';
 import {getProjectContent} from '@/shared/lib/content/registry';
+import indexContent from '@/content/pages/index.json';
 
 import Header from '@/widgets/header';
 import ExampleWelcome from '@/widgets/example-welcome';
@@ -101,12 +102,80 @@ const sections = computed<ProjectSection[]>(() => {
 });
 
 const isNotFound = computed(() => !localeContent.value || sections.value.length === 0);
+
+const siteTranslations = indexContent.translations as Record<string, {
+  footer?: {
+    brand?: string;
+  };
+}>;
+
+const normalizeText = (value: unknown) => {
+  if (typeof value !== 'string') return '';
+  return value.replace(/\s+/g, ' ').trim();
+};
+
+const projectName = computed(() => {
+  const localizedName = normalizeText(localeContent.value?.welcome?.name);
+  return localizedName || project.value;
+});
+
+const projectDescription = computed(() => {
+  const welcomeDescription = localeContent.value?.welcome?.description;
+
+  if (Array.isArray(welcomeDescription)) {
+    const firstDescription = welcomeDescription
+      .map((item) => normalizeText(item))
+      .find(Boolean);
+
+    if (firstDescription) return firstDescription;
+  }
+
+  const singleDescription = normalizeText(welcomeDescription);
+  if (singleDescription) return singleDescription;
+
+  const infoTitle = normalizeText(localeContent.value?.info?.title);
+  if (infoTitle) return infoTitle;
+
+  return 'Strategix project case study';
+});
+
+const seoBrand = computed(() => {
+  const localizedBrand = siteTranslations[currentLocale.value]?.footer?.brand?.trim();
+  if (localizedBrand) return localizedBrand;
+
+  const fallbackBrand = siteTranslations.ru?.footer?.brand?.trim() || siteTranslations.en?.footer?.brand?.trim();
+  return fallbackBrand || 'STRATEGIX';
+});
+
+const seoTitle = computed(() => (
+  isNotFound.value
+    ? `Project not found | ${seoBrand.value}`
+    : `${projectName.value} | ${seoBrand.value}`
+));
+
+const seoDescription = computed(() => (
+  isNotFound.value
+    ? `Project "${project.value}" was not found.`
+    : projectDescription.value
+));
+
+const seoRobots = computed(() => (
+  isNotFound.value ? 'noindex, nofollow' : 'index, follow'
+));
+
+useSeoMeta({
+  title: seoTitle,
+  ogTitle: seoTitle,
+  description: seoDescription,
+  ogDescription: seoDescription,
+  robots: seoRobots,
+});
 </script>
 
 <template>
   <Header theme="light" /> 
   <main class="project-page-main">
-    <NotFound v-if="isNotFound" />
+    <NotFound v-if="isNotFound" theme="light" />
     <template v-else>
       <component
         :is="section.component"
