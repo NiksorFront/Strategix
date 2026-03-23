@@ -5,13 +5,13 @@
       "de": {
         "cases": {
           "bebu": {
-            "description": "BEBU ist georgische Kultur",
+            "description": "",
             "src": "",
-            "title": "bebu",
+            "title": "Bebu",
             "hidden": false
           },
           "pti-vehicle-inspection": {
-            "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben",
+            "description": "",
             "src": "",
             "title": "PTI vehicle inspection",
             "hidden": false
@@ -34,13 +34,13 @@
       "en": {
         "cases": {
           "bebu": {
-            "description": "BEBU is Georgian culture",
+            "description": "",
             "src": "",
-            "title": "bebu",
+            "title": "Bebu",
             "hidden": false
           },
           "pti-vehicle-inspection": {
-            "description": "How we made a Russian backup software developer a newsmaker",
+            "description": "",
             "src": "",
             "title": "PTI vehicle inspection",
             "hidden": false
