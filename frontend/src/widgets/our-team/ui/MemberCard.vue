@@ -1,12 +1,21 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import imagePlaceholder from '@/assets/images/image-vertical-placeholder.svg'
+import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
+
 const {src, name, lastname, position} = defineProps<{src: string, name: string, lastname: string, position: string}>()
+const { app } = useRuntimeConfig()
+const baseURL = app?.baseURL ?? '/'
+
+const showPlaceholder = ref(false)
 </script>
 
 <template>
   <article class="member-card">
     <NuxtImg
+      v-if="!showPlaceholder"
       class="image-card"
-      :src="src"
+      :src="resolveMediaSrc(src, baseURL)"
       sizes="xs:170px sm:170px md:25vw lg:25vw xl:25vw xxl:25vw"
       format="webp"
       :quality="70"
@@ -15,7 +24,16 @@ const {src, name, lastname, position} = defineProps<{src: string, name: string, 
       decoding="async"
       :width="600"
       :height="600"
+      @error="showPlaceholder = true"
     />
+    <img
+      v-else
+      class="image-card"
+      :src="imagePlaceholder"
+      :alt="`${name} ${lastname}`"
+      loading="lazy"
+      decoding="async"
+    >
     <div class="text-background">
       <h4 class="small-text name">
         {{ name }} {{ lastname }}

@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import projectsData from '@/content/pages/projects.json';
+import imagePlaceholder from '@/assets/images/image-placeholder.svg'
+import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 type ExampleOtherProject = {
   title: string;
@@ -28,6 +30,8 @@ defineProps<{
 
 const route = useRoute();
 const { locale } = useI18n();
+const { app } = useRuntimeConfig();
+const baseURL = app?.baseURL ?? '/';
 
 const currentSlug = computed(() => {
   const param = route.params.project;
@@ -92,6 +96,8 @@ const otherProjects = computed<ExampleOtherProject[]>(() => {
     direction: index === 0 ? 'left' : 'right',
   }));
 });
+
+const showPlaceholder = ref<Record<number, boolean>>({})
 </script>
 
 <template>
@@ -101,7 +107,7 @@ const otherProjects = computed<ExampleOtherProject[]>(() => {
   >
     <ul class="projects-list">
       <li
-        v-for="project in otherProjects"
+        v-for="(project, index) in otherProjects"
         :key="project.slug"
         class="project-card"
         :class="`project-card--${project.direction}`"
@@ -131,8 +137,9 @@ const otherProjects = computed<ExampleOtherProject[]>(() => {
             </span>
           </div>
           <NuxtImg
+            v-if="!showPlaceholder[index]"
             class="project-image"
-            :src="project.src"
+            :src="resolveMediaSrc(project.src, baseURL)"
             :alt="project.title"
             format="webp"
             :quality="80"
@@ -141,7 +148,16 @@ const otherProjects = computed<ExampleOtherProject[]>(() => {
             sizes="xs:50vw sm:50vw md:50vw lg:50vw xl:50vw xxl:50vw"
             loading="lazy"
             decoding="async"
+            @error="showPlaceholder[index] = true"
           />
+          <img
+            v-else
+            class="project-image"
+            :src="imagePlaceholder"
+            :alt="project.title"
+            loading="lazy"
+            decoding="async"
+          >
         </NuxtLink>
       </li> 
     </ul>

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import imagePlaceholder from '@/assets/images/image-placeholder.svg'
+import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
+
 const {data} = defineProps<{
   data: {
     src: string;
@@ -6,6 +10,11 @@ const {data} = defineProps<{
     alt: string;
   };
 }>();
+const { app } = useRuntimeConfig();
+const baseURL = app?.baseURL ?? '/';
+
+const showPlaceholderMobile = ref(false)
+const showPlaceholderDesktop = ref(false)
 </script>
 
 <template>
@@ -13,23 +22,41 @@ const {data} = defineProps<{
     class="example-big-image"
   >
     <NuxtImg
-      :src="data.srcMobile || data.src"
+      v-if="!showPlaceholderMobile"
+      :src="resolveMediaSrc(data.srcMobile || data.src, baseURL)"
       :alt="data.alt"
       format="webp"
       :quality="80"
       sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw"
       loading="lazy"
       decoding="async"
+      @error="showPlaceholderMobile = true"
     />
+    <img
+      v-else
+      :src="imagePlaceholder"
+      :alt="data.alt"
+      loading="lazy"
+      decoding="async"
+    >
     <NuxtImg
-      :src="data.src"
+      v-if="!showPlaceholderDesktop"
+      :src="resolveMediaSrc(data.src, baseURL)"
       :alt="data.alt"
       format="webp"
       :quality="80"
       sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw"
       loading="lazy"
       decoding="async"
+      @error="showPlaceholderDesktop = true"
     />
+    <img
+      v-else
+      :src="imagePlaceholder"
+      :alt="data.alt"
+      loading="lazy"
+      decoding="async"
+    >
   </section>
 </template>
 

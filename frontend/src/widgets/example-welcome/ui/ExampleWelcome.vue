@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import VideoPlayer from '@/shared/ui/video-player';
+import imagePlaceholder from '@/assets/images/image-placeholder.svg'
+import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 type ExampleWelcomeAboutItem = {
   label: string;
@@ -18,11 +21,14 @@ type ExampleWelcomeData = {
 const props = defineProps<{
   data: ExampleWelcomeData;
 }>();
+const { app } = useRuntimeConfig();
+const baseURL = app?.baseURL ?? '/';
 
 const VIDEO_SRC_PATTERN = /\.(mp4|webm|ogg|mov|m4v)(?:[?#].*)?$/i;
 
 const isVideo = computed(() => VIDEO_SRC_PATTERN.test(props.data.src ?? ''));
 const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
+const showPlaceholder = ref(false)
 </script>
 
 <template>
@@ -42,9 +48,9 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
         :hide-controls="true"
       />
       <NuxtImg
-        v-else
+        v-else-if="!showPlaceholder"
         class="welcome-img"
-        :src="props.data.src"
+        :src="resolveMediaSrc(props.data.src, baseURL)"
         :alt="props.data.name"
         format="webp"
         :quality="80"
@@ -53,7 +59,16 @@ const shouldAutoplay = computed(() => Boolean(props.data.autoplay));
         sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw"
         loading="lazy"
         decoding="async"
+        @error="showPlaceholder = true"
       />
+      <img
+        v-else
+        class="welcome-img"
+        :src="imagePlaceholder"
+        :alt="props.data.name"
+        loading="lazy"
+        decoding="async"
+      >
     </div>
     <div class="description">
       <p

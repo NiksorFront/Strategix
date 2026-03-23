@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import ExampleSectionTitle from '@/shared/ui/example-section-title';
+import imagePlaceholder from '@/assets/images/image-placeholder.svg'
+import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 type ExampleStrategiesItem = {
   title: string;
@@ -19,6 +22,8 @@ type ExampleStrategiesData = {
 const { data } = defineProps<{
   data: ExampleStrategiesData;
 }>();
+const { app } = useRuntimeConfig();
+const baseURL = app?.baseURL ?? '/';
 
 const hasImage = (src?: string) => Boolean(src?.trim());
 
@@ -73,6 +78,8 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
     'strategy-text-card--bordered': Boolean(item.border),
   };
 };
+
+const showPlaceholder = ref<Record<number, boolean>>({})
 </script>
 
 <template>
@@ -130,8 +137,9 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
           class="strategy-card strategy-media"
         >
           <NuxtImg
+            v-if="!showPlaceholder[index]"
             class="strategy-image"
-            :src="item.src"
+            :src="resolveMediaSrc(item.src, baseURL)"
             :alt="item.title"
             format="webp"
             :quality="80"
@@ -140,7 +148,16 @@ const getTextCardClass = (item: ExampleStrategiesItem) => {
             sizes="xs:100vw sm:100vw md:100vw lg:44vw xl:44vw xxl:44vw"
             loading="lazy"
             decoding="async"
+            @error="showPlaceholder[index] = true"
           />
+          <img
+            v-else
+            class="strategy-image"
+            :src="imagePlaceholder"
+            :alt="item.title"
+            loading="lazy"
+            decoding="async"
+          >
         </article>
       </li>
     </ul>

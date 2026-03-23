@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import ExampleSectionTitle from '@/shared/ui/example-section-title';
+import imagePlaceholder from '@/assets/images/image-placeholder.svg'
+import videoPlaceholder from '@/assets/images/video-placeholder.svg'
+import { resolveMediaSrc as resolveMediaSrcWithBase } from '@/shared/lib/media/resolveMediaSrc'
 
 type ExampleContextBulletBlock = {
   bullets: string[];
@@ -51,30 +54,10 @@ const VIDEO_SRC_PATTERN = /\.(mp4|webm|ogg|mov)(?:$|[?#])/i;
 
 const isVideoMedia = (src: string) => VIDEO_SRC_PATTERN.test(src.trim());
 
-const normalizeBase = (base: string) => {
-  if (!base || base === '/') return '';
-  return base.endsWith('/') ? base.slice(0, -1) : base;
-};
+const resolveMediaSrc = (src: string) => resolveMediaSrcWithBase(src, baseURL);
 
-const resolveMediaSrc = (src: string) => {
-  const raw = src?.trim() ?? '';
-  if (!raw) return '';
-
-  if (/^(https?:)?\/\//i.test(raw) || raw.startsWith('data:') || raw.startsWith('blob:')) {
-    return raw;
-  }
-
-  const base = normalizeBase(baseURL);
-  if (!base) {
-    return raw.startsWith('/') ? raw : `/${raw}`;
-  }
-
-  if (raw === base || raw.startsWith(`${base}/`)) {
-    return raw;
-  }
-
-  return raw.startsWith('/') ? `${base}${raw}` : `${base}/${raw}`;
-};
+const showPlaceholderMobile = ref<Record<number, boolean>>({})
+const showPlaceholderDesktop = ref<Record<number, boolean>>({})
 </script>
 
 <template>
@@ -125,7 +108,7 @@ const resolveMediaSrc = (src: string) => {
         class="context-gallery-card"
       >
         <video
-          v-if="isVideoMedia(item.src)"
+          v-if="isVideoMedia(item.src) && !showPlaceholderMobile[index]"
           class="context-gallery-media"
           :src="resolveMediaSrc(item.src)"
           muted
@@ -134,11 +117,18 @@ const resolveMediaSrc = (src: string) => {
           playsinline
           preload="metadata"
           :aria-label="item.alt ?? data.title ?? 'Context media'"
+          @error="showPlaceholderMobile[index] = true"
         />
-        <NuxtImg
-          v-else
+        <img
+          v-else-if="isVideoMedia(item.src)"
+          :src="videoPlaceholder"
           class="context-gallery-media"
-          :src="item.src"
+          :alt="item.alt ?? data.title ?? 'Context media'"
+        >
+        <NuxtImg
+          v-else-if="!showPlaceholderMobile[index]"
+          class="context-gallery-media"
+          :src="resolveMediaSrc(item.src)"
           :alt="item.alt ?? data.title ?? 'Context image'"
           format="webp"
           :quality="80"
@@ -147,7 +137,16 @@ const resolveMediaSrc = (src: string) => {
           sizes="xs:50vw sm:50vw md:50vw lg:50vw xl:50vw xxl:50vw"
           loading="lazy"
           decoding="async"
+          @error="showPlaceholderMobile[index] = true"
         />
+        <img
+          v-else
+          :src="imagePlaceholder"
+          class="context-gallery-media"
+          :alt="item.alt ?? data.title ?? 'Context image'"
+          loading="lazy"
+          decoding="async"
+        >
       </article>
     </div>
 
@@ -158,7 +157,7 @@ const resolveMediaSrc = (src: string) => {
         class="context-gallery-card"
       >
         <video
-          v-if="isVideoMedia(item.src)"
+          v-if="isVideoMedia(item.src) && !showPlaceholderDesktop[index]"
           class="context-gallery-media"
           :src="resolveMediaSrc(item.src)"
           muted
@@ -167,11 +166,18 @@ const resolveMediaSrc = (src: string) => {
           playsinline
           preload="metadata"
           :aria-label="item.alt ?? data.title ?? 'Context media'"
+          @error="showPlaceholderDesktop[index] = true"
         />
-        <NuxtImg
-          v-else
+        <img
+          v-else-if="isVideoMedia(item.src)"
+          :src="videoPlaceholder"
           class="context-gallery-media"
-          :src="item.src"
+          :alt="item.alt ?? data.title ?? 'Context media'"
+        >
+        <NuxtImg
+          v-else-if="!showPlaceholderDesktop[index]"
+          class="context-gallery-media"
+          :src="resolveMediaSrc(item.src)"
           :alt="item.alt ?? data.title ?? 'Context image'"
           format="webp"
           :quality="80"
@@ -180,7 +186,16 @@ const resolveMediaSrc = (src: string) => {
           sizes="xs:33vw sm:33vw md:33vw lg:33vw xl:33vw xxl:33vw"
           loading="lazy"
           decoding="async"
+          @error="showPlaceholderDesktop[index] = true"
         />
+        <img
+          v-else
+          :src="imagePlaceholder"
+          class="context-gallery-media"
+          :alt="item.alt ?? data.title ?? 'Context image'"
+          loading="lazy"
+          decoding="async"
+        >
       </article>
     </div>
   </section>

@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import ExampleSectionTitle from '@/shared/ui/example-section-title';
 import HorizontalSlider from '@/shared/ui/horizontal-slider';
+import imagePlaceholder from '@/assets/images/image-placeholder.svg'
+import videoPlaceholder from '@/assets/images/video-placeholder.svg'
+import { resolveMediaSrc as resolveMediaSrcWithBase } from '@/shared/lib/media/resolveMediaSrc'
 
 type ExampleSliderSlide = {
   src: string;
@@ -28,32 +31,10 @@ const VIDEO_SRC_PATTERN = /\.(mp4|webm|ogg|mov)(?:$|[?#])/i;
 
 const isVideoMedia = (src: string) => VIDEO_SRC_PATTERN.test(src.trim());
 
-const normalizeBase = (base: string) => {
-  if (!base || base === '/') return '';
-  return base.endsWith('/') ? base.slice(0, -1) : base;
-};
-
-const resolveMediaSrc = (src: string) => {
-  const raw = src?.trim() ?? '';
-  if (!raw) return '';
-
-  if (/^(https?:)?\/\//i.test(raw) || raw.startsWith('data:') || raw.startsWith('blob:')) {
-    return raw;
-  }
-
-  const base = normalizeBase(baseURL);
-  if (!base) {
-    return raw.startsWith('/') ? raw : `/${raw}`;
-  }
-
-  if (raw === base || raw.startsWith(`${base}/`)) {
-    return raw;
-  }
-
-  return raw.startsWith('/') ? `${base}${raw}` : `${base}/${raw}`;
-};
+const resolveMediaSrc = (src: string) => resolveMediaSrcWithBase(src, baseURL);
 
 const shouldAutoplay = (slide: ExampleSliderSlide) => slide.autoplay ?? true;
+const showPlaceholder = ref<Record<number, boolean>>({})
 </script>
 
 <template>
@@ -75,7 +56,7 @@ const shouldAutoplay = (slide: ExampleSliderSlide) => slide.autoplay ?? true;
         class="example-slider__slide"
       >
         <video
-          v-if="isVideoMedia(slide.src)"
+          v-if="isVideoMedia(slide.src) && !showPlaceholder[index]"
           class="example-slider__media"
           :src="resolveMediaSrc(slide.src)"
           muted
@@ -84,11 +65,18 @@ const shouldAutoplay = (slide: ExampleSliderSlide) => slide.autoplay ?? true;
           playsinline
           preload="metadata"
           :aria-label="slide.alt ?? data.title ?? `Slide ${index + 1}`"
+          @error="showPlaceholder[index] = true"
         />
-        <NuxtImg
-          v-else
+        <img
+          v-else-if="isVideoMedia(slide.src)"
+          :src="videoPlaceholder"
           class="example-slider__media"
-          :src="slide.src"
+          :alt="slide.alt ?? data.title ?? `Slide ${index + 1}`"
+        >
+        <NuxtImg
+          v-else-if="!showPlaceholder[index]"
+          class="example-slider__media"
+          :src="resolveMediaSrc(slide.src)"
           :alt="slide.alt ?? data.title ?? `Slide ${index + 1}`"
           format="webp"
           :quality="80"
@@ -97,7 +85,16 @@ const shouldAutoplay = (slide: ExampleSliderSlide) => slide.autoplay ?? true;
           sizes="xs:50vw sm:50vw md:50vw lg:33vw xl:33vw xxl:33vw"
           loading="lazy"
           decoding="async"
+          @error="showPlaceholder[index] = true"
         />
+        <img
+          v-else
+          :src="imagePlaceholder"
+          class="example-slider__media"
+          :alt="slide.alt ?? data.title ?? `Slide ${index + 1}`"
+          loading="lazy"
+          decoding="async"
+        >
       </li>
     </HorizontalSlider>
   </section>

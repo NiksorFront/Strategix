@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import ExampleSectionTitle from '@/shared/ui/example-section-title';
+import imagePlaceholder from '@/assets/images/image-placeholder.svg'
+import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 type ExampleTasksItem = {
   src: string;
@@ -17,6 +20,8 @@ type ExampleTasksData = {
 const { data } = defineProps<{
   data: ExampleTasksData;
 }>();
+const { app } = useRuntimeConfig();
+const baseURL = app?.baseURL ?? '/';
 
 const normalizeBackground = (background?: string) => background?.trim().toLowerCase() ?? '';
 
@@ -57,6 +62,8 @@ const getTextCardClass = (item: ExampleTasksItem) => {
     'task-text-card--bordered': Boolean(item.border),
   };
 };
+
+const showPlaceholder = ref<Record<number, boolean>>({})
 </script>
 
 <template>
@@ -85,8 +92,9 @@ const getTextCardClass = (item: ExampleTasksItem) => {
       >
         <article class="task-card task-image-card">
           <NuxtImg
+            v-if="!showPlaceholder[index]"
             class="task-image"
-            :src="item.src"
+            :src="resolveMediaSrc(item.src, baseURL)"
             :alt="item.description"
             format="webp"
             :quality="80"
@@ -95,7 +103,16 @@ const getTextCardClass = (item: ExampleTasksItem) => {
             sizes="xs:50vw sm:50vw md:50vw lg:25vw xl:25vw xxl:25vw"
             loading="lazy"
             decoding="async"
+            @error="showPlaceholder[index] = true"
           />
+          <img
+            v-else
+            class="task-image"
+            :src="imagePlaceholder"
+            :alt="item.description"
+            loading="lazy"
+            decoding="async"
+          >
         </article>
 
         <article

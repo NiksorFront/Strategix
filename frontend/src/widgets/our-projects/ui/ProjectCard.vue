@@ -1,7 +1,15 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import imagePlaceholder from '@/assets/images/image-placeholder.svg'
+import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
+
 const {route, src, title, description} = defineProps<{route: string, src: string, title: string, description: string}>()
 
 const { locale } = useI18n()
+const { app } = useRuntimeConfig()
+const baseURL = app?.baseURL ?? '/'
+
+const showPlaceholder = ref(false)
 </script>
 
 <template>
@@ -11,7 +19,8 @@ const { locale } = useI18n()
       :to="`/${locale}/project/${route}`"
     >
       <NuxtImg
-        :src="src"
+        v-if="!showPlaceholder"
+        :src="resolveMediaSrc(src, baseURL)"
         class="img-card"
         sizes="xs:74.36vw sm:74.36vw md:32.5vw lg:33vw xl:33vw xxl:33vw"
         format="webp"
@@ -21,7 +30,16 @@ const { locale } = useI18n()
         decoding="async"
         :width="1000"
         :height="1000"
+        @error="showPlaceholder = true"
       />
+      <img
+        v-else
+        :src="imagePlaceholder"
+        class="img-card"
+        :alt="title"
+        loading="lazy"
+        decoding="async"
+      >
       <h4 class="base-text title-card">
         {{ title }}
       </h4>

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import imagePlaceholder from '@/assets/images/image-placeholder.svg'
+import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 const {data} = defineProps<{
   data: {
@@ -7,6 +10,10 @@ const {data} = defineProps<{
     backgroundColor?: string;
   };
 }>();
+const { app } = useRuntimeConfig();
+const baseURL = app?.baseURL ?? '/';
+
+const showPlaceholder = ref(false)
 </script>
 
 <template>
@@ -18,14 +25,23 @@ const {data} = defineProps<{
       :style="data.backgroundColor ? { backgroundColor: data.backgroundColor } : {}"
     >
       <NuxtImg 
-        :src="data.src"
+        v-if="!showPlaceholder"
+        :src="resolveMediaSrc(data.src, baseURL)"
         :alt="data.alt"
         format="webp"
         :quality="80"
         sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw"
         loading="lazy"
         decoding="async"
+        @error="showPlaceholder = true"
       />
+      <img
+        v-else
+        :src="imagePlaceholder"
+        :alt="data.alt"
+        loading="lazy"
+        decoding="async"
+      >
     </div>
   </section>
 </template>

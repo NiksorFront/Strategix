@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import xWhite from "@/assets/images/x-white.svg";
+import imagePlaceholder from "@/assets/images/image-placeholder.svg";
 import index from '@/content/pages/index.json'
+import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 const { locale } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
+const { app } = useRuntimeConfig()
+const baseURL = app?.baseURL ?? '/'
 const currentLocale = locale.value || 'example'
 const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.example
 
@@ -17,9 +21,9 @@ const email = translations.footer.email
 
 const normalizeIconSrc = (src?: string) => {
   if (!src || typeof src !== 'string') return ''
-  if (src.startsWith('@/public')) return src.replace(/^@\/public/, '')
-  if (src.startsWith('./')) return src.replace(/^\.\//, '/')
-  return src
+  if (src.startsWith('@/public')) return resolveMediaSrc(src.replace(/^@\/public/, ''), baseURL)
+  if (src.startsWith('./')) return resolveMediaSrc(src.replace(/^\.\//, '/'), baseURL)
+  return resolveMediaSrc(src, baseURL)
 }
 
 const footerIcons = computed(() => {
@@ -49,6 +53,8 @@ const formattedPrivacyPolicyText = computed(() => {
   if (!firstWord) return ''
   return restWords.length ? `${firstWord}\n${restWords.join(' ')}` : firstWord
 })
+
+const showPlaceholderIcon = ref<Record<number, boolean>>({})
 </script>
 
 <template>
@@ -111,12 +117,23 @@ const formattedPrivacyPolicyText = computed(() => {
         rel="noopener"
       >
         <NuxtImg
+          v-if="!showPlaceholderIcon[iconIndex]"
           :src="icon.src"
           :alt="`footer icon ${iconIndex + 1}`"
           :width="24"
           :height="24"
           loading="lazy"
+          @error="showPlaceholderIcon[iconIndex] = true"
         />
+        <img
+          v-else
+          :src="imagePlaceholder"
+          :alt="`footer icon ${iconIndex + 1}`"
+          :width="24"
+          :height="24"
+          loading="lazy"
+          decoding="async"
+        >
       </a>
     </div>
   </footer>

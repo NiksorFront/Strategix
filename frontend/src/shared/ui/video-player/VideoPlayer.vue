@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import videoPlaceholder from '@/assets/images/video-placeholder.svg'
 const props = withDefaults(
   defineProps<{
     src: string;
@@ -44,6 +45,7 @@ const videoElement = ref<HTMLVideoElement | null>(null);
 const isPlaying = ref(false);
 const isMuted = ref(Boolean(props.autoplay));
 const isMediaHovered = ref(false);
+const showPlaceholder = ref(false);
 
 const shouldAutoplay = computed(() => Boolean(props.autoplay));
 const shouldHideControls = computed(() => Boolean(props.hideControls));
@@ -123,6 +125,7 @@ watch(
     @mouseleave="isMediaHovered = false"
   >
     <video
+      v-if="!showPlaceholder"
       ref="videoElement"
       class="video-player__video"
       :src="resolvedSrc"
@@ -135,9 +138,16 @@ watch(
       @pause="syncPlayingState"
       @volumechange="syncMutedState"
       @ended="syncPlayingState"
+      @error="showPlaceholder = true"
     />
+    <img
+      v-else
+      :src="videoPlaceholder"
+      class="video-player__placeholder"
+      alt="Video placeholder"
+    >
     <button
-      v-if="!shouldHideControls && showPlayButton"
+      v-if="!shouldHideControls && showPlayButton && !showPlaceholder"
       type="button"
       class="media-control play-button"
       :aria-label="videoButtonLabel"
@@ -179,7 +189,7 @@ watch(
       </svg>
     </button>
     <button
-      v-if="!shouldHideControls"
+      v-if="!shouldHideControls && !showPlaceholder"
       type="button"
       class="media-control sound-button"
       :aria-label="soundButtonLabel"
@@ -242,19 +252,12 @@ watch(
   position: relative;
 }
 
-.video-player__video{
+.video-player__placeholder{
   width: 100%;
-  min-height: 40%;
   height: auto;
-  max-height: 100%;
-
   object-fit: cover;
   object-position: center;
   display: block;
-
-  @media(--tablet-width) {
-    min-height: 65%;
-  }
 
   @media(max-aspect-ratio: 3/5){
     aspect-ratio: 390 / 185;
