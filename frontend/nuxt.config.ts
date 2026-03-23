@@ -1,15 +1,32 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+import {readdirSync} from "node:fs";
+import {join} from "node:path";
+
 // eslint-disable-next-line import/no-internal-modules
 import localesConfig from './src/content/locales.json';
 
-const modules = ["@nuxt/eslint", "@nuxt/image", "@nuxtjs/i18n"];
+const modules = ["@nuxt/eslint", "@nuxt/image", "@nuxtjs/i18n", "@nuxtjs/sitemap"];
+const localeCodes = localesConfig.locales.map((locale: {code: string;}) => locale.code);
+const projectSlugs = readdirSync(join(process.cwd(), "src/content/pages/project"))
+  .filter((fileName) => fileName.endsWith(".json"))
+  .map((fileName) => fileName.replace(".json", ""))
+  .sort();
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   srcDir: "src",
   modules,
+  runtimeConfig: {
+    sitemapData: {
+      localeCodes,
+      projectSlugs,
+    },
+  },
+  site: {
+    url: process.env.NUXT_SITE_URL ?? "https://strategix-pr.ru",
+  },
   app:{
     baseURL: process.env.NUXT_APP_BASE_URL ?? "/",
   },
@@ -33,7 +50,8 @@ export default defineNuxtConfig({
   nitro: {
     preset: "github_pages",
     prerender: {
-      crawlLinks: true
+      crawlLinks: true,
+      routes: ["/sitemap.xml"],
     },
     compressPublicAssets: true,
     minify: true
@@ -74,5 +92,11 @@ export default defineNuxtConfig({
     })),
     defaultLocale: localesConfig.default,
     strategy: 'prefix_and_default',
-  }
+  },
+  sitemap: {
+    sitemapsPathPrefix: '/', // Переносим все sitemap-файлы в корень, чтобы было ru.xml и en.xml
+    autoI18n: false,
+    excludeAppSources: true,
+    sources: ["/api/__sitemap__/urls"],
+  },
 });
