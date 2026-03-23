@@ -138,7 +138,7 @@ const showPlaceholder = ref(false)
 .example-welcome {
     grid-area: welcome;
     width: 100%;
-    min-height: calc(var(--vh) * 50);
+    min-height: calc(var(--vh) * 42.5);
     height: auto;
     max-height: calc(var(--vh) * 110);
 
@@ -201,6 +201,7 @@ const showPlaceholder = ref(false)
 .welcome-img{
   width: 100%;
   min-height: 40%;
+  aspect-ratio: 390 / 185;
   height: auto;
   max-height: 100%;
 
@@ -212,11 +213,7 @@ const showPlaceholder = ref(false)
       min-height: 65%;
   }
 
-  @media(max-aspect-ratio: 3/5){
-      aspect-ratio: 390 / 185;
-  }
-
-  @media(min-aspect-ratio: 4/5){
+  @media(min-aspect-ratio: 2/3){
       aspect-ratio: 1200 / 323;
   }
     
