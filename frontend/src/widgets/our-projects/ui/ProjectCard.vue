@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import imagePlaceholder from '@/assets/images/image-placeholder.svg'
 import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
 
@@ -10,6 +10,7 @@ const { app } = useRuntimeConfig()
 const baseURL = app?.baseURL ?? '/'
 
 const showPlaceholder = ref(false)
+const resolvedSrc = computed(() => resolveMediaSrc(src, baseURL))
 </script>
 
 <template>
@@ -19,8 +20,8 @@ const showPlaceholder = ref(false)
       :to="`/${locale}/project/${route}`"
     >
       <NuxtImg
-        v-if="!showPlaceholder"
-        :src="resolveMediaSrc(src, baseURL)"
+        v-if="!showPlaceholder && resolvedSrc"
+        :src="resolvedSrc"
         class="img-card"
         sizes="xs:74.36vw sm:74.36vw md:32.5vw lg:33vw xl:33vw xxl:33vw"
         format="webp"

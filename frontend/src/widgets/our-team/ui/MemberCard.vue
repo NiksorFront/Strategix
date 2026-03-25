@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import imagePlaceholder from '@/assets/images/image-vertical-placeholder.svg'
 import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
 
@@ -8,14 +8,15 @@ const { app } = useRuntimeConfig()
 const baseURL = app?.baseURL ?? '/'
 
 const showPlaceholder = ref(false)
+const resolvedSrc = computed(() => resolveMediaSrc(src, baseURL))
 </script>
 
 <template>
   <article class="member-card">
     <NuxtImg
-      v-if="!showPlaceholder"
+      v-if="!showPlaceholder && resolvedSrc"
       class="image-card"
-      :src="resolveMediaSrc(src, baseURL)"
+      :src="resolvedSrc"
       sizes="xs:170px sm:170px md:25vw lg:25vw xl:25vw xxl:25vw"
       format="webp"
       :quality="70"
