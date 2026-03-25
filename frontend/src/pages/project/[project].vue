@@ -86,6 +86,10 @@ const zeroGapSectionKeys = new Set([
   'example-big-video',
 ]);
 
+const nonVisualContentKeys = new Set([
+  'seo',
+]);
+
 const localeContent = computed(() => {
   const translations = projectContent.value?.translations;
   if (!translations) return null;
@@ -104,6 +108,7 @@ const sections = computed<ProjectSection[]>(() => {
   if (!content) return [];
 
   return Object.entries(content)
+    .filter(([key]) => !nonVisualContentKeys.has(key))
     .map(([key, data]) => {
       const baseKey = key.replace(/-\d+$/, '');
       const componentKey = `example-${baseKey}`;
@@ -131,6 +136,11 @@ const siteTranslations = indexContent.translations as Record<string, {
 const normalizeText = (value: unknown) => {
   if (typeof value !== 'string') return '';
   return value.replace(/\s+/g, ' ').trim();
+};
+
+const normalizeImageSrc = (value: unknown) => {
+  if (typeof value !== 'string') return '';
+  return value.trim();
 };
 
 const projectName = computed(() => {
@@ -167,20 +177,40 @@ const seoBrand = computed(() => {
 });
 
 const seoTitle = computed(() => (
-  isNotFound.value
-    ? `Project not found | ${seoBrand.value}`
-    : `${projectName.value} | ${seoBrand.value}`
+  (() => {
+    if (isNotFound.value) return `Project not found | ${seoBrand.value}`;
+
+    const customTitle = normalizeText(localeContent.value?.seo?.title);
+    if (customTitle) return customTitle;
+
+    return `${projectName.value} | ${seoBrand.value}`;
+  })()
 ));
 
 const seoDescription = computed(() => (
-  isNotFound.value
-    ? `Project "${project.value}" was not found.`
-    : projectDescription.value
+  (() => {
+    if (isNotFound.value) return `Project "${project.value}" was not found.`;
+
+    const customDescription = normalizeText(localeContent.value?.seo?.description);
+    if (customDescription) return customDescription;
+
+    return projectDescription.value;
+  })()
 ));
 
 const seoRobots = computed(() => (
   isNotFound.value ? 'noindex, nofollow' : 'index, follow'
 ));
+
+const seoImage = computed(() => {
+  if (isNotFound.value) return undefined;
+
+  const customImage = normalizeImageSrc(localeContent.value?.seo?.src);
+  if (customImage) return customImage;
+
+  const welcomeImage = normalizeImageSrc(localeContent.value?.welcome?.src);
+  return welcomeImage || undefined;
+});
 
 useSeoMeta({
   title: seoTitle,
@@ -188,13 +218,18 @@ useSeoMeta({
   description: seoDescription,
   ogDescription: seoDescription,
   robots: seoRobots,
+  ogImage: seoImage,
+  twitterImage: seoImage,
 });
 </script>
 
 <template>
   <Header theme="light" /> 
   <main class="project-page-main">
-    <NotFound v-if="isNotFound" theme="light" />
+    <NotFound
+      v-if="isNotFound"
+      theme="light"
+    />
     <template v-else>
       <component
         :is="section.component"

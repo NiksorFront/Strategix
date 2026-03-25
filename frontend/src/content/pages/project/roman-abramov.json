@@ -1,8 +1,19 @@
 {
   "id": "roman-abramov",
   "translations": {
-    "en": {},
+    "en": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      }
+    },
     "ru": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      },
       "welcome": {
         "sphere": "Роман Абакумов",
         "name": "Инженер HVAC-систем",
@@ -135,7 +146,19 @@
       },
       "other-projects": true
     },
-    "de": {},
-    "es": {}
+    "de": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      }
+    },
+    "es": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      }
+    }
   }
 }

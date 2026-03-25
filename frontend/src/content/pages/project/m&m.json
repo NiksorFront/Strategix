@@ -1,8 +1,19 @@
 {
   "id": "m&m",
   "translations": {
-    "en": {},
+    "en": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      }
+    },
     "ru": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      },
       "welcome": {
         "sphere": "",
         "name": "M&M DOCUMENT PREPARATION",
@@ -72,7 +83,19 @@
       },
       "other-projects": true
     },
-    "de": {},
-    "es": {}
+    "de": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      }
+    },
+    "es": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      }
+    }
   }
 }

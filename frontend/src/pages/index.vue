@@ -11,6 +11,11 @@ import LeaveRequest from '@/widgets/leave-request';
 import Footer from '@/widgets/footer';
 
 type HomePageContent = {
+  seo?: {
+    title?: string;
+    description?: string;
+    src?: string;
+  };
   welcome?: {
     title?: string;
     subtitle?: string;
@@ -36,22 +41,43 @@ const localeContent = computed(() => (
   {}
 ));
 
+const normalizeText = (value: unknown) => {
+  if (typeof value !== 'string') return '';
+  return value.replace(/\s+/g, ' ').trim();
+};
+
+const normalizeImageSrc = (value: unknown) => {
+  if (typeof value !== 'string') return '';
+  return value.trim();
+};
+
 const seoBrand = computed(() => {
-  const brand = localeContent.value.footer?.brand?.trim();
+  const brand = normalizeText(localeContent.value.footer?.brand);
   return brand || 'STRATEGIX';
 });
 
 const seoTitle = computed(() => {
-  const title = localeContent.value.welcome?.title?.trim();
+  const customTitle = normalizeText(localeContent.value.seo?.title);
+  if (customTitle) return customTitle;
+
+  const title = normalizeText(localeContent.value.welcome?.title);
   return title ? `${title} | ${seoBrand.value}` : seoBrand.value;
 });
 
 const seoDescription = computed(() => {
-  const subtitle = localeContent.value.welcome?.subtitle?.trim();
+  const customDescription = normalizeText(localeContent.value.seo?.description);
+  if (customDescription) return customDescription;
+
+  const subtitle = normalizeText(localeContent.value.welcome?.subtitle);
   if (subtitle) return subtitle;
 
-  const fallbackDescription = localeContent.value.market_response?.description1?.trim();
+  const fallbackDescription = normalizeText(localeContent.value.market_response?.description1);
   return fallbackDescription || 'Strategic reputation marketing for international markets.';
+});
+
+const seoImage = computed(() => {
+  const customImage = normalizeImageSrc(localeContent.value.seo?.src);
+  return customImage || undefined;
 });
 
 useSeoMeta({
@@ -59,6 +85,8 @@ useSeoMeta({
   ogTitle: seoTitle,
   description: seoDescription,
   ogDescription: seoDescription,
+  ogImage: seoImage,
+  twitterImage: seoImage,
 });
 </script>
 

@@ -1,8 +1,19 @@
 {
   "id": "pti-vehicle-inspection",
   "translations": {
-    "en": {},
+    "en": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      }
+    },
     "ru": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      },
       "welcome": {
         "sphere": "ТЕХОСМОТР",
         "name": "PTI",
@@ -62,7 +73,19 @@
       },
       "other-projects": true
     },
-    "de": {},
-    "es": {}
+    "de": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      }
+    },
+    "es": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      }
+    }
   }
 }

@@ -2,6 +2,11 @@
   "id": "index",
   "translations": {
     "ru": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      },
       "about_us": {
         "items": [
           {
@@ -316,6 +321,11 @@
       }
     },
     "en": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      },
       "about_us": {
         "items": [
           {
@@ -631,6 +641,11 @@
       }
     },
     "de": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      },
       "about_us": {
         "items": [
           {
@@ -946,6 +961,11 @@
       }
     },
     "es": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      },
       "about_us": {
         "items": [
           {
@@ -1261,6 +1281,11 @@
       }
     },
     "example": {
+      "seo": {
+        "title": "",
+        "description": "",
+        "src": ""
+      },
       "about_us": {
         "items": [
           {
