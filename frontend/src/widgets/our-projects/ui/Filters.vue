@@ -26,7 +26,7 @@
     aria-label="Фильтр проектов"
   >
     <li
-      v-for="(category, index) in categories"
+      v-for="(category) in categories"
       :key="category"
       class="filter-item"
     >
@@ -127,10 +127,4 @@
 .active{
     opacity: 1 !important;
 }
-
-/* 
-.item:disabled{
-    opacity: 0.6;
-    cursor: default;
-} */
 </style>

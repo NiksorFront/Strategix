@@ -95,7 +95,7 @@
             "description": "Дизайн этикетки для нового продукта, который выходит на немецкий рыночек",
             "src": "/images/bebu.jpg",
             "title": "Bebu",
-            "hidden": false
+            "hidden": true
           },
           "pti-vehicle-inspection": {
             "description": "По заказу Министерства инфраструктуры в Грузии была запущена новая компания PTI",

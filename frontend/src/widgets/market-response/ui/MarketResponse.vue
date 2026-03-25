@@ -27,7 +27,7 @@ const description2 = translations.market_response.description2
   </section>
 </template>
 
-<style scped>
+<style scoped>
 .market-response {
     width: var(--section-width);
     min-height: calc(var(--vh) * 30);

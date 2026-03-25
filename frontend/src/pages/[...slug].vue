@@ -32,7 +32,10 @@ useSeoMeta({
   robots: 'noindex, nofollow',
 });
 
-setResponseStatus(404);
+const requestEvent = useRequestEvent();
+if (requestEvent) {
+  setResponseStatus(requestEvent, 404);
+}
 </script>
 
 <template>

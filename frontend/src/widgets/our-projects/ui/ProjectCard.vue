@@ -70,8 +70,6 @@ const showPlaceholder = ref(false)
 
   transition: all 0.3s;
   overflow: hidden;
-  
-  /* min-width: min(32.5%, 74.36vw); */
 }
 
 .project-card-link{
@@ -85,7 +83,6 @@ const showPlaceholder = ref(false)
 .img-card{
   width: 100%;
   height: 60%;
-  /* height: 68.5%; */
   max-height: calc(var(--vh) * 45.5);
 
   object-fit: cover;
@@ -145,7 +142,6 @@ const showPlaceholder = ref(false)
 }
 
 .project-card:hover .title-card{
-  /* margin: min(8.5%, 3.75vh) 0 0 6%; */
   font-weight: 700;
 }
 
@@ -156,6 +152,5 @@ const showPlaceholder = ref(false)
     width: 75%;
     margin: auto 0 min(7%, calc(var(--vh) * 2.25)) 6%;
   }
-  /* margin: auto 0 min(5%, calc(var(--vh) * 2.25)) 6%; */
 }
 </style>
