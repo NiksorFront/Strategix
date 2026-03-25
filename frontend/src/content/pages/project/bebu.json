@@ -2,18 +2,16 @@
   "id": "bebu",
   "translations": {
     "en": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "ru": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
-      },
       "welcome": {
         "sphere": "ВИНО И КРЕПКИЕ НАПИТКИ",
         "name": "BEBU",
@@ -112,20 +110,34 @@
         "src": "/images/bebu-image-3.jpg",
         "alt": "логотип BEBU 2"
       },
-      "other-projects": true
+      "other-projects": true,
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
+      }
     },
     "de": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "es": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     }
   }

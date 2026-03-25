@@ -2,18 +2,16 @@
   "id": "vyatcheslav-boreiko",
   "translations": {
     "en": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "ru": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
-      },
       "welcome": {
         "sphere": "Вячеслав Борейко",
         "name": "Ресторатор",
@@ -145,20 +143,34 @@
           }
         ]
       },
-      "other-projects": true
+      "other-projects": true,
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
+      }
     },
     "de": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "es": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     }
   }

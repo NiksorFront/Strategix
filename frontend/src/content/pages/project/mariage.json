@@ -2,18 +2,16 @@
   "id": "mariage",
   "translations": {
     "en": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "ru": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
-      },
       "welcome": {
         "sphere": "",
         "name": "MARIAGE",
@@ -135,20 +133,34 @@
         "alt": "2 видео с показа Mariage",
         "autoplay": true
       },
-      "other-projects": true
+      "other-projects": true,
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
+      }
     },
     "de": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "es": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     }
   }

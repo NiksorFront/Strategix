@@ -2,11 +2,6 @@
   "id": "index",
   "translations": {
     "ru": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
-      },
       "about_us": {
         "items": [
           {
@@ -318,14 +313,17 @@
             "text": "WHATSAPP"
           }
         }
+      },
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "en": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
-      },
       "about_us": {
         "items": [
           {
@@ -638,14 +636,17 @@
             "text": "FILL OUT THE FORM"
           }
         }
+      },
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "de": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
-      },
       "about_us": {
         "items": [
           {
@@ -958,14 +959,17 @@
             "text": "WHATSAPP"
           }
         }
+      },
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "es": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
-      },
       "about_us": {
         "items": [
           {
@@ -1278,14 +1282,17 @@
             "text": "WHATSAPP"
           }
         }
+      },
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "example": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
-      },
       "about_us": {
         "items": [
           {
@@ -1597,6 +1604,14 @@
             "text": "текст"
           }
         }
+      },
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     }
   }

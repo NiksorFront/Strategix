@@ -16,6 +16,14 @@ type HomePageContent = {
     description?: string;
     src?: string;
   };
+  page_info?: {
+    seo?: {
+      title?: string;
+      description?: string;
+      src?: string;
+    };
+    src_favicon?: string;
+  };
   welcome?: {
     title?: string;
     subtitle?: string;
@@ -56,8 +64,13 @@ const seoBrand = computed(() => {
   return brand || 'STRATEGIX';
 });
 
+const pageSeo = computed(() => (
+  localeContent.value.page_info?.seo ??
+  localeContent.value.seo
+));
+
 const seoTitle = computed(() => {
-  const customTitle = normalizeText(localeContent.value.seo?.title);
+  const customTitle = normalizeText(pageSeo.value?.title);
   if (customTitle) return customTitle;
 
   const title = normalizeText(localeContent.value.welcome?.title);
@@ -65,7 +78,7 @@ const seoTitle = computed(() => {
 });
 
 const seoDescription = computed(() => {
-  const customDescription = normalizeText(localeContent.value.seo?.description);
+  const customDescription = normalizeText(pageSeo.value?.description);
   if (customDescription) return customDescription;
 
   const subtitle = normalizeText(localeContent.value.welcome?.subtitle);
@@ -76,7 +89,7 @@ const seoDescription = computed(() => {
 });
 
 const seoImage = computed(() => {
-  const customImage = normalizeImageSrc(localeContent.value.seo?.src);
+  const customImage = normalizeImageSrc(pageSeo.value?.src);
   return customImage || undefined;
 });
 

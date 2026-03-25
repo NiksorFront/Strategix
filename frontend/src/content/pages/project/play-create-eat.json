@@ -2,18 +2,16 @@
   "id": "play-create-eat",
   "translations": {
     "en": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "ru": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
-      },
       "welcome": {
         "sphere": "",
         "name": "Play Create Eat",
@@ -82,20 +80,34 @@
           }
         ]
       },
-      "other-projects": true
+      "other-projects": true,
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
+      }
     },
     "de": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "es": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     }
   }

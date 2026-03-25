@@ -2,18 +2,16 @@
   "id": "roman-abramov",
   "translations": {
     "en": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "ru": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
-      },
       "welcome": {
         "sphere": "Роман Абакумов",
         "name": "Инженер HVAC-систем",
@@ -144,20 +142,34 @@
           }
         ]
       },
-      "other-projects": true
+      "other-projects": true,
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
+      }
     },
     "de": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     },
     "es": {
-      "seo": {
-        "title": "",
-        "description": "",
-        "src": ""
+      "page_info": {
+        "seo": {
+          "title": "",
+          "description": "",
+          "src": ""
+        },
+        "src_favicon": ""
       }
     }
   }

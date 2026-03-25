@@ -88,6 +88,7 @@ const zeroGapSectionKeys = new Set([
 
 const nonVisualContentKeys = new Set([
   'seo',
+  'page_info',
 ]);
 
 const localeContent = computed(() => {
@@ -168,6 +169,11 @@ const projectDescription = computed(() => {
   return 'Strategix project case study';
 });
 
+const pageSeo = computed(() => (
+  localeContent.value?.page_info?.seo ??
+  localeContent.value?.seo
+));
+
 const seoBrand = computed(() => {
   const localizedBrand = siteTranslations[currentLocale.value]?.footer?.brand?.trim();
   if (localizedBrand) return localizedBrand;
@@ -180,7 +186,7 @@ const seoTitle = computed(() => (
   (() => {
     if (isNotFound.value) return `Project not found | ${seoBrand.value}`;
 
-    const customTitle = normalizeText(localeContent.value?.seo?.title);
+    const customTitle = normalizeText(pageSeo.value?.title);
     if (customTitle) return customTitle;
 
     return `${projectName.value} | ${seoBrand.value}`;
@@ -191,7 +197,7 @@ const seoDescription = computed(() => (
   (() => {
     if (isNotFound.value) return `Project "${project.value}" was not found.`;
 
-    const customDescription = normalizeText(localeContent.value?.seo?.description);
+    const customDescription = normalizeText(pageSeo.value?.description);
     if (customDescription) return customDescription;
 
     return projectDescription.value;
@@ -205,7 +211,7 @@ const seoRobots = computed(() => (
 const seoImage = computed(() => {
   if (isNotFound.value) return undefined;
 
-  const customImage = normalizeImageSrc(localeContent.value?.seo?.src);
+  const customImage = normalizeImageSrc(pageSeo.value?.src);
   if (customImage) return customImage;
 
   const welcomeImage = normalizeImageSrc(localeContent.value?.welcome?.src);
