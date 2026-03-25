@@ -6,8 +6,8 @@
   import index from '@/content/pages/index.json'
   import projectsContent from '@/content/pages/projects.json'
 
-  type ProjectCase = { src: string; title: string; description: string }
-  type ProjectCardData = ProjectCase & { route: string }
+  type ProjectCase = { src: string; title: string; description: string; hidden?: boolean }
+  type ProjectCardData = { route: string; src: string; title: string; description: string }
   type ProjectLocaleData = { title: string; cases?: Record<string, ProjectCase> }
   type ProjectsContent = Record<string, Record<string, ProjectLocaleData>>
   type ProjectGroupData = { title: string; cards: ProjectCardData[] }
@@ -30,10 +30,16 @@
         const localized = group[localeCode] || group.ru
         if (!localized?.title) return null
 
-        const cards = Object.entries(localized.cases || {}).map(([caseKey, data]) => ({
-          route: caseKey,
-          ...data,
-        }))
+        const cards = Object.entries(localized.cases || {})
+          .map(([caseKey, data]) => ({
+            route: caseKey,
+            src: data.src,
+            title: data.title,
+            description: data.description,
+            hidden: data.hidden === true,
+          }))
+          .filter((item) => !item.hidden)
+          .map(({ hidden: _hidden, ...card }) => card)
 
         return {
           title: localized.title,

@@ -2,6 +2,7 @@
 import type { Component } from 'vue';
 import {getProjectContent} from '@/shared/lib/content/registry';
 import indexContent from '@/content/pages/index.json';
+import projectsContent from '@/content/pages/projects.json';
 
 import Header from '@/widgets/header';
 import ExampleWelcome from '@/widgets/example-welcome';
@@ -33,6 +34,23 @@ const { locale } = useI18n();
 const currentLocale = computed(() => locale.value || 'example');
 
 const projectContent = computed(() => getProjectContent(project.value));
+
+type ProjectCaseMeta = { hidden?: boolean };
+type ProjectLocaleMeta = { cases?: Record<string, ProjectCaseMeta> };
+type ProjectGroupsMeta = Record<string, Record<string, ProjectLocaleMeta>>;
+
+const projectsMeta = (projectsContent.projects || {}) as ProjectGroupsMeta;
+
+const isProjectHidden = (slug: string) => {
+  for (const group of Object.values(projectsMeta)) {
+    for (const localeData of Object.values(group)) {
+      const caseMeta = localeData?.cases?.[slug];
+      if (caseMeta?.hidden === true) return true;
+    }
+  }
+
+  return false;
+};
 
 type ProjectSection = {
   key: string;
@@ -101,7 +119,8 @@ const sections = computed<ProjectSection[]>(() => {
     });
 });
 
-const isNotFound = computed(() => !localeContent.value || sections.value.length === 0);
+const isHiddenProject = computed(() => isProjectHidden(project.value));
+const isNotFound = computed(() => isHiddenProject.value || !localeContent.value || sections.value.length === 0);
 
 const siteTranslations = indexContent.translations as Record<string, {
   footer?: {
