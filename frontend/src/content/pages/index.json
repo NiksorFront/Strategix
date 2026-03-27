@@ -962,11 +962,11 @@
       },
       "page_info": {
         "seo": {
-          "title": "тестим и пестим",
-          "description": "описание стратеджикс",
+          "title": "",
+          "description": "",
           "src": ""
         },
-        "src_favicon": "/favicons/1774615095861-4f8ebfb9-c1f3-4722-9af5-844f3779ab70.png"
+        "src_favicon": ""
       }
     },
     "es": {
