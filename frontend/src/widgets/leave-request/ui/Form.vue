@@ -4,6 +4,7 @@
   import ButtonWithIcon from '@/shared/ui/button-with-icon';
   import index from '@/content/pages/index.json'
   import { postLeaveRequest } from '@/shared/api';
+  import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
   import {
     validateLeaveRequestValues,
     type LeaveRequestFormValues,
@@ -11,11 +12,18 @@
   } from '@/widgets/leave-request/model/validation';
 
   const { locale } = useI18n()
+  const { app } = useRuntimeConfig()
+  const baseURL = app?.baseURL ?? '/'
   const currentLocale = locale.value || 'example'
   const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.example
 
   const formData = translations.leave_request.form
   const agreeData = formData?.agree || {}
+  const resolvedAgreePdfHref = computed(() => {
+    const rawHref = (agreeData.href_pdf || '').trim()
+    if (!rawHref || rawHref === '#') return '#'
+    return resolveMediaSrc(rawHref, baseURL)
+  })
 
   const formValues = ref<LeaveRequestFormValues>({
     name: '',
@@ -42,6 +50,8 @@
     'submit--alert': hasRequiredErrors.value || hasSubmitError.value,
     'submit--loading': isSubmitting.value,
   }))
+  const hasQuestionField = computed(() => (formData?.question ?? '') !== '')
+  const hasQuestion2Field = computed(() => (formData?.question2 ?? '') !== '')
 
   const clearValidationState = () => {
     if (!errors.value.name && !errors.value.phone && !submitError.value && !submitSuccess.value) return
@@ -72,7 +82,13 @@
       successResetTimeout = null
     }
 
-    const { isValid, errors: validationErrors, normalized } = validateLeaveRequestValues(formValues.value)
+    const valuesForSubmit: LeaveRequestFormValues = {
+      ...formValues.value,
+      question: hasQuestionField.value ? formValues.value.question : '',
+      question2: hasQuestion2Field.value ? formValues.value.question2 : '',
+    }
+
+    const { isValid, errors: validationErrors, normalized } = validateLeaveRequestValues(valuesForSubmit)
     errors.value = validationErrors
 
     if (!isValid) return
@@ -91,11 +107,11 @@
         },
         question: {
           text: formData?.question ?? '',
-          response: normalized.question,
+          response: hasQuestionField.value ? normalized.question : '',
         },
         question2: {
           text: formData?.question2 ?? '',
-          response: normalized.question2,
+          response: hasQuestion2Field.value ? normalized.question2 : '',
         },
       })
       if (!response?.['send-data']) {
@@ -173,6 +189,7 @@
         {{ formData.title2 }}
       </label>
       <input
+        v-if="hasQuestionField"
         v-model="formValues.question"
         class="base-text field"
         type="text"
@@ -181,6 +198,7 @@
         @input="clearValidationState"
       >
       <textarea
+        v-if="hasQuestion2Field"
         id="leave-request-question2"
         v-model="formValues.question2"
         class="base-text field textarea"
@@ -223,7 +241,7 @@
         </ButtonWithIcon>
         <p class="base-text agree">
           {{ agreeData.text }} <a
-            :href="agreeData.href_pdf || '#'"
+            :href="resolvedAgreePdfHref"
             class="hover"
           >{{ agreeData.link }}</a>
         </p>

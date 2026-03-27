@@ -6,10 +6,13 @@
   import NavigationMenu from "./NavigationMenu.vue";
   import NavigationMenuMobile from "./NavigationMenuMobile.vue";
   import index from '@/content/pages/index.json'
+  import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
 
   const { locale } = useI18n()
   const localePath = useLocalePath()
   const route = useRoute()
+  const { app } = useRuntimeConfig()
+  const baseURL = app?.baseURL ?? '/'
   const currentLocale = locale.value || 'example'
   const translations = index.translations[currentLocale as keyof typeof index.translations] || index.translations.example
 
@@ -25,11 +28,21 @@
     return normalized || '/'
   }
 
-  const homePath = computed(() => localePath('/'))
-  const isIndexPage = computed(() => normalizePath(route.path) === normalizePath(homePath.value))
+  const resolveInternalHref = (href: string) => {
+    const raw = href.trim()
+    if (!raw || raw === '#') return '#'
+    if (/^(https?:)?\/\//i.test(raw) || raw.startsWith('mailto:') || raw.startsWith('tel:')) {
+      return raw
+    }
+    return resolveMediaSrc(raw, baseURL)
+  }
+
+  const homeRoutePath = computed(() => localePath('/'))
+  const homePath = computed(() => resolveInternalHref(homeRoutePath.value))
+  const isIndexPage = computed(() => normalizePath(route.path) === normalizePath(homeRoutePath.value))
   const resolveHeaderHref = (href: string) => {
     if (!href.startsWith('#')) {
-      return href
+      return resolveInternalHref(href)
     }
 
     if (isIndexPage.value) {

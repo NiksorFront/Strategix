@@ -16,7 +16,11 @@ const translations = index.translations[currentLocale as keyof typeof index.tran
 const brand = translations.footer.brand
 const rights = translations.footer.rights
 const privacyPolicy = translations.footer.privacy_policy
-const privacyPolicyLink = privacyPolicy.href_pdf || '#'
+const resolvedPrivacyPolicyLink = computed(() => {
+  const rawHref = (privacyPolicy.href_pdf || '').trim()
+  if (!rawHref || rawHref === '#') return '#'
+  return resolveMediaSrc(rawHref, baseURL)
+})
 const email = translations.footer.email
 
 const normalizeIconSrc = (src?: string) => {
@@ -43,8 +47,9 @@ const normalizePath = (path: string) => {
   return normalized || '/'
 }
 
-const homePath = computed(() => localePath('/'))
-const isIndexPage = computed(() => normalizePath(route.path) === normalizePath(homePath.value))
+const homeRoutePath = computed(() => localePath('/'))
+const homePath = computed(() => resolveMediaSrc(homeRoutePath.value, baseURL))
+const isIndexPage = computed(() => normalizePath(route.path) === normalizePath(homeRoutePath.value))
 
 const formattedPrivacyPolicyText = computed(() => {
   const text = privacyPolicy.text || ''
@@ -93,7 +98,7 @@ const showPlaceholderIcon = ref<Record<number, boolean>>({})
       </div>
 
       <a
-        :href="privacyPolicyLink"
+        :href="resolvedPrivacyPolicyLink"
         class="base-text policy hover"
       >
         {{ formattedPrivacyPolicyText }}
