@@ -641,7 +641,7 @@
         "seo": {
           "title": "",
           "description": "",
-          "src": "/images/1774614764971-4665e0e6-e544-4ea2-a18b-48152f27963a.jpg"
+          "src": ""
         },
         "src_favicon": ""
       }
@@ -962,11 +962,11 @@
       },
       "page_info": {
         "seo": {
-          "title": "",
-          "description": "",
+          "title": "тестим и пестим",
+          "description": "описание стратеджикс",
           "src": ""
         },
-        "src_favicon": ""
+        "src_favicon": "/favicons/1774615095861-4f8ebfb9-c1f3-4722-9af5-844f3779ab70.png"
       }
     },
     "es": {
