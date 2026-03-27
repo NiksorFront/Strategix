@@ -1,9 +1,10 @@
 <script setup lang="ts">
   import { onMounted, onBeforeUnmount } from 'vue';
-  import { useHead } from '#imports';
+  import { useHead, useRuntimeConfig } from '#imports';
   import { useLocaleHead } from '#i18n';
   import indexContent from '@/content/pages/index.json';
   import { getProjectContent } from '@/shared/lib/content/registry';
+  import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc';
 
   type PageInfo = {
     src_favicon?: string;
@@ -22,6 +23,8 @@
 
   const route = useRoute();
   const { locale } = useI18n();
+  const { app } = useRuntimeConfig();
+  const baseURL = app?.baseURL ?? '/';
   const currentLocale = computed(() => locale.value || 'ru');
 
   const normalizeFaviconSrc = (value: unknown) => {
@@ -36,10 +39,6 @@
 
     return `/${source}`;
   };
-
-  const forcePngFavicon = (value: string) => (
-    value.replace(/\.ico(\?.*)?$/i, '.png$1')
-  );
 
   const homeTranslations = indexContent.translations as Record<string, TranslationWithPageInfo>;
 
@@ -71,20 +70,34 @@
     );
   });
 
+  const defaultPngFaviconHref = computed(() => (
+    resolveMediaSrc('/favicon.png', baseURL)
+  ));
+
+  const defaultIcoFaviconHref = computed(() => (
+    resolveMediaSrc('/favicon.ico', baseURL)
+  ));
+
   const faviconHref = computed(() => {
     const projectFavicon = normalizeFaviconSrc(projectLocaleContent.value?.page_info?.src_favicon);
-    if (projectFavicon) return forcePngFavicon(projectFavicon);
+    if (projectFavicon) return resolveMediaSrc(projectFavicon, baseURL);
 
     const homeFavicon = normalizeFaviconSrc(homeLocaleContent.value.page_info?.src_favicon);
-    if (homeFavicon) return forcePngFavicon(homeFavicon);
+    if (homeFavicon) return resolveMediaSrc(homeFavicon, baseURL);
 
-    return '/favicon.png';
+    return defaultPngFaviconHref.value;
   });
 
   const faviconVersionedHref = computed(() => (
     `${faviconHref.value}${faviconHref.value.includes('?') ? '&' : '?'}v=20260326`
   ));
-  const defaultFaviconVersionedHref = '/favicon.png?v=20260326';
+  const defaultPngFaviconVersionedHref = computed(() => (
+    `${defaultPngFaviconHref.value}${defaultPngFaviconHref.value.includes('?') ? '&' : '?'}v=20260326`
+  ));
+
+  const defaultIcoFaviconVersionedHref = computed(() => (
+    `${defaultIcoFaviconHref.value}${defaultIcoFaviconHref.value.includes('?') ? '&' : '?'}v=20260326`
+  ));
 
   useHead(head);
   useHead(() => ({
@@ -92,20 +105,19 @@
       {
         key: 'favicon',
         rel: 'icon',
-        type: 'image/png',
         href: faviconVersionedHref.value,
       },
       {
         key: 'shortcut-favicon',
         rel: 'shortcut icon',
-        type: 'image/png',
-        href: faviconVersionedHref.value,
+        type: 'image/x-icon',
+        href: defaultIcoFaviconVersionedHref.value,
       },
       {
-        key: 'favicon-legacy',
+        key: 'favicon-png-fallback',
         rel: 'icon',
         type: 'image/png',
-        href: defaultFaviconVersionedHref,
+        href: defaultPngFaviconVersionedHref.value,
       },
     ],
   }));

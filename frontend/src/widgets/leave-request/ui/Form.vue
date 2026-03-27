@@ -242,6 +242,8 @@
         <p class="base-text agree">
           {{ agreeData.text }} <a
             :href="resolvedAgreePdfHref"
+            target="_blank"
+            rel="noopener"
             class="hover"
           >{{ agreeData.link }}</a>
         </p>

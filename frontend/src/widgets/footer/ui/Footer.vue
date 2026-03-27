@@ -99,6 +99,8 @@ const showPlaceholderIcon = ref<Record<number, boolean>>({})
 
       <a
         :href="resolvedPrivacyPolicyLink"
+        target="_blank"
+        rel="noopener"
         class="base-text policy hover"
       >
         {{ formattedPrivacyPolicyText }}
