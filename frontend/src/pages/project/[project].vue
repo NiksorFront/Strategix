@@ -24,8 +24,11 @@ import ExampleInfo from '@/widgets/example-info';
 import ExampleOtherProjects from '@/widgets/example-other-projects';
 import Footer from '@/widgets/footer';
 import NotFound from '@/widgets/not-found';
+import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc';
 
 const route = useRoute();
+const { app } = useRuntimeConfig();
+const baseURL = app?.baseURL ?? '/';
 
 // slug из урла
 const project = computed(() => route.params.project as string);
@@ -212,10 +215,12 @@ const seoImage = computed(() => {
   if (isNotFound.value) return undefined;
 
   const customImage = normalizeImageSrc(pageSeo.value?.src);
-  if (customImage) return customImage;
+  if (customImage) return resolveMediaSrc(customImage, baseURL) || undefined;
 
   const welcomeImage = normalizeImageSrc(localeContent.value?.welcome?.src);
-  return welcomeImage || undefined;
+  if (!welcomeImage) return undefined;
+
+  return resolveMediaSrc(welcomeImage, baseURL) || undefined;
 });
 
 useSeoMeta({

@@ -9,6 +9,7 @@ import MarketResponse from '@/widgets/market-response';
 import OurTeam from '@/widgets/our-team';
 import LeaveRequest from '@/widgets/leave-request';
 import Footer from '@/widgets/footer';
+import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc';
 
 type HomePageContent = {
   seo?: {
@@ -37,7 +38,9 @@ type HomePageContent = {
 };
 
 const { locale } = useI18n();
+const { app } = useRuntimeConfig();
 const currentLocale = computed(() => locale.value || 'ru');
+const baseURL = app?.baseURL ?? '/';
 
 const homeTranslations = indexContent.translations as Record<string, HomePageContent>;
 
@@ -90,7 +93,9 @@ const seoDescription = computed(() => {
 
 const seoImage = computed(() => {
   const customImage = normalizeImageSrc(pageSeo.value?.src);
-  return customImage || undefined;
+  if (!customImage) return undefined;
+
+  return resolveMediaSrc(customImage, baseURL) || undefined;
 });
 
 useSeoMeta({
