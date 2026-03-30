@@ -4,6 +4,12 @@
     "group1": {
       "de": {
         "cases": {
+          "touch": {
+            "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben",
+            "src": "",
+            "title": "touch",
+            "hidden": false
+          },
           "bebu": {
             "description": "",
             "src": "",
@@ -20,12 +26,6 @@
             "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben",
             "src": "",
             "title": "toba",
-            "hidden": false
-          },
-          "touch": {
-            "description": "Wie wir einen russischen Backup-Software-Entwickler zum Nachrichtenmacher gemacht haben",
-            "src": "",
-            "title": "touch",
             "hidden": false
           }
         },
@@ -33,6 +33,12 @@
       },
       "en": {
         "cases": {
+          "touch": {
+            "description": "How we made a Russian backup software developer a newsmaker",
+            "src": "",
+            "title": "touch",
+            "hidden": false
+          },
           "bebu": {
             "description": "",
             "src": "",
@@ -50,18 +56,18 @@
             "src": "",
             "title": "toba",
             "hidden": false
-          },
-          "touch": {
-            "description": "How we made a Russian backup software developer a newsmaker",
-            "src": "",
-            "title": "touch",
-            "hidden": false
           }
         },
         "title": "Branding"
       },
       "es": {
         "cases": {
+          "touch": {
+            "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia",
+            "src": "",
+            "title": "touch",
+            "hidden": false
+          },
           "bebu": {
             "description": "BEBU es cultura georgiana",
             "src": "",
@@ -79,18 +85,18 @@
             "src": "",
             "title": "toba",
             "hidden": false
-          },
-          "touch": {
-            "description": "Cómo convertimos a un desarrollador ruso de software de respaldo en noticia",
-            "src": "",
-            "title": "touch",
-            "hidden": false
           }
         },
         "title": "Branding"
       },
       "ru": {
         "cases": {
+          "touch": {
+            "description": "Дизайн-концепция для крупнейшей технологическая конференция в Грузии",
+            "src": "/images/touch.jpg",
+            "title": "Touch",
+            "hidden": false
+          },
           "bebu": {
             "description": "Дизайн этикетки для нового продукта, который выходит на немецкий рыночек",
             "src": "/images/bebu.jpg",
@@ -107,12 +113,6 @@
             "description": "Грузинское вино, разработанное для европейского рынка",
             "src": "/images/toba.jpg",
             "title": "TOBA",
-            "hidden": false
-          },
-          "touch": {
-            "description": "Дизайн-концепция для крупнейшей технологическая конференция в Грузии",
-            "src": "/images/touch.jpg",
-            "title": "Touch",
             "hidden": false
           }
         },
@@ -279,6 +279,18 @@
             "src": "",
             "title": "Vyatcheslav Boreiko",
             "hidden": false
+          },
+          "ivan-dyagterev": {
+            "description": "Ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhielt, ein Restaurant in Kalifornien zu eröffnen",
+            "src": "",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
+          },
+          "ekaterina-talalaeva": {
+            "description": "Ein Restaurateur, der in den US-Markt eingetreten ist und ein Angebot erhielt, ein Restaurant in Kalifornien zu eröffnen",
+            "src": "",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
           }
         },
         "title": "Reputationsaufbau"
@@ -298,6 +310,18 @@
             "hidden": false
           },
           "evgeniya-kormina": {
+            "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California",
+            "src": "",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
+          },
+          "ivan-dyagterev": {
+            "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California",
+            "src": "",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
+          },
+          "ekaterina-talalaeva": {
             "description": "A restaurateur who entered the US market and received an offer to open a restaurant in California",
             "src": "",
             "title": "Vyatcheslav Boreiko",
@@ -325,6 +349,18 @@
             "src": "",
             "title": "Vyatcheslav Boreiko",
             "hidden": false
+          },
+          "ivan-dyagterev": {
+            "description": "Un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California",
+            "src": "",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
+          },
+          "ekaterina-talalaeva": {
+            "description": "Un restaurador que ingresó al mercado estadounidense y recibió una oferta para abrir un restaurante en California",
+            "src": "",
+            "title": "Vyatcheslav Boreiko",
+            "hidden": false
           }
         },
         "title": "Construcción de Reputación"
@@ -347,6 +383,18 @@
             "description": "Медиа в США и победа в международном конкурсе",
             "src": "/images/1773999690109-4a0cada5-2771-4574-89ad-5f5685333421.png",
             "title": "Евгения Кормина",
+            "hidden": false
+          },
+          "ivan-dyagterev": {
+            "description": "Медийное усиление и 50+ упоминаний в СМИ",
+            "src": "/images/1774784128616-840ccfe1-adb8-46ac-9707-e0ce60b83eca.png",
+            "title": "Иван Дягтерев",
+            "hidden": false
+          },
+          "ekaterina-talalaeva": {
+            "description": "Медийное усиление и 50+ упоминаний в СМИ",
+            "src": "/images/1774784476189-410dd7f6-34be-4b6a-8ee0-b73d1c0efccf.png",
+            "title": "Екатерина Талалаева",
             "hidden": false
           }
         },
