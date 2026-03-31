@@ -230,7 +230,11 @@ useSeoMeta({
   ogDescription: seoDescription,
   robots: seoRobots,
   ogImage: seoImage,
+  
+  twitterTitle: seoTitle,
+  twitterDescription: seoDescription,
   twitterImage: seoImage,
+  twitterCard: 'summary_large_image',
 });
 </script>
 

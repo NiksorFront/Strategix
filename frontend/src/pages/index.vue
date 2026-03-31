@@ -104,7 +104,11 @@ useSeoMeta({
   description: seoDescription,
   ogDescription: seoDescription,
   ogImage: seoImage,
+
+  twitterTitle: seoTitle,
+  twitterDescription: seoDescription,
   twitterImage: seoImage,
+  twitterCard: 'summary_large_image',
 });
 </script>
 
