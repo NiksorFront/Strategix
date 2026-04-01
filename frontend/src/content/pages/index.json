@@ -359,9 +359,9 @@
         ],
         "privacy_policy": {
           "href_pdf": "/pdf/privacy-policy_en.pdf",
-          "text": "PRIVACY\nPOLICY"
+          "text": "PRIVACY POLICY"
         },
-        "rights": "© 2022–2025 ALL RIGHTS RESERVED"
+        "rights": "© 2022–2026 ALL RIGHTS RESERVED"
       },
       "header": {
         "button": {
@@ -491,39 +491,39 @@
         "members": [
           {
             "lastname": "Krasnoslobodtseva",
-            "name": "Lyubov",
-            "position": "CEO, Head of PR",
-            "src": ""
-          },
-          {
-            "lastname": "Buchnikova",
-            "name": "Katenka",
-            "position": "PR, Media",
-            "src": ""
-          },
-          {
-            "lastname": "Anisimova",
-            "name": "Ekaterina",
-            "position": "Digital Marketing",
-            "src": ""
+            "name": "Liubov",
+            "position": "CEO",
+            "src": "/images/1775072982837-256c4bf6-7030-4158-ba9d-e8623034ebeb.png"
           },
           {
             "lastname": "Zhukov",
             "name": "Evgeny",
             "position": "Chief Operating Officer",
-            "src": ""
+            "src": "/images/1775072598727-4423b56d-aa3a-4c95-bbb6-d90f4fd26df3.png"
+          },
+          {
+            "lastname": "Buchnikova",
+            "name": "Katherine",
+            "position": "Head of PR",
+            "src": "/images/1775072561958-60958dd7-3976-490a-8922-36e678bc31f7.png"
           },
           {
             "lastname": "Zamotayeva",
             "name": "Elizaveta",
             "position": "Chief Financial Officer",
-            "src": ""
+            "src": "/images/1775072933559-4bda3b76-d63c-45f6-ae2d-8084de9fedd5.png"
+          },
+          {
+            "lastname": "Anisimova",
+            "name": "Ekaterina",
+            "position": "Digital Marketing",
+            "src": "/images/1775073002429-64ae3862-d42e-4b9d-a7f5-09d2e6a94838.jpg"
           },
           {
             "lastname": "Poderskaya",
             "name": "Vera",
             "position": "Head of Design",
-            "src": ""
+            "src": "/images/1775072964550-4f51371f-3299-475d-9aac-8f44042ed255.png"
           }
         ]
       },
@@ -684,7 +684,7 @@
           "href_pdf": "./privacy-policy.pdf",
           "text": "DATENSCHUTZ\nRICHTLINIE"
         },
-        "rights": "© 2022–2025 ALLE RECHTE VORBEHALTEN"
+        "rights": "© 2022–2026 ALLE RECHTE VORBEHALTEN"
       },
       "header": {
         "button": {
@@ -703,7 +703,7 @@
             },
             {
               "href": "#services",
-              "text": "Dienstleistungen"
+              "text": "Service"
             },
             {
               "href": "#our-projects",
@@ -814,39 +814,39 @@
         "members": [
           {
             "lastname": "Krasnoslobodtseva",
-            "name": "Lyubov",
-            "position": "CEO, Leiterin PR",
-            "src": ""
-          },
-          {
-            "lastname": "Buchnikova",
-            "name": "Katenka",
-            "position": "PR, Medien",
-            "src": ""
+            "name": "Liubov",
+            "position": "CEO",
+            "src": "/images/1775073426361-308e37fa-0f13-4a4d-be4f-582d97c937aa.png"
           },
           {
             "lastname": "Zhukov",
             "name": "Evgeny",
             "position": "Operativer Direktor",
-            "src": ""
+            "src": "/images/1775073557344-7fea755b-19fe-42c6-8ed3-b67eddbd13dc.png"
           },
           {
-            "lastname": "Anisimova",
-            "name": "Ekaterina",
-            "position": "Digitales Marketing",
-            "src": ""
+            "lastname": "Buchnikova",
+            "name": "Katherine",
+            "position": " Leiterin PR",
+            "src": "/images/1775073524236-bac17bfb-c1bf-479f-a2da-ceabec0aac3e.png"
           },
           {
             "lastname": "Zamotayeva",
             "name": "Elizaveta",
             "position": "Finanzdirektorin",
-            "src": ""
+            "src": "/images/1775073602597-62bfeae7-3a71-4dc3-af60-1beea7854f9a.png"
+          },
+          {
+            "lastname": "Anisimova",
+            "name": "Ekaterina",
+            "position": "Digitales Marketing",
+            "src": "/images/1775073582471-f288aa79-4f5c-4d5f-8322-175b15194a5c.png"
           },
           {
             "lastname": "Poderskaya",
             "name": "Vera",
             "position": "Leiterin Design",
-            "src": ""
+            "src": "/images/1775073616934-84c99577-2c94-4686-971b-3280f845bef8.png"
           }
         ]
       },
@@ -1022,7 +1022,7 @@
           "navigation_mobile": [
             {
               "href": "#about-us",
-              "text": "Sobre Nosotros"
+              "text": "Nosotros"
             },
             {
               "href": "#services",
@@ -1045,7 +1045,7 @@
           },
           {
             "href": "#about-us",
-            "text": "Sobre Nosotros"
+            "text": "Nosotros"
           },
           {
             "href": "#contacts",
@@ -1137,39 +1137,39 @@
         "members": [
           {
             "lastname": "Krasnoslobodtseva",
-            "name": "Lyubov",
-            "position": "CEO, Directora de RRPP",
-            "src": ""
-          },
-          {
-            "lastname": "Buchnikova",
-            "name": "Katenka",
-            "position": "PR, Medios",
-            "src": ""
+            "name": "Liubov",
+            "position": "CEO",
+            "src": "/images/1775073826169-0f784310-060d-4cb2-ba28-a4bb89b259b5.png"
           },
           {
             "lastname": "Zhukov",
             "name": "Evgeny",
             "position": "Director de Operaciones",
-            "src": ""
+            "src": "/images/1775073889662-2d61c725-16ea-46b3-8ad7-ef5b5301bd47.png"
           },
           {
-            "lastname": "Anisimova",
-            "name": "Ekaterina",
-            "position": "Marketing Digital",
-            "src": ""
+            "lastname": "Buchnikova",
+            "name": "Katherine",
+            "position": "Directora de RRPP",
+            "src": "/images/1775073875051-2d59459f-8e32-4cc1-a522-9eaa67879faf.png"
           },
           {
             "lastname": "Zamotayeva",
             "name": "Elizaveta",
             "position": "Directora Financiera",
-            "src": ""
+            "src": "/images/1775073915385-9c761277-e3f6-4c94-9a53-5a476316495d.png"
+          },
+          {
+            "lastname": "Anisimova",
+            "name": "Ekaterina",
+            "position": "Marketing Digital",
+            "src": "/images/1775073904157-e2af8e71-55cf-4ecc-aaa8-04cee73cd52e.png"
           },
           {
             "lastname": "Poderskaya",
             "name": "Vera",
             "position": "Directora de Diseño",
-            "src": ""
+            "src": "/images/1775073934665-7abcde9f-a6c9-46fb-8d27-af957f558c09.png"
           }
         ]
       },
