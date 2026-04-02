@@ -11,73 +11,70 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Евгения Кормина",
-        "name": "Психолог",
+        "sphere": "Evgeniya Kormina",
+        "name": "Psychologist",
         "src": "/images/1775162729709-61918bec-5c22-4269-bd74-0c69dcb8a0b9.png",
         "autoplay": true,
         "description": [
-          "Евгения Кормина — психолог, работающая с предпринимателями и помогающая клиентам справляться с внутренними барьерами, профессиональным напряжением и задачами личной эффективности."
+          "Evgeniya Kormina is a psychologist working with entrepreneurs, helping them overcome internal barriers, navigate professional pressure, and unlock higher levels of performance and income."
         ],
         "about": [
           {
-            "label": "Сектор",
-            "value": "Личное продвижение"
+            "label": "Sector",
+            "value": "Personal Branding"
           },
           {
-            "label": "Клиент",
-            "value": "Евгения Кормина"
+            "label": "Client",
+            "value": "Evgeniya Kormina"
           },
           {
-            "label": "Страна",
-            "value": "Россия"
-          },
-          {
-            "label": "Рынок",
-            "value": "США"
+            "label": "Market",
+            "value": "USA"
           }
         ]
       },
       "tasks": {
-        "title": "Задача клиента",
+        "title": "THE BRIEF",
         "description": [
-          "Наша задача заключалась в усилении личного бренда клиента через системное экспертное позиционирование на международном уровне.\n\nК моменту начала работы у клиента уже была устойчивая профессиональная база: более 20 лет практики в сфере помощи людям, частная практика и собственные образовательные программы. Однако этот опыт не был в полной мере конвертирован в узнаваемость и профессиональный вес на рынке США."
+          "\n\nOur goal was to strengthen the client’s personal brand through a structured expert positioning strategy on the international market.\n\nAt the start of the project, the client already had a strong professional foundation: over 20 years of experience helping people, a private practice, and proprietary educational programs. ",
+          "However, this expertise had not yet been fully translated into visibility and professional recognition in the U.S. market:"
         ],
         "lists": [
           {
             "src": "/images/1775162729707-350f2764-f4c8-482b-8129-e572c3dd3c71.png",
-            "description": "Усилить личный бренд клиента через системное экспертное позиционирование",
+            "description": "Strengthen the client’s personal brand through structured expert positioning",
             "background": "#FFFFFF",
             "border": false
           },
           {
             "src": "/images/1775162729708-aa4132b2-c784-4f01-937a-dd040884fd76.png",
-            "description": "Повысить узнаваемость и доверие среди профессиональной аудитории США",
+            "description": "Increase visibility and trust among a professional audience in the U.S.",
             "background": "#2AB464",
             "border": false
           },
           {
             "src": "/images/1775162729709-10b62684-b49a-4bdf-8576-31a18c2a6575.png",
-            "description": "Сформировать публичный профиль под критерии визы талантов в США",
+            "description": "Build a public profile aligned with U.S. talent visa criteria",
             "background": "",
             "border": true
           },
           {
             "src": "/images/1775162729709-ebeb14f9-54e9-4b17-a252-4c5e18d4d674.png",
-            "description": "Упаковать и продвинуть авторские психологические методики",
+            "description": "Structure and promote original psychological methods",
             "background": "#FFFFFF",
             "border": false
           }
         ]
       },
       "strategies": {
-        "title": "Какую стратегию мы предложили",
-        "subtitle": "Мы разработали комплексную стратегию продвижения, которая включала:",
+        "title": "OUR STRATEGY",
+        "subtitle": "We developed a comprehensive promotion strategy that included:",
         "lists": [
           {
-            "title": "Позиционирование",
+            "title": "POSITIONING",
             "bullets": [
-              "Мы начали с пересборки позиционирования клиента под требования и запросы американского рынка. При широкой экспертизе Евгении важно было сузить и сфокусировать профиль: от общего психологического консультирования — к работе на стыке психологии и бизнеса. ",
-              "В коммуникации сделали акцент на том, что клиент помогает предпринимателям и специалистам выходить на новый уровень дохода, достигать финансовой независимости и системно выстраивать мышление для роста."
+              "We began by redefining the client’s positioning to align with the expectations and demands of the U.S. market. Given Evgeniya’s broad expertise, it was essential to narrow the focus — shifting from general psychological consulting to working at the intersection of psychology and business.",
+              "In communications, we emphasized that the client helps entrepreneurs and professionals reach new levels of income, achieve financial independence, and systematically develop a growth mindset."
             ],
             "src": "/images/1775162729710-a8dde1aa-1618-40b0-8640-9eac1681598c.png",
             "location": "right",
