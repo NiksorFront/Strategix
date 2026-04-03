@@ -82,10 +82,11 @@
             "border": false
           },
           {
-            "title": "Авторская методика",
+            "title": "AUTHOR-DEVELOPED METHODS",
             "bullets": [
-              "Параллельно провели анализ запросов аудитории в США, чтобы адаптировать подачу и тематику под локальный рынок. Для усиления доверия сделали упор на научную составляющую и авторскую методику: сопроводили подготовку и публикацию научных статей, а также оформление методологической базы.",
-              "Выстроили стратегию профессионального позиционирования с акцентом на инженерную экспертизу и практический вклад в отрасль. Сформировали\nструктуру достижений и опыта, релевантную международной профессиональной среде."
+              "We analyzed demand in the U.S. market to align content and topics with audience expectations.",
+              "To strengthen credibility, we focused on the scientific foundation and her author-developed methods: supported academic publications and structured her methodology into a clear, professional framework.структуру достижений и опыта, релевантную международной профессиональной среде.",
+              "We also shaped a strong professional profile, highlighting real-world impact and presenting her experience in a way that resonates with an international audience."
             ],
             "src": "",
             "location": "right",
@@ -93,10 +94,9 @@
             "border": true
           },
           {
-            "title": "Медийное присутствие",
+            "title": "MEDIA PRESENCE",
             "bullets": [
-              "Дополнительно выстроили медийное присутствие: обеспечили публикации в СМИ, интеграцию в профессиональное сообщество и закрепили экспертный статус через регулярные комментарии и материалы.",
-              "Сопроводили процесс участия и оформления материалов. Роман стал победителем в номинации\n«Достижения в области инженерии: потребительские услуги»."
+              "We built a consistent media presence by securing publications, integrating the client into the professional community, and reinforcing her expert status through regular commentary and features."
             ],
             "src": "/images/1775162729710-917774a1-6eff-4d55-8741-c2d65317fc04.png",
             "location": "left",
@@ -106,30 +106,30 @@
         ]
       },
       "results-blocks": {
-        "title": "Результат",
-        "subtitle": "Работа заняла несколько месяцев и привела к изменениям в профессиональной траектории клиента:",
+        "title": "RESULTS",
+        "subtitle": "The project lasted several months and led to measurable shifts in the client’s professional trajectory:",
         "blocks": [
           {
-            "title": "МЕЖДУНАРОДНОЕ ПОЗИЦИОНИРОВАНИЕ",
-            "description": "Пересобранное позиционирование на стыке психологии и бизнеса позволило четко упаковать экспертизу клиента для рынка США и сделать профиль релевантным запросам международной аудитории.",
+            "title": "INTERNATIONAL POSITIONING",
+            "description": "Refined positioning at the intersection of psychology and business made the client’s expertise clearly defined for the U.S. market and aligned with the expectations of an international audience.",
             "background": "#2AB464",
             "border": false
           },
           {
-            "title": "МЕДИЙНОЕ ПРИСУТСТВИЕ В США И СНГ",
-            "description": "Публикации в СМИ и экспертные комментарии обеспечили рост узнаваемости среди целевой аудитории и закрепили образ клиента как практикующего эксперта с прикладной ценностью.",
+            "title": "MEDIA PRESENCE IN THE U.S. AND CIS",
+            "description": "Media features and expert commentary increased visibility among the target audience and established the client as a practitioner with real-world impact.",
             "background": "#FFFFFF",
             "border": false
           },
           {
-            "title": "УСИЛЕНИЕ ЭКСПЕРТНОГО ПРОФИЛЯ",
-            "description": "Научные статьи, оформление авторской методики и интеграция в профессиональное сообщество укрепили доверие и системно усилили экспертную репутацию.",
+            "title": "ENHANCED EXPERT PROFILE",
+            "description": "Academic publications, formalized methodology, and integration into the professional community strengthened credibility and reinforced her expert reputation.",
             "background": "transparent",
             "border": true
           },
           {
-            "title": "ПОДГОТОВКА ПОД ВИЗОВЫЕ КРИТЕРИИ США",
-            "description": "Все элементы публичного профиля были выстроены с учетом требований визы талантов, что усилило доказательную базу и стратегическую ценность кейса.",
+            "title": "ALIGNMENT WITH U.S. VISA CRITERIA",
+            "description": "All elements of the public profile were structured in line with talent visa requirements, strengthening the evidence base and the overall strategic value of the case.",
             "background": "#2AB464",
             "border": false
           }
@@ -226,8 +226,7 @@
           {
             "title": "Медийное присутствие",
             "bullets": [
-              "Дополнительно выстроили медийное присутствие: обеспечили публикации в СМИ, интеграцию в профессиональное сообщество и закрепили экспертный статус через регулярные комментарии и материалы.",
-              "Сопроводили процесс участия и оформления материалов. Роман стал победителем в номинации\n«Достижения в области инженерии: потребительские услуги»."
+              "Дополнительно выстроили медийное присутствие: обеспечили публикации в СМИ, интеграцию в профессиональное сообщество и закрепили экспертный статус через регулярные комментарии и материалы."
             ],
             "src": "/images/1775162709015-9a6d7986-8b29-460d-835e-85b0aeb26247.png",
             "location": "left",
@@ -286,73 +285,70 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Евгения Кормина",
-        "name": "Психолог",
+        "sphere": "Evgeniya Kormina",
+        "name": "Psychologin",
         "src": "/images/1775162729725-d46d61c2-bede-4d3d-a2a5-86e154e536b1.png",
         "autoplay": true,
         "description": [
-          "Евгения Кормина — психолог, работающая с предпринимателями и помогающая клиентам справляться с внутренними барьерами, профессиональным напряжением и задачами личной эффективности."
+          "Evgeniya Kormina ist Psychologin und arbeitet mit Unternehmern. Sie unterstützt ihre Klienten dabei, innere Blockaden zu überwinden, mit beruflichem Druck umzugehen und ihr Leistungsniveau gezielt zu steigern."
         ],
         "about": [
           {
-            "label": "Сектор",
-            "value": "Личное продвижение"
+            "label": "Branche",
+            "value": "Personal Branding"
           },
           {
-            "label": "Клиент",
-            "value": "Евгения Кормина"
+            "label": "Kundin",
+            "value": "Evgeniya Kormina"
           },
           {
-            "label": "Страна",
-            "value": "Россия"
-          },
-          {
-            "label": "Рынок",
-            "value": "США"
+            "label": "Markt",
+            "value": "USA"
           }
         ]
       },
       "tasks": {
-        "title": "Задача клиента",
+        "title": "PROJEKTZIEL",
         "description": [
-          "Наша задача заключалась в усилении личного бренда клиента через системное экспертное позиционирование на международном уровне.\n\nК моменту начала работы у клиента уже была устойчивая профессиональная база: более 20 лет практики в сфере помощи людям, частная практика и собственные образовательные программы. Однако этот опыт не был в полной мере конвертирован в узнаваемость и профессиональный вес на рынке США."
+          "Unser Ziel war es, die persönliche Marke der Kundin durch eine strukturierte Expertenpositionierung auf internationaler Ebene zu stärken.",
+          "Zu Beginn der Zusammenarbeit verfügte die Kundin bereits über eine solide berufliche Basis: mehr als 20 Jahre Erfahrung in der Arbeit mit Menschen, eine eigene Praxis sowie eigene Bildungsprogramme. Dieses Potenzial war jedoch auf dem US-Markt noch nicht vollständig in Sichtbarkeit und professionelle Anerkennung übersetzt worden."
         ],
         "lists": [
           {
             "src": "/images/1775162729724-57b1d7ea-0344-4fc9-8979-9fdb41206970.png",
-            "description": "Усилить личный бренд клиента через системное экспертное позиционирование",
+            "description": "Die persönliche Marke der Kundin durch eine klare, strategische Positionierung stärken",
             "background": "#FFFFFF",
             "border": false
           },
           {
             "src": "/images/1775162729724-ffb84577-29be-424d-83a1-3f489f8815e9.png",
-            "description": "Повысить узнаваемость и доверие среди профессиональной аудитории США",
+            "description": "Sichtbarkeit und Vertrauen bei einer professionellen Zielgruppe in den USA erhöhen",
             "background": "#2AB464",
             "border": false
           },
           {
             "src": "/images/1775162729724-b1fb884e-3d5d-4cd5-9cb4-e645eee24121.png",
-            "description": "Сформировать публичный профиль под критерии визы талантов в США",
+            "description": "Ein öffentliches Profil aufbauen, das den Anforderungen für ein US-Talentvisum entspricht",
             "background": "",
             "border": true
           },
           {
             "src": "/images/1775162729725-6b75b6e6-8b82-426d-a92b-e289681c0527.png",
-            "description": "Упаковать и продвинуть авторские психологические методики",
+            "description": "Eigene psychologische Methoden strukturieren und gezielt positionieren",
             "background": "#FFFFFF",
             "border": false
           }
         ]
       },
       "strategies": {
-        "title": "Какую стратегию мы предложили",
-        "subtitle": "Мы разработали комплексную стратегию продвижения, которая включала:",
+        "title": "UNSERE STRATEGIE",
+        "subtitle": "Wir haben eine umfassende Strategie entwickelt, die folgende Elemente umfasste:",
         "lists": [
           {
-            "title": "Позиционирование",
+            "title": "POSITIONIERUNG",
             "bullets": [
-              "Мы начали с пересборки позиционирования клиента под требования и запросы американского рынка. При широкой экспертизе Евгении важно было сузить и сфокусировать профиль: от общего психологического консультирования — к работе на стыке психологии и бизнеса. ",
-              "В коммуникации сделали акцент на том, что клиент помогает предпринимателям и специалистам выходить на новый уровень дохода, достигать финансовой независимости и системно выстраивать мышление для роста."
+              "Zunächst haben wir die Positionierung der Kundin für den US-Markt neu ausgerichtet. Aufgrund ihrer breiten Expertise war es wichtig, den Fokus zu schärfen — weg von allgemeiner psychologischer Beratung hin zur Arbeit an der Schnittstelle von Psychologie und Business.",
+              "In der Kommunikation haben wir den Fokus darauf gelegt, dass sie Unternehmern und Fachkräften hilft, ihr Einkommen zu steigern, finanzielle Unabhängigkeit zu erreichen und ein wachstumsorientiertes Mindset aufzubauen."
             ],
             "src": "/images/1775162729725-c6345875-0962-4f2c-a83f-33546e8c9d29.png",
             "location": "right",
@@ -360,10 +356,10 @@
             "border": false
           },
           {
-            "title": "Авторская методика",
+            "title": "EIGENE METHODIK",
             "bullets": [
-              "Параллельно провели анализ запросов аудитории в США, чтобы адаптировать подачу и тематику под локальный рынок. Для усиления доверия сделали упор на научную составляющую и авторскую методику: сопроводили подготовку и публикацию научных статей, а также оформление методологической базы.",
-              "Выстроили стратегию профессионального позиционирования с акцентом на инженерную экспертизу и практический вклад в отрасль. Сформировали\nструктуру достижений и опыта, релевантную международной профессиональной среде."
+              "Parallel dazu haben wir die Bedürfnisse der Zielgruppe in den USA analysiert, um Inhalte und Themen gezielt an den lokalen Markt anzupassen. Zur Stärkung der Glaubwürdigkeit lag der Fokus auf der wissenschaftlichen Basis und ihren eigenen Methoden: Wir haben die Vorbereitung und Veröffentlichung wissenschaftlicher Artikel begleitet und die methodische Grundlage strukturiert.",
+              "Zudem haben wir eine klare professionelle Positionierung aufgebaut, den praktischen Mehrwert hervorgehoben und ihre Erfahrung so strukturiert, dass sie für ein internationales Fachpublikum nachvollziehbar und relevant ist.структуру достижений и опыта, релевантную международной профессиональной среде."
             ],
             "src": "",
             "location": "right",
@@ -371,10 +367,9 @@
             "border": true
           },
           {
-            "title": "Медийное присутствие",
+            "title": "MEDIENPRÄSENZ",
             "bullets": [
-              "Дополнительно выстроили медийное присутствие: обеспечили публикации в СМИ, интеграцию в профессиональное сообщество и закрепили экспертный статус через регулярные комментарии и материалы.",
-              "Сопроводили процесс участия и оформления материалов. Роман стал победителем в номинации\n«Достижения в области инженерии: потребительские услуги»."
+              "Wir haben eine gezielte Medienpräsenz aufgebaut: durch Veröffentlichungen in Fachmedien, die Einbindung in die professionelle Community sowie durch regelmäßige Expertenbeiträge und Kommentare."
             ],
             "src": "/images/1775162729725-9d118f43-2713-4426-9957-d2ba00b70b65.png",
             "location": "left",
@@ -384,30 +379,30 @@
         ]
       },
       "results-blocks": {
-        "title": "Результат",
-        "subtitle": "Работа заняла несколько месяцев и привела к изменениям в профессиональной траектории клиента:",
+        "title": "ERGEBNIS",
+        "subtitle": "Das Projekt dauerte mehrere Monate und führte zu klaren Veränderungen in der beruflichen Entwicklung der Kundin:",
         "blocks": [
           {
-            "title": "МЕЖДУНАРОДНОЕ ПОЗИЦИОНИРОВАНИЕ",
-            "description": "Пересобранное позиционирование на стыке психологии и бизнеса позволило четко упаковать экспертизу клиента для рынка США и сделать профиль релевантным запросам международной аудитории.",
+            "title": "INTERNATIONALE POSITIONIERUNG",
+            "description": "Die neu ausgerichtete Positionierung an der Schnittstelle von Psychologie und Business machte die Expertise der Kundin für den US-Markt klar verständlich und relevant für ein internationales Publikum.",
             "background": "#2AB464",
             "border": false
           },
           {
-            "title": "МЕДИЙНОЕ ПРИСУТСТВИЕ В США И СНГ",
-            "description": "Публикации в СМИ и экспертные комментарии обеспечили рост узнаваемости среди целевой аудитории и закрепили образ клиента как практикующего эксперта с прикладной ценностью.",
+            "title": "MEDIENPRÄSENZ IN DEN USA UND DEN GUS-STAATEN",
+            "description": "Veröffentlichungen und Expertenbeiträge steigerten die Sichtbarkeit in der Zielgruppe und positionierten die Kundin als praxisorientierte Expertin.",
             "background": "#FFFFFF",
             "border": false
           },
           {
-            "title": "УСИЛЕНИЕ ЭКСПЕРТНОГО ПРОФИЛЯ",
-            "description": "Научные статьи, оформление авторской методики и интеграция в профессиональное сообщество укрепили доверие и системно усилили экспертную репутацию.",
+            "title": "STÄRKUNG DES EXPERTENPROFILS",
+            "description": "Wissenschaftliche Publikationen, die Ausarbeitung der eigenen Methodik und die Einbindung in die Fachcommunity stärkten Vertrauen und Reputation nachhaltig.",
             "background": "transparent",
             "border": true
           },
           {
-            "title": "ПОДГОТОВКА ПОД ВИЗОВЫЕ КРИТЕРИИ США",
-            "description": "Все элементы публичного профиля были выстроены с учетом требований визы талантов, что усилило доказательную базу и стратегическую ценность кейса.",
+            "title": "AUSRICHTUNG AUF US-VISAKRITERIEN",
+            "description": "Alle Elemente des öffentlichen Profils wurden gezielt an die Anforderungen für ein Talentvisum angepasst und stärkten so die Beweisbasis und den strategischen Wert des Falls.",
             "background": "#2AB464",
             "border": false
           }
@@ -425,73 +420,70 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Евгения Кормина",
-        "name": "Психолог",
+        "sphere": "Evgeniya Kormina",
+        "name": "Psicóloga",
         "src": "/images/1775162729836-1fff539f-2c0f-4b97-97b9-ad33d66eb595.png",
         "autoplay": true,
         "description": [
-          "Евгения Кормина — психолог, работающая с предпринимателями и помогающая клиентам справляться с внутренними барьерами, профессиональным напряжением и задачами личной эффективности."
+          "Evgeniya Kormina es psicóloga y trabaja con emprendedores, ayudándoles a superar barreras internas, gestionar la presión profesional y alcanzar un mayor nivel de rendimiento."
         ],
         "about": [
           {
-            "label": "Сектор",
-            "value": "Личное продвижение"
+            "label": "Sector",
+            "value": "Marca personal"
           },
           {
-            "label": "Клиент",
-            "value": "Евгения Кормина"
+            "label": "Cliente",
+            "value": "Evgeniya Kormina"
           },
           {
-            "label": "Страна",
-            "value": "Россия"
-          },
-          {
-            "label": "Рынок",
-            "value": "США"
+            "label": "Mercado",
+            "value": "Estados Unidos"
           }
         ]
       },
       "tasks": {
-        "title": "Задача клиента",
+        "title": "OBJETIVO DEL PROYECTO",
         "description": [
-          "Наша задача заключалась в усилении личного бренда клиента через системное экспертное позиционирование на международном уровне.\n\nК моменту начала работы у клиента уже была устойчивая профессиональная база: более 20 лет практики в сфере помощи людям, частная практика и собственные образовательные программы. Однако этот опыт не был в полной мере конвертирован в узнаваемость и профессиональный вес на рынке США."
+          "Nuestro objetivo fue fortalecer la marca personal de la cliente mediante una estrategia estructurada de posicionamiento experto a nivel internacional.",
+          "Al inicio del proyecto, la cliente ya contaba con una sólida base profesional: más de 20 años de experiencia ayudando a personas, práctica privada y programas educativos propios. Sin embargo, esta experiencia aún no se había traducido plenamente en visibilidad y reconocimiento profesional en el mercado estadounidense."
         ],
         "lists": [
           {
             "src": "/images/1775162729836-47c0d5cd-284b-420e-bbac-9e7fd4bc82d4.png",
-            "description": "Усилить личный бренд клиента через системное экспертное позиционирование",
+            "description": "Fortalecer la marca personal mediante un posicionamiento experto estructurado",
             "background": "#FFFFFF",
             "border": false
           },
           {
             "src": "/images/1775162729836-c1bbaa71-10d7-4924-bad0-81043e8eef80.png",
-            "description": "Повысить узнаваемость и доверие среди профессиональной аудитории США",
+            "description": "Aumentar la visibilidad y la confianza entre la audiencia profesional en el mercado estadounidense",
             "background": "#2AB464",
             "border": false
           },
           {
             "src": "/images/1775162729836-88214c5a-2c60-486e-af70-d2fe20dc5645.png",
-            "description": "Сформировать публичный профиль под критерии визы талантов в США",
+            "description": "Desarrollar un perfil público alineado con los criterios de la visa de talento",
             "background": "",
             "border": true
           },
           {
             "src": "/images/1775162729836-5a8c2d0d-f1f9-482c-875e-89f2650172eb.png",
-            "description": "Упаковать и продвинуть авторские психологические методики",
+            "description": "Desarrollar y posicionar métodos psicológicos propios",
             "background": "#FFFFFF",
             "border": false
           }
         ]
       },
       "strategies": {
-        "title": "Какую стратегию мы предложили",
-        "subtitle": "Мы разработали комплексную стратегию продвижения, которая включала:",
+        "title": "NUESTRA ESTRATEGIA",
+        "subtitle": "Desarrollamos una estrategia integral que incluyó:",
         "lists": [
           {
-            "title": "Позиционирование",
+            "title": "POSICIONAMIENTO",
             "bullets": [
-              "Мы начали с пересборки позиционирования клиента под требования и запросы американского рынка. При широкой экспертизе Евгении важно было сузить и сфокусировать профиль: от общего психологического консультирования — к работе на стыке психологии и бизнеса. ",
-              "В коммуникации сделали акцент на том, что клиент помогает предпринимателям и специалистам выходить на новый уровень дохода, достигать финансовой независимости и системно выстраивать мышление для роста."
+              "Redefinimos el posicionamiento de la cliente para alinearlo con las expectativas del mercado estadounidense. Dada la amplitud de su experiencia, era clave enfocar su perfil: de la psicología general hacia el trabajo en la intersección entre psicología y negocio.",
+              "En la comunicación, pusimos el foco en su trabajo con emprendedores y profesionales, ayudándoles a aumentar sus ingresos, alcanzar la independencia financiera y desarrollar una mentalidad orientada al crecimiento."
             ],
             "src": "/images/1775162729837-7de2c392-fee0-4def-a758-cdf01bf52c58.png",
             "location": "right",
@@ -499,10 +491,10 @@
             "border": false
           },
           {
-            "title": "Авторская методика",
+            "title": "METODOLOGÍA PROPIA",
             "bullets": [
-              "Параллельно провели анализ запросов аудитории в США, чтобы адаптировать подачу и тематику под локальный рынок. Для усиления доверия сделали упор на научную составляющую и авторскую методику: сопроводили подготовку и публикацию научных статей, а также оформление методологической базы.",
-              "Выстроили стратегию профессионального позиционирования с акцентом на инженерную экспертизу и практический вклад в отрасль. Сформировали\nструктуру достижений и опыта, релевантную международной профессиональной среде."
+              "Analizamos las necesidades de la audiencia en EE. UU. para adaptar los contenidos y los temas al mercado local. Para reforzar la confianza, nos enfocamos en la base científica y en su metodología propia: acompañamos la preparación y publicación de artículos académicos, así como la estructuración del marco metodológico.",
+              "Además, construimos un posicionamiento profesional sólido, destacando el impacto práctico de su trabajo y organizando su experiencia de forma relevante para una audiencia internacional.структуру достижений и опыта, релевантную международной профессиональной среде."
             ],
             "src": "",
             "location": "right",
@@ -510,10 +502,9 @@
             "border": true
           },
           {
-            "title": "Медийное присутствие",
+            "title": "PRESENCIA EN MEDIOS",
             "bullets": [
-              "Дополнительно выстроили медийное присутствие: обеспечили публикации в СМИ, интеграцию в профессиональное сообщество и закрепили экспертный статус через регулярные комментарии и материалы.",
-              "Сопроводили процесс участия и оформления материалов. Роман стал победителем в номинации\n«Достижения в области инженерии: потребительские услуги»."
+              "Construimos una presencia sólida en medios: aseguramos publicaciones, integramos a la cliente en la comunidad profesional y reforzamos su estatus como experta mediante comentarios y contenidos regulares."
             ],
             "src": "/images/1775162729837-abc9897b-66f8-42bb-9f7d-84c7c9609af7.png",
             "location": "left",
@@ -523,30 +514,30 @@
         ]
       },
       "results-blocks": {
-        "title": "Результат",
-        "subtitle": "Работа заняла несколько месяцев и привела к изменениям в профессиональной траектории клиента:",
+        "title": "RESULTADOS",
+        "subtitle": "El proyecto duró varios meses y generó cambios claros en la trayectoria profesional de la cliente:",
         "blocks": [
           {
-            "title": "МЕЖДУНАРОДНОЕ ПОЗИЦИОНИРОВАНИЕ",
-            "description": "Пересобранное позиционирование на стыке психологии и бизнеса позволило четко упаковать экспертизу клиента для рынка США и сделать профиль релевантным запросам международной аудитории.",
+            "title": "POSICIONAMIENTO INTERNACIONAL",
+            "description": "El reposicionamiento en la intersección entre psicología y negocio permitió definir claramente su propuesta para el mercado estadounidense y hacerla relevante para una audiencia internacional.",
             "background": "#2AB464",
             "border": false
           },
           {
-            "title": "МЕДИЙНОЕ ПРИСУТСТВИЕ В США И СНГ",
-            "description": "Публикации в СМИ и экспертные комментарии обеспечили рост узнаваемости среди целевой аудитории и закрепили образ клиента как практикующего эксперта с прикладной ценностью.",
+            "title": "PRESENCIA EN MEDIOS EN EE. UU. Y LA CEI",
+            "description": "Las publicaciones y comentarios expertos aumentaron la visibilidad y consolidaron su imagen como especialista con enfoque práctico.",
             "background": "#FFFFFF",
             "border": false
           },
           {
-            "title": "УСИЛЕНИЕ ЭКСПЕРТНОГО ПРОФИЛЯ",
-            "description": "Научные статьи, оформление авторской методики и интеграция в профессиональное сообщество укрепили доверие и системно усилили экспертную репутацию.",
+            "title": "REFUERZO DEL PERFIL EXPERTO",
+            "description": "Las publicaciones académicas, la estructuración de su metodología y la integración en la comunidad profesional fortalecieron la confianza y su reputación.",
             "background": "transparent",
             "border": true
           },
           {
-            "title": "ПОДГОТОВКА ПОД ВИЗОВЫЕ КРИТЕРИИ США",
-            "description": "Все элементы публичного профиля были выстроены с учетом требований визы талантов, что усилило доказательную базу и стратегическую ценность кейса.",
+            "title": "ALINEACIÓN CON LOS CRITERIOS DE VISA EN EE. UU.",
+            "description": "Todos los elementos del perfil público se estructuraron de acuerdo con los requisitos de la visa de talento, reforzando la base probatoria y el valor estratégico del caso.",
             "background": "#2AB464",
             "border": false
           }
