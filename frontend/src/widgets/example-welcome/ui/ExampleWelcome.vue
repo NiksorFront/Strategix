@@ -43,6 +43,7 @@ const showPlaceholder = ref(false)
       </h1>
       <VideoPlayer
         v-if="isVideo"
+        class="welcome-img"
         :src="props.data.src"
         :autoplay="shouldAutoplay"
         :hide-controls="true"
@@ -224,9 +225,20 @@ const showPlaceholder = ref(false)
       aspect-ratio: 1200 / 572;
   }
 
-  @media(--mobile-medium) {
-      max-height: 75%;
-  }
+	@media(--mobile-medium) {
+	    max-height: 75%;
+	}
+}
+
+.welcome-img :deep(.video-player__video),
+.welcome-img :deep(.video-player__placeholder){
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  aspect-ratio: inherit;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .description{
@@ -262,7 +274,6 @@ const showPlaceholder = ref(false)
   color: var(--strategix-dark);
 
   @media(--tablet-width){
-    /* font-weight: 600; */
     font-size: clamp(18px, calc(0.6175vw + var(--vh) * 2), 48px);
   }
 

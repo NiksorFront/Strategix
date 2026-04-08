@@ -39,12 +39,7 @@ const currentSlug = computed(() => {
 });
 
 const pickGroupLocale = (group: Record<string, ProjectGroupLocale>, localeKey: string) => {
-  return (
-    group[localeKey] ??
-    group.ru ??
-    group.en ??
-    Object.values(group)[0]
-  );
+  return group[localeKey];
 };
 
 const getProjectsInOrder = (localeKey: string) => {

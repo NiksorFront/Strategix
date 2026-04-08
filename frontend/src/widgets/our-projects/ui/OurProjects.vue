@@ -27,7 +27,7 @@
 
     return Object.values(projectsData)
       .map((group) => {
-        const localized = group[localeCode] || group.ru
+        const localized = group[localeCode]
         if (!localized?.title) return null
 
         const cards = Object.entries(localized.cases || {})
