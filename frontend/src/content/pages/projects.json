@@ -176,13 +176,13 @@
           },
           "m&m": {
             "description": "Ein Unternehmen, das Fachleuten und Unternehmern hilft, Talentvisa, Geschäftsvisa zu erhalten und die Umsiedlung in die USA zu organisieren",
-            "src": "",
+            "src": "/images/1775655202323-4728bbd5-706d-4ca4-8bc8-d919ebcd1654.png",
             "title": "M&M",
             "hidden": false
           },
           "play-create-eat": {
-            "description": "Ein Familienort in Dubai, der so gestaltet ist, dass Kinder sich durch Spiel, Kreativität und gesunde Gewohnheiten entwickeln können, und Eltern",
-            "src": "",
+            "description": "Ein Familienraum in Dubai. Eine Zielgruppe aufgebaut und zum Launch einen stabilen Anfragenfluss generiert",
+            "src": "/images/1775655380325-39f7a135-4698-4c3e-86e3-d8fdd1460a0b.png",
             "title": "Play Create Eat",
             "hidden": false
           }
@@ -199,13 +199,13 @@
           },
           "m&m": {
             "description": "A company helping professionals and entrepreneurs obtain talent visas, business visas, and arrange relocation to the USA",
-            "src": "",
+            "src": "/images/1775655194632-ff47188f-6039-4125-9526-4fcd023fa422.png",
             "title": "M&M",
             "hidden": false
           },
           "play-create-eat": {
-            "description": "A family space in Dubai designed so children can develop through play, creativity, and healthy habits, and parents",
-            "src": "",
+            "description": "A family space in Dubai. Attracted an audience and generated a steady flow of inquiries at launch",
+            "src": "/images/1775655386162-18cc45d0-6a35-466e-8cb9-463ce845530a.png",
             "title": "Play Create Eat",
             "hidden": false
           }
@@ -215,20 +215,20 @@
       "es": {
         "cases": {
           "css": {
-            "description": "Una empresa londinense especializada en servicios integrales para marcas de moda",
+            "description": "Una empresa con sede en Londres, especializada en servicios integrales para marcas de moda",
             "src": "/images/1775410807522-66f18aa1-74ee-4537-b433-b9d43723eb96.png",
             "title": "CSS",
             "hidden": false
           },
           "m&m": {
             "description": "Una empresa que ayuda a profesionales y emprendedores a obtener visas de talento, visas de negocios y gestionar la reubicación en Estados Unidos",
-            "src": "",
+            "src": "/images/1775655207673-b4f5017f-a2d1-4a47-b3cc-aaffbf987b4a.png",
             "title": "M&M",
             "hidden": false
           },
           "play-create-eat": {
-            "description": "Un espacio familiar en Dubái, creado para que los niños puedan desarrollarse a través del juego, la creatividad y hábitos saludables, y los padres",
-            "src": "",
+            "description": "Un espacio familiar en Dubái. Atraímos audiencia y generamos un flujo constante de solicitudes en el lanzamiento",
+            "src": "/images/1775655373796-233cdb3c-edeb-4890-998b-086747effdb2.png",
             "title": "Play Create Eat",
             "hidden": false
           }
@@ -244,13 +244,13 @@
             "hidden": false
           },
           "m&m": {
-            "description": "компания, оказывающая услуги по получению виз талантов, бизнес-виз и релокации в США",
+            "description": "Компания, оказывающая услуги по получению виз талантов, бизнес-виз и релокации в США",
             "src": "/images/m-and-m.jpg",
             "title": "M&M Document",
             "hidden": false
           },
           "play-create-eat": {
-            "description": "Cемейное пространство в Дубае, творчество и здоровые привычки",
+            "description": "Семейное пространство в Дубае. Привлекли аудиторию и обеспечили поток заявок на запуске",
             "src": "/images/play-create-eat.jpg",
             "title": "Play Create Eat",
             "hidden": false
