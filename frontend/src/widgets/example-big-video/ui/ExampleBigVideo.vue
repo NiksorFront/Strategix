@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import VideoPlayer from '@/shared/ui/video-player';
+import { useMediaQueryMatch } from '@/shared/lib/media/useMediaQueryMatch';
 
 const {data} = defineProps<{
   data: {
@@ -9,6 +11,13 @@ const {data} = defineProps<{
     autoplay?: boolean;
   };
 }>();
+
+const isTabletViewport = useMediaQueryMatch('(min-width: 768px)');
+const activeVideoSrc = computed(() => (
+  isTabletViewport.value
+    ? data.src
+    : data.srcMobile || data.src
+));
 </script>
 
 <template>
@@ -16,14 +25,8 @@ const {data} = defineProps<{
     class="example-big-video"
   >
     <VideoPlayer
-      class="example-big-video__player example-big-video__player--mobile"
-      :src="data.srcMobile || data.src"
-      :autoplay="data.autoplay"
-      :hide-controls="true"
-    />
-    <VideoPlayer
-      class="example-big-video__player example-big-video__player--desktop"
-      :src="data.src"
+      class="example-big-video__player"
+      :src="activeVideoSrc"
       :autoplay="data.autoplay"
       :hide-controls="true"
     />
@@ -48,20 +51,6 @@ const {data} = defineProps<{
   width: 100%;
   height: auto;
   max-height: inherit;
-}
-
-.example-big-video__player--desktop{
-  display: none;
-}
-
-@media(--tablet-width){
-  .example-big-video__player--mobile{
-    display: none;
-  }
-
-  .example-big-video__player--desktop{
-    display: block;
-  }
 }
 
 .example-big-video :deep(.video-player__video){

@@ -110,6 +110,7 @@ const showPlaceholder = ref<Record<number, boolean>>({})
         <NuxtLink
           class="project-link"
           :to="`/project/${project.slug}`"
+          no-prefetch
         >
           <div
             class="project-head"

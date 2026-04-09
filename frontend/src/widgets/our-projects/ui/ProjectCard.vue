@@ -18,6 +18,7 @@ const resolvedSrc = computed(() => resolveMediaSrc(src, baseURL))
     <NuxtLink
       class="project-card-link"
       :to="`/${locale}/project/${route}`"
+      no-prefetch
     >
       <NuxtImg
         v-if="!showPlaceholder && resolvedSrc"

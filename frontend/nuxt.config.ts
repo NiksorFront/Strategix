@@ -32,6 +32,15 @@ export default defineNuxtConfig({
   },
   experimental: {
     payloadExtraction: false,
+    defaults: {
+      nuxtLink: {
+        prefetch: false,
+        prefetchOn: {
+          visibility: false,
+          interaction: false,
+        },
+      },
+    },
   },
   vite: {
     build: {

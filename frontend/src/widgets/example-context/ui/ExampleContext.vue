@@ -4,6 +4,7 @@ import ExampleSectionTitle from '@/shared/ui/example-section-title';
 import imagePlaceholder from '@/assets/images/image-placeholder.svg'
 import videoPlaceholder from '@/assets/images/video-placeholder.svg'
 import { resolveMediaSrc as resolveMediaSrcWithBase } from '@/shared/lib/media/resolveMediaSrc'
+import { useMediaQueryMatch } from '@/shared/lib/media/useMediaQueryMatch';
 
 type ExampleContextBulletBlock = {
   bullets: string[];
@@ -36,11 +37,11 @@ const validContent = computed(() => contextContent.value.filter((item) => Boolea
 const desktopContent = computed(() => validContent.value.slice(0, 3));
 const mobileContent = computed(() => {
   if (validContent.value.length >= 3) {
-    return [validContent.value[2], validContent.value[1]];
+    return validContent.value.slice(1, 3).reverse();
   }
 
   if (validContent.value.length === 2) {
-    return [validContent.value[1], validContent.value[0]];
+    return validContent.value.slice(0, 2).reverse();
   }
 
   return validContent.value.slice(0, 1);
@@ -56,8 +57,36 @@ const isVideoMedia = (src: string) => VIDEO_SRC_PATTERN.test(src.trim());
 
 const resolveMediaSrc = (src: string) => resolveMediaSrcWithBase(src, baseURL);
 
+const isTabletViewport = useMediaQueryMatch('(min-width: 768px)');
+const activeContent = computed(() => (
+  isTabletViewport.value ? desktopContent.value : mobileContent.value
+));
+const activeGalleryClass = computed(() => (
+  isTabletViewport.value ? 'context-gallery--desktop' : 'context-gallery--mobile'
+));
+const activeGallerySizes = computed(() => (
+  isTabletViewport.value
+    ? 'xs:33vw sm:33vw md:33vw lg:33vw xl:33vw xxl:33vw'
+    : 'xs:50vw sm:50vw md:50vw lg:50vw xl:50vw xxl:50vw'
+));
+
 const showPlaceholderMobile = ref<Record<number, boolean>>({})
 const showPlaceholderDesktop = ref<Record<number, boolean>>({})
+
+const hasPlaceholder = (index: number) => (
+  isTabletViewport.value
+    ? Boolean(showPlaceholderDesktop.value[index])
+    : Boolean(showPlaceholderMobile.value[index])
+);
+
+const markPlaceholder = (index: number) => {
+  if (isTabletViewport.value) {
+    showPlaceholderDesktop.value[index] = true;
+    return;
+  }
+
+  showPlaceholderMobile.value[index] = true;
+};
 </script>
 
 <template>
@@ -101,14 +130,17 @@ const showPlaceholderDesktop = ref<Record<number, boolean>>({})
       </div>
     </div>
 
-    <div class="context-gallery context-gallery--mobile">
+    <div
+      class="context-gallery"
+      :class="activeGalleryClass"
+    >
       <article
-        v-for="(item, index) in mobileContent"
-        :key="`context-mobile-${item.src}-${index}`"
+        v-for="(item, index) in activeContent"
+        :key="`context-${activeGalleryClass}-${item.src}-${index}`"
         class="context-gallery-card"
       >
         <video
-          v-if="isVideoMedia(item.src) && !showPlaceholderMobile[index]"
+          v-if="isVideoMedia(item.src) && !hasPlaceholder(index)"
           class="context-gallery-media"
           :src="resolveMediaSrc(item.src)"
           muted
@@ -117,7 +149,7 @@ const showPlaceholderDesktop = ref<Record<number, boolean>>({})
           playsinline
           preload="metadata"
           :aria-label="item.alt ?? data.title ?? 'Context media'"
-          @error="showPlaceholderMobile[index] = true"
+          @error="markPlaceholder(index)"
         />
         <img
           v-else-if="isVideoMedia(item.src)"
@@ -126,7 +158,7 @@ const showPlaceholderDesktop = ref<Record<number, boolean>>({})
           :alt="item.alt ?? data.title ?? 'Context media'"
         >
         <NuxtImg
-          v-else-if="!showPlaceholderMobile[index]"
+          v-else-if="!hasPlaceholder(index)"
           class="context-gallery-media"
           :src="resolveMediaSrc(item.src)"
           :alt="item.alt ?? data.title ?? 'Context image'"
@@ -134,59 +166,10 @@ const showPlaceholderDesktop = ref<Record<number, boolean>>({})
           :quality="80"
           width="800"
           height="1200"
-          sizes="xs:50vw sm:50vw md:50vw lg:50vw xl:50vw xxl:50vw"
+          :sizes="activeGallerySizes"
           loading="lazy"
           decoding="async"
-          @error="showPlaceholderMobile[index] = true"
-        />
-        <img
-          v-else
-          :src="imagePlaceholder"
-          class="context-gallery-media"
-          :alt="item.alt ?? data.title ?? 'Context image'"
-          loading="lazy"
-          decoding="async"
-        >
-      </article>
-    </div>
-
-    <div class="context-gallery context-gallery--desktop">
-      <article
-        v-for="(item, index) in desktopContent"
-        :key="`context-desktop-${item.src}-${index}`"
-        class="context-gallery-card"
-      >
-        <video
-          v-if="isVideoMedia(item.src) && !showPlaceholderDesktop[index]"
-          class="context-gallery-media"
-          :src="resolveMediaSrc(item.src)"
-          muted
-          autoplay
-          loop
-          playsinline
-          preload="metadata"
-          :aria-label="item.alt ?? data.title ?? 'Context media'"
-          @error="showPlaceholderDesktop[index] = true"
-        />
-        <img
-          v-else-if="isVideoMedia(item.src)"
-          :src="videoPlaceholder"
-          class="context-gallery-media"
-          :alt="item.alt ?? data.title ?? 'Context media'"
-        >
-        <NuxtImg
-          v-else-if="!showPlaceholderDesktop[index]"
-          class="context-gallery-media"
-          :src="resolveMediaSrc(item.src)"
-          :alt="item.alt ?? data.title ?? 'Context image'"
-          format="webp"
-          :quality="80"
-          width="800"
-          height="1200"
-          sizes="xs:33vw sm:33vw md:33vw lg:33vw xl:33vw xxl:33vw"
-          loading="lazy"
-          decoding="async"
-          @error="showPlaceholderDesktop[index] = true"
+          @error="markPlaceholder(index)"
         />
         <img
           v-else
