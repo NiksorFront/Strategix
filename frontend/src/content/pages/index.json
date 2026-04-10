@@ -148,7 +148,7 @@
         "title": "Быстро отвечаем на вызовы международного рынка"
       },
       "our_projects": {
-        "enable": true,
+        "enable": false,
         "filters": [
           "Кейсы"
         ],
