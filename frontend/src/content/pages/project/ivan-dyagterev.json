@@ -11,76 +11,76 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Иван Дягтерев",
+        "sphere": "Ivan Dyagterev",
         "name": "Senior Systems Administrator",
         "src": "/images/1775825461617-38add340-4efb-414e-b33a-660566666071.png",
         "autoplay": true,
         "description": [
-          "Иван Дегтярев — эксперт в области IT-инфраструктуры и Senior Systems Administrator. Работает в американской компании, среди клиентов которой — крупные медицинские центры и девелоперские проекты. В настоящее время готовится к получению международных сертификаций в области информационной безопасности (Cisco CCNP Security и Cisco CCIE Security).\n\n",
-          "Ранее работал в крупных компаниях в сфере ИТ и агропромышленного сектора."
+          "Ivan Dyagterev is an expert in IT infrastructure and a Senior Systems Administrator. He works for a U.S.-based company whose clients include major medical centers and real estate development projects. He is currently preparing for international certifications in information security (Cisco CCNP Security and Cisco CCIE Security).\n",
+          "Previously, he worked for large companies in the IT and agricultural sectors."
         ],
         "about": [
           {
-            "label": "Сектор",
-            "value": "Личное продвижение"
+            "label": "Sector",
+            "value": "Personal Branding"
           },
           {
-            "label": "Клиент",
-            "value": "Иван Дегтярев"
+            "label": "Client",
+            "value": "Ivan Dyagterev"
           },
           {
-            "label": "Страна",
-            "value": "Россия"
+            "label": "Country",
+            "value": "Russia"
           },
           {
-            "label": "Рынок",
-            "value": "США"
+            "label": "Market",
+            "value": "United States"
           }
         ]
       },
       "tasks": {
-        "title": "Задача клиента",
+        "title": "Client Goals",
         "description": [
-          " у клиента уже был сильный профессиональный бэкграунд и стабильная карьера на локальном рынке. Благодаря окружению и профессиональным контактам он видел примеры специалистов из своей сферы, которые выходили на международный рынок, переезжали и значительно росли в доходе и возможностях.\n",
-          "Поэтому он обратился к нам с запросом:"
+          "The client already had a strong professional background and a stable career in the local market. Through his network, he saw peers successfully entering international markets, relocating, and significantly increasing their income and opportunities.",
+          "He approached us with the following goals:"
         ],
         "lists": [
           {
             "src": "/images/1775825461618-b314d357-711f-4f06-90c6-18da54fad2f8.png",
-            "description": "Упаковать уже сильный локальный опыт в понятное международное позиционирование",
+            "description": "Elevate his local experience into a global positioning",
             "background": "#FFFFFF",
             "border": false
           },
           {
             "src": "/images/1775825461619-0dfb9cc9-b381-458d-99bf-edfb89cea168.png",
-            "description": "Показать его экспертизу так, чтобы она была заметна на рынке США ",
+            "description": "Showcase his expertise to gain visibility in the U.S. market",
             "background": "#2AB464",
             "border": false
           },
           {
             "src": "/images/1775825461620-4fc28f38-0a45-46bb-8653-3d73d1ab9721.png",
-            "description": "Подготовить профиль к карьерным возможностям за рубежом и привлечению релевантных предложений о сотрудничестве",
+            "description": "Prepare a profile aligned with global career opportunities and partnerships",
             "background": "",
             "border": true
           },
           {
             "src": "/images/1775825461620-396e0bfb-f285-46c2-b7d1-59d2e0ace0b0.png",
-            "description": "Усилить профиль под визовые критерии",
+            "description": "Strengthen his case for talent visa approval\n",
             "background": "#FFFFFF",
             "border": false
           }
         ]
       },
       "strategies": {
-        "title": "Какую стратегию мы предложили",
-        "subtitle": "Мы разработали комплексную стратегию продвижения, которая включала:",
+        "title": "OUR Strategy",
+        "subtitle": "We developed a comprehensive strategy that included:",
         "lists": [
           {
-            "title": "Медийное усиление",
+            "title": "MEDIA POSITIONING",
             "bullets": [
-              "Расширили профессиональный профиль клиента: помимо основной должности Senior System Administrator предложили усилить его экспертизой в сфере кибербезопасности — как актуальным и прикладным направлением, в котором специалист действительно обладает сильной компетенцией.",
-              "Выбрали более релевантный для медиа угол позиционирования: тема кибербезопасности позволила встроить экспертизу клиента в современную повестку и сделать ее понятной для широкой аудитории.",
-              "Точно попали в момент повышенного интереса СМИ к вопросам кибербезопасности на фоне инфоповодов, связанных со взломами и утечками данных. Это позволило органично включить клиента в актуальный общественный контекст и получить широкий охват."
+              "Expanded the client’s professional profile beyond his core role as a Senior Systems Administrator by highlighting his expertise in cybersecurity — a highly relevant and in-demand field where he has strong practical experience.",
+              "Chose a more relevant media angle: focusing on cybersecurity allowed us to place the client’s expertise within the current media landscape and make it accessible to a broader audience.",
+              "We aligned the outreach with a spike in media attention around cybersecurity, fueled by data breaches and cyberattacks. This helped position the client within the ongoing conversation and drive strong media coverage."
             ],
             "src": "/images/1775825461621-f2296151-540d-4ca4-ade4-8c8b1e4826d3.png",
             "location": "left",
@@ -88,10 +88,10 @@
             "border": false
           },
           {
-            "title": "ФОРМИРОВАНИЕ ПРОФЕССИОНАЛЬНОГО ВЕСА",
+            "title": "BUILDING PROFESSIONAL CREDIBILITY",
             "bullets": [
-              "Выстроили понятное международное позиционирование клиента как специалиста, работающего на пересечении системного администрирования и кибербезопасности.",
-              "Проработали дополнительные возможности для усиления профильных ассоциаций и профессионального статуса, чтобы сделать образ специалиста более устойчивым и убедительным для внешней аудитории."
+              "Developed a clear international positioning, presenting the client as a specialist working at the intersection of systems administration and cybersecurity.",
+              "Strengthened his professional profile by identifying additional opportunities for recognition, including professional associations and credentials, making his profile more credible and compelling for an international audience."
             ],
             "src": "/images/1775825461622-78cdb35c-fde9-48bc-a84d-32fa867ff743.jpg",
             "location": "right",
@@ -101,8 +101,8 @@
         ]
       },
       "results-blocks": {
-        "title": "Результат",
-        "subtitle": "Работа заняла несколько месяцев и привела к изменениям в профессиональной траектории клиента:",
+        "title": "Results",
+        "subtitle": "The project took several months and led to real changes in the client’s career",
         "blocks": [
           {
             "title": "ШИРОКИЙ МЕДИЙНЫЙ РЕЗОНАНС",
