@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import videoPlaceholder from '@/assets/images/video-placeholder.svg'
+import { removeAutoplayCandidate, subscribeAutoplayOwner, upsertAutoplayCandidate } from '@/shared/lib/media/autoplayCoordinator';
 const props = withDefaults(
   defineProps<{
     src: string;
@@ -14,6 +15,8 @@ const props = withDefaults(
 
 const { app } = useRuntimeConfig();
 const baseURL = app?.baseURL ?? '/';
+const VIEWPORT_MARGIN = 320;
+const isClient = typeof window !== 'undefined';
 
 const normalizeBase = (base: string) => {
   if (!base || base === '/') return '';
@@ -42,16 +45,63 @@ const resolvedSrc = computed(() => {
 });
 
 const videoElement = ref<HTMLVideoElement | null>(null);
+const playerElement = ref<HTMLElement | null>(null);
 const isPlaying = ref(false);
 const isMuted = ref(Boolean(props.autoplay));
 const isMediaHovered = ref(false);
 const showPlaceholder = ref(false);
+const isInViewport = ref(false);
+const viewportIntersectionRatio = ref(0);
+const isNearViewport = ref(false);
+const isPageVisible = ref(true);
+const hasLoadedOnce = ref(false);
+const isAutoplayOwner = ref(false);
+let unsubscribeAutoplayOwner: (() => void) | null = null;
+let viewportObserver: IntersectionObserver | null = null;
+let nearViewportObserver: IntersectionObserver | null = null;
+
+const createAutoplayInstanceId = () => {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+
+  return `video-player-${Math.random().toString(36).slice(2)}-${Date.now()}`;
+};
+
+const autoplayInstanceId = createAutoplayInstanceId();
 
 const shouldAutoplay = computed(() => Boolean(props.autoplay));
 const shouldHideControls = computed(() => Boolean(props.hideControls));
 const videoButtonLabel = computed(() => (isPlaying.value ? 'Pause video' : 'Play video'));
 const soundButtonLabel = computed(() => (isMuted.value ? 'Enable sound' : 'Disable sound'));
 const showPlayButton = computed(() => !isPlaying.value || isMediaHovered.value);
+const canAutoplayNow = computed(() => (
+  shouldAutoplay.value
+  && isAutoplayOwner.value
+  && isInViewport.value
+  && isPageVisible.value
+));
+const effectiveSrc = computed(() => (
+  showPlaceholder.value
+    ? ''
+    : (
+      shouldAutoplay.value
+        ? ((isNearViewport.value || hasLoadedOnce.value) ? resolvedSrc.value : '')
+        : resolvedSrc.value
+    )
+));
+const videoPreload = computed(() => (
+  shouldAutoplay.value && !isNearViewport.value && !hasLoadedOnce.value
+    ? 'none'
+    : 'metadata'
+));
+const autoplayCandidateScore = computed(() => {
+  if (!shouldAutoplay.value) return 0;
+  if (!isPageVisible.value || !isInViewport.value) return 0;
+  if (!resolvedSrc.value || showPlaceholder.value) return 0;
+
+  return Math.max(viewportIntersectionRatio.value, 0.0001);
+});
 
 const syncPlayingState = () => {
   const video = videoElement.value;
@@ -66,7 +116,7 @@ const syncMutedState = () => {
 
 const playVideo = async () => {
   const video = videoElement.value;
-  if (!video) return;
+  if (!video || !effectiveSrc.value) return;
 
   video.muted = isMuted.value;
 
@@ -80,7 +130,7 @@ const playVideo = async () => {
 
 const toggleVideoPlayback = async () => {
   const video = videoElement.value;
-  if (!video) return;
+  if (!video || !effectiveSrc.value) return;
 
   if (video.paused || video.ended) {
     await playVideo();
@@ -99,27 +149,180 @@ const toggleVideoSound = () => {
   syncMutedState();
 };
 
+const pauseVideo = () => {
+  const video = videoElement.value;
+  if (!video) return;
+  video.pause();
+  syncPlayingState();
+};
+
+const handleVisibilityChange = () => {
+  if (typeof document === 'undefined') {
+    isPageVisible.value = true;
+    return;
+  }
+
+  isPageVisible.value = !document.hidden;
+};
+
+const syncPlaybackByState = async () => {
+  const video = videoElement.value;
+  if (!video) return;
+
+  if (!effectiveSrc.value) {
+    pauseVideo();
+    return;
+  }
+
+  if (canAutoplayNow.value) {
+    await playVideo();
+    return;
+  }
+
+  if (shouldAutoplay.value && !video.paused) {
+    pauseVideo();
+    if (!isNearViewport.value) {
+      try {
+        video.currentTime = 0;
+      } catch {
+        // Ignore seek errors for streams that cannot seek yet.
+      }
+    }
+    return;
+  }
+
+  syncPlayingState();
+};
+
 watch(
   () => [resolvedSrc.value, shouldAutoplay.value],
   async () => {
     isPlaying.value = false;
     isMuted.value = shouldAutoplay.value;
+    showPlaceholder.value = false;
+    hasLoadedOnce.value = !shouldAutoplay.value;
     await nextTick();
 
     if (videoElement.value) {
       videoElement.value.muted = isMuted.value;
     }
 
-    if (shouldAutoplay.value) {
-      await playVideo();
-    }
+    await syncPlaybackByState();
   },
   { immediate: true },
 );
+
+watch(
+  () => autoplayCandidateScore.value,
+  (score) => {
+    if (!isClient) return;
+
+    if (score > 0) {
+      upsertAutoplayCandidate(autoplayInstanceId, score);
+      return;
+    }
+
+    removeAutoplayCandidate(autoplayInstanceId);
+  },
+  { immediate: true },
+);
+
+watch(
+  () => [isAutoplayOwner.value, isInViewport.value, isNearViewport.value, isPageVisible.value],
+  () => {
+    if (isNearViewport.value && resolvedSrc.value) {
+      hasLoadedOnce.value = true;
+    }
+    void syncPlaybackByState();
+  },
+);
+
+onMounted(() => {
+  if (isClient) {
+    unsubscribeAutoplayOwner = subscribeAutoplayOwner((ownerId) => {
+      isAutoplayOwner.value = ownerId === autoplayInstanceId;
+    });
+  }
+
+  handleVisibilityChange();
+  if (typeof document !== 'undefined') {
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+  }
+
+  if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') {
+    isInViewport.value = true;
+    isNearViewport.value = true;
+    viewportIntersectionRatio.value = 1;
+    return;
+  }
+
+  viewportObserver = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      const isVisible = entry.isIntersecting && entry.intersectionRatio > 0;
+      isInViewport.value = isVisible;
+      viewportIntersectionRatio.value = isVisible ? entry.intersectionRatio : 0;
+    },
+    {
+      threshold: [0, 0.01, 0.05, 0.1, 0.2, 0.35, 0.5, 0.65, 0.8, 1],
+      rootMargin: '0px',
+    },
+  );
+
+  nearViewportObserver = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      isNearViewport.value = entry.isIntersecting && entry.intersectionRatio > 0;
+    },
+    {
+      threshold: [0, 0.01],
+      rootMargin: `${VIEWPORT_MARGIN}px 0px ${VIEWPORT_MARGIN}px 0px`,
+    },
+  );
+
+  if (playerElement.value) {
+    viewportObserver.observe(playerElement.value);
+    nearViewportObserver.observe(playerElement.value);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (isClient) {
+    removeAutoplayCandidate(autoplayInstanceId);
+  }
+
+  if (unsubscribeAutoplayOwner) {
+    unsubscribeAutoplayOwner();
+    unsubscribeAutoplayOwner = null;
+  }
+
+  if (typeof document !== 'undefined') {
+    document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }
+
+  if (viewportObserver) {
+    viewportObserver.disconnect();
+    viewportObserver = null;
+  }
+
+  if (nearViewportObserver) {
+    nearViewportObserver.disconnect();
+    nearViewportObserver = null;
+  }
+
+  const video = videoElement.value;
+  if (!video) return;
+  video.pause();
+  video.removeAttribute('src');
+  video.load();
+});
 </script>
 
 <template>
   <div
+    ref="playerElement"
     class="video-player"
     @mouseenter="isMediaHovered = true"
     @mouseleave="isMediaHovered = false"
@@ -128,12 +331,13 @@ watch(
       v-if="!showPlaceholder"
       ref="videoElement"
       class="video-player__video"
-      :src="resolvedSrc"
-      :autoplay="shouldAutoplay"
+      :src="effectiveSrc || undefined"
+      :autoplay="canAutoplayNow"
       :muted="isMuted"
       playsinline
-      preload="metadata"
+      :preload="videoPreload"
       loop
+      @canplay="syncPlaybackByState"
       @play="syncPlayingState"
       @pause="syncPlayingState"
       @volumechange="syncMutedState"
@@ -250,6 +454,14 @@ watch(
 .video-player{
   width: 100%;
   position: relative;
+}
+
+.video-player__video{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .video-player__placeholder{

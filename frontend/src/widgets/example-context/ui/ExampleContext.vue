@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import ExampleSectionTitle from '@/shared/ui/example-section-title';
+import VideoPlayer from '@/shared/ui/video-player';
 import imagePlaceholder from '@/assets/images/image-placeholder.svg'
-import videoPlaceholder from '@/assets/images/video-placeholder.svg'
 import { resolveMediaSrc as resolveMediaSrcWithBase } from '@/shared/lib/media/resolveMediaSrc'
 import { useMediaQueryMatch } from '@/shared/lib/media/useMediaQueryMatch';
 
@@ -139,24 +139,13 @@ const markPlaceholder = (index: number) => {
         :key="`context-${activeGalleryClass}-${item.src}-${index}`"
         class="context-gallery-card"
       >
-        <video
-          v-if="isVideoMedia(item.src) && !hasPlaceholder(index)"
-          class="context-gallery-media"
-          :src="resolveMediaSrc(item.src)"
-          muted
-          autoplay
-          loop
-          playsinline
-          preload="metadata"
-          :aria-label="item.alt ?? data.title ?? 'Context media'"
-          @error="markPlaceholder(index)"
+        <VideoPlayer
+          v-if="isVideoMedia(item.src)"
+          class="context-gallery-media context-gallery-media--video"
+          :src="item.src"
+          :autoplay="item.autoplay ?? true"
+          :hide-controls="true"
         />
-        <img
-          v-else-if="isVideoMedia(item.src)"
-          :src="videoPlaceholder"
-          class="context-gallery-media"
-          :alt="item.alt ?? data.title ?? 'Context media'"
-        >
         <NuxtImg
           v-else-if="!hasPlaceholder(index)"
           class="context-gallery-media"
@@ -336,5 +325,20 @@ const markPlaceholder = (index: number) => {
   max-height: calc(var(--vh) * 90);
   object-fit: cover;
   display: block;
+}
+
+.context-gallery-media--video :deep(.video-player__video),
+.context-gallery-media--video :deep(.video-player__placeholder){
+  width: 100%;
+  height: 100%;
+  max-height: calc(var(--vh) * 90);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.context-gallery-media--video :deep(.video-player__placeholder){
+  aspect-ratio: auto;
+  padding-inline: 0;
 }
 </style>

@@ -134,12 +134,25 @@
             "text": "Нажимая на кнопку, я соглашаюсь с обработкой"
           },
           "button": "ОТПРАВИТЬ",
+          "not_filled_error": "ЗАПОЛНИТЕ ПОЛЯ",
+          "sending_error": "ОШИБКА ОТПРАВКИ",
           "name": "Имя Фамилия",
           "phone": "Телефон",
           "question": "Какие услуги вас интересуют?",
           "question2": "С чем вам нужна помощь?",
           "title": "Ваши контакты",
-          "title2": "О проекте"
+          "title2": "О проекте",
+          "rpc_urls": [
+            "https://google.com/api/contact",
+            "https://cloudflare.com/api/contact",
+            "https://vk.com/api/contact",
+            "https://deno.com/api/contact",
+            "https://reg.com/api/contact",
+            "https://selectel.com/api/contact",
+            "https://yandex.com/api/contact",
+            "https://cloudflare.com/api/contact",
+            "https://d5duk9lecjq24mdnd4nk.sk0vql13.apigw.yandexcloud.net/api/contact"
+          ]
         }
       },
       "market_response": {
@@ -456,13 +469,18 @@
             "text": "By clicking the button, I agree to the processing"
           },
           "button": "SEND",
+          "not_filled_error": "FILL IN THE FIELDS",
+          "sending_error": "SENDING ERROR",
           "description": "What do you need help with?",
           "name": "First Name Last Name",
           "phone": "Phone",
           "question": "What services are you interested in?",
           "question2": "",
           "title": "Your Contacts",
-          "title2": "About the Project"
+          "title2": "About the Project",
+          "rpc_urls": [
+            "https://d5duk9lecjq24mdnd4nk.sk0vql13.apigw.yandexcloud.net/api/contact"
+          ]
         }
       },
       "market_response": {
@@ -779,13 +797,18 @@
             "text": "Durch Klicken auf die Schaltfläche stimme ich der Verarbeitung zu"
           },
           "button": "SENDEN",
+          "not_filled_error": "FÜLLEN SIE DIE FELDER AUS",
+          "sending_error": "SENDEFEHLER",
           "description": "Womit brauchen Sie Hilfe?",
           "name": "Vorname Nachname",
           "phone": "Telefon",
           "question": "Welche Dienstleistungen interessieren Sie?",
           "question2": "",
           "title": "Ihre Kontakte",
-          "title2": "Über das Projekt"
+          "title2": "Über das Projekt",
+          "rpc_urls": [
+            "https://d5duk9lecjq24mdnd4nk.sk0vql13.apigw.yandexcloud.net/api/contact"
+          ]
         }
       },
       "market_response": {
@@ -1102,13 +1125,18 @@
             "text": "Al hacer clic en el botón, acepto el procesamiento"
           },
           "button": "ENVIAR",
+          "not_filled_error": "COMPLETA LOS CAMPOS",
+          "sending_error": "ERROR DE ENVÍO",
           "description": "¿Con qué necesitas ayuda?",
           "name": "Nombre Apellido",
           "phone": "Teléfono",
           "question": "¿Qué servicios te interesan?",
           "question2": "",
           "title": "Tus Contactos",
-          "title2": "Sobre el Proyecto"
+          "title2": "Sobre el Proyecto",
+          "rpc_urls": [
+            "https://d5duk9lecjq24mdnd4nk.sk0vql13.apigw.yandexcloud.net/api/contact"
+          ]
         }
       },
       "market_response": {
@@ -1425,10 +1453,15 @@
             "text": "текст"
           },
           "button": "ОТПРАВИТЬ",
+          "not_filled_error": "ЗАПОЛНИТЕ ПОЛЯ",
+          "sending_error": "ОШИБКА ОТПРАВКИ",
           "name": "Имя *",
           "phone": "Телефон *",
           "question": "вопрос",
           "question2": "вопрос",
+          "rpc_urls": [
+            "сслыка на API для отправки данных формы"
+          ],
           "title": "Ваши контакты",
           "title2": "О проекте"
         }

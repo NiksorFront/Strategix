@@ -2,8 +2,8 @@
 import { computed, ref } from 'vue';
 import ExampleSectionTitle from '@/shared/ui/example-section-title';
 import HorizontalSlider from '@/shared/ui/horizontal-slider';
+import VideoPlayer from '@/shared/ui/video-player';
 import imagePlaceholder from '@/assets/images/image-placeholder.svg'
-import videoPlaceholder from '@/assets/images/video-placeholder.svg'
 import { resolveMediaSrc as resolveMediaSrcWithBase } from '@/shared/lib/media/resolveMediaSrc'
 
 type ExampleSliderSlide = {
@@ -55,24 +55,13 @@ const showPlaceholder = ref<Record<number, boolean>>({})
         :key="`example-slider-slide-${slide.src}-${index}`"
         class="example-slider__slide"
       >
-        <video
-          v-if="isVideoMedia(slide.src) && !showPlaceholder[index]"
-          class="example-slider__media"
-          :src="resolveMediaSrc(slide.src)"
-          muted
+        <VideoPlayer
+          v-if="isVideoMedia(slide.src)"
+          class="example-slider__media example-slider__media--video"
+          :src="slide.src"
           :autoplay="shouldAutoplay(slide)"
-          loop
-          playsinline
-          preload="metadata"
-          :aria-label="slide.alt ?? data.title ?? `Slide ${index + 1}`"
-          @error="showPlaceholder[index] = true"
+          :hide-controls="true"
         />
-        <img
-          v-else-if="isVideoMedia(slide.src)"
-          :src="videoPlaceholder"
-          class="example-slider__media"
-          :alt="slide.alt ?? data.title ?? `Slide ${index + 1}`"
-        >
         <NuxtImg
           v-else-if="!showPlaceholder[index]"
           class="example-slider__media"
@@ -150,6 +139,21 @@ const showPlaceholder = ref<Record<number, boolean>>({})
   max-height: calc(var(--vh) * 90);
   display: block;
   object-fit: cover;
+}
+
+.example-slider__media--video :deep(.video-player__video),
+.example-slider__media--video :deep(.video-player__placeholder){
+  width: 100%;
+  height: 100%;
+  max-height: calc(var(--vh) * 90);
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.example-slider__media--video :deep(.video-player__placeholder){
+  aspect-ratio: auto;
+  padding-inline: 0;
 }
 
 @media (hover: none), (pointer: coarse){
