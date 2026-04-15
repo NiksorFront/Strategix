@@ -24,11 +24,11 @@
       },
       "footer": {
         "brand": "STRATEGIX",
-        "email": "hello@strategix.com",
+        "email": "strategixpr@gmail.com",
         "icons": [
           {
             "src": "/icons/1766455160554-d04f861e-1da0-4dbc-a85b-b7872bcbbc12.svg",
-            "href": "https://t.me/strategix"
+            "href": "https://t.me/strategixPR"
           },
           {
             "src": "/icons/1766455160562-6246d37e-3bb0-4233-b7ae-801d93d37379.svg",
@@ -36,10 +36,10 @@
           }
         ],
         "privacy_policy": {
-          "href_pdf": "/pdf/privacy-policy_ru.pdf",
+          "href_pdf": "/pdf/Политика_в_отношении_обработки_персональных_данных_strategix_pr_ru.pdf",
           "text": "ПОЛИТИКА  КОНФИДЕНЦИАЛЬНОСТИ"
         },
-        "rights": "© 2022–2025 ВСЕ ПРАВА ЗАЩИЩЕНЫ"
+        "rights": "© 2022–2026 ВСЕ ПРАВА ЗАЩИЩЕНЫ"
       },
       "header": {
         "button": {
@@ -105,7 +105,7 @@
             },
             {
               "type": "email",
-              "value": "hello@strategix.com",
+              "value": "strategixpr@gmail.com",
               "src": "",
               "text": "",
               "href": ""
