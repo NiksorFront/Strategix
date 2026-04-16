@@ -223,30 +223,44 @@
 }
 
 .about-service-bullets{
+  --about-service-bullet-gap: min(10px, 2.6vw);
+  --about-service-bullet-size: min(6px, 1.6vw);
+
   padding: 0;
   margin: 0;
+  list-style: none;
+
   display: flex;
   flex-direction: column;
   gap: min(calc(var(--vh) * 1.2), 12px);
   color: white;
-}
-
-.bullet{
-  margin-left: min(4.4%, 15px);
 
   @media(--tablet-width){
-    font-size: clamp(15px, 2.8vw, 42px); /* Изменение размера точек рядом с шрифтом*/
-    
-    line-height: 60%;
-    margin-left: 7.75%;
-    margin-bottom: calc(var(--vh) * 0.8);
+    --about-service-bullet-gap: clamp(8px, 1vw, 32px);
+    --about-service-bullet-size: clamp(6px, 0.7vw, 24px);
   }
 
   @media(--mobile-medium){
-    font-size: min(16px, 4.1vw);
-    margin-left: min(5%, 15px);
-    line-height: 110%;
+    --about-service-bullet-gap: min(10px, 2.6vw);
+    --about-service-bullet-size: min(6px, 1.6vw);
   }
+}
+
+.bullet{
+  margin-left: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--about-service-bullet-gap);
+}
+
+.bullet::before{
+  content: "";
+  width: var(--about-service-bullet-size);
+  height: var(--about-service-bullet-size);
+  margin-top: calc(var(--about-service-bullet-size) * 1.05);
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: currentColor;
 }
 
 .bullet-text{
