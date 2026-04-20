@@ -273,76 +273,76 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Иван Дягтерев",
+        "sphere": "Ivan Djägterew",
         "name": "Senior Systems Administrator",
         "src": "/images/1775825461635-1984cbcb-b762-4bdb-83aa-108bd3041a6e.png",
         "autoplay": true,
         "description": [
-          "Иван Дегтярев — эксперт в области IT-инфраструктуры и Senior Systems Administrator. Работает в американской компании, среди клиентов которой — крупные медицинские центры и девелоперские проекты. В настоящее время готовится к получению международных сертификаций в области информационной безопасности (Cisco CCNP Security и Cisco CCIE Security).\n\n",
-          "Ранее работал в крупных компаниях в сфере ИТ и агропромышленного сектора."
+          "Ivan Degtjarjow ist ein Experte im Bereich der IT-Infrastruktur und Senior Systems Administrator. Er arbeitet in einem amerikanischen Unternehmen, zu dessen Kunden große medizinische Zentren und Entwicklungsprojekte gehören. Derzeit bereitet er sich auf den Erwerb internationaler Zertifizierungen im Bereich der Informationssicherheit vor (Cisco CCNP Security und Cisco CCIE Security).",
+          "Zuvor arbeitete er in großen Unternehmen im IT- und Agrarindustriesektor."
         ],
         "about": [
           {
-            "label": "Сектор",
-            "value": "Личное продвижение"
+            "label": "Bereich",
+            "value": "Persönliche Vermarktung"
           },
           {
-            "label": "Клиент",
-            "value": "Иван Дегтярев"
+            "label": "Kunde",
+            "value": "Ivan Degtjarjow"
           },
           {
-            "label": "Страна",
-            "value": "Россия"
+            "label": "Land",
+            "value": "Russland"
           },
           {
-            "label": "Рынок",
-            "value": "США"
+            "label": "Markt",
+            "value": "USA"
           }
         ]
       },
       "tasks": {
-        "title": "Задача клиента",
+        "title": "Aufgabe des Kunden",
         "description": [
-          " у клиента уже был сильный профессиональный бэкграунд и стабильная карьера на локальном рынке. Благодаря окружению и профессиональным контактам он видел примеры специалистов из своей сферы, которые выходили на международный рынок, переезжали и значительно росли в доходе и возможностях.\n",
-          "Поэтому он обратился к нам с запросом:"
+          "Der Kunde verfügte bereits über einen starken beruflichen Hintergrund und eine stabile Karriere auf dem lokalen Markt. Dank seines Umfelds und seiner beruflichen Kontakte sah er Beispiele von Fachleuten aus seiner Branche, die auf den internationalen Markt gingen, umzogen und ihr Einkommen sowie ihre Möglichkeiten deutlich steigerten.",
+          "Daher wandte er sich mit folgender Anfrage an uns:"
         ],
         "lists": [
           {
             "src": "/images/1775825461635-6efa7860-6ef5-43d7-b3c5-dc362922354b.png",
-            "description": "Упаковать уже сильный локальный опыт в понятное международное позиционирование",
+            "description": "Den bereits starken lokalen Erfahrungshintergrund in eine klare internationale Positionierung übersetzen",
             "background": "#FFFFFF",
             "border": false
           },
           {
             "src": "/images/1775825461635-4a50ae25-ffee-49a6-9761-0a576130d240.png",
-            "description": "Показать его экспертизу так, чтобы она была заметна на рынке США ",
+            "description": "Seine Expertise so darstellen, dass sie auf dem US-Markt sichtbar wird",
             "background": "#2AB464",
             "border": false
           },
           {
             "src": "/images/1775825461636-d70bdbd8-4467-4904-9fb3-77b3f8b3f23d.png",
-            "description": "Подготовить профиль к карьерным возможностям за рубежом и привлечению релевантных предложений о сотрудничестве",
+            "description": "Das Profil auf Karrieremöglichkeiten im Ausland und den Erhalt relevanter Kooperationsangebote vorbereiten",
             "background": "",
             "border": true
           },
           {
             "src": "/images/1775825461635-73463b13-f495-4294-a708-3e20b9773582.png",
-            "description": "Усилить профиль под визовые критерии",
+            "description": "Das Profil im Hinblick auf Visakriterien stärken",
             "background": "#FFFFFF",
             "border": false
           }
         ]
       },
       "strategies": {
-        "title": "Какую стратегию мы предложили",
-        "subtitle": "Мы разработали комплексную стратегию продвижения, которая включала:",
+        "title": "Welche Strategie wir vorgeschlagen haben",
+        "subtitle": "Wir haben eine umfassende Vermarktungsstrategie entwickelt, die Folgendes umfasste:",
         "lists": [
           {
-            "title": "Медийное усиление",
+            "title": "Mediale Stärkung",
             "bullets": [
-              "Расширили профессиональный профиль клиента: помимо основной должности Senior System Administrator предложили усилить его экспертизой в сфере кибербезопасности — как актуальным и прикладным направлением, в котором специалист действительно обладает сильной компетенцией.",
-              "Выбрали более релевантный для медиа угол позиционирования: тема кибербезопасности позволила встроить экспертизу клиента в современную повестку и сделать ее понятной для широкой аудитории.",
-              "Точно попали в момент повышенного интереса СМИ к вопросам кибербезопасности на фоне инфоповодов, связанных со взломами и утечками данных. Это позволило органично включить клиента в актуальный общественный контекст и получить широкий охват."
+              "Wir haben das berufliche Profil des Kunden erweitert: Neben seiner Hauptposition als Senior System Administrator schlugen wir vor, sein Profil zusätzlich durch Expertise im Bereich Cybersicherheit zu stärken — als ein aktuelles und praxisnahes Feld, in dem der Spezialist tatsächlich über hohe Kompetenz verfügt.",
+              "Wir wählten einen für die Medien relevanteren Positionierungsansatz: Das Thema Cybersicherheit ermöglichte es, die Expertise des Kunden in die aktuelle Agenda einzubetten und sie für ein breites Publikum verständlich zu machen.",
+              "Wir trafen genau den Zeitpunkt des gesteigerten Medieninteresses an Fragen der Cybersicherheit vor dem Hintergrund von Nachrichtenanlässen im Zusammenhang mit Hackerangriffen und Datenlecks. Dadurch konnten wir den Kunden organisch in den aktuellen öffentlichen Kontext einbinden und eine große Reichweite erzielen."
             ],
             "src": "/images/1775825461636-c077fa7f-a8cb-461d-89d5-b39e401b5b22.png",
             "location": "left",
@@ -350,10 +350,10 @@
             "border": false
           },
           {
-            "title": "ФОРМИРОВАНИЕ ПРОФЕССИОНАЛЬНОГО ВЕСА",
+            "title": "AUFBAU PROFESSIONELLER GEWICHTUNG",
             "bullets": [
-              "Выстроили понятное международное позиционирование клиента как специалиста, работающего на пересечении системного администрирования и кибербезопасности.",
-              "Проработали дополнительные возможности для усиления профильных ассоциаций и профессионального статуса, чтобы сделать образ специалиста более устойчивым и убедительным для внешней аудитории."
+              "Wir haben eine klare internationale Positionierung des Kunden als Spezialisten entwickelt, der an der Schnittstelle von Systemadministration und Cybersicherheit arbeitet.",
+              "Wir haben zusätzliche Möglichkeiten zur Stärkung fachlicher Assoziationen und des beruflichen Status ausgearbeitet, um das Profil des Spezialisten für die externe Zielgruppe stabiler und überzeugender zu machen."
             ],
             "src": "/images/1775825461636-638a5b65-6a65-450d-8101-59df5e5711aa.jpg",
             "location": "right",
@@ -363,30 +363,30 @@
         ]
       },
       "results-blocks": {
-        "title": "Результат",
-        "subtitle": "Работа заняла несколько месяцев и привела к изменениям в профессиональной траектории клиента:",
+        "title": "Ergebnis",
+        "subtitle": "Die Arbeit dauerte mehrere Monate und führte zu Veränderungen in der beruflichen Laufbahn des Kunden:",
         "blocks": [
           {
-            "title": "ШИРОКИЙ МЕДИЙНЫЙ РЕЗОНАНС",
-            "description": "Материалы с участием клиента получили более 50 цитирований в других изданиях и СМИ, что дало сильный каскадный эффект и значительно расширило охват",
+            "title": "BREITE MEDIALE RESONANZ",
+            "description": "Materialien mit Beteiligung des Kunden wurden in anderen Publikationen und Medien mehr als 50-mal zitiert, was einen starken Kaskadeneffekt auslöste und die Reichweite erheblich vergrößerte.",
             "background": "#2AB464",
             "border": false
           },
           {
-            "title": "УСИЛЕНИЕ ПРОФЕССИОНАЛЬНОГО ПРОФИЛЯ",
-            "description": "Мы выстроили позиционирование клиента как эксперта национального уровня в теме кибербезопасности — специалиста, который может профессионально комментировать самые актуальные и чувствительные для рынка вопросы",
+            "title": "STÄRKUNG DES PROFESSIONELLEN PROFILS",
+            "description": "Wir haben den Kunden als Experten von nationalem Rang im Bereich Cybersicherheit positioniert — als Spezialisten, der die aktuellsten und sensibelsten Fragen des Marktes professionell kommentieren kann.",
             "background": "#FFFFFF",
             "border": false
           },
           {
-            "title": "Запрос от Forbes",
-            "description": "Клиент получил запрос на комментарий от Forbes. Это дополнительно усилило его статус, поскольку Forbes остается одним из самых узнаваемых и авторитетных медиа на международном уровне.",
+            "title": "ANFRAGE VON FORBES",
+            "description": "Der Kunde erhielt eine Anfrage für einen Kommentar von Forbes. Dies stärkte seinen Status zusätzlich, da Forbes international weiterhin zu den bekanntesten und angesehensten Medien gehört.",
             "background": "transparent",
             "border": true
           },
           {
-            "title": "ГРИН-КАРТА США ПО EB-1A",
-            "description": "Сильный публичный профиль, международные публикации и подтвержденная экспертность стали частью успешного кейса по получению грин-карты США по визе для людей с выдающимися способностями EB-1A.",
+            "title": "US-GREEN-CARD NACH EB-1A",
+            "description": "Ein starkes öffentliches Profil, internationale Veröffentlichungen und nachgewiesene Expertise wurden Teil eines erfolgreichen Falls zur Erlangung einer US-Green-Card im Rahmen des Visums EB-1A für Personen mit außergewöhnlichen Fähigkeiten.",
             "background": "#2AB464",
             "border": false
           }
