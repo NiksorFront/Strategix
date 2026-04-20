@@ -72,12 +72,12 @@
         },
         "navigation_desktop": [
           {
-            "href": "#about-us",
-            "text": "О нас"
-          },
-          {
             "href": "#",
             "text": "Главная"
+          },
+          {
+            "href": "#about-us",
+            "text": "О нас"
           },
           {
             "href": "#contacts",
