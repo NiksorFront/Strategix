@@ -106,8 +106,8 @@
     },
     "ru": {
       "welcome": {
-        "sphere": "БАНКА ВИНА",
-        "name": "TOBA",
+        "sphere": "Оливкое масло",
+        "name": "MELANA",
         "src": "/images/1777284529753-7c59b459-1f58-434d-9e9a-f45efdfd1860.png",
         "autoplay": true,
         "description": [
@@ -143,20 +143,20 @@
         "fonts": [
           {
             "assignment": "Основной",
-            "name": "LibertyBOLD",
+            "name": "Liberty  Bold",
             "description": "Было выбрано название и заголовки",
             "font": {
-              "src": "/fonts/1777284248535-dc682801-0113-42d4-9add-ef41965470b2.ttf",
+              "src": "/fonts/1777311822247-14bf2287-f90e-4c9f-828e-ed7550f3ca26.otf",
               "weight": 700,
               "scale": 1.6
             }
           },
           {
             "assignment": "Вспомогательный",
-            "name": "Futurafuturisc",
+            "name": "Liberty  Regular",
             "description": "С их широкими и незамкнутыми буквами и большой высотой x, которые были использованы для основного текста небольшого размера",
             "font": {
-              "src": "/fonts/1777284248535-857bbf2a-0fb8-41a6-bcc8-7bb46c5798f6.otf",
+              "src": "/fonts/1777311859788-095453e9-8a9c-45c9-8f12-4700c3cd2d94.otf",
               "weight": 700,
               "scale": 1
             }
