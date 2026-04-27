@@ -14,6 +14,7 @@ type ExampleOtherProject = {
 type ProjectCase = {
   title: string;
   src: string;
+  hidden?: boolean;
 };
 
 type ProjectGroupLocale = {
@@ -53,6 +54,8 @@ const getProjectsInOrder = (localeKey: string) => {
     if (!cases) continue;
 
     for (const [slug, value] of Object.entries(cases)) {
+      if (value.hidden === true) continue;
+
       result.push({
         slug,
         title: value.title,

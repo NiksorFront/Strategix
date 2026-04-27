@@ -44,12 +44,10 @@ type ProjectGroupsMeta = Record<string, Record<string, ProjectLocaleMeta>>;
 
 const projectsMeta = (projectsContent.projects || {}) as ProjectGroupsMeta;
 
-const isProjectHidden = (slug: string) => {
+const isProjectHidden = (slug: string, localeKey: string) => {
   for (const group of Object.values(projectsMeta)) {
-    for (const localeData of Object.values(group)) {
-      const caseMeta = localeData?.cases?.[slug];
-      if (caseMeta?.hidden === true) return true;
-    }
+    const caseMeta = group[localeKey]?.cases?.[slug];
+    if (caseMeta?.hidden === true) return true;
   }
 
   return false;
@@ -128,7 +126,7 @@ const sections = computed<ProjectSection[]>(() => {
     });
 });
 
-const isHiddenProject = computed(() => isProjectHidden(project.value));
+const isHiddenProject = computed(() => isProjectHidden(project.value, currentLocale.value));
 const isNotFound = computed(() => isHiddenProject.value || !localeContent.value || sections.value.length === 0);
 
 const siteTranslations = indexContent.translations as Record<string, {

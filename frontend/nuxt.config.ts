@@ -66,7 +66,7 @@ export default defineNuxtConfig({
     minify: true
   },
   image: {
-    provider: "none",
+    provider: "ipxStatic",
     quality: 80,
     format: ['webp'],
     screens: {
