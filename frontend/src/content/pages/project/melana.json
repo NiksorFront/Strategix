@@ -13,56 +13,55 @@
       "welcome": {
         "sphere": "OLIVE OIL",
         "name": "MELANA",
-        "src": "/images/1777284248537-163d7264-a6e6-473d-aeed-ae0707a6976e.jpg",
+        "src": "/images/1777312043365-1e7dd7b1-b145-47e1-86ff-66b5c2b1c49a.png",
         "autoplay": true,
         "description": [
-          "The TOBA project is Georgian wine in an aluminum can, developed for the European market.",
-          "The core idea is to introduce consumers to Georgia’s rich cultural heritage in a contemporary format.",
-          "Each can features a QR code that leads to a page dedicated to one of the country’s cultural landmarks. To explore the full heritage collection, consumers are encouraged to collect all TOBA cans."
+          "Бренд Melana занимается производством оливкового масла в Греции.",
+          "Задача состояла в том чтобы сделать яркий и нестандартный фирменный стиль бренда. Без стереотипных веточек и оливок. Для клиента был важен упор на иллюстрацию."
         ],
         "about": [
           {
-            "label": "Sector",
-            "value": "Branding"
+            "label": "Сектор",
+            "value": "Брендинг"
           },
           {
-            "label": "Client",
+            "label": "Клиент",
             "value": "TOBA"
           },
           {
-            "label": "Country",
-            "value": "Georgia"
+            "label": "Страна",
+            "value": "Грузия"
           },
           {
-            "label": "Expertise",
-            "value": "Strategy, Branding"
+            "label": "Экспертиза",
+            "value": "Стратегия, Брендинг"
           }
         ]
       },
       "big-logo": {
-        "src": "/images/1777284248537-e1269911-e426-4e0c-a8bc-b8768ae0dbae.png",
-        "alt": "логотип Тоба",
+        "src": "/images/1777312043368-05c4bdd7-5ee4-4a54-b3ad-20d599ba7f05.png",
+        "alt": "Layer 1 (1)",
         "backgroundColor": "#F1F1F1"
       },
       "typograhy": {
-        "title": "TYPOGRAPHY",
+        "title": "Типографика",
         "fonts": [
           {
-            "assignment": "Primary",
-            "name": "Bebas",
-            "description": "The typeface was chosen for titles and headings",
+            "assignment": "Основной",
+            "name": "Liberty  Bold",
+            "description": "Было выбрано название и заголовки",
             "font": {
-              "src": "/fonts/1777284248532-8607c246-ff10-4254-b684-87052d7da1c8.ttf",
+              "src": "/fonts/1777312043364-3149b651-89b0-4c4a-b0ae-e9479a99ea77.otf",
               "weight": 700,
               "scale": 1.6
             }
           },
           {
-            "assignment": "Secondary",
-            "name": "Futura futuris c",
-            "description": "With its wide, open letterforms and high x-height, it was used for smaller body text",
+            "assignment": "Вспомогательный",
+            "name": "Liberty  Regular",
+            "description": "С их широкими и незамкнутыми буквами и большой высотой x, которые были использованы для основного текста небольшого размера",
             "font": {
-              "src": "/fonts/1777284248533-b061f2f6-47c8-49d9-9a3a-611db84ba5c1.otf",
+              "src": "/fonts/1777312043364-fd4542b4-86dd-4f19-8ced-fa85e138cd72.otf",
               "weight": 700,
               "scale": 1
             }
@@ -70,37 +69,44 @@
         ]
       },
       "color-palette": {
-        "title": "COLOR PALETTE",
+        "title": "Цветовая палитра",
         "colors-blocks": [
           {
             "assignment": "",
             "colors": [
-              "232F5F",
-              "EF5F5E",
-              "FCBB48"
+              "F1E2C1",
+              "EE9D80",
+              "9FB5DE",
+              "78732E",
+              "9D986B",
+              "3D5F95",
+              "F04E4D",
+              "3A3935"
             ]
           }
         ]
       },
       "big-image": {
-        "src": "/images/1777284248537-7299c28a-1544-40c4-8c53-c2a7a89f679c.jpg",
-        "alt": "большая картинкаТоба"
+        "src": "/images/1777312043366-21635ca2-abcd-4955-81d8-35afa654d21c.png",
+        "srcMobile": "",
+        "alt": "Group 2131328540 (1)"
       },
       "big-image-2": {
-        "src": "/images/1777284248536-764302ca-c0f0-4848-8ecd-bbf20dd575f7.jpg",
-        "alt": "большая картинкаТоба"
+        "src": "/images/1777312043366-97170229-ffa1-4809-b057-96a1f51e0d6f.png",
+        "srcMobile": "",
+        "alt": "Group 2131328533 (2)"
       },
       "info": {
-        "title": "A fusion of cultural storytelling, technology, and a contemporary product format",
+        "title": "ИЛЛЮСТРАЦИЯ КАК ОСНОВА ВИЗУАЛЬНОГО ЯЗЫКА",
         "description": [
-          "We developed a visual concept where each can represents a distinct element of Georgia’s cultural heritage — from architecture and art to history and craftsmanship. Illustrations and color schemes vary from release to release, forming a collectible series.",
-          "The design blends the minimalism of contemporary European aesthetics with recognizable Georgian motifs."
+          "Для бренда Melana мы создали визуальный язык, который отходит от привычных кодов категории и раскрывает происхождение продукта через иллюстрацию — живую, эмоциональную и человечную.",
+          "Образ строится вокруг сцены сбора оливок, передавая атмосферу, культуру и ручной характер производства в простой и современной форме."
         ]
       },
-      "big-logo-2": {
-        "src": "/images/1777284248536-b1417098-544b-4b76-b11b-2db632bdd15e.jpg",
-        "alt": "логотип Тоба 2",
-        "backgroundColor": "#212D61"
+      "big-image-3": {
+        "src": "/images/1777312043367-38a8bc32-20f5-4b76-baa4-5aeaeed428ec.png",
+        "srcMobile": "",
+        "alt": "Group 2131328534"
       },
       "other-projects": true
     },
