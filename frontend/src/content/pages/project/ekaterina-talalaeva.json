@@ -11,74 +11,74 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Екатерина Талалаева",
+        "sphere": "Ekaterina Talalaeva",
         "name": "E-commerce",
-        "src": "/images/1775825443324-c0cd7e06-ddf1-464e-be9f-59b62867184a.png",
+        "src": "/images/1777278571557-5cdadc6c-d75a-45e1-bf18-650b91d3161d.png",
         "autoplay": true,
         "description": [
-          "Екатерина Талалаева - предприниматель, эксперт в сфере e-commerce, бизнес-консультант и автор образовательного курса по запуску бизнеса на Shopify"
+          "Ekaterina Talalaeva is an entrepreneur, e-commerce expert, business consultant, and creator of an educational course on launching a business on Shopify."
         ],
         "about": [
           {
-            "label": "Сектор",
-            "value": "Личное продвижение"
+            "label": "Sector",
+            "value": "Personal branding"
           },
           {
-            "label": "Клиент",
-            "value": "Екатерина Талалаева"
+            "label": "Client",
+            "value": "Ekaterina Talalaeva"
           },
           {
-            "label": "Страна",
-            "value": "Россия"
+            "label": "Country",
+            "value": "Russia"
           },
           {
-            "label": "Рынок",
-            "value": "США"
+            "label": "Market",
+            "value": "United States"
           }
         ]
       },
       "tasks": {
-        "title": "Задача клиента",
+        "title": "CLIENT’S GOAL",
         "description": [
-          "Она обратился к нам с запросом:\nусилить свой профессиональный профиль для выхода на международный рынок, повысить доверие к своей экспертизе и создать более сильное публичное позиционирование для работы с глобальной аудиторией и новыми карьерными возможностями:"
+          "Her goal was to strengthen her professional profile for the international market, increase trust in her expertise, and build a more visible public presence that would support new career opportunities and collaboration with a global audience."
         ],
         "lists": [
           {
             "src": "/images/1775825443325-491df33c-f0a7-4ae8-b161-d22e4239a9a8.png",
-            "description": "Выстроить стратегию профессионального позиционирования, которая подчеркнет экспертизу, практический опыт",
+            "description": "Build a professional positioning strategy that highlights her expertise and practical experience",
             "background": "#FFFFFF",
             "border": false
           },
           {
             "src": "/images/1775825443326-1d50f139-3ceb-4121-a594-9735a81f1c03.png",
-            "description": "Повысить медийность на рынке США и усилить присутствие в международном информационном поле",
+            "description": "Increase media visibility in the U.S. market and strengthen her presence in the international information space",
             "background": "#2AB464",
             "border": false
           },
           {
             "src": "/images/1775825443326-eb0a71d5-6d8e-47f2-8432-75cfbf5e3ed3.png",
-            "description": "Привлечь новые предложения о сотрудничестве в США и на глобальном рынке",
+            "description": "Attract new collaboration opportunities in the U.S. and global markets",
             "background": "",
             "border": true
           },
           {
             "src": "/images/1775825443326-440e3ae3-8ec4-47a9-a8f2-c4abe4c477aa.png",
-            "description": "Повысить инвестиционную привлекательность личного профиля и вызывать доверие со стороны инвесторов и партнеров",
+            "description": "Increase the investment appeal of her personal profile and build trust among investors and partners",
             "background": "#FFFFFF",
             "border": false
           }
         ]
       },
       "strategies": {
-        "title": "Какую стратегию мы предложили",
-        "subtitle": "Мы разработали комплексную стратегию продвижения, которая включала:",
+        "title": "STRATEGY WE PROPOSED",
+        "subtitle": "WE DEVELOPED A COMPREHENSIVE PROMOTION STRATEGY THAT INCLUDED:",
         "lists": [
           {
-            "title": "Медийное усиление",
+            "title": "MEDIA PRESENCE",
             "bullets": [
-              "Подготовили и опубликовали материал в международном СМИ с\nэкспертным комментарием Екатерины.",
-              "Упаковали профиль Екатерины как эксперта и предпринимателя, который не только работает с проектами, но и системно обучает других.\n",
-              "Отдельно подсветили ее образовательное направление: это помогло укрепить образ специалиста, который умеет передавать знания и обладает собственной экспертизой в нише."
+              "Prepared and published an article in an international media outlet featuring Ekaterina’s expert commentary.",
+              "Positioned Ekaterina as both an expert and entrepreneur: someone who not only works on projects, but also systematically teaches others.",
+              "Highlighted her educational work separately, which helped strengthen her image as a professional who can share knowledge and has first-hand expertise in the niche."
             ],
             "src": "/images/1775825443325-f031d602-3f8f-421a-b51e-be909ce7a965.png",
             "location": "left",
@@ -86,10 +86,10 @@
             "border": false
           },
           {
-            "title": "УПАКОВКА СОБСТВЕННОЙ МЕТОДИКИ",
+            "title": "PACKAGING HER METHODOLOGY",
             "bullets": [
-              "Перевели практические наработки Екатерины в более формализованный экспертный продукт, который усиливает доверие к ней как к специалисту.",
-              "Превратили практический опыт в экспертный материал, на который можно ссылаться."
+              "Turned Ekaterina’s practical experience into a more structured expert product, strengthening trust in her as a specialist.",
+              "Transformed her hands-on expertise into expert material that could be referenced and used as proof of credibility."
             ],
             "src": "",
             "location": "right",
@@ -134,7 +134,7 @@
       "welcome": {
         "sphere": "Екатерина Талалаева",
         "name": "E-commerce",
-        "src": "/images/1775822369405-c9d80d83-94f7-4d3b-89d9-8bf6843f9293.png",
+        "src": "/images/1777278557999-1cc426b0-dee1-42eb-a130-348814346d5d.png",
         "autoplay": true,
         "description": [
           "Екатерина Талалаева - предприниматель, эксперт в сфере e-commerce, бизнес-консультант и автор образовательного курса по запуску бизнеса на Shopify"
@@ -159,47 +159,47 @@
         ]
       },
       "tasks": {
-        "title": "Задача клиента",
+        "title": "CLIENT’S GOAL",
         "description": [
-          "Она обратился к нам с запросом:\nусилить свой профессиональный профиль для выхода на международный рынок, повысить доверие к своей экспертизе и создать более сильное публичное позиционирование для работы с глобальной аудиторией и новыми карьерными возможностями:"
+          "Her goal was to strengthen her professional profile for the international market, increase trust in her expertise, and build a more visible public presence that would support new career opportunities and collaboration with a global audience."
         ],
         "lists": [
           {
             "src": "/images/1775824746602-f2b194e0-b450-40b4-b4b3-efdf12f59e59.png",
-            "description": "Выстроить стратегию профессионального позиционирования, которая подчеркнет экспертизу, практический опыт",
+            "description": "Build a professional positioning strategy that highlights her expertise and practical experience",
             "background": "#FFFFFF",
             "border": false
           },
           {
             "src": "/images/1775824777858-b0c3edb9-5880-4898-951e-bc8afdebc211.png",
-            "description": "Повысить медийность на рынке США и усилить присутствие в международном информационном поле",
+            "description": "Increase media visibility in the U.S. market and strengthen her presence in the international information space",
             "background": "#2AB464",
             "border": false
           },
           {
             "src": "/images/1775824821909-c02b3e00-6994-42aa-98a5-74154b780514.png",
-            "description": "Привлечь новые предложения о сотрудничестве в США и на глобальном рынке",
+            "description": "Attract new collaboration opportunities in the U.S. and global markets",
             "background": "",
             "border": true
           },
           {
             "src": "/images/1775824851867-9d9de44d-8450-418e-a645-327b9f311b8d.png",
-            "description": "Повысить инвестиционную привлекательность личного профиля и вызывать доверие со стороны инвесторов и партнеров",
+            "description": "Increase the investment appeal of her personal profile and build trust among investors and partners",
             "background": "#FFFFFF",
             "border": false
           }
         ]
       },
       "strategies": {
-        "title": "Какую стратегию мы предложили",
-        "subtitle": "Мы разработали комплексную стратегию продвижения, которая включала:",
+        "title": "STRATEGY WE PROPOSED",
+        "subtitle": "WE DEVELOPED A COMPREHENSIVE PROMOTION STRATEGY THAT INCLUDED:",
         "lists": [
           {
-            "title": "Медийное усиление",
+            "title": "MEDIA PRESENCE",
             "bullets": [
-              "Подготовили и опубликовали материал в международном СМИ с\nэкспертным комментарием Екатерины.",
-              "Упаковали профиль Екатерины как эксперта и предпринимателя, который не только работает с проектами, но и системно обучает других.\n",
-              "Отдельно подсветили ее образовательное направление: это помогло укрепить образ специалиста, который умеет передавать знания и обладает собственной экспертизой в нише."
+              "Prepared and published an article in an international media outlet featuring Ekaterina’s expert commentary.",
+              "Positioned Ekaterina as both an expert and entrepreneur: someone who not only works on projects, but also systematically teaches others.",
+              "Highlighted her educational work separately, which helped strengthen her image as a professional who can share knowledge and has first-hand expertise in the niche."
             ],
             "src": "/images/1776659547168-898c8c33-0915-414f-ae14-e854ebf50763.webp",
             "location": "left",
@@ -207,10 +207,10 @@
             "border": false
           },
           {
-            "title": "УПАКОВКА СОБСТВЕННОЙ МЕТОДИКИ",
+            "title": "PACKAGING HER METHODOLOGY",
             "bullets": [
-              "Перевели практические наработки Екатерины в более формализованный экспертный продукт, который усиливает доверие к ней как к специалисту.",
-              "Превратили практический опыт в экспертный материал, на который можно ссылаться."
+              "Turned Ekaterina’s practical experience into a more structured expert product, strengthening trust in her as a specialist.",
+              "Transformed her hands-on expertise into expert material that could be referenced and used as proof of credibility."
             ],
             "src": "",
             "location": "right",
@@ -220,11 +220,11 @@
         ]
       },
       "results-blocks": {
-        "title": "Результат",
-        "subtitle": "Работа заняла несколько месяцев и привела к изменениям в профессиональной траектории клиента:",
+        "title": "RESULT",
+        "subtitle": "THE WORK TOOK SEVERAL MONTHS AND LED TO REAL CHANGES IN THE CLIENT’S PROFESSIONAL TRAJECTORY:",
         "blocks": [
           {
-            "title": "Международное признание",
+            "title": "INTERNATIONAL RECOGNITION",
             "description": "Победа в международном конкурсе в США в номинации «Достижения в\nобласти инженерии: потребительские услуги» усилила экспертный статус\nРомана и закрепила его профессиональное признание на международном\nуровне.",
             "background": "#2AB464",
             "border": false
@@ -269,36 +269,36 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Екатерина Талалаева",
+        "sphere": "Ekaterina Talalaeva",
         "name": "E-commerce",
-        "src": "/images/1775825443345-af5ff6e9-9343-4398-8985-c6248dad1930.png",
+        "src": "/images/1777278582211-7f0556a8-0121-4f4a-8ed9-acf88acdb63a.png",
         "autoplay": true,
         "description": [
-          "Екатерина Талалаева - предприниматель, эксперт в сфере e-commerce, бизнес-консультант и автор образовательного курса по запуску бизнеса на Shopify"
+          "Ekaterina Talalaeva ist Unternehmerin, E-Commerce-Expertin, Unternehmensberaterin und Autorin eines Bildungskurses zum Aufbau eines Geschäfts auf Shopify."
         ],
         "about": [
           {
-            "label": "Сектор",
-            "value": "Личное продвижение"
+            "label": "Bereich",
+            "value": "Personal Branding"
           },
           {
-            "label": "Клиент",
-            "value": "Екатерина Талалаева"
+            "label": "Kundin",
+            "value": "Ekaterina Talalaeva"
           },
           {
-            "label": "Страна",
-            "value": "Россия"
+            "label": "Land",
+            "value": "Russland"
           },
           {
-            "label": "Рынок",
-            "value": "США"
+            "label": "Markt",
+            "value": "USA"
           }
         ]
       },
       "tasks": {
         "title": "Задача клиента",
         "description": [
-          "Она обратился к нам с запросом:\nусилить свой профессиональный профиль для выхода на международный рынок, повысить доверие к своей экспертизе и создать более сильное публичное позиционирование для работы с глобальной аудиторией и новыми карьерными возможностями:"
+          "Ihr Ziel war es, ihr berufliches Profil auf dem internationalen Markt zu stärken, das Vertrauen in ihre Expertise zu erhöhen und eine sichtbarere öffentliche Präsenz aufzubauen, die neue Karrierechancen und die Zusammenarbeit mit einem globalen Publikum unterstützen würde."
         ],
         "lists": [
           {
@@ -398,36 +398,36 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Екатерина Талалаева",
+        "sphere": "Ekaterina Talalaeva",
         "name": "E-commerce",
-        "src": "/images/1775825443352-3455ab08-6dd3-4d1e-afdb-e61be6f0f222.png",
+        "src": "/images/1777278595012-7c740796-d49d-4725-83b7-c4124910f123.png",
         "autoplay": true,
         "description": [
-          "Екатерина Талалаева - предприниматель, эксперт в сфере e-commerce, бизнес-консультант и автор образовательного курса по запуску бизнеса на Shopify"
+          "Ekaterina Talalaeva es emprendedora, experta en e-commerce, consultora de negocios y creadora de un curso educativo sobre cómo lanzar un negocio en Shopify."
         ],
         "about": [
           {
-            "label": "Сектор",
-            "value": "Личное продвижение"
+            "label": "Sector",
+            "value": "Marca personal"
           },
           {
-            "label": "Клиент",
-            "value": "Екатерина Талалаева"
+            "label": "Cliente",
+            "value": "Ekaterina Talalaeva"
           },
           {
-            "label": "Страна",
-            "value": "Россия"
+            "label": "País",
+            "value": "Rusia"
           },
           {
-            "label": "Рынок",
-            "value": "США"
+            "label": "Mercado",
+            "value": "Estados Unidos"
           }
         ]
       },
       "tasks": {
         "title": "Задача клиента",
         "description": [
-          "Она обратился к нам с запросом:\nусилить свой профессиональный профиль для выхода на международный рынок, повысить доверие к своей экспертизе и создать более сильное публичное позиционирование для работы с глобальной аудиторией и новыми карьерными возможностями:"
+          "Su objetivo era fortalecer su perfil profesional en el mercado internacional, aumentar la confianza en su experiencia y construir una presencia pública más visible que respaldara nuevas oportunidades profesionales y la colaboración con una audiencia global."
         ],
         "lists": [
           {
