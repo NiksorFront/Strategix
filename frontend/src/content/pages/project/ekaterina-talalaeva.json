@@ -159,9 +159,9 @@
         ]
       },
       "tasks": {
-        "title": "CLIENT’S GOAL",
+        "title": "Задачи клиента",
         "description": [
-          "Her goal was to strengthen her professional profile for the international market, increase trust in her expertise, and build a more visible public presence that would support new career opportunities and collaboration with a global audience."
+          "Целью клиента было укрепить свой профессиональный имидж на международном рынке, повысить доверие к своей компетентности и создать более заметный публичный образ, который бы способствовал новым карьерным возможностям и сотрудничеству с глобальной аудиторией."
         ],
         "lists": [
           {
@@ -191,11 +191,11 @@
         ]
       },
       "strategies": {
-        "title": "STRATEGY WE PROPOSED",
-        "subtitle": "WE DEVELOPED A COMPREHENSIVE PROMOTION STRATEGY THAT INCLUDED:",
+        "title": "Какую стратегию мы предложили",
+        "subtitle": "Мы разработали комплексную стратегию продвижения, которая включала:",
         "lists": [
           {
-            "title": "MEDIA PRESENCE",
+            "title": "Медийное усиление",
             "bullets": [
               "Prepared and published an article in an international media outlet featuring Ekaterina’s expert commentary.",
               "Positioned Ekaterina as both an expert and entrepreneur: someone who not only works on projects, but also systematically teaches others.",
@@ -432,40 +432,40 @@
         "lists": [
           {
             "src": "/images/1777308011569-cec6921b-13d7-4496-9627-fdbc6d2255b1.png",
-            "description": "Выстроить стратегию профессионального позиционирования, которая подчеркнет экспертизу, практический опыт",
+            "description": "Desarrollar una estrategia de posicionamiento profesional que destaque su expertise y experiencia práctica",
             "background": "#FFFFFF",
             "border": false
           },
           {
             "src": "/images/1777310298795-f84587a5-8321-4b41-a8e7-2f115d10b348.png",
-            "description": "Повысить медийность на рынке США и усилить присутствие в международном информационном поле",
+            "description": "Aumentar su visibilidad mediática en el mercado estadounidense y reforzar su presencia en el espacio informativo internacional",
             "background": "#2AB464",
             "border": false
           },
           {
             "src": "/images/1777310359893-4dd184fb-bd95-4e7c-aa89-b4257e5f2cbc.png",
-            "description": "Привлечь новые предложения о сотрудничестве в США и на глобальном рынке",
+            "description": "Atraer nuevas oportunidades de colaboración en Estados Unidos y en el mercado global",
             "background": "",
             "border": true
           },
           {
             "src": "/images/1777310438670-b8970a84-2f3f-41ec-93ee-e87c988a2f81.png",
-            "description": "Повысить инвестиционную привлекательность личного профиля и вызывать доверие со стороны инвесторов и партнеров",
+            "description": "Aumentar el atractivo de su perfil personal para inversores y generar confianza entre inversores y socios",
             "background": "#FFFFFF",
             "border": false
           }
         ]
       },
       "strategies": {
-        "title": "Какую стратегию мы предложили",
-        "subtitle": "Мы разработали комплексную стратегию продвижения, которая включала:",
+        "title": "QUÉ ESTRATEGIA PROPUSIMOS",
+        "subtitle": "DESARROLLAMOS UNA ESTRATEGIA INTEGRAL DE PROMOCIÓN QUE INCLUÍA:",
         "lists": [
           {
-            "title": "Медийное усиление",
+            "title": "VISIBILIDAD MEDIÁTICA",
             "bullets": [
-              "Подготовили и опубликовали материал в международном СМИ с\nэкспертным комментарием Екатерины.",
-              "Упаковали профиль Екатерины как эксперта и предпринимателя, который не только работает с проектами, но и системно обучает других.\n",
-              "Отдельно подсветили ее образовательное направление: это помогло укрепить образ специалиста, который умеет передавать знания и обладает собственной экспертизой в нише."
+              "Preparamos y publicamos un material en un medio internacional con un comentario experto de Ekaterina.",
+              "Presentamos el perfil de Ekaterina como experta y emprendedora: una profesional que no solo trabaja en proyectos, sino que también enseña de forma sistemática a otros.",
+              "Destacamos por separado su línea educativa, lo que ayudó a reforzar su imagen como especialista capaz de transmitir conocimientos y con expertise propia en su nicho."
             ],
             "src": "/images/1775825443352-df34f9e9-43ad-4701-b7e6-5762667c098a.png",
             "location": "left",
@@ -473,10 +473,10 @@
             "border": false
           },
           {
-            "title": "УПАКОВКА СОБСТВЕННОЙ МЕТОДИКИ",
+            "title": "FORMALIZACIÓN DE SU METODOLOGÍA PROPIA",
             "bullets": [
-              "Перевели практические наработки Екатерины в более формализованный экспертный продукт, который усиливает доверие к ней как к специалисту.",
-              "Превратили практический опыт в экспертный материал, на который можно ссылаться."
+              "Convertimos la experiencia práctica de Ekaterina en un producto experto más formalizado, que refuerza la confianza en ella como especialista.",
+              "Transformamos su experiencia aplicada en un material experto al que se puede hacer referencia."
             ],
             "src": "",
             "location": "right",
