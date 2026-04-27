@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import index from '@/content/pages/index.json'
-import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
+import { resolveNuxtImageSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 type ContactItemType = 'link' | 'phone' | 'email'
 type ContactItem = {
@@ -54,7 +54,7 @@ const contactItems = sourceItems
 const normalizeIconSrc = (src?: string) => {
   if (!src) return ''
   const normalizedSrc = src.startsWith('@/public') ? src.replace(/^@\/public/, '') : src
-  return resolveMediaSrc(normalizedSrc, baseURL)
+  return resolveNuxtImageSrc(normalizedSrc, baseURL)
 }
 
 const hasTripleGrid = computed(() => contactItems.length > 0 && (contactItems.length % 3 === 0 || contactItems.length % 5 === 0))

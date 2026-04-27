@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import VideoPlayer from '@/shared/ui/video-player';
 import imagePlaceholder from '@/assets/images/image-placeholder.svg'
-import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
+import { resolveNuxtImageSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 type ExampleWelcomeAboutItem = {
   label: string;
@@ -51,7 +51,7 @@ const showPlaceholder = ref(false)
       <NuxtImg
         v-else-if="!showPlaceholder"
         class="welcome-img"
-        :src="resolveMediaSrc(props.data.src, baseURL)"
+        :src="resolveNuxtImageSrc(props.data.src, baseURL)"
         :alt="props.data.name"
         format="webp"
         :quality="80"

@@ -3,7 +3,7 @@ import { computed, ref } from "vue";
 import xWhite from "@/assets/images/x-white.svg";
 import imagePlaceholder from "@/assets/images/image-placeholder.svg";
 import index from '@/content/pages/index.json'
-import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
+import { resolveMediaSrc, resolveNuxtImageSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 const { locale } = useI18n()
 const localePath = useLocalePath()
@@ -25,9 +25,7 @@ const email = translations.footer.email
 
 const normalizeIconSrc = (src?: string) => {
   if (!src || typeof src !== 'string') return ''
-  if (src.startsWith('@/public')) return resolveMediaSrc(src.replace(/^@\/public/, ''), baseURL)
-  if (src.startsWith('./')) return resolveMediaSrc(src.replace(/^\.\//, '/'), baseURL)
-  return resolveMediaSrc(src, baseURL)
+  return resolveNuxtImageSrc(src, baseURL)
 }
 
 const footerIcons = computed(() => {

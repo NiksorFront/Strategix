@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import ExampleSectionTitle from '@/shared/ui/example-section-title';
 import VideoPlayer from '@/shared/ui/video-player';
 import imagePlaceholder from '@/assets/images/image-placeholder.svg'
-import { resolveMediaSrc as resolveMediaSrcWithBase } from '@/shared/lib/media/resolveMediaSrc'
+import { resolveNuxtImageSrc as resolveNuxtImageSrcWithBase } from '@/shared/lib/media/resolveMediaSrc'
 import { useMediaQueryMatch } from '@/shared/lib/media/useMediaQueryMatch';
 
 type ExampleContextBulletBlock = {
@@ -55,7 +55,7 @@ const VIDEO_SRC_PATTERN = /\.(mp4|webm|ogg|mov)(?:$|[?#])/i;
 
 const isVideoMedia = (src: string) => VIDEO_SRC_PATTERN.test(src.trim());
 
-const resolveMediaSrc = (src: string) => resolveMediaSrcWithBase(src, baseURL);
+const resolveNuxtImageSrc = (src: string) => resolveNuxtImageSrcWithBase(src, baseURL);
 
 const isTabletViewport = useMediaQueryMatch('(min-width: 768px)');
 const activeContent = computed(() => (
@@ -149,7 +149,7 @@ const markPlaceholder = (index: number) => {
         <NuxtImg
           v-else-if="!hasPlaceholder(index)"
           class="context-gallery-media"
-          :src="resolveMediaSrc(item.src)"
+          :src="resolveNuxtImageSrc(item.src)"
           :alt="item.alt ?? data.title ?? 'Context image'"
           format="webp"
           :quality="80"

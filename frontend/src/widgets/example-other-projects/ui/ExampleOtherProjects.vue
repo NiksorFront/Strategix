@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue';
 import projectsData from '@/content/pages/projects.json';
 import imagePlaceholder from '@/assets/images/image-placeholder.svg'
-import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
+import { resolveNuxtImageSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 type ExampleOtherProject = {
   title: string;
@@ -138,7 +138,7 @@ const showPlaceholder = ref<Record<number, boolean>>({})
           <NuxtImg
             v-if="!showPlaceholder[index]"
             class="project-image"
-            :src="resolveMediaSrc(project.src, baseURL)"
+            :src="resolveNuxtImageSrc(project.src, baseURL)"
             :alt="project.title"
             format="webp"
             :quality="80"

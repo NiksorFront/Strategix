@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import imagePlaceholder from '@/assets/images/image-placeholder.svg'
-import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
+import { resolveNuxtImageSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 const {data} = defineProps<{
   data: {
@@ -26,7 +26,7 @@ const showPlaceholder = ref(false)
     >
       <NuxtImg 
         v-if="!showPlaceholder"
-        :src="resolveMediaSrc(data.src, baseURL)"
+        :src="resolveNuxtImageSrc(data.src, baseURL)"
         :alt="data.alt"
         format="webp"
         :quality="80"

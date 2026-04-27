@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import imagePlaceholder from '@/assets/images/image-placeholder.svg'
-import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
+import { resolveNuxtImageSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 const {route, src, title, description} = defineProps<{route: string, src: string, title: string, description: string}>()
 
@@ -10,7 +10,7 @@ const { app } = useRuntimeConfig()
 const baseURL = app?.baseURL ?? '/'
 
 const showPlaceholder = ref(false)
-const resolvedSrc = computed(() => resolveMediaSrc(src, baseURL))
+const resolvedSrc = computed(() => resolveNuxtImageSrc(src, baseURL))
 </script>
 
 <template>

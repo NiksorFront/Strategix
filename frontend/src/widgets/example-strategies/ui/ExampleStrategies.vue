@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import ExampleSectionTitle from '@/shared/ui/example-section-title';
 import imagePlaceholder from '@/assets/images/image-placeholder.svg'
-import { resolveMediaSrc } from '@/shared/lib/media/resolveMediaSrc'
+import { resolveNuxtImageSrc } from '@/shared/lib/media/resolveMediaSrc'
 
 type ExampleStrategiesItem = {
   title: string;
@@ -139,7 +139,7 @@ const showPlaceholder = ref<Record<number, boolean>>({})
           <NuxtImg
             v-if="!showPlaceholder[index]"
             class="strategy-image"
-            :src="resolveMediaSrc(item.src, baseURL)"
+            :src="resolveNuxtImageSrc(item.src, baseURL)"
             :alt="item.title"
             format="webp"
             :quality="80"
