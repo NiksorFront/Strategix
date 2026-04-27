@@ -27,6 +27,12 @@
             "src": "/images/1775797021646-8e0492e2-5d72-4919-a079-6ee5e8b3c53a.jpg",
             "title": "TOBA",
             "hidden": false
+          },
+          "melana": {
+            "description": "Branding für einen georgischen Wein für den europäischen Markt",
+            "src": "/images/1777284248543-1e19fec9-3461-46d4-9455-f99a3a703bc3.jpg",
+            "title": "TOBA",
+            "hidden": false
           }
         },
         "title": "Branding"
@@ -54,6 +60,12 @@
           "toba": {
             "description": "Developed branding for a Georgian wine tailored to the European market",
             "src": "/images/1775797021644-46c55aa4-f023-4b06-9561-eb04ad467d00.jpg",
+            "title": "TOBA",
+            "hidden": false
+          },
+          "melana": {
+            "description": "Developed branding for a Georgian wine tailored to the European market",
+            "src": "/images/1777284248542-1f406bf9-a833-484e-9fbc-a250c3e129c8.jpg",
             "title": "TOBA",
             "hidden": false
           }
@@ -85,6 +97,12 @@
             "src": "/images/1775797021649-109b62ec-d864-4680-acba-b7444dfc144d.jpg",
             "title": "TOBA",
             "hidden": false
+          },
+          "melana": {
+            "description": "Desarrollamos el branding para un vino georgiano dirigido al mercado europeo",
+            "src": "/images/1777284248543-b0fea87f-0b05-4e74-96a8-d03a7d528b18.jpg",
+            "title": "TOBA",
+            "hidden": false
           }
         },
         "title": "Branding"
@@ -113,6 +131,12 @@
             "description": "Разработали брендинг для грузинского вина, ориентированного на европейский рынок",
             "src": "/images/toba.jpg",
             "title": "TOBA",
+            "hidden": false
+          },
+          "melana": {
+            "description": "Бренд Melana занимается производством оливкового масла в Греции",
+            "src": "/images/1777284376710-8ae8ff0e-76c3-4a83-ae40-3401e1256e97.png",
+            "title": "MELANA",
             "hidden": false
           }
         },
