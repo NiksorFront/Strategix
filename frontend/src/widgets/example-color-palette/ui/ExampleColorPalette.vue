@@ -140,13 +140,16 @@ const formatColorValue = (value: string) => {
   padding: 0;
   margin: 0;
 
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: auto-fit;
+  gap: min(12vw, 60px);
+
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  column-gap: clamp(24px, 6vw, 60px);
-  row-gap: clamp(24px, 4vw, 48px);
+  justify-content: flex-start;
 
   @media(--tablet-width){
+    display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: clamp(48px, 6vw, 120px);
     row-gap: clamp(16px, 3vw, 32px);
@@ -159,16 +162,19 @@ const formatColorValue = (value: string) => {
 
 .palette-color{
   min-width: 0;
-  display: grid;
+  display: inline-flex;
   align-items: center;
+  flex-direction: column;
   justify-content: start;
   justify-items: center;
-  row-gap: min(var(--vh), 4px);
+  gap: min(var(--vh), 4px);
 
   @media(--tablet-width){
+    display: grid;
     grid-template-columns: auto max-content;
     justify-items: start;
     column-gap: clamp(12px, 2.5vw, 20px);
+    row-gap: 0;
   }
 }
 

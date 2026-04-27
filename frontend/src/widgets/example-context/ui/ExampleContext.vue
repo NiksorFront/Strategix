@@ -4,7 +4,6 @@ import ExampleSectionTitle from '@/shared/ui/example-section-title';
 import VideoPlayer from '@/shared/ui/video-player';
 import imagePlaceholder from '@/assets/images/image-placeholder.svg'
 import { resolveNuxtImageSrc as resolveNuxtImageSrcWithBase } from '@/shared/lib/media/resolveMediaSrc'
-import { useMediaQueryMatch } from '@/shared/lib/media/useMediaQueryMatch';
 
 type ExampleContextBulletBlock = {
   bullets: string[];
@@ -33,19 +32,7 @@ const baseURL = app?.baseURL ?? '/';
 
 const contextContent = computed(() => data.content ?? []);
 const validContent = computed(() => contextContent.value.filter((item) => Boolean(item.src?.trim())));
-
-const desktopContent = computed(() => validContent.value.slice(0, 3));
-const mobileContent = computed(() => {
-  if (validContent.value.length >= 3) {
-    return validContent.value.slice(1, 3).reverse();
-  }
-
-  if (validContent.value.length === 2) {
-    return validContent.value.slice(0, 2).reverse();
-  }
-
-  return validContent.value.slice(0, 1);
-});
+const displayedContent = computed(() => validContent.value.slice(0, 3));
 
 const isBulletsBlock = (item: ExampleContextDescriptionItem): item is ExampleContextBulletBlock => {
   return typeof item === 'object' && item !== null && Array.isArray(item.bullets);
@@ -57,35 +44,32 @@ const isVideoMedia = (src: string) => VIDEO_SRC_PATTERN.test(src.trim());
 
 const resolveNuxtImageSrc = (src: string) => resolveNuxtImageSrcWithBase(src, baseURL);
 
-const isTabletViewport = useMediaQueryMatch('(min-width: 768px)');
-const activeContent = computed(() => (
-  isTabletViewport.value ? desktopContent.value : mobileContent.value
-));
-const activeGalleryClass = computed(() => (
-  isTabletViewport.value ? 'context-gallery--desktop' : 'context-gallery--mobile'
-));
-const activeGallerySizes = computed(() => (
-  isTabletViewport.value
-    ? 'xs:33vw sm:33vw md:33vw lg:33vw xl:33vw xxl:33vw'
-    : 'xs:50vw sm:50vw md:50vw lg:50vw xl:50vw xxl:50vw'
-));
+const galleryImageSizes = 'xs:50vw sm:50vw md:33vw lg:33vw xl:33vw xxl:33vw';
 
-const showPlaceholderMobile = ref<Record<number, boolean>>({})
-const showPlaceholderDesktop = ref<Record<number, boolean>>({})
+const showPlaceholder = ref<Record<string, boolean>>({})
 
-const hasPlaceholder = (index: number) => (
-  isTabletViewport.value
-    ? Boolean(showPlaceholderDesktop.value[index])
-    : Boolean(showPlaceholderMobile.value[index])
-);
+const hasPlaceholder = (src: string) => Boolean(showPlaceholder.value[src]);
 
-const markPlaceholder = (index: number) => {
-  if (isTabletViewport.value) {
-    showPlaceholderDesktop.value[index] = true;
-    return;
+const markPlaceholder = (src: string) => {
+  showPlaceholder.value[src] = true;
+};
+
+const getMobileOrderClass = (index: number) => {
+  const itemsCount = displayedContent.value.length;
+
+  if (itemsCount >= 3) {
+    if (index === 0) return 'context-gallery-card--mobile-hidden';
+    if (index === 1) return 'context-gallery-card--mobile-second';
+    if (index === 2) return 'context-gallery-card--mobile-first';
   }
 
-  showPlaceholderMobile.value[index] = true;
+  if (itemsCount === 2) {
+    return index === 0
+      ? 'context-gallery-card--mobile-second'
+      : 'context-gallery-card--mobile-first';
+  }
+
+  return '';
 };
 </script>
 
@@ -132,12 +116,12 @@ const markPlaceholder = (index: number) => {
 
     <div
       class="context-gallery"
-      :class="activeGalleryClass"
     >
       <article
-        v-for="(item, index) in activeContent"
-        :key="`context-${activeGalleryClass}-${item.src}-${index}`"
+        v-for="(item, index) in displayedContent"
+        :key="`context-${item.src}-${index}`"
         class="context-gallery-card"
+        :class="getMobileOrderClass(index)"
       >
         <VideoPlayer
           v-if="isVideoMedia(item.src)"
@@ -145,9 +129,11 @@ const markPlaceholder = (index: number) => {
           :src="item.src"
           :autoplay="item.autoplay ?? true"
           :hide-controls="true"
+          :load-margin="900"
+          :coordinated-autoplay="false"
         />
         <NuxtImg
-          v-else-if="!hasPlaceholder(index)"
+          v-else-if="!hasPlaceholder(item.src)"
           class="context-gallery-media"
           :src="resolveNuxtImageSrc(item.src)"
           :alt="item.alt ?? data.title ?? 'Context image'"
@@ -155,10 +141,10 @@ const markPlaceholder = (index: number) => {
           :quality="80"
           width="800"
           height="1200"
-          :sizes="activeGallerySizes"
+          :sizes="galleryImageSizes"
           loading="lazy"
           decoding="async"
-          @error="markPlaceholder(index)"
+          @error="markPlaceholder(item.src)"
         />
         <img
           v-else
@@ -285,27 +271,35 @@ const markPlaceholder = (index: number) => {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.context-gallery--mobile{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--context-gallery-gap);
 }
 
-.context-gallery--desktop{
+.context-gallery-card--mobile-hidden{
   display: none;
 }
 
+.context-gallery-card--mobile-first{
+  order: 1;
+}
+
+.context-gallery-card--mobile-second{
+  order: 2;
+}
+
 @media(--tablet-width){
-  .context-gallery--mobile{
-    display: none;
+  .context-gallery{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .context-gallery--desktop{
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--context-gallery-gap);
+  .context-gallery-card--mobile-hidden{
+    display: block;
+  }
+
+  .context-gallery-card--mobile-first,
+  .context-gallery-card--mobile-second{
+    order: initial;
   }
 }
 

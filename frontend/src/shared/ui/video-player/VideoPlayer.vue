@@ -6,10 +6,14 @@ const props = withDefaults(
     src: string;
     autoplay?: boolean;
     hideControls?: boolean;
+    loadMargin?: number;
+    coordinatedAutoplay?: boolean;
   }>(),
   {
     autoplay: false,
     hideControls: false,
+    loadMargin: 320,
+    coordinatedAutoplay: true,
   },
 );
 
@@ -72,12 +76,13 @@ const autoplayInstanceId = createAutoplayInstanceId();
 
 const shouldAutoplay = computed(() => Boolean(props.autoplay));
 const shouldHideControls = computed(() => Boolean(props.hideControls));
+const shouldCoordinateAutoplay = computed(() => Boolean(props.coordinatedAutoplay));
 const videoButtonLabel = computed(() => (isPlaying.value ? 'Pause video' : 'Play video'));
 const soundButtonLabel = computed(() => (isMuted.value ? 'Enable sound' : 'Disable sound'));
 const showPlayButton = computed(() => !isPlaying.value || isMediaHovered.value);
 const canAutoplayNow = computed(() => (
   shouldAutoplay.value
-  && isAutoplayOwner.value
+  && (!shouldCoordinateAutoplay.value || isAutoplayOwner.value)
   && isInViewport.value
   && isPageVisible.value
 ));
@@ -95,8 +100,14 @@ const videoPreload = computed(() => (
     ? 'none'
     : 'metadata'
 ));
+const viewportLoadMargin = computed(() => (
+  Number.isFinite(props.loadMargin) && props.loadMargin >= 0
+    ? props.loadMargin
+    : VIEWPORT_MARGIN
+));
 const autoplayCandidateScore = computed(() => {
   if (!shouldAutoplay.value) return 0;
+  if (!shouldCoordinateAutoplay.value) return 0;
   if (!isPageVisible.value || !isInViewport.value) return 0;
   if (!resolvedSrc.value || showPlaceholder.value) return 0;
 
@@ -215,7 +226,10 @@ watch(
 watch(
   () => autoplayCandidateScore.value,
   (score) => {
-    if (!isClient) return;
+    if (!isClient || !shouldCoordinateAutoplay.value) {
+      removeAutoplayCandidate(autoplayInstanceId);
+      return;
+    }
 
     if (score > 0) {
       upsertAutoplayCandidate(autoplayInstanceId, score);
@@ -238,7 +252,7 @@ watch(
 );
 
 onMounted(() => {
-  if (isClient) {
+  if (isClient && shouldCoordinateAutoplay.value) {
     unsubscribeAutoplayOwner = subscribeAutoplayOwner((ownerId) => {
       isAutoplayOwner.value = ownerId === autoplayInstanceId;
     });
@@ -278,7 +292,7 @@ onMounted(() => {
     },
     {
       threshold: [0, 0.01],
-      rootMargin: `${VIEWPORT_MARGIN}px 0px ${VIEWPORT_MARGIN}px 0px`,
+      rootMargin: `${viewportLoadMargin.value}px 0px ${viewportLoadMargin.value}px 0px`,
     },
   );
 
