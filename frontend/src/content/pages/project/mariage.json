@@ -12,7 +12,7 @@
       },
       "welcome": {
         "sphere": "",
-        "name": "MARIAGE",
+        "name": "GALOGREA",
         "src": "/videos/welcome-en.mp4",
         "autoplay": true,
         "description": [
@@ -25,14 +25,10 @@
           },
           {
             "label": "Client",
-            "value": "Mariage"
+            "value": "GALOGREA"
           },
           {
             "label": "Country",
-            "value": "Georgia"
-          },
-          {
-            "label": "Audience",
             "value": "Georgia"
           }
         ]
@@ -136,7 +132,7 @@
     "ru": {
       "welcome": {
         "sphere": "",
-        "name": "MARIAGE",
+        "name": "GALOGREA",
         "src": "/videos/welcome-ru.mp4",
         "autoplay": true,
         "description": [
@@ -149,14 +145,10 @@
           },
           {
             "label": "Клиент",
-            "value": "Mariage"
+            "value": "GALOGREA"
           },
           {
             "label": "Страна",
-            "value": "Грузия"
-          },
-          {
-            "label": "Аудитория",
             "value": "Грузия"
           }
         ]
@@ -276,7 +268,7 @@
       },
       "welcome": {
         "sphere": "",
-        "name": "MARIAGE",
+        "name": "GALOGREA",
         "src": "/videos/welcome-de.mp4",
         "autoplay": true,
         "description": [
@@ -289,14 +281,10 @@
           },
           {
             "label": "Kunde",
-            "value": "Mariage"
+            "value": "GALOGREA"
           },
           {
             "label": "Land",
-            "value": "Georgien"
-          },
-          {
-            "label": "Zielgruppe",
             "value": "Georgien"
           }
         ]
@@ -408,7 +396,7 @@
       },
       "welcome": {
         "sphere": "",
-        "name": "MARIAGE",
+        "name": "GALOGREA",
         "src": "/videos/welcome-es.mp4",
         "autoplay": true,
         "description": [
@@ -421,14 +409,10 @@
           },
           {
             "label": "Cliente",
-            "value": "Mariage"
+            "value": "GALOGREA"
           },
           {
             "label": "País",
-            "value": "Georgia"
-          },
-          {
-            "label": "Audiencia",
             "value": "Georgia"
           }
         ]
