@@ -16,25 +16,25 @@
         "src": "/images/1777312043365-1e7dd7b1-b145-47e1-86ff-66b5c2b1c49a.png",
         "autoplay": true,
         "description": [
-          "Бренд Melana занимается производством оливкового масла в Греции.",
-          "Задача состояла в том чтобы сделать яркий и нестандартный фирменный стиль бренда. Без стереотипных веточек и оливок. Для клиента был важен упор на иллюстрацию."
+          "The Melana brand produces olive oil in Greece.",
+          "The task was to create a bold and distinctive brand identity without relying on stereotypical olive branches or olives. For the client, the focus on illustration was especially important."
         ],
         "about": [
           {
-            "label": "Сектор",
-            "value": "Брендинг"
+            "label": "Sector",
+            "value": "Branding"
           },
           {
-            "label": "Клиент",
-            "value": "TOBA"
+            "label": "Client",
+            "value": "MELANA"
           },
           {
-            "label": "Страна",
-            "value": "Грузия"
+            "label": "Country",
+            "value": "Greece"
           },
           {
-            "label": "Экспертиза",
-            "value": "Стратегия, Брендинг"
+            "label": "Expertise",
+            "value": "Logo, Packaging"
           }
         ]
       },
@@ -44,12 +44,12 @@
         "backgroundColor": "#F1F1F1"
       },
       "typograhy": {
-        "title": "Типографика",
+        "title": "Typografie",
         "fonts": [
           {
-            "assignment": "Основной",
+            "assignment": "Basic font",
             "name": "Liberty  Bold",
-            "description": "Было выбрано название и заголовки",
+            "description": "For the title and headings",
             "font": {
               "src": "/fonts/1777312043364-3149b651-89b0-4c4a-b0ae-e9479a99ea77.otf",
               "weight": 700,
@@ -57,9 +57,9 @@
             }
           },
           {
-            "assignment": "Вспомогательный",
+            "assignment": "Auxiliary font ",
             "name": "Liberty  Regular",
-            "description": "С их широкими и незамкнутыми буквами и большой высотой x, которые были использованы для основного текста небольшого размера",
+            "description": "For the text on the packaging",
             "font": {
               "src": "/fonts/1777312043364-fd4542b4-86dd-4f19-8ced-fa85e138cd72.otf",
               "weight": 700,
@@ -69,7 +69,7 @@
         ]
       },
       "color-palette": {
-        "title": "Цветовая палитра",
+        "title": "Color palette",
         "colors-blocks": [
           {
             "assignment": "",
@@ -97,10 +97,10 @@
         "alt": "Group 2131328533 (2)"
       },
       "info": {
-        "title": "ИЛЛЮСТРАЦИЯ КАК ОСНОВА ВИЗУАЛЬНОГО ЯЗЫКА",
+        "title": "ILLUSTRATION AS THE FOUNDATION OF THE VISUAL LANGUAGE",
         "description": [
-          "Для бренда Melana мы создали визуальный язык, который отходит от привычных кодов категории и раскрывает происхождение продукта через иллюстрацию — живую, эмоциональную и человечную.",
-          "Образ строится вокруг сцены сбора оливок, передавая атмосферу, культуру и ручной характер производства в простой и современной форме."
+          "For the Melana brand, we created a visual language that breaks away from traditional category codes and reveals the product's origins through illustrations that are lively, emotional, and human.",
+          "The design is built around an olive-harvesting scene, conveying the atmosphere, culture, and handcrafted nature of production in a simple, contemporary form."
         ]
       },
       "big-image-3": {
@@ -118,7 +118,7 @@
         "autoplay": true,
         "description": [
           "Бренд Melana занимается производством оливкового масла в Греции.",
-          "Задача состояла в том чтобы сделать яркий и нестандартный фирменный стиль бренда. Без стереотипных веточек и оливок. Для клиента был важен упор на иллюстрацию."
+          "Задача состояла в том чтобы сделать яркий и нестандартный фирменный стиль бренда.  Без стереотипных веточек и оливок. Для клиента был важен упор на иллюстрацию."
         ],
         "about": [
           {
@@ -127,15 +127,15 @@
           },
           {
             "label": "Клиент",
-            "value": "TOBA"
+            "value": "MELANA"
           },
           {
             "label": "Страна",
-            "value": "Грузия"
+            "value": "Греция"
           },
           {
             "label": "Экспертиза",
-            "value": "Стратегия, Брендинг"
+            "value": "Логотип, Этикетка"
           }
         ]
       },
@@ -229,14 +229,13 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "WEINKRUG",
+        "sphere": "Olivenöl",
         "name": "MELANA",
-        "src": "/images/1777284248540-9583e065-4a55-4a55-a219-87fed133f489.jpg",
+        "src": "/images/1777360294626-5b8bb943-85a7-416a-8a8f-9251da5998b5.png",
         "autoplay": true,
         "description": [
-          "TOBA ist georgischer Wein in der Dose, entwickelt für den europäischen Markt.",
-          "Im Kern bringt das Projekt das reiche kulturelle Erbe Georgiens in ein modernes, zugängliches Format.",
-          "Jede Dose enthält einen QR-Code, der die Geschichte eines kulturellen Wahrzeichens des Landes erlebbar macht. Wer alle Dosen sammelt, entdeckt das georgische Erbe Stück für Stück."
+          "\nMelana produziert Olivenöl in Griechenland.",
+          "Die Herausforderung bestand darin, eine lebendige und einzigartige Markenidentität zu schaffen, frei von stereotypen Zweigen und Oliven. Der Kunde legte zudem Wert auf Illustrationen."
         ],
         "about": [
           {
@@ -244,43 +243,43 @@
             "value": "Branding"
           },
           {
-            "label": "Клиент",
-            "value": "TOBA"
+            "label": "Kunde",
+            "value": "MELANA"
           },
           {
             "label": "Land",
-            "value": "Georgien"
+            "value": "Griechenland"
           },
           {
             "label": "Expertise",
-            "value": "Strategie, Branding"
+            "value": "Logo, Verpackung"
           }
         ]
       },
       "big-logo": {
-        "src": "/images/1777284248540-fe10873c-ce2c-4966-bb46-90cb7c231d34.png",
-        "alt": "логотип Тоба",
+        "src": "/images/1777360294628-aafc789d-5c0b-4caf-b359-48ccbcd5fd61.png",
+        "alt": "Frame 2131328224 (1)",
         "backgroundColor": "#F1F1F1"
       },
       "typograhy": {
-        "title": "TYPOGRAFIE",
+        "title": "Typografie",
         "fonts": [
           {
             "assignment": "Primär",
-            "name": "Bebas",
-            "description": "Die Schrift wurde für Titel und Überschriften ausgewählt",
+            "name": "Liberty  Bold",
+            "description": "Für Titel und Überschriften",
             "font": {
-              "src": "/fonts/1777284248534-bbdff540-e4b8-44f5-82a8-554a503cc379.ttf",
+              "src": "/fonts/1777360294625-0f821ed9-3fc2-4701-848d-e34259014ec1.otf",
               "weight": 700,
               "scale": 1.6
             }
           },
           {
-            "assignment": "Sekundär",
-            "name": "Futura futuris c",
-            "description": "Mit ihren breiten, offenen Buchstabenformen und der hohen x-Höhe eignet sie sich für Fließtext in kleineren Größen",
+            "assignment": "Hilfs",
+            "name": "Liberty  Regular",
+            "description": "Für den Text der Zutatenliste",
             "font": {
-              "src": "/fonts/1777284248534-772bf559-2c48-4164-b3de-c398d063bb11.otf",
+              "src": "/fonts/1777360294626-b1b963a9-44ff-4a7c-91c2-b0c8c8052c6e.otf",
               "weight": 700,
               "scale": 1
             }
@@ -288,37 +287,44 @@
         ]
       },
       "color-palette": {
-        "title": "FARBPALETTE",
+        "title": "Farbpalette",
         "colors-blocks": [
           {
             "assignment": "",
             "colors": [
-              "232F5F",
-              "EF5F5E",
-              "FCBB48"
+              "F1E2C1",
+              "EE9D80",
+              "9FB5DE",
+              "78732E",
+              "9D986B",
+              "3D5F95",
+              "F04E4D",
+              "3A3935"
             ]
           }
         ]
       },
       "big-image": {
-        "src": "/images/1777284248539-eda93cf1-d552-4c6c-bada-54f900c4c971.jpg",
-        "alt": "большая картинкаТоба"
+        "src": "/images/1777360294627-6086f180-f80f-4fbb-b748-26e271995df5.png",
+        "srcMobile": "",
+        "alt": "Group 2131328540 (1)"
       },
       "big-image-2": {
-        "src": "/images/1777284248539-1678400f-ed46-43db-9d27-b827ccb0c837.jpg",
-        "alt": "большая картинкаТоба"
+        "src": "/images/1777360294627-5ace5260-3ee7-4c2e-96ce-f48ec1da96ce.png",
+        "srcMobile": "",
+        "alt": "Group 2131328533 (2)"
       },
       "info": {
-        "title": "EINE VERBINDUNG AUS KULTURELLEM STORYTELLING, TECHNOLOGIE UND EINEM MODERNEN PRODUKTFORMAT",
+        "title": "EINE VISUELLE SPRACHE, DIE AUF ILLUSTRATION AUFBAUT",
         "description": [
-          "Wir haben ein visuelles Konzept entwickelt, bei dem jede Dose ein eigenes Element des kulturellen Erbes Georgiens repräsentiert — von Architektur und Kunst bis hin zu Geschichte und Handwerk. Illustrationen und Farbwelten variieren je nach Edition und formen eine sammelbare Serie.",
-          "Das Design verbindet den Minimalismus zeitgenössischer europäischer Gestaltung mit wiedererkennbaren georgischen Motiven."
+          "Für die Marke Melana haben wir eine Bildsprache entwickelt, die sich von traditionellen Kategoriencodes löst und die Ursprünge des Produkts durch lebendige, emotionale und menschliche Illustrationen offenbart.",
+          "Das Bild basiert auf der Szene der Olivenernte und vermittelt die Atmosphäre, die Kultur und den handwerklichen Charakter der Produktion in einer einfachen und modernen Form."
         ]
       },
-      "big-logo-2": {
-        "src": "/images/1777284248538-d374df2a-9083-4c35-89fa-c82954fbbc67.jpg",
-        "alt": "логотип Тоба 2",
-        "backgroundColor": "#212D61"
+      "big-image-3": {
+        "src": "/images/1777360294628-eefd86b2-c16a-429f-9fd2-cff2c9c807f2.png",
+        "srcMobile": "",
+        "alt": "Group 2131328534"
       },
       "other-projects": true
     },
@@ -332,58 +338,57 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "VINO EN LATA",
-        "name": "TOBA",
-        "src": "/images/1777284248542-62490674-791b-48d8-8c1a-c6a793bbb1e1.jpg",
+        "sphere": "Aceite de oliva",
+        "name": "MELANA",
+        "src": "/images/1777360294635-72cae8c1-e6f1-4ff0-94c1-b33b795a284a.png",
         "autoplay": true,
         "description": [
-          "TOBA es vino georgiano en lata, creado para el mercado europeo.",
-          "En esencia, el proyecto acerca el rico patrimonio cultural de Georgia en un formato contemporáneo y accesible.",
-          "Cada lata incorpora un código QR que abre la historia de uno de los monumentos culturales del país. Para descubrir toda la colección, se invita a los consumidores a reunir todas las latas de TOBA."
+          "La marca Melana produce aceite de oliva en Grecia.",
+          "El objetivo era crear una identidad de marca vibrante y única, libre de los estereotipos de ramas y aceitunas. Para el cliente, era fundamental dar gran importancia a la ilustración."
         ],
         "about": [
           {
             "label": "Sector",
-            "value": "Branding"
+            "value": "Брендинг"
           },
           {
             "label": "Cliente",
-            "value": "TOBA"
+            "value": "MELANA"
           },
           {
             "label": "País",
-            "value": "Georgia"
+            "value": "Grecia"
           },
           {
             "label": "Experiencia",
-            "value": "Estrategia, Branding"
+            "value": "Logotipo, Packaging"
           }
         ]
       },
       "big-logo": {
-        "src": "/images/1777284248541-0d8e3097-7b17-4fd1-9ca2-daedb7a1e03c.png",
-        "alt": "логотип Тоба",
+        "src": "/images/1777360294636-3ee9b629-6c8e-4014-8650-2f5b4add2547.png",
+        "alt": "Frame 2131328224 (1)",
         "backgroundColor": "#F1F1F1"
       },
       "typograhy": {
-        "title": "TIPOGRAFÍA",
+        "title": "Tipografía",
         "fonts": [
           {
-            "assignment": "Principal",
-            "name": "Bebas",
-            "description": "La tipografía fue elegida para títulos y encabezados",
+            "assignment": "Fuente básica",
+            "name": "Liberty  Bold",
+            "description": "Para el título y los encabezados",
             "font": {
-              "src": "/fonts/1777284248534-995765da-8827-4083-8543-d669e217dd36.ttf",
+              "src": "/fonts/1777360294635-c1889407-4399-423e-ad4f-2356f57ddefb.otf",
               "weight": 700,
               "scale": 1.6
             }
           },
           {
-            "assignment": "Secundaria",
-            "name": "Futura futuris c",
-            "description": "Con sus formas abiertas y su gran altura de x, se utilizó para textos en tamaños más pequeños",
+            "assignment": "Fuente auxiliar",
+            "name": "Liberty  Regular",
+            "description": "Para textos sobre embalaje",
             "font": {
-              "src": "/fonts/1777284248535-a793bd6e-3b27-4d40-a6b2-59b29b0d85a2.otf",
+              "src": "/fonts/1777360294635-28a21bf3-b069-46f9-a9bb-952b18c40dec.otf",
               "weight": 700,
               "scale": 1
             }
@@ -391,37 +396,44 @@
         ]
       },
       "color-palette": {
-        "title": "PALETA DE COLORES",
+        "title": "Paleta de colores",
         "colors-blocks": [
           {
             "assignment": "",
             "colors": [
-              "232F5F",
-              "EF5F5E",
-              "FCBB48"
+              "F1E2C1",
+              "EE9D80",
+              "9FB5DE",
+              "78732E",
+              "9D986B",
+              "3D5F95",
+              "F04E4D",
+              "3A3935"
             ]
           }
         ]
       },
       "big-image": {
-        "src": "/images/1777284248541-b615ef69-84e0-424f-8159-db00420d8f64.jpg",
-        "alt": "большая картинкаТоба"
+        "src": "/images/1777360294636-adc80ec2-d5a9-4019-be24-ebc9b46f7429.png",
+        "srcMobile": "",
+        "alt": "Group 2131328540 (1)"
       },
       "big-image-2": {
-        "src": "/images/1777284248542-2e36c26b-6db1-4879-881b-fa69b2e524de.jpg",
-        "alt": "большая картинкаТоба"
+        "src": "/images/1777360294635-d35909e6-2cf3-4495-9f79-e84e0ccc18a0.png",
+        "srcMobile": "",
+        "alt": "Group 2131328533 (2)"
       },
       "info": {
-        "title": "UNA FUSIÓN DE NARRATIVA CULTURAL, TECNOLOGÍA Y UN FORMATO DE PRODUCTO CONTEMPORÁNEO",
+        "title": "LA ILUSTRACIÓN COMO BASE DEL LENGUAJE VISUAL",
         "description": [
-          "Desarrollamos un concepto visual en el que cada lata representa un elemento distinto del patrimonio cultural de Georgia — desde la arquitectura y el arte hasta la historia y la artesanía. Las ilustraciones y las paletas de color varían de una edición a otra, creando una serie coleccionable.",
-          "El diseño combina el minimalismo del diseño europeo contemporáneo con motivos georgianos reconocibles."
+          "Para la marca Melana, creamos un lenguaje visual que rompe con los códigos de categoría tradicionales y revela los orígenes del producto a través de ilustraciones vivaces, emotivas y humanas.",
+          "La imagen se basa en una escena de la cosecha de aceitunas, transmitiendo la atmósfera, la cultura y el carácter artesanal de la producción de una forma sencilla y moderna."
         ]
       },
-      "big-logo-2": {
-        "src": "/images/1777284248542-f920698c-133e-40f8-8ee2-88476b7fc320.jpg",
-        "alt": "логотип Тоба 2",
-        "backgroundColor": "#212D61"
+      "big-image-3": {
+        "src": "/images/1777360294636-876c89bf-1a17-45f9-8a34-2952ea380392.png",
+        "srcMobile": "",
+        "alt": "Group 2131328534"
       },
       "other-projects": true
     }
