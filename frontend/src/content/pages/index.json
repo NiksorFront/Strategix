@@ -143,14 +143,6 @@
           "title": "Ваши контакты",
           "title2": "О проекте",
           "rpc_urls": [
-            "https://google.com/api/contact",
-            "https://cloudflare.com/api/contact",
-            "https://vk.com/api/contact",
-            "https://deno.com/api/contact",
-            "https://reg.com/api/contact",
-            "https://selectel.com/api/contact",
-            "https://yandex.com/api/contact",
-            "https://cloudflare.com/api/contact",
             "https://d5duk9lecjq24mdnd4nk.sk0vql13.apigw.yandexcloud.net/api/contact"
           ]
         }
