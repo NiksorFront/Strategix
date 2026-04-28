@@ -31,6 +31,7 @@ defineProps<{
 
 const route = useRoute();
 const { locale } = useI18n();
+const localePath = useLocalePath();
 const { app } = useRuntimeConfig();
 const baseURL = app?.baseURL ?? '/';
 
@@ -95,6 +96,8 @@ const otherProjects = computed<ExampleOtherProject[]>(() => {
   }));
 });
 
+const getProjectPath = (slug: string) => localePath(`/project/${slug}`);
+
 const showPlaceholder = ref<Record<number, boolean>>({})
 </script>
 
@@ -112,7 +115,7 @@ const showPlaceholder = ref<Record<number, boolean>>({})
       >
         <NuxtLink
           class="project-link"
-          :to="`/project/${project.slug}`"
+          :to="getProjectPath(project.slug)"
           no-prefetch
         >
           <div
