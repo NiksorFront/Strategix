@@ -359,19 +359,19 @@
       },
       "footer": {
         "brand": "STRATEGIX",
-        "email": "hello@strategix.com",
+        "email": "strategixpr@gmail.com",
         "icons": [
           {
-            "src": "",
-            "href": "https://t.me/strategix"
+            "src": "/icons/1777379889699-ab60b1f9-308b-4780-986d-040d74fbe92d.svg",
+            "href": "https://t.me/strategixPR"
           },
           {
-            "src": "",
+            "src": "/icons/1777379889700-e3c89cd0-dd45-4bfc-abe7-1779b1a9160a.svg",
             "href": "https://www.linkedin.com/company/strategix/"
           }
         ],
         "privacy_policy": {
-          "href_pdf": "/pdf/privacy-policy_en.pdf",
+          "href_pdf": "/pdf/1777379889700-58edb615-05b9-4c4c-91bd-4f958cd85acb.pdf",
           "text": "PRIVACY POLICY"
         },
         "rights": "© 2022–2026 ALL RIGHTS RESERVED"
@@ -687,22 +687,22 @@
       },
       "footer": {
         "brand": "STRATEGIX",
-        "email": "hello@strategix.com",
+        "email": "strategixpr@gmail.com",
         "icons": [
           {
-            "src": "",
-            "href": "https://t.me/strategix"
+            "src": "/icons/1777379889711-bfbff4ef-ba71-4338-9378-3fb4d67f3977.svg",
+            "href": "https://t.me/strategixPR"
           },
           {
-            "src": "",
+            "src": "/icons/1777379889711-28fccfec-d027-419e-afd4-f9331f69fc7e.svg",
             "href": "https://www.linkedin.com/company/strategix/"
           }
         ],
         "privacy_policy": {
-          "href_pdf": "./privacy-policy.pdf",
-          "text": "DATENSCHUTZ\nRICHTLINIE"
+          "href_pdf": "/pdf/1777379889711-0439b6ea-f21f-45e2-80fc-aa38f1d118b5.pdf",
+          "text": "PRIVACY POLICY"
         },
-        "rights": "© 2022–2026 ALLE RECHTE VORBEHALTEN"
+        "rights": "© 2022–2026 ALL RIGHTS RESERVED"
       },
       "header": {
         "button": {
@@ -1015,22 +1015,22 @@
       },
       "footer": {
         "brand": "STRATEGIX",
-        "email": "hello@strategix.com",
+        "email": "strategixpr@gmail.com",
         "icons": [
           {
-            "src": "",
-            "href": "https://t.me/strategix"
+            "src": "/icons/1777379889716-eb4237fa-dd98-494b-832f-aec7b30348b4.svg",
+            "href": "https://t.me/strategixPR"
           },
           {
-            "src": "",
+            "src": "/icons/1777379889716-766af364-15b8-4de1-b790-3ab42f05bbef.svg",
             "href": "https://www.linkedin.com/company/strategix/"
           }
         ],
         "privacy_policy": {
-          "href_pdf": "./privacy-policy.pdf",
-          "text": "POLÍTICA DE\nPRIVACIDAD"
+          "href_pdf": "/pdf/1777379889716-2fc501a1-84bc-4f79-bec6-e4b1c83767d6.pdf",
+          "text": "POLÍTICA DE PRIVACIDAD"
         },
-        "rights": "© 2022–2025 TODOS LOS DERECHOS RESERVADOS"
+        "rights": "© 2022–2026 ALL RIGHTS RESERVED"
       },
       "header": {
         "button": {
