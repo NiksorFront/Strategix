@@ -36,7 +36,7 @@
           }
         ],
         "privacy_policy": {
-          "href_pdf": "/pdf/Политика_в_отношении_обработки_персональных_данных_strategix_pr_ru.pdf",
+          "href_pdf": "/pdf/Политика конфиденциальности_ru.pdf",
           "text": "ПОЛИТИКА  КОНФИДЕНЦИАЛЬНОСТИ"
         },
         "rights": "© 2022–2026 ВСЕ ПРАВА ЗАЩИЩЕНЫ"
@@ -332,17 +332,17 @@
       "about_us": {
         "items": [
           {
-            "content": "This approach opens access to global markets, partnerships and investment, and allows you to use reputation not as a one-off tool, but as a long-term instrument for growth and scaling.",
+            "content": "This approach unlocks global markets, partnerships and investment opportunities — turning reputation from a one-time tactic into a long-term driver of growth. ",
             "subtitle": "Reputation as a strategic asset",
             "title": "MISSION"
           },
           {
-            "content": "We don’t use boilerplate solutions: every strategy is built from scratch around the client’s real goals and professional status. For us, reputation is not the number of mentions but a proven result expressed in relevant media, professional communities and industry recognition. We work ethically and transparently, protecting the client’s interests and following international standards of the US, Europe and Asia.",
+            "content": "We don't believe in off-the-shelf solutions: every strategy is built from the ground up around the client's actual goals and standing. For us, reputation isn't measured in mentions — it's a demonstrable result: coverage in the right media, presence in professional communities, and recognition within the industry. We work with integrity and full transparency, putting the client's interests first and staying aligned with the standards of the US, European and Asian markets. ",
             "subtitle": "Depth of analysis, confidentiality and results-oriented work",
             "title": "VALUES"
           },
           {
-            "content": "We work in close collaboration with the client, aligning stages and explaining the rationale behind every decision. It’s important for us that the process is transparent and clear. A holistic approach links strategy, communications and media into a single system that works toward a shared result.",
+            "content": "We work in close partnership with each client — keeping them in the loop at every stage and walking them through the thinking behind each decision. Transparency isn't a formality for us; it's how we work. By integrating strategy, communications and media into one cohesive system, we make sure every moving part is pulling in the same direction. ",
             "subtitle": "We value long-term relationships, process transparency",
             "title": "OUR APPROACH"
           }
@@ -540,10 +540,10 @@
       "services": {
         "ads": {
           "bullets": [
-            "Audience and media consumption analysis, media plan formation.",
-            "Development of creative concept and advertising messages.",
-            "Launch and management of campaigns in online and offline channels.",
-            "Results optimization: A/B tests, creative and segment refinement."
+            "Audience research and media consumption analysis, leading to a tailored media plan.",
+            "Developing the creative concept and messaging.",
+            "Launching and managing campaigns across online and offline channels.",
+            "Ongoing optimization: A/B testing, creative iteration and audience refinement."
           ],
           "description": "We launch campaigns that attract attention, enhance recognition and motivate the audience to act.",
           "lead": "An effective advertising campaign is a combination of a strong idea, precise targeting and a thoughtful funnel.",
@@ -552,10 +552,10 @@
         },
         "aiMarketing": {
           "bullets": [
-            "Collection and structuring of customer and campaign data.",
+            "Collecting and organizing customer and campaign data.",
             "Building segmentation models and predictive analytics.",
-            "Personalization of communications and offers in real time.",
-            "Automation of routine tasks and media budget optimization."
+            "Personalizing communications and offers in real time.",
+            "Automating routine tasks and optimizing media budgets."
           ],
           "description": "We use artificial intelligence technologies for personalization, analysis and increasing campaign effectiveness.",
           "lead": "Artificial intelligence helps make data-driven decisions and significantly increase marketing effectiveness.",
@@ -564,21 +564,21 @@
         },
         "branding": {
           "bullets": [
-            "Market research, audit of current image and positioning.",
-            "Development of brand platform: mission, values, tone of voice.",
-            "Creation of visual identity and guidelines for its use.",
-            "Brand adaptation for different channels and touchpoints."
+            "Market research and audit of current brand perception and positioning.",
+            "Developing a brand platform: mission, values and tone of voice.",
+            "Creating a visual identity and usage guidelines.",
+            "Adapting the brand across channels and touchpoints."
           ],
           "description": "We develop a unique company image, help stand out in the market and gain trust.",
           "lead": "Branding is not just a logo and identity, but a holistic system of meanings, images and impressions about the company.",
-          "text": "We start with analysis of competitors, audience and current company perception, form the brand platform and clear positioning. Based on this, we create visual and verbal language that helps the brand be recognizable and consistent across all channels.\n\nThanks to thoughtful branding, the company looks cohesive, confident and modern, and customers quickly read its values and advantages. This increases loyalty, conversion and facilitates the launch of new products.",
+          "text": "We start with analysis of competitors, audience and current company perception, form the brand platform and clear positioning. Based on this, we create visual and verbal language that helps the brand be recognizable and consistent across all channels.\n\nBranding is more than a logo — it's the full story of how your company looks, sounds and feels to the world. We begin with a deep dive into your competitors, your audience and how your company is currently perceived then use those insights to build a brand platform and sharpen your positioning. From there, we develop a visual and verbal identity that makes the brand instantly recognizable and consistent everywhere it shows up. \nThe result is a brand that feels cohesive, confident and current — one where customers immediately understand what you stand for and why it matters to them. That clarity drives loyalty, improves conversion and makes every future product launch easier to land. ",
           "title": "Branding"
         },
         "events": {
           "bullets": [
-            "Development of event concept and scenario for business tasks.",
-            "Selection of venue, technical equipment and contractors.",
-            "Coordination of program, speakers, shows and activities for guests.",
+            "Developing the event concept and run-of-show around your business goals.",
+            "Sourcing the venue, technical production and vendors.",
+            "Managing the program, speakers, entertainment and guest experience.",
             "PR and media support of the event before and after."
           ],
           "description": "We organize events of any format, create impressions.",
@@ -588,22 +588,22 @@
         },
         "media": {
           "bullets": [
-            "Development of media strategy and communication plan.",
-            "Formation and management of news opportunities.",
-            "Preparation of press releases, articles and expert comments.",
-            "Organization of publications in media and on digital platforms."
+            "Developing a media strategy and communications plan.",
+            "Identifying and managing newsworthy opportunities.",
+            "Writing press releases, articles and expert commentary.",
+            "Securing coverage in media outlets and across digital platforms."
           ],
           "description": "We create a strong presence in the media, promote projects and increase attention to key events.",
           "lead": "Media support is comprehensive work with the information field around the brand. We build communication strategy in media and digital environment, form the right messages.",
-          "text": "This approach allows managing reputation, enhancing trust and forming a stable positive image. We select relevant channels and formats, prepare press materials, organize publications and build systematic interaction with journalists and opinion leaders. Thanks to this, the brand gets stable presence in the media, and its key messages are transmitted as accurately and effectively as possible.",
+          "text": "Media support means taking full ownership of how your brand shows up in the public conversation. We develop communication strategies across traditional and digital media — shaping the narratives that matter. \n\nThis keeps your reputation on track, builds trust and establishes a consistent, positive presence in the market. We identify the right channels and formats, craft press materials, place stories and cultivate ongoing relationships with journalists and industry voices. The result is a steady, reliable media presence — with your key messages landing exactly where and how they should.",
           "title": "Media Support"
         },
         "production": {
           "bullets": [
-            "Development of creative concept and scripts for brand tasks.",
-            "Full cycle of photo and video production - from pre-production to post-processing.",
-            "Content creation for digital, offline media and presentations.",
-            "Adaptation of materials for different formats and platforms."
+            "Developing creative concepts and scripts tailored to your brand.",
+            "Full-cycle photo and video production — from pre-production through post.",
+            "Content creation for digital, print and presentation use.",
+            "Adapting assets across formats and platforms."
           ],
           "description": "We create photos, videos and creative content that inspires and helps the brand get closer.",
           "lead": "Quality content is one of the key tools that makes a brand alive and memorable.",
@@ -617,14 +617,14 @@
         },
         "reputation": {
           "bullets": [
-            "Audit of current reputation and risk point analysis.",
-            "Development of reputation strategy and stakeholder map.",
-            "Creation and implementation of reputation standards for the team.",
-            "Crisis scenarios and support in difficult situations."
+            "Reputation audit and risk assessment.",
+            "Reputation strategy and stakeholder mapping.",
+            "Developing and embedding reputation standards across the team.\n",
+            "Crisis planning and hands-on support when it matters most.\n"
           ],
           "description": "We build brand trust, create a positive image and long-term relationships with the audience.",
           "lead": "Brand reputation is a strategic asset that is built through every touchpoint with the audience.",
-          "text": "We systematically assess how the brand is perceived by customers, partners, employees and media, and then build a change strategy. We form clear positioning, select key messages and channels that will help strengthen trust and reduce reputation risks.\n\nThanks to this work, the brand becomes predictable and understandable to the audience. Important messages sound consistently and coherently in all communications, and the company gets a stable, manageable image in the market.",
+          "text": "We take a structured look at how your brand is perceived  by customers, partners, employees and the media  and build a strategy around what needs to change. From there, we define a clear positioning, identify the right messages and choose the channels best suited to building trust and protecting your reputation. \n\nThe result: a brand that audiences instantly recognize and trust. Your key messages come through clearly and consistently across every channel — giving your company a strong, reliable presence in the market. \n\nThanks to this work, the brand becomes predictable and understandable to the audience. Important messages sound consistently and coherently in all communications, and the company gets a stable, manageable image in the market.",
           "title": "Reputation Building"
         },
         "title": "Services"
@@ -660,18 +660,18 @@
       "about_us": {
         "items": [
           {
-            "content": "Dieser Ansatz eröffnet Zugang zu globalen Märkten, Partnerschaften und Investitionen und ermöglicht, Reputation nicht punktuell, sondern als langfristiges Instrument für Wachstum und Skalierung zu nutzen.",
+            "content": "Dieser Ansatz eröffnet Zugang zu globalen Märkten, Partnerschaften und Investitionen sowie ermöglicht, Reputation nicht nur punktuel zu betrachten, sondern als langfristiges Instrument für Wachstum und Skalierung zu nutzen.",
             "subtitle": "Reputation als strategisches Asset",
             "title": "MISSION"
           },
           {
-            "content": "Wir nutzen keine Schablonen: Jede Strategie wird von Grund auf neu entwickelt und stützt sich auf die tatsächlichen Ziele und den professionellen Status des Kunden. Reputation ist für uns nicht die Anzahl der Erwähnungen, sondern ein bestätigtes Ergebnis, ausgedrückt in relevanten Medien, Fach-Communities und Branchenanerkennung. Wir arbeiten ethisch und transparent, wahren die Interessen des Kunden und orientieren uns an internationalen Standards der USA, Europas und Asiens.",
+            "content": "Wir nutzen keine Schablonen: Jede Strategie wird von Grund auf neu entwickelt und stützt sich auf die tatsächlichen Ziele und den professionellen Status des Kunden. Reputation bedeutet für uns mehr als die bloße Anzahl der Erwähnungen – sie ist ein belegbares Ergebnis in relevanten Medien und Fachkreisen. Wir agieren ethisch, transparent und wahren die Interessen des Kunden und orientieren uns an internationalen Standards der USA, Europas und Asiens.",
             "subtitle": "Analysetiefe, Vertraulichkeit und ergebnisorientierte Arbeit",
             "title": "WERTE"
           },
           {
             "content": "Wir arbeiten in enger Abstimmung mit dem Kunden, stimmen die Phasen ab und erklären die Logik aller Entscheidungen. Uns ist wichtig, dass der Prozess transparent und verständlich ist. Ein ganzheitlicher Ansatz verbindet Strategie, Kommunikation und Medien zu einem System, das auf ein gemeinsames Ergebnis hinarbeitet.",
-            "subtitle": "Wir schätzen langfristige Beziehungen, Prozess-Transparenz",
+            "subtitle": "Wir schätzen llangfristige Beziehungen und transparente Prozesse",
             "title": "UNSER ANSATZ"
           }
         ],
@@ -768,7 +768,7 @@
             {
               "type": "link",
               "src": "",
-              "text": "telegramme",
+              "text": "telegram",
               "href": "https://t.me/strategix",
               "value": ""
             },
@@ -797,7 +797,7 @@
           "question": "Welche Dienstleistungen interessieren Sie?",
           "question2": "",
           "title": "Ihre Kontakte",
-          "title2": "Über das Projekt",
+          "title2": "Erzählen Sie uns von Ihrem Projekt",
           "rpc_urls": [
             "https://d5duk9lecjq24mdnd4nk.sk0vql13.apigw.yandexcloud.net/api/contact"
           ]
@@ -818,7 +818,7 @@
       },
       "our_team": {
         "firstcard": {
-          "description": "Wir entwickeln und wachsen Projekte, die heute, morgen und in 10 Jahren relevant sind.",
+          "description": "Wir entwickeln Projekte, die heute, morgen und in 10 Jahren relevant sind.",
           "title": "Unser Team"
         },
         "lastcard": {
@@ -830,7 +830,7 @@
           {
             "lastname": "Krasnoslobodtseva",
             "name": "Liubov",
-            "position": "Gründer & PR-Architekt",
+            "position": "Gründerin & PR-Architektin",
             "src": "/images/1777379021854-55ea9291-c258-413e-854b-88cdb803a551.png"
           },
           {
@@ -868,7 +868,7 @@
       "services": {
         "ads": {
           "bullets": [
-            "Analyse von Zielgruppe und Medienkonsum, Bildung eines Medienplans.",
+            "Analyse von Zielgruppe und Medienkonsum, Erstellung eines Mediaplans.",
             "Entwicklung kreativer Konzepte und Werbebotschaften.",
             "Start und Management von Kampagnen in Online- und Offline-Kanälen.",
             "Ergebnisoptimierung: A/B-Tests, Verfeinerung von Kreativen und Segmenten."
@@ -885,9 +885,9 @@
             "Personalisierung von Kommunikationen und Angeboten in Echtzeit.",
             "Automatisierung von Routineaufgaben und Optimierung von Medienbudgets."
           ],
-          "description": "Wir nutzen Technologien der künstlichen Intelligenz für Personalisierung, Analyse und Steigerung der Kampagneneffektivität.",
+          "description": "Durch den gezielten Einsatz von KI optimieren wir die Personalisierung, Analyse und Effektivität Ihrer Kampagnen.",
           "lead": "Künstliche Intelligenz hilft, datenbasierte Entscheidungen zu treffen und die Marketingeffektivität erheblich zu steigern.",
-          "text": "Wir analysieren Daten über Zielgruppenverhalten, Conversion und Reaktion auf Kommunikationen, um Muster und Wachstumspunkte zu identifizieren. Basierend darauf bauen wir Modelle auf, die helfen, Botschaften genauer zu zielen, Ergebnisse vorherzusagen und Budgets zu verwalten.\n\nDie Nutzung von KI-Tools ermöglicht es, Kosten zu senken, Hypothesen schneller zu testen und messbare Marketingeffekte zu erzielen. Gleichzeitig bleiben wir transparent: Wir erklären die Logik der Modelle und integrieren Lösungen in bestehende Geschäftsprozesse.",
+          "text": "Wir analysieren Daten über Zielgruppenverhalten, Conversion und Reaktion auf Kommunikation, um Muster und Wachstumspunkte zu identifizieren. Basierend darauf bauen wir Modelle auf, die helfen, Botschaften genauer auszurichten, Ergebnisse vorherzusagen und Budgets zu verwalten.\n\nDie Nutzung von KI-Tools ermöglicht es, Kosten zu senken, Hypothesen schneller zu testen und messbare Marketingeffekte zu erzielen. Gleichzeitig bleiben wir transparent: Wir erklären die Logik der Modelle und integrieren Lösungen in bestehende Geschäftsprozesse.",
           "title": "KI-Marketing"
         },
         "branding": {
@@ -899,31 +899,31 @@
           ],
           "description": "Wir entwickeln ein einzigartiges Unternehmensimage, helfen, sich am Markt abzuheben und Vertrauen zu gewinnen.",
           "lead": "Branding ist nicht nur ein Logo und Identität, sondern ein ganzheitliches System aus Bedeutungen, Bildern und Eindrücken über das Unternehmen.",
-          "text": "Wir beginnen mit der Analyse von Wettbewerbern, Zielgruppe und aktueller Unternehmenswahrnehmung, bilden die Markenplattform und klares Positioning. Basierend darauf schaffen wir visuelle und verbale Sprache, die der Marke hilft, in allen Kanälen erkennbar und konsistent zu sein.\n\nDank durchdachtem Branding wirkt das Unternehmen zusammenhängend, selbstbewusst und modern, und Kunden lesen schnell seine Werte und Vorteile. Dies erhöht Loyalität, Conversion und erleichtert die Einführung neuer Produkte.",
+          "text": "Wir beginnen mit der Analyse von Wettbewerbern, Zielgruppe und aktueller Unternehmenswahrnehmung, bilden die Markenplattform und eine klare Positionierung. Basierend darauf schaffen wir visuelle und verbale Sprache, die der Marke hilft, in allen Kanälen erkennbar und konsistent zu sein.\n\nDank durchdachtem Branding wirkt das Unternehmen zusammenhängend, selbstbewusst und modern, und Kunden erfassen schnell seine Werte und Vorteile. Dies erhöht Loyalität, Conversion und erleichtert die Einführung neuer Produkte.",
           "title": "Branding"
         },
         "events": {
           "bullets": [
-            "Entwicklung von Event-Konzept und Szenario für Geschäftsaufgaben.",
+            "Entwicklung von Event-Konzept und Szenario für Unternehmensziele.",
             "Auswahl von Veranstaltungsort, technischer Ausstattung und Auftragnehmern.",
             "Koordination von Programm, Sprechern, Shows und Aktivitäten für Gäste.",
             "PR- und Medienbetreuung des Events vor und nach."
           ],
-          "description": "Wir organisieren Events in jedem Format, schaffen Eindrücke.",
+          "description": "Wir organisieren Events in jedem Format und sorgen für bleibende Eindrücke.",
           "lead": "Events sind eine Möglichkeit, lebendige Interaktion mit der Zielgruppe aufzubauen und Emotionen rund um die Marke zu verstärken.",
-          "text": "Wir schaffen Events, die spezifische Aufgaben lösen: von Produkteinführung und Loyalitätsaufbau bis hin zu Networking und interner Teammotivation. Wir denken den Gästeweg vom Einladung bis zur Post-Kommunikation durch, damit jeder Kontaktpunkt für die Markenziele arbeitet.\n\nSolche systematische Arbeit ermöglicht es nicht nur, ein Event zu veranstalten, sondern es in einen Wachstumspunkt zu verwandeln: Markenwahrnehmung zu verstärken, Medieneffekt zu erzielen und Inhalte zu schaffen, die nach dem Ende des Events weiterarbeiten.",
+          "text": "Wir schaffen Events, die spezifische Aufgaben lösen: von Produkteinführung und Loyalitätsaufbau bis hin zu Networking und interner Teammotivation. Wir denken den Besuchererlebnis vom Einladung bis zur Post-Kommunikation durch, damit jeder Kontaktpunkt für die Markenziele arbeitet.\n\nSolche systematische Arbeit ermöglicht es nicht nur, ein Event zu veranstalten, sondern es in einen Wachstumspunkt zu verwandeln: Markenwahrnehmung zu verstärken, Medieneffekt zu erzielen und Inhalte zu schaffen, die nach dem Ende des Events weiterarbeiten.",
           "title": "Events"
         },
         "media": {
           "bullets": [
             "Entwicklung einer Medienstrategie und Kommunikationsplans.",
-            "Bildung und Management von Nachrichtenmöglichkeiten.",
+            "Strategische Themenplanung und Management der Medienpräsenz.",
             "Erstellung von Pressemitteilungen, Artikeln und Expertenkommentaren.",
             "Organisation von Veröffentlichungen in Medien und auf digitalen Plattformen."
           ],
-          "description": "Wir schaffen eine starke Präsenz in den Medien, fördern Projekte und erhöhen die Aufmerksamkeit für wichtige Ereignisse.",
+          "description": "Wir sorgen für eine starke Medienpräsenz, fördern Projekte und erhöhen die Aufmerksamkeit für wichtige Ereignisse.",
           "lead": "Medienbetreuung ist umfassende Arbeit mit dem Informationsfeld rund um die Marke. Wir entwickeln Kommunikationsstrategien in Medien und digitaler Umgebung, formen die richtigen Botschaften.",
-          "text": "Dieser Ansatz ermöglicht es, Reputation zu managen, Vertrauen zu stärken und ein stabiles positives Image zu bilden. Wir wählen relevante Kanäle und Formate aus, bereiten Pressematerialien vor, organisieren Veröffentlichungen und bauen systematische Interaktion mit Journalisten und Meinungsführern auf. Dank dessen erhält die Marke eine stabile Präsenz in den Medien, und ihre Schlüsselbotschaften werden so genau und effektiv wie möglich übertragen.",
+          "text": "Dieser Ansatz ermöglicht es, Reputation zu managen, Vertrauen zu stärken und ein stabiles positives Image zu bilden. Wir wählen relevante Kanäle und Formate aus, bereiten Pressematerialien vor, organisieren Veröffentlichungen und bauen systematische Interaktion mit Journalisten und Meinungsführern auf. Dank dessen erhält die Marke eine stabile Präsenz in den Medien, und ihre Schlüsselbotschaften werden so genau und effektiv wie möglich vermittelt.",
           "title": "Medienbetreuung"
         },
         "production": {
@@ -933,9 +933,9 @@
             "Erstellung von Inhalten für digitale, Offline-Medien und Präsentationen.",
             "Anpassung von Materialien für verschiedene Formate und Plattformen."
           ],
-          "description": "Wir erstellen Fotos, Videos und kreative Inhalte, die inspirieren und der Marke helfen, näher zu kommen.",
+          "description": "Wir produzieren visuelle Inhalte, die inspirieren und Ihre Marke für die Zielgruppe nahbar und erlebbar machen.",
           "lead": "Qualitativ hochwertige Inhalte sind eines der Schlüsselinstrumente, die eine Marke lebendig und unvergesslich machen.",
-          "text": "Wir übersetzen strategische Markenaufgaben in visuelle Sprache: denken Ideen durch, erstellen Storyboards, planen Aufnahmen und kontrollieren die Qualität in jeder Phase. In unserer Arbeit berücksichtigen wir Plattformanforderungen, Produktmerkmale und Erwartungen der Zielgruppe.\n\nAls Ergebnis erhalten Sie fertige Inhalte, die organisch in die Kommunikationsstrategie passen, Schlüsselbotschaften verstärken und der Marke helfen, in allen Kanälen professionell und modern auszusehen.",
+          "text": "Wir übersetzen strategische Markenaufgaben in visuelle Sprache: denken Ideen durch, erstellen Storyboards, planen Aufnahmen und kontrollieren die Qualität in jeder Phase. In unserer Arbeit berücksichtigen wir Plattformanforderungen, Produktmerkmale und Erwartungen der Zielgruppe.\n\nAls Ergebnis erhalten Sie fertige Inhalte, die organisch in die Kommunikationsstrategie passen, Schlüsselbotschaften verstärken und der Marke helfen, in allen Kanälen professionell und modern erscheinen.",
           "title": "Produktion"
         },
         "questions": {
@@ -952,7 +952,7 @@
           ],
           "description": "Wir bauen Markenvertrauen auf, schaffen ein positives Image und langfristige Beziehungen zur Zielgruppe.",
           "lead": "Markenreputation ist ein strategisches Asset, das durch jeden Kontaktpunkt mit der Zielgruppe aufgebaut wird.",
-          "text": "Wir bewerten systematisch, wie die Marke von Kunden, Partnern, Mitarbeitern und Medien wahrgenommen wird, und entwickeln dann eine Veränderungsstrategie. Wir bilden klares Positioning, wählen Schlüsselbotschaften und Kanäle aus, die helfen, Vertrauen zu stärken und Reputationsrisiken zu reduzieren.\n\nDank dieser Arbeit wird die Marke für die Zielgruppe vorhersehbar und verständlich. Wichtige Botschaften klingen konsistent und kohärent in allen Kommunikationen, und das Unternehmen erhält ein stabiles, steuerbares Image am Markt.",
+          "text": "Wir bewerten systematisch, wie die Marke von Kunden, Partnern, Mitarbeitern und Medien wahrgenommen wird, und entwickeln dann eine Veränderungsstrategie. Wir bilden eine klare Positionierung, wählen Schlüsselbotschaften und Kanäle aus, die helfen, Vertrauen zu stärken und Reputationsrisiken zu reduzieren.\n\nDank dieser Arbeit wird die Marke für die Zielgruppe vorhersehbar und verständlich. Wichtige Botschaften klingen konsistent und kohärent in der gesamten Kommunikation, und das Unternehmen erhält ein stabiles, steuerbares Image am Markt.",
           "title": "Reputationsaufbau"
         },
         "title": "Dienstleistungen"
@@ -962,7 +962,7 @@
           "href": "#contacts",
           "text": "FORMULAR AUSFÜLLEN"
         },
-        "subtitle": "Internationale Positionierung durch Medien, Events und Vertrauen der Fachgemeinschaft.",
+        "subtitle": "Internationale Positionierung durch gezielte Medienpräsenz, Events und das Vertrauen der Fachwelt.",
         "title": "WIR BAUEN REPUTATION AUF UND ÖFFNEN TÜREN ZU INTERNATIONALEN MÄRKTEN",
         "urls": {
           "button1": {
