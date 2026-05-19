@@ -129,7 +129,7 @@
         },
         "form": {
           "agree": {
-            "href_pdf": "/pdf/processing-personal-data_ru.pdf",
+            "href_pdf": "/pdf/Политика конфиденциальности Strategix_ru.pdf",
             "link": "персональных данных",
             "text": "Нажимая на кнопку, я соглашаюсь с обработкой"
           },
@@ -456,7 +456,7 @@
         },
         "form": {
           "agree": {
-            "href_pdf": "/pdf/processing-personal-data_en.pdf",
+            "href_pdf": "/pdf/Privacy Policy_en.pdf",
             "link": "of personal data",
             "text": "By clicking the button, I agree to the processing"
           },
@@ -784,7 +784,7 @@
         },
         "form": {
           "agree": {
-            "href_pdf": "./processing-personal-data.pdf",
+            "href_pdf": "/pdf/Privacy Policy_de.pdf",
             "link": "personenbezogener Daten",
             "text": "Durch Klicken auf die Schaltfläche stimme ich der Verarbeitung zu"
           },
@@ -1112,7 +1112,7 @@
         },
         "form": {
           "agree": {
-            "href_pdf": "",
+            "href_pdf": "/pdf/Privacy Policy_es.pdf",
             "link": "de datos personales",
             "text": "Al hacer clic en el botón, acepto el procesamiento"
           },
