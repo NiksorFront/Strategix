@@ -1,5 +1,5 @@
 {
-  "id": "evgeniya-kormina",
+  "id": "psychologist",
   "translations": {
     "en": {
       "page_info": {
@@ -11,21 +11,17 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Evgeniya Kormina",
+        "sphere": "",
         "name": "Psychologist",
         "src": "/images/1777377704383-b0ed6fbf-5d2d-484f-8214-d4b89f6c9ac2.png",
         "autoplay": true,
         "description": [
-          "Evgeniya Kormina is a psychologist working with entrepreneurs, helping them overcome internal barriers, navigate professional pressure, and unlock higher levels of performance and income."
+          "А psychologist working with entrepreneurs, helping them overcome internal barriers, navigate professional pressure, and unlock higher levels of performance and income."
         ],
         "about": [
           {
             "label": "Sector",
             "value": "Personal Branding"
-          },
-          {
-            "label": "Client",
-            "value": "Evgeniya Kormina"
           },
           {
             "label": "Market",
@@ -139,21 +135,17 @@
     },
     "ru": {
       "welcome": {
-        "sphere": "Евгения Кормина",
+        "sphere": "",
         "name": "Психолог",
         "src": "/images/1777377691307-ddfb3218-c1e3-422c-a587-488b352ffec3.png",
         "autoplay": true,
         "description": [
-          "Евгения Кормина — психолог, работающая с предпринимателями и помогающая клиентам справляться с внутренними барьерами, профессиональным напряжением и задачами личной эффективности."
+          "Психолог, работающая с предпринимателями и помогающая клиентам справляться с внутренними барьерами, профессиональным напряжением и задачами личной эффективности."
         ],
         "about": [
           {
             "label": "Сектор",
             "value": "Личное продвижение"
-          },
-          {
-            "label": "Клиент",
-            "value": "Евгения Кормина"
           },
           {
             "label": "Страна",
@@ -285,21 +277,17 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Evgeniya Kormina",
+        "sphere": "",
         "name": "Psychologin",
         "src": "/images/1777377715092-71c82b9a-035a-4ca6-abda-ec14694532dd.png",
         "autoplay": true,
         "description": [
-          "Evgeniya Kormina ist Psychologin und arbeitet mit Unternehmern. Sie unterstützt ihre Klienten dabei, innere Blockaden zu überwinden, mit beruflichem Druck umzugehen und ihr Leistungsniveau gezielt zu steigern."
+          "Psychologin und arbeitet mit Unternehmern. Sie unterstützt ihre Klienten dabei, innere Blockaden zu überwinden, mit beruflichem Druck umzugehen und ihr Leistungsniveau gezielt zu steigern."
         ],
         "about": [
           {
             "label": "Branche",
             "value": "Personal Branding"
-          },
-          {
-            "label": "Kundin",
-            "value": "Evgeniya Kormina"
           },
           {
             "label": "Markt",
@@ -420,21 +408,17 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Evgeniya Kormina",
+        "sphere": "",
         "name": "Psicóloga",
         "src": "/images/1777377663758-8cb9c332-7de6-4184-a42f-af0e10ee769e.png",
         "autoplay": true,
         "description": [
-          "Evgeniya Kormina es psicóloga y trabaja con emprendedores, ayudándoles a superar barreras internas, gestionar la presión profesional y alcanzar un mayor nivel de rendimiento."
+          "Es psicóloga y trabaja con emprendedores, ayudándoles a superar barreras internas, gestionar la presión profesional y alcanzar un mayor nivel de rendimiento."
         ],
         "about": [
           {
             "label": "Sector",
             "value": "Marca personal"
-          },
-          {
-            "label": "Cliente",
-            "value": "Evgeniya Kormina"
           },
           {
             "label": "Mercado",

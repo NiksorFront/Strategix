@@ -1,5 +1,5 @@
 {
-  "id": "ivan-dyagterev",
+  "id": "senior-systems-administrator",
   "translations": {
     "en": {
       "page_info": {
@@ -11,22 +11,18 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Ivan Dyagterev",
+        "sphere": "",
         "name": "Senior Systems Administrator",
         "src": "/images/1777278014456-05004fc5-c06d-4821-994f-523f76d60bcc.png",
         "autoplay": true,
         "description": [
-          "Ivan Dyagterev is an expert in IT infrastructure and a Senior Systems Administrator. He works for a U.S.-based company whose clients include major medical centers and real estate development projects. He is currently preparing for international certifications in information security (Cisco CCNP Security and Cisco CCIE Security).\n",
+          "An expert in IT infrastructure and a Senior Systems Administrator. He works for a U.S.-based company whose clients include major medical centers and real estate development projects. He is currently preparing for international certifications in information security (Cisco CCNP Security and Cisco CCIE Security).\n",
           "Previously, he worked for large companies in the IT and agricultural sectors."
         ],
         "about": [
           {
             "label": "Sector",
             "value": "Personal Branding"
-          },
-          {
-            "label": "Client",
-            "value": "Ivan Dyagterev"
           },
           {
             "label": "Country",
@@ -134,22 +130,18 @@
     },
     "ru": {
       "welcome": {
-        "sphere": "Иван Дягтерев",
+        "sphere": "",
         "name": "Senior Systems Administrator",
         "src": "/images/1776661886299-06f351e2-921c-4d83-bed7-f074ccc05cb0.jpg",
         "autoplay": true,
         "description": [
-          "Иван Дегтярев — эксперт в области IT-инфраструктуры и Senior Systems Administrator. Работает в американской компании, среди клиентов которой — крупные медицинские центры и девелоперские проекты. В настоящее время готовится к получению международных сертификаций в области информационной безопасности (Cisco CCNP Security и Cisco CCIE Security).\n\n",
+          "Эксперт в области IT-инфраструктуры и Senior Systems Administrator. Работает в американской компании, среди клиентов которой — крупные медицинские центры и девелоперские проекты. В настоящее время готовится к получению международных сертификаций в области информационной безопасности (Cisco CCNP Security и Cisco CCIE Security).\n\n",
           "Ранее работал в крупных компаниях в сфере ИТ и агропромышленного сектора."
         ],
         "about": [
           {
             "label": "Сектор",
             "value": "Личное продвижение"
-          },
-          {
-            "label": "Клиент",
-            "value": "Иван Дегтярев"
           },
           {
             "label": "Страна",
@@ -273,22 +265,18 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Ivan Djägterew",
+        "sphere": "",
         "name": "Senior Systems Administrator",
         "src": "/images/1777278058831-174f8b05-d26e-414d-9ffc-756539b64e98.png",
         "autoplay": true,
         "description": [
-          "Ivan Degtjarjow ist ein Experte im Bereich der IT-Infrastruktur und Senior Systems Administrator. Er arbeitet in einem amerikanischen Unternehmen, zu dessen Kunden große medizinische Zentren und Entwicklungsprojekte gehören. Derzeit bereitet er sich auf den Erwerb internationaler Zertifizierungen im Bereich der Informationssicherheit vor (Cisco CCNP Security und Cisco CCIE Security).",
+          "Ein Experte im Bereich der IT-Infrastruktur und Senior Systems Administrator. Er arbeitet in einem amerikanischen Unternehmen, zu dessen Kunden große medizinische Zentren und Entwicklungsprojekte gehören. Derzeit bereitet er sich auf den Erwerb internationaler Zertifizierungen im Bereich der Informationssicherheit vor (Cisco CCNP Security und Cisco CCIE Security).",
           "Zuvor arbeitete er in großen Unternehmen im IT- und Agrarindustriesektor."
         ],
         "about": [
           {
             "label": "Bereich",
             "value": "Persönliche Vermarktung"
-          },
-          {
-            "label": "Kunde",
-            "value": "Ivan Degtjarjow"
           },
           {
             "label": "Land",
@@ -404,22 +392,18 @@
         "src_favicon": ""
       },
       "welcome": {
-        "sphere": "Iván Degtiariov",
+        "sphere": "",
         "name": "Senior Systems Administrator",
         "src": "/images/1777278071360-86d44d2c-77b8-402d-a2df-5e1b3644aa0c.png",
         "autoplay": true,
         "description": [
-          "Iván Degtiariov es experto en infraestructura IT y Senior Systems Administrator. Trabaja en una empresa estadounidense cuyos clientes incluyen grandes centros médicos y proyectos de desarrollo inmobiliario. Actualmente se está preparando para obtener certificaciones internacionales en seguridad de la información, como Cisco CCNP Security y Cisco CCIE Security.\n",
+          "Es experto en infraestructura IT y Senior Systems Administrator. Trabaja en una empresa estadounidense cuyos clientes incluyen grandes centros médicos y proyectos de desarrollo inmobiliario. Actualmente se está preparando para obtener certificaciones internacionales en seguridad de la información, como Cisco CCNP Security y Cisco CCIE Security.\n",
           "Anteriormente trabajó en grandes empresas de los sectores IT y agroindustrial."
         ],
         "about": [
           {
             "label": "Sector",
             "value": "Promoción personal"
-          },
-          {
-            "label": "Cliente",
-            "value": "Iván Degtiariov"
           },
           {
             "label": "Mercado",
